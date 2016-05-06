@@ -1,1 +1,1 @@
-# BETS
+# BETS-beta
