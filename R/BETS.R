@@ -20,10 +20,11 @@
 #'
 #'
 #'  
-#' @author Paulo Picchetti \email{paulo.picchetti@fgv.br}, Pedro Costa Ferreira
-#'\email{pedro.guilherme@fgv.br}, Daiane Mattos \email{daiane.mattos@fgv.br}, 
-#'Jonatha Costa \email{jonatha.costa@fgv.br}, Talitha Speranza 
-#'\email{talitha.speranza@fgv.br}.
+#' @author Paulo Picchetti \email{paulo.picchetti@fgv.br}, 
+#'         Pedro Costa Ferreira \email{pedro.guilherme@fgv.br}, 
+#'         Daiane Mattos \email{daiane.mattos@fgv.br}, 
+#'         Jonatha Costa \email{jonatha.costa@fgv.br}, 
+#'         Talitha Speranza \email{talitha.speranza@fgv.br}.
 #'
 #'
 #'
