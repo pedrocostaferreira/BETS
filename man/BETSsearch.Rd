@@ -2,68 +2,107 @@
 % Please edit documentation in R/BETSsearch.R
 \name{BETSsearch}
 \alias{BETSsearch}
-\title{Search for a brazilian economic time series}
+\title{Search for a Brazilian Economic Time Series}
 \usage{
-BETSsearch(name,Source,periodicity,unit,code,view=TRUE,data)
+BETSsearch(name, src, periodicity, unit, code, view = TRUE, database)
 }
 \arguments{
-\item{name}{Descricao ou parte da descricao da serie temporal}
+\item{name}{A \code{character}. The complete name or a part of the name of the series.}
 
-\item{Source}{Fonte de onde e produzida}
+\item{src}{A \code{character}. The source of the series. See the 'Details' section for a list of the available sources.}
 
-\item{periodicity}{Frequencia da serie temporal}
+\item{periodicity}{A \code{character}. The periodicity of the series. See the 'Details' section for a list of possible values.}
 
-\item{unit}{Unidade da serie temporal}
+\item{unit}{A \code{character}. The unit of measurement of the data. See the 'Details' section for a list of possible values.}
 
-\item{code}{Codigo que referencia a serie temporal}
+\item{code}{An \code{integer}. The index of the series within the database.}
 
-\item{view}{TRUE para visualizar os resultado diretamente}
+\item{view}{A \code{boolean}. The default is \code{TRUE}. If set to \code{FALSE}, the results are NOT going to be shown.}
 
-\item{data}{Em qual base sera feita a busca}
+\item{database}{A \code{character}. The database from which the series must be retrieved. The default is \code{bacen}. See the 'Details' section for a list of available databases.}
 }
 \value{
-Objeto do tipo list de tamanho 5  com  estetica de um data.frame.
+A \code{list} that can be interpreted as a \code{data.frame}. The fields are described below.
 
-\itemize{
-
-\item{Codes }{Codigos das series.}
-\item{Descripition}{Descricao das seires.}
-\item{Periodicity}{Periodicidade das seires.}
-\item{source}{Fonte des series.}
-\item{unit}{Unidade da serie.}
+\tabular{ll}{
+ code \tab The code/index of the series within the database \cr
+ description \tab The description of the series \cr
+ periodicity \tab The periodicity of the series \cr
+ start \tab Starting date of the series \cr
+ source \tab The source of the series \cr
+ unit \tab The unit of measurement of the data
 }
-
-
 }
 \description{
+Searches the BETS databases for a time series by its name, source, periodicity, code, data, unit of measurement and database name.
+}
+\details{
+\itemize{
+
+\item{ Possible values for the parameter \code{src}:
+   \tabular{ll}{
+     IBGE \tab Brazilian Institute of Geography and Statistics \cr
+     BCB \tab Central Bank of Brazil \cr
+     BCB e Deban \tab desc \cr
+     BCB e FGV \tab Central Bank of Brazil and Getúlio Vargas Foundation \cr
+     BCB-Depin \tab desc \cr
+     BCB-Derin \tab desc \cr
+     BCB-Desig \tab desc \cr
+     BCB-Secre \tab desc \cr
+     BCB-Demab \tab desc \cr
+     BCB-Denor \tab desc \cr
+     FGV \tab Getúlio Vargas Foundation \cr
+     Sisbacen e Abecip \tab desc \cr
+     BCB-Depec \tab desc
+   }
+}
+
+\item{ Possible values for the parameter \code{periodicity}:
+   \tabular{ll}{
+     A - \tab anual data \cr
+     M - \tab monthly data \cr
+     Q - \tab quaterly data \cr
+     W - \tab weekly data \cr
+     D - \tab daily data 
+   }
+}
+
+\item{ Possible values for the parameter \code{unit}:
+   \tabular{ll}{
+     R$ - \tab brazilian reais \cr
+     $ - \tab US dolars \cr
+    \% - \tab percentage 
+   }
+}
+
+\item{ Possible values for the parameter \code{database}:
+   \tabular{ll}{
+     bacen - \tab Central Bank of Brazil
+   }
+}
 
 }
+}
 \note{
-
+This function uses \code{\link[sqldf]{sqldf}} for optimization.
 }
 \examples{
 
-# The function is currently defined as
 BETSsearch(name="sales")
-#BETS-package: 55 of 12981 time series !
-searchBETS(code= 4500)
-#BETS-package: DONE!
-BETSsearch(Source="Denor")
-#BETS-package: 1 of 12981 time series !
-BETSsearch(periodicity="A")
-#BETS-package: 2308 of 12981 time series!
+# Output: BETS-package: 55 of 12981 time series !
 
-#Como mencionado em 'Note', segue os 
-#exemplos de pesquisas combinadas:
-BETSget(name="production",periodicity="M",view=FALSE)
-BETSget(Source=BCB,periodicity="M",view=TRUE)
-BETSget(name="production",Source="IBGE",view=TRUE)
-BETSget(unit="index",periodicity="M",view=FALSE)
+BETSsearch(code= 4500)
+# Output: BETS-package: DONE!
+
+BETSsearch(src="Denor")
+# Output: BETS-package: 1 of 12981 time series !
+
+BETSsearch(periodicity="A")
+# Output: BETS-package: 2308 of 12981 time series!
 
 }
 \references{
-Banco Central do Brasil:
-Time Series Management System - v2.1 (Public module)
+Central Bank of Brazil. \href{https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSerie}{Time Series Management System - v2.1}
 }
 \keyword{search}
 

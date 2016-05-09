@@ -2,30 +2,21 @@
 % Please edit documentation in R/BETSsave.spss.R
 \name{BETSsave.spss}
 \alias{BETSsave.spss}
-\title{Exportar series em extensao .sps (SPSS)}
+\title{Export a time series to SPSS}
 \usage{
-BETSsave.spss(x, codigo, file.name = "teste")
+BETSsave.spss(code = NULL, data = NULL, file.name = "series")
 }
 \arguments{
-\item{x}{obejto}
+\item{code}{An \code{integer}. The unique identifier of the series within the BETS database.}
 
-\item{codigo}{que referencia a serie temporal}
+\item{data}{A \code{data.frame} or a \code{ts}. Contains the data to be written. If \code{data} is supplied, the BETS database will not be searched.}
 
-\item{file.name}{nome com o qual o arquivo sera exportado}
+\item{file.name}{A \code{character}. The name of the output file. The default is 'series.spss'.}
 }
 \value{
-
+None
 }
 \description{
-
-}
-\note{
-
-}
-\examples{
-
-}
-\references{
-
+Writes a time series to a .spss (SPSS) file.
 }
 

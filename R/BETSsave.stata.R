@@ -1,32 +1,36 @@
-#' @title Exportar series em extensao .dta (STATA)
+#' @title Export a time series to STATA
 #' 
-#' @description
+#' @description Writes a time series to a .dta (STATA) file.
 #' 
-#' @param x  obejto
-#' @param codigo que referencia a serie temporal
-#' @param file.name nome com o qual o arquivo sera exportado
+#' @param code An \code{integer}. The unique identifier of the series within the BETS database.
+#' @param data A \code{data.frame} or a \code{ts}. Contains the data to be written. If \code{data} is supplied, the BETS database will not be searched. 
+#' @param file.name A \code{character}. The name of the output file. The default is 'series.dta'.
 #' 
-#' @return 
-#' 
-#' @note 
-#' 
-#' @examples 
-#' 
-#' @references 
+#' @return None
 #' 
 #' @import foreign
-#' @export BETSsave.stata
+#' @export 
 
-
-BETSsave.stata=function(x,codigo,file.name="teste"){
-  k=invisible(BETSsearch(code=codigo,view=FALSE))
+BETSsave.stata=function(code, data = NULL, file.name="series"){
+  
   local=getwd()
-  require(foreign)
-  datas=as.Date(x)
-  y=as.data.frame(x)
-  colnames(y)=paste(abbreviate(as.character(BETSsearch(code=codigo,view=F)[1,2])))
-  rownames(y)=datas
-  options(warn=0)
+  
+  if(is.null(data)){
+    y = get.data.frame(code)
+  }
+  else if(is.data.frame(data)){
+    y = data 
+  }
+  else if(class(data) == 'ts'){
+    y = get.data.frame(ts = data)
+  }
+  else {
+    return(msg('The parameter "data" must be either a data.frame or a ts object'))
+  }
+  
+  #-- temporario 
+  y[,1] = as.character(y[,1])
+  
   write.dta(y, paste0(local,"/",file.name,".dta"))
 }
 

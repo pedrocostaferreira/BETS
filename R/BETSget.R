@@ -1,61 +1,49 @@
-#' @title Extrair series temporais do Banco central do Brasil, IBGE  e do 
-#' Instituto brasileiro de economia da Fundacao Getulio Vargas.
+#' @title Get a complete time series from a BETS database
 #' 
-#' @description
+#' @description Extracts a complete time series from either the Central Bank of Brazil (BCB), the Brazilian Institute of Geography and Statistics (IBGE) or the Brazilian Institute of Economics (FGV/IBRE).
 #' 
-#' @param code que referencia a serie temporal
+#' @param code A \code{character}. The unique code that references the time series. This code can be obtained by using the \code{\link{BETSsearch}} function.
 #' 
+#' @return A \code{\link[stats]{ts}} (time series) object containing the desired series.
 #' 
-#' @return Um objeto do tipo TS
-#' 
-#' @note Insira o valor ao argumento code como character. 
-#'Devido ao grande volume de dados por parte das obeservacoes 
-#'da series temporais, pode levar agum tempo para o algoritmo resgatar
-#'os valores, no entanto esse tempo e breve nao passando de 90 segundos.
+#' @note Due to the significant size of the databases, it could take a while to retrieve the values. However, it shouldn't take more than 90 seconds. 
 #' 
 #' @examples 
-#' 
-#'  #Aconselha-se a usar a funcao GETsearch() para 
-#'  #localizar a serie desejada, obtendo assim o 
-#'  #codigo da serie.
-#'  
-#'  
-#'  #serie anual: GDP at constant last year prices in R$
+#'
+#'  # Anual series: GDP at constant prices, in R$ (brazilian reais)
 #'  BETSget(1208)
-#'  #International reserves - Cash concept 
-#'  x<-BETSget("3543")
+#'  
+#'  # International reserves - Cash concept 
+#'  x <- BETSget("3543")
 #'  plot(x)
-#'  #Exchange rate - Free - United States dollar(purchase)
-#'  k=BETSget(3691)
-#'  library(seasonal)
+#'  
+#'  # Exchange rate - Free - United States dollar (purchase)
+#'  k <- BETSget(3691)
+#'  requires(seasonal)
 #'  m <- seas(k)
 #'  plot(m)
 #'  
+#' @seealso \code{\link[stats]{ts}}, \code{\link[BETS]{BETSsearch}} and \code{\link[seasonal]{seas}}
+#' 
 #' @keywords get
 #' 
 #' @import sqldf
-#' @export BETSget
+#' @export 
 
 
-
-
-
-
-
-
-BETSget=function(codigo){
+BETSget=function(code){
   #require(sqldf)
     data=bacen_v7
-    codigo=as.character(codigo)
+    code=as.character(code)
     resposta=sqldf(
-    paste("select Periodicity from data where Codes like " ,"\'", codigo ,"\'",sep=""))[1,1]
+    paste("select Periodicity from data where Codes like " ,"\'", code ,"\'",sep=""))[1,1]
     resposta=as.character(resposta)
     if(resposta==" A" || resposta=="A"){
     #-------
     aux1=NULL
     aux2=NULL
     aux=sqldf(
-      paste("select data, valor, serie from ts_anuais where serie like " ,"\'", codigo ,"\'",sep="")
+      paste("select data, valor, serie from ts_anuais where serie like " ,"\'", code ,"\'",sep="")
     )
     aux=na.omit(aux)
     aux1=as.numeric(aux[,2])
@@ -94,7 +82,7 @@ BETSget=function(codigo){
     aux2=NULL
     
     aux=sqldf(
-      paste("select data, valor, serie from ts_mensais where serie like " ,"\'", codigo ,"\'",sep="")
+      paste("select data, valor, serie from ts_mensais where serie like " ,"\'", code ,"\'",sep="")
     )
     aux=na.omit(aux)
     aux1=as.numeric(aux[,2])
@@ -131,7 +119,7 @@ BETSget=function(codigo){
     aux1=NULL
     aux2=NULL
     aux=sqldf(
-      paste("select data, valor, serie from ts_diarias where serie like " ,"\'", codigo ,"\'",sep="")
+      paste("select data, valor, serie from ts_diarias where serie like " ,"\'", code ,"\'",sep="")
     )
     
     aux1=as.numeric(aux[,2])
@@ -172,7 +160,7 @@ BETSget=function(codigo){
     aux2=NULL
     
     aux=sqldf(
-      paste("select data, valor, serie from ts_semanais where serie like " ,"\'", codigo ,"\'",sep="")
+      paste("select data, valor, serie from ts_semanais where serie like " ,"\'", code ,"\'",sep="")
     )
     aux=na.omit(aux)
     aux1=as.numeric(aux[,2])
@@ -200,7 +188,7 @@ BETSget=function(codigo){
     aux2=NULL
     
     aux=sqldf(
-      paste("select data, valor, serie from ts_trimestrais where serie like " ,"\'", codigo ,"\'",sep="")
+      paste("select data, valor, serie from ts_trimestrais where serie like " ,"\'", code ,"\'",sep="")
     )
     aux=na.omit(aux)
     aux1=as.numeric(aux[,2])
