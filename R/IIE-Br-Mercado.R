@@ -1,4 +1,4 @@
-#' IIE-Br- Mercado
+#' @title IIE-Br- Mercado
 #'
 #'O \code{IIE-Br- Mercado} visa mensurar variabilidade do mercado acionaario
 #'Brasileiro e seu grau de risco, ou seja, diferente IIE-Br-expectativa busca

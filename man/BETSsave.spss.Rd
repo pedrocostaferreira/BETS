@@ -4,7 +4,7 @@
 \alias{BETSsave.spss}
 \title{Export a time series to SPSS}
 \usage{
-BETSsave.spss(code = NULL, data = NULL, file.name = "series")
+BETSsave.spss(code, data = NULL, file.name = "series")
 }
 \arguments{
 \item{code}{An \code{integer}. The unique identifier of the series within the BETS database.}

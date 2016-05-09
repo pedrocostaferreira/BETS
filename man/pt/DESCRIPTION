@@ -1,0 +1,22 @@
+Package: BETS
+Type: Package
+Title: Brazilian Economic Time Series
+Version: 0.0.1
+Date: 2016-02-02
+Depends:
+    R (>= 3.2.0)
+Imports: ggplot2, urca, TTR, forecast, TSA, FinTS, fpp, stringi, sqldf, foreign, lmtest, normtest, zoo
+Author: Paulo Picchetti <paulo.picchetti@fgv.br>, Pedro Costa Ferreira
+    <pedro.guilherme@fgv.br>, Daiane Mattos <daiane.mattos@fgv.br>, Jonatha
+    Costa <jonatha.costa@fgv.br>, Talitha Speranza <talitha.speranza@gmail.com> and Rodrigo Alves <rodrigo.alves@fgv.br>
+Maintainer: Pedro Costa Ferreira <pedro.guilherme@fgv.br>, Daiane Mattos
+    <daimmattos@gmail.com>, Jonatha Costa <jonatha.costa@fgv.br> and Talitha Speranza <talitha.speranza@gmail>
+Description: O Brazilian Economic Time Series (BETS) package fornece informacoes sobre as mais importantes series temporais economicas do Brasil, produzidas por tres importantes centros: Banco Central do Brasil (BCB), Instituto Brasileiro de Geografia e Estatisticas (IBGE) e Instituto Brasileiro de Economia (FGV|IBRE). Sao mais de XXXXX series temporais livres em frequencias diarias, mensais, semanais, trimestrais e anuais. Alem das series temporais livres divulgadas por esses tres institutos, estao disponibilizadas nesse pacote mais de XXXX series temporais pagas produzidas pelo Instituto Brasileiro de Economia (FGV|IBRE) com defasagem de seis meses, perfazendo um total de XXXX series temporais no pacote. Alem do acesso a esse imenso banco de dados, o pacote permite que o usuario pesquise e interaja com o banco de dados de maneira facil e amigavel, por exemplo, procurando por uma serie temporal por palavras-chave. Outras duas importantes funcionalidades do pacote sao: a instalacao automatica de importantes pacotes de analise de series temporais, permitindo uma analise profunda das series sem ter que se preocupar com a instalacao de outros pacotes. E a publicacao de exercecios estatesticos/econometricos que permitirao aos usuarios entender melhor o comportamento das series temporais brasileiras, como por exemplo, exercecios de ajuste sazonal. Por fim, espera-se que, ao instalar esse pacote, o usuario tenha um banco de dados completo sobre as series temporais brasileiras e todo  o ferramental estatistico para uma analise completa das mesmas.
+License: GPL(>=2)
+URL: https://github.com/pedrocostaferreira/BETS
+LazyData: true
+Suggests:
+    knitr,rmarkdown,
+    testthat
+VignetteBuilder: knitr
+RoxygenNote: 5.0.1

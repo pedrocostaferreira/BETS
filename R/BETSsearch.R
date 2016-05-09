@@ -29,41 +29,43 @@
 #'    \tabular{ll}{
 #'      IBGE \tab Brazilian Institute of Geography and Statistics \cr
 #'      BCB \tab Central Bank of Brazil \cr
-#'      BCB e Deban \tab desc \cr
-#'      BCB e FGV \tab Central Bank of Brazil and Getúlio Vargas Foundation \cr
-#'      BCB-Depin \tab desc \cr
-#'      BCB-Derin \tab desc \cr
-#'      BCB-Desig \tab desc \cr
-#'      BCB-Secre \tab desc \cr
-#'      BCB-Demab \tab desc \cr
-#'      BCB-Denor \tab desc \cr
 #'      FGV \tab Getúlio Vargas Foundation \cr
-#'      Sisbacen e Abecip \tab desc \cr
-#'      BCB-Depec \tab desc
+#'      FGB-IBRE \tab Getúlio Vargas Foundation - Brazilian Institute of Economics \cr
+#'      BCB e FGV \tab Central Bank of Brazil and Getúlio Vargas Foundation \cr
+#'      BCB-Deban \tab Cetral Bank of Brazil - Department of Banking and Payments \cr
+#'      BCB-Depin \tab Central Bank of Brazil - Department of International Reserves \cr
+#'      BCB-Derin \tab Central Bank of Brazil - Department of International Affairs \cr
+#'      BCB-Desig \tab Central Bank of Brazil - Department of Financial Monitoring \cr
+#'      BCB-Secre \tab Central Bank of Brazil - Executive Secretariat \cr
+#'      BCB-Demab \tab Central Bank of Brazil - Department of Open Market Operations \cr
+#'      BCB-Denor \tab Central Bank of Brazil - Department of Financial System Regulation \cr
+#'      BCB-Depec \tab Central Bank of Brazil - Department of Economics \cr
+#'      Sisbacen \tab Central Bank of Brazil Information System \cr
+#'      Abecip \tab Brazilian Association of Real Estate Loans and Savings Companies
 #'    }
 #' }
 #' 
 #' \item{ Possible values for the parameter \code{periodicity}:
 #'    \tabular{ll}{
-#'      A - \tab anual data \cr
-#'      M - \tab monthly data \cr
-#'      Q - \tab quaterly data \cr
-#'      W - \tab weekly data \cr
-#'      D - \tab daily data 
+#'      A \tab anual data \cr
+#'      M \tab monthly data \cr
+#'      Q \tab quaterly data \cr
+#'      W \tab weekly data \cr
+#'      D \tab daily data 
 #'    }
 #' }
 #' 
 #' \item{ Possible values for the parameter \code{unit}:
 #'    \tabular{ll}{
-#'      R$ - \tab brazilian reais \cr
-#'      $ - \tab US dolars \cr
-#'     \% - \tab percentage 
+#'      R$ \tab brazilian reais \cr
+#'      $ \tab US dolars \cr
+#'     \% \tab percentage 
 #'    }
 #' }
 #' 
 #' \item{ Possible values for the parameter \code{database}:
 #'    \tabular{ll}{
-#'      bacen - \tab Central Bank of Brazil
+#'      bacen \tab Central Bank of Brazil
 #'    }
 #' }
 #' 

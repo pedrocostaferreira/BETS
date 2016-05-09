@@ -4,7 +4,7 @@
 \alias{BETSsave.stata}
 \title{Export a time series to STATA}
 \usage{
-BETSsave.stata(code = NULL, data = NULL, file.name = "series")
+BETSsave.stata(code, data = NULL, file.name = "series")
 }
 \arguments{
 \item{code}{An \code{integer}. The unique identifier of the series within the BETS database.}

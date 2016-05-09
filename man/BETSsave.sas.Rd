@@ -4,7 +4,7 @@
 \alias{BETSsave.sas}
 \title{Export a time series to SAS}
 \usage{
-BETSsave.sas(code = NULL, data = NULL, file.name = "series")
+BETSsave.sas(code, data = NULL, file.name = "series")
 }
 \arguments{
 \item{code}{An \code{integer}. The unique identifier of the series within the BETS database.}
