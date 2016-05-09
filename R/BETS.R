@@ -1,0 +1,43 @@
+#' Brazilian Economic Time Series (BETS) package provides access and
+#'information about the most important brazilian economic time series.
+#'
+#'These series are created by three influential centers: the Central Bank of 
+#'Brazil (BCB), the Brazilian Institute of Geography and Statistics (IBGE) 
+#'and the Brazilian Institute of Economics, from the Getulio Vargas Foundation
+#'(FVG-IBRE). Currently, there are more than 15.000 available time series, most
+#'of them free of charge. Besides providing access to this vast database, the
+#'package allows the user to interact with data in easy and friendly way. 
+#'
+#'For instance, the user can search for a time series using keywords. More
+#'importantly, it installs several consecrated packages for time series 
+#'analysis, giving the user the option to perform a complete analysis without
+#'having to worry about installing and loading other packages. In a near 
+#'future, the authors will publish a series of R exercises to be solved with 
+#'BETS and its statiscal/econometrical tools, therefore helping the user to 
+#'understand the behavior of brazilian time series.
+#'
+#'
+#'
+#'
+#'  
+#' @author 
+#'
+#'
+#'
+#' @details The authors would like to thank the support given by the Getulio 
+#' Vargas Foundation.
+#'
+#'
+#'
+#'
+#'
+#'
+#'
+#'
+#'
+#'
+#'
+#'
+#'
+#"
+NULL
