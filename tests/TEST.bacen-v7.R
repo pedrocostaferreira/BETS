@@ -11,7 +11,6 @@ TEST.bacen_v7 = function(log.file = "bacen-v7.log"){
   # Check if the series are available 
   write("## Errors in BETSget: ", conn, append = TRUE)
   nerrors = 0 
-  perc = round((1/length(codes))*100, digits = 2)
   
   for(i in 1:length(codes)){
     tryCatch({
@@ -25,9 +24,10 @@ TEST.bacen_v7 = function(log.file = "bacen-v7.log"){
       print(paste0("TESTANDO ",i,"a serie, codigo ",codes[i], " -- ERRO"))
     })
     
+    perc = round((i/length(codes))*100, digits = 2)
+    
     print(paste0("PROGRESSO: ", perc, "%"))
     print("-------")
-    perc = perc + round((1/length(codes))*100, digits = 2)
   }
   
   # Check which codes are not being used

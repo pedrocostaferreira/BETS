@@ -608,3 +608,529 @@
 
 !! ERROR in BETget when code = 21114: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
 
+!! ERROR in BETget when code = 21115: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21116: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21117: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21118: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21119: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21120: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21121: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21122: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21123: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21124: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21125: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21126: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21127: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21128: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21129: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21130: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21131: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21132: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21133: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21134: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21135: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21136: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21137: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21138: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21139: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21140: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21141: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21142: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21143: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21144: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21145: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21146: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21147: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21148: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21149: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21150: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21819: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21823: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21824: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21825: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21826: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21827: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21828: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21839: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21840: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21841: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21879: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21880: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21881: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21882: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21883: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21884: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21885: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21886: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21887: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21888: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21889: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21901: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21902: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21903: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21904: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21905: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21906: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21907: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 22699: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 22700: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 11: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1178: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 4389: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 22161: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 228: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 1789: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 1791: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 1999: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2000: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2001: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2003: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2004: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2005: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2006: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2008: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2009: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2010: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2012: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2013: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2014: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2015: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2016: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2017: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2018: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2019: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2021: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2025: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2035: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2036: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2037: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2039: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2040: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2041: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2042: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2044: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2045: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2046: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2048: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2049: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2050: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2051: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2234: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2235: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2236: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2237: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2238: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2239: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2240: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2241: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2242: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2243: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2244: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2245: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2246: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2247: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2248: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2249: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2250: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2251: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2252: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2253: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2254: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2255: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2382: Error in ts(aux1, start <- c(start_ano), freq = 1): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2383: Error in ts(aux1, start <- c(start_ano), freq = 1): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2384: Error in ts(aux1, start <- c(start_ano), freq = 1): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2393: Error in ts(aux1, start <- c(start_ano), freq = 1): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2486: Error in ts(aux1, start <- c(start_ano), freq = 1): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2488: Error in ts(aux1, start <- c(start_ano), freq = 1): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2508: Error in ts(aux1, start <- c(start_ano), freq = 1): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2509: Error in ts(aux1, start <- c(start_ano), freq = 1): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2701: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 2703: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 2723: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 2724: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 2801: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2802: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2804: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2805: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2806: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2807: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2808: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2809: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2810: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2811: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2815: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2816: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2817: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2818: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2819: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2820: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2821: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2822: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2823: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2824: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2825: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2826: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2827: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2828: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2829: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2830: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2831: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2832: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2833: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2834: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2916: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2918: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2919: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2921: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2928: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2929: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2930: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2938: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 2939: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 3562: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3563: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3568: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3569: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3570: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3571: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3584: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3585: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3586: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3587: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3588: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3589: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3590: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3591: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3592: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3593: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3594: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3595: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3608: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3609: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3610: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3611: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3612: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3613: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3614: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3615: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3616: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3617: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3618: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3619: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3648: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3649: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3650: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3651: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3652: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3653: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3654: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3655: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3656: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3657: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3658: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3659: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3660: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3661: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3662: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3663: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3664: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3665: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3666: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3667: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3668: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3669: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3670: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3671: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3672: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3673: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3674: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3675: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3684: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3685: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 3690: Error in ts(aux1, start <- c(start_ano), freq = 1): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4173: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4174: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4175: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4176: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4177: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4178: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4179: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4180: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4190: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4191: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4383: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4384: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4425: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4426: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4431: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4432: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4441: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4442: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4443: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4444: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4445: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 4446: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
