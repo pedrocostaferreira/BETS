@@ -1,0 +1,610 @@
+-- TESTING bacen-v7 @ 2016-05-11 12:54:14
+## Errors in BETSget: 
+!! ERROR in BETget when code = 345: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 346: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 347: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 348: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 351: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 352: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 353: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 354: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 355: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 356: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 358: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 359: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 360: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 361: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 362: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 363: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 364: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 365: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 366: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 367: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 368: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 369: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 370: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 371: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 372: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 373: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 374: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 375: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 376: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 377: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 378: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 64: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 67: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 68: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 69: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 70: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 73: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 74: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 75: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 76: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 77: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 78: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 79: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 80: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 81: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 82: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 83: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 84: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 85: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 86: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 87: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 88: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 89: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 90: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 91: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 92: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 93: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 94: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 95: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 96: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 97: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 98: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 99: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 100: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 101: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 102: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 103: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 104: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 105: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 106: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 233: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 234: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 235: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 236: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 237: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 238: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 411: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 412: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 413: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 414: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 415: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 416: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 417: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 466: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 471: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 472: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 473: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 474: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 475: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 488: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 489: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 751: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 753: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 754: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 759: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 760: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 761: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 762: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 763: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 765: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 770: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 771: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 772: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 773: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 774: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 776: Error in as.Date.default(sapply(aux$data, function(x) paste(substr(x, : c("do not know how to convert 'sapply(aux$data, function(x) paste(substr(x, 6, 9), paste0(0, ' to class “Date”", "do not know how to convert '    substr(x, 4, 4)), substr(x, 1, 2), sep = \"-\"))' to class “Date”")
+
+!! ERROR in BETget when code = 1107: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1111: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1112: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1113: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1114: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1120: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1122: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1123: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1124: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1125: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1131: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1133: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1134: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1135: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1136: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1142: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1146: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1147: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1148: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1149: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1155: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1157: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1158: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1159: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1160: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1161: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1162: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1163: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1164: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1165: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1166: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1167: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1168: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1169: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1170: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1171: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1172: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1173: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1179: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1180: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1181: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1182: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1183: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1184: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1185: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1186: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1187: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1188: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1189: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1190: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1191: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 1195: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 1200: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 8309: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 42: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 43: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 44: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 109: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 110: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 111: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 112: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 113: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 114: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 115: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 116: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 117: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 118: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 213: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 214: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 215: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 216: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 217: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 218: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 219: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 220: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 221: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 222: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 257: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 258: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 259: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 260: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 261: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 262: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 263: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 264: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 265: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 266: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 267: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 268: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 269: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 274: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 275: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 276: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 277: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 278: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 279: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 280: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 281: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 282: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 283: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 284: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 285: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 286: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 287: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 288: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 289: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 290: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 291: Error in ts(aux1, start <- c(start_ano, start_mes, start_day), freq = 365): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 292: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 293: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 294: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 295: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 296: Error in if (start > end) stop("'start' cannot be after 'end'"): missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 304: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 305: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 306: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 307: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 308: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 309: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 310: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 311: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 313: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 314: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 315: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 316: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 317: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 318: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 319: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 320: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 321: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 322: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 323: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 386: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 387: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 388: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 389: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 390: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 391: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 392: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 393: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 394: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 395: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 396: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 397: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 14829: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 14834: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 14855: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 14860: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 14881: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 14886: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 14907: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 14912: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 14933: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 14938: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 14959: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 14964: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 14985: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 14990: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15011: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15016: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15017: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15145: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15146: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15147: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15438: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15444: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15465: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15471: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15492: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15498: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15519: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15525: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15546: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15552: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15572: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15578: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15598: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15604: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15624: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15630: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15650: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15656: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15676: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 15682: Error in if (g[i] == T) {: missing value where TRUE/FALSE needed
+
+!! ERROR in BETget when code = 21101: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21102: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21103: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21104: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21105: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21106: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21107: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21108: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21109: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21110: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21111: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21112: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21113: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+
+!! ERROR in BETget when code = 21114: Error in ts(aux1, start <- c(start_ano), freq = 12): 'ts' object must have one or more observations
+

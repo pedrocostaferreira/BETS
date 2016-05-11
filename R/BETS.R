@@ -1,4 +1,6 @@
-#' Brazilian Economic Time Series (BETS) package provides access and
+#' @title BETS: A package for obtaining and analysing thousands of brazilian economic time series.
+#'
+#' @description The Brazilian Economic Time Series (BETS) package provides access and
 #'information about the most important brazilian economic time series.
 #'
 #'These series are created by three influential centers: the Central Bank of 
@@ -6,7 +8,7 @@
 #'and the Brazilian Institute of Economics, from the Getulio Vargas Foundation
 #'(FVG-IBRE). Currently, there are more than 15.000 available time series, most
 #'of them free of charge. Besides providing access to this vast database, the
-#'package allows the user to interact with data in easy and friendly way. 
+#'package allows the user to interact with data in an easy and friendly way. 
 #'
 #'For instance, the user can search for a time series using keywords. More
 #'importantly, it installs several consecrated packages for time series 
@@ -16,32 +18,17 @@
 #'BETS and its statiscal/econometrical tools, therefore helping the user to 
 #'understand the behavior of brazilian time series.
 #'
+#' @note The authors would like to thank the support given by the Getulio 
+#' Vargas Foundation (FGV).
+#' 
 #'
-#'
-#'
-#'  
 #' @author Paulo Picchetti \email{paulo.picchetti@fgv.br}, 
 #'         Pedro Costa Ferreira \email{pedro.guilherme@fgv.br}, 
 #'         Daiane Mattos \email{daiane.mattos@fgv.br}, 
 #'         Jonatha Costa \email{jonatha.costa@fgv.br}, 
 #'         Talitha Speranza \email{talitha.speranza@fgv.br}.
 #'
+#' @docType package
+#' @name BETS
 #'
-#'
-#' @details The authors would like to thank the support given by the Getulio 
-#' Vargas Foundation.
-#'
-#'
-#'
-#'
-#'
-#'
-#'
-#'
-#'
-#'
-#'
-#'
-#'
-#"
 NULL

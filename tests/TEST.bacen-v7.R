@@ -1,0 +1,63 @@
+TEST.bacen_v7 = function(log.file = "bacen-v7.log"){
+  
+  # Open a file connection and write a meani header
+  conn <-file(log.file, "w")
+  header <- paste("-- TESTING bacen-v7 @", Sys.time())
+  write(header, conn)
+  
+  # Get all codes
+  codes = bacen_v7[,1]
+  
+  # Check if the series are available 
+  write("## Errors in BETSget: ", conn, append = TRUE)
+  nerrors = 0 
+  perc = round((1/length(codes))*100, digits = 2)
+  
+  for(i in 1:length(codes)){
+    tryCatch({
+      BETSget(codes[i])
+      print(paste0("TESTANDO ",i,"a serie, codigo ",codes[i], " -- OK"))
+    },
+    error = function(e){
+      message = paste0("!! ERROR in BETget when code = ", codes[i], ": ", e)
+      write(message, conn, append = TRUE)
+      nerrors = nerrors + 1
+      print(paste0("TESTANDO ",i,"a serie, codigo ",codes[i], " -- ERRO"))
+    })
+    
+    print(paste0("PROGRESSO: ", perc, "%"))
+    print("-------")
+    perc = perc + round((1/length(codes))*100, digits = 2)
+  }
+  
+  # Check which codes are not being used
+  max = max(codes)
+  vacant = "## Codes that are not being used: "
+  nums <- vector(mode = "character")
+  j = 1
+  
+  for(i in 1:max){
+    if(!(i %in% codes)){
+      nums[j] = i
+      j = j + 1
+    }
+  }
+  
+  # Log results
+  vacant = paste0(vacant, paste(nums, collapse = ", "), " and all other positive integers greater than ", max)
+  write(vacant, conn, append = TRUE)
+  
+  status = paste0(">> There were a total of ", nerrors, " errors.")
+  write(status, conn, append = TRUE)
+  
+  status = paste0(">> Theare are ", length(nums), " codes not being used.")
+  write(status, conn, append = TRUE)
+  
+  # Log end of test
+  footer <- paste("-- END OF TEST: bacen-v7 @", Sys.time())
+  write(footer, conn, append = TRUE)
+  
+  # Close file connection
+  close(conn)
+  
+}
