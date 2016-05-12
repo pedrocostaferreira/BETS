@@ -22,11 +22,11 @@
 #' Vargas Foundation (FGV).
 #' 
 #'
-#' @author Paulo Picchetti \email{paulo.picchetti@fgv.br}, 
-#'         Pedro Costa Ferreira \email{pedro.guilherme@fgv.br}, 
-#'         Daiane Mattos \email{daiane.mattos@fgv.br}, 
+#' @author Pedro Costa Ferreira \email{pedro.guilherme@fgv.br}, 
 #'         Jonatha Costa \email{jonatha.costa@fgv.br}, 
-#'         Talitha Speranza \email{talitha.speranza@fgv.br}.
+#'         Talitha Speranza \email{talitha.speranza@fgv.br},
+#'         Daiane Mattos \email{daiane.mattos@fgv.br},
+#'         Paulo Picchetti \email{paulo.picchetti@fgv.br},
 #'
 #' @docType package
 #' @name BETS

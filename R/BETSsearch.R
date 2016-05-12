@@ -8,7 +8,7 @@
 #' @param unit A \code{character}. The unit of measurement of the data. See the 'Details' section for a list of possible values.  
 #' @param code An \code{integer}. The index of the series within the database. 
 #' @param view A \code{boolean}. The default is \code{TRUE}. If set to \code{FALSE}, the results are NOT going to be shown.    
-#' @param database A \code{character}. The database from which the series must be retrieved. The default is \code{bacen}. See the 'Details' section for a list of available databases.    
+#' 
 #' 
 #' @return A \code{list} that can be interpreted as a \code{data.frame}. The fields are described below.
 #' 
@@ -29,8 +29,8 @@
 #'    \tabular{ll}{
 #'      IBGE \tab Brazilian Institute of Geography and Statistics \cr
 #'      BCB \tab Central Bank of Brazil \cr
-#'      FGV \tab Getúlio Vargas Foundation \cr
-#'      FGB-IBRE \tab Getúlio Vargas Foundation - Brazilian Institute of Economics \cr
+#'      FGV \tab Getulio Vargas Foundation \cr
+#'      FGv-IBRE \tab Getulio Vargas Foundation - Brazilian Institute of Economics \cr
 #'      BCB e FGV \tab Central Bank of Brazil and Getúlio Vargas Foundation \cr
 #'      BCB-Deban \tab Cetral Bank of Brazil - Department of Banking and Payments \cr
 #'      BCB-Depin \tab Central Bank of Brazil - Department of International Reserves \cr
@@ -47,10 +47,10 @@
 #' 
 #' \item{ Possible values for the parameter \code{periodicity}:
 #'    \tabular{ll}{
-#'      A \tab anual data \cr
-#'      M \tab monthly data \cr
+#'      A \tab anual data    \cr
+#'      M \tab monthly data  \cr
 #'      Q \tab quaterly data \cr
-#'      W \tab weekly data \cr
+#'      W \tab weekly data   \cr
 #'      D \tab daily data 
 #'    }
 #' }
@@ -58,18 +58,13 @@
 #' \item{ Possible values for the parameter \code{unit}:
 #'    \tabular{ll}{
 #'      R$ \tab brazilian reais \cr
-#'      $ \tab US dolars \cr
+#'      $ \tab US dolars        \cr
 #'     \% \tab percentage 
 #'    }
 #' }
-#' 
-#' \item{ Possible values for the parameter \code{database}:
-#'    \tabular{ll}{
-#'      bacen \tab Central Bank of Brazil
-#'    }
-#' }
-#' 
 #'}
+#' 
+#'
 #' 
 #' @note 
 #' This function uses \code{\link[sqldf]{sqldf}} for optimization. 
@@ -97,7 +92,7 @@
 #' @import sqldf
 #' @export 
 
-BETSsearch=function(name,src,periodicity,unit,code,view=TRUE,database){
+BETSsearch=function(name,src,periodicity,unit,code,view=TRUE){
   database=bacen_v7
   #require(sqldf)
   #verificando para direcionar a funcao

@@ -1,5 +1,6 @@
 #' @title Brazilian Market Expectations
 #'
+#' @name IIE- Br- Expectations
 #' @description The \code{IIE_Br_expectations} is a measure of dispersion of the brazilian market expectations, 
 #' calculated by the Central Bank of Brazil (BCB) and opinion polls conducted by the Brazilian 
 #' Institute of Economics (FGV/IBRE). More precisely, the \code{IIE_Br_expectations} is composed by two other indicators:
@@ -21,7 +22,8 @@
 #'         Itaiguara de Oliveira Bezerra  \email{itaiguara.bezerra@fgv.br}
 #' 
 #' 
-#' @source \href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)} and 
-#'         \href{http://www.bcb.gov.br/?english}{Central Bank of Brasil (BCB)}
-"IIE_Br_expectations"
+#' @source 
+#'\href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)} 
+#'and \href{http://www.bcb.gov.br/?english}{Central Bank of Brasil (BCB)}
+NULL
 

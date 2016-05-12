@@ -1,13 +1,3 @@
-#' @title Format and show a console message.
-#' 
-#' @description Customizes a message and shows it in the console.
-#' 
-#' @param ... Arguments to be passed to \code{\link[base]{message}}
-#' @param skip_before A \code{boolean}. Indicates if a line should be skipped before the message. 
-#' @param skip_after A \code{boolean}. Indicates if a line should be skipped after the message. 
-#' 
-#' @return None
-#' 
 #' @import stringr
 
 
