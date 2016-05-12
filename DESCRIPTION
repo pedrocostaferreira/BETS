@@ -5,24 +5,18 @@ Version: 0.0.1
 Date: 2016-05-09
 Depends:
     R (>= 3.2.0)
-
 Imports: ggplot2, urca, TTR, forecast, TSA, FinTS, fpp, stringi, sqldf, foreign, lmtest, normtest, zoo
-
 Author: Pedro Costa Ferreira <pedro.guilherme@fgv.br>, Jonatha Costa <jonatha.costa@fgv.br>, 
-Talitha Speranza <talitha.speranza@gmail.com>, Daiane Mattos <daiane.mattos@fgv.br>
-and Paulo Picchetti <paulo.picchetti@fgv.br>.
-
+        Talitha Speranza <talitha.speranza@gmail.com>, Daiane Mattos <daiane.mattos@fgv.br>
+        and Paulo Picchetti <paulo.picchetti@fgv.br>.
 Maintainer: Pedro Costa Ferreira <pedro.guilherme@fgv.br>, Jonatha Costa <jonatha.costa@fgv.br>, 
-Talitha Speranza <talitha.speranza@gmail.com> and Daiane Mattos<daimmattos@gmail.com>
-
+        Talitha Speranza <talitha.speranza@gmail.com> and Daiane Mattos <daiane.mattos@fgv.br>
 Description: The Brazilian Economic Time Series (BETS) package provides access and information about the most important brazilian economic time series.
 License: GPL(>=2)
 URL: https://github.com/pedrocostaferreira/BETS
 LazyData: true
-
 Suggests:
     knitr,rmarkdown,
     testthat
-
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
