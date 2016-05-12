@@ -29,10 +29,10 @@ The authors would like to thank the support given by the Getulio
 Vargas Foundation (FGV).
 }
 \author{
-Paulo Picchetti \email{paulo.picchetti@fgv.br}, 
-        Pedro Costa Ferreira \email{pedro.guilherme@fgv.br}, 
-        Daiane Mattos \email{daiane.mattos@fgv.br}, 
+Pedro Costa Ferreira \email{pedro.guilherme@fgv.br}, 
         Jonatha Costa \email{jonatha.costa@fgv.br}, 
-        Talitha Speranza \email{talitha.speranza@fgv.br}.
+        Talitha Speranza \email{talitha.speranza@fgv.br},
+        Daiane Mattos \email{daiane.mattos@fgv.br},
+        Paulo Picchetti \email{paulo.picchetti@fgv.br},
 }
 

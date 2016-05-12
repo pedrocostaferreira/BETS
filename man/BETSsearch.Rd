@@ -4,7 +4,7 @@
 \alias{BETSsearch}
 \title{Search for a Brazilian Economic Time Series}
 \usage{
-BETSsearch(name, src, periodicity, unit, code, view = TRUE, database)
+BETSsearch(name, src, periodicity, unit, code, view = TRUE)
 }
 \arguments{
 \item{name}{A \code{character}. The complete name or a part of the name of the series.}
@@ -18,8 +18,6 @@ BETSsearch(name, src, periodicity, unit, code, view = TRUE, database)
 \item{code}{An \code{integer}. The index of the series within the database.}
 
 \item{view}{A \code{boolean}. The default is \code{TRUE}. If set to \code{FALSE}, the results are NOT going to be shown.}
-
-\item{database}{A \code{character}. The database from which the series must be retrieved. The default is \code{bacen}. See the 'Details' section for a list of available databases.}
 }
 \value{
 A \code{list} that can be interpreted as a \code{data.frame}. The fields are described below.
@@ -43,8 +41,8 @@ Searches the BETS databases for a time series by its name, source, periodicity, 
    \tabular{ll}{
      IBGE \tab Brazilian Institute of Geography and Statistics \cr
      BCB \tab Central Bank of Brazil \cr
-     FGV \tab Getúlio Vargas Foundation \cr
-     FGB-IBRE \tab Getúlio Vargas Foundation - Brazilian Institute of Economics \cr
+     FGV \tab Getulio Vargas Foundation \cr
+     FGv-IBRE \tab Getulio Vargas Foundation - Brazilian Institute of Economics \cr
      BCB e FGV \tab Central Bank of Brazil and Getúlio Vargas Foundation \cr
      BCB-Deban \tab Cetral Bank of Brazil - Department of Banking and Payments \cr
      BCB-Depin \tab Central Bank of Brazil - Department of International Reserves \cr
@@ -61,10 +59,10 @@ Searches the BETS databases for a time series by its name, source, periodicity, 
 
 \item{ Possible values for the parameter \code{periodicity}:
    \tabular{ll}{
-     A \tab anual data \cr
-     M \tab monthly data \cr
+     A \tab anual data    \cr
+     M \tab monthly data  \cr
      Q \tab quaterly data \cr
-     W \tab weekly data \cr
+     W \tab weekly data   \cr
      D \tab daily data 
    }
 }
@@ -72,17 +70,10 @@ Searches the BETS databases for a time series by its name, source, periodicity, 
 \item{ Possible values for the parameter \code{unit}:
    \tabular{ll}{
      R$ \tab brazilian reais \cr
-     $ \tab US dolars \cr
+     $ \tab US dolars        \cr
     \% \tab percentage 
    }
 }
-
-\item{ Possible values for the parameter \code{database}:
-   \tabular{ll}{
-     bacen \tab Central Bank of Brazil
-   }
-}
-
 }
 }
 \note{
