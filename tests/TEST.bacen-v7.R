@@ -10,19 +10,27 @@ TEST.bacen_v7 = function(log.file = "bacen-v7.log"){
   
   # Check if the series are available 
   write("## Errors in BETSget: ", conn, append = TRUE)
-  nerrors = 0 
+  
+  errors = vector(mode = "integer")
   
   for(i in 1:length(codes)){
-    tryCatch({
-      BETSget(codes[i])
-      print(paste0("TESTANDO ",i,"a serie, codigo ",codes[i], " -- OK"))
-    },
-    error = function(e){
-      message = paste0("!! ERROR in BETget when code = ", codes[i], ": ", e)
-      write(message, conn, append = TRUE)
-      nerrors = nerrors + 1
-      print(paste0("TESTANDO ",i,"a serie, codigo ",codes[i], " -- ERRO"))
-    })
+
+    code = NULL
+    
+    code = tryCatch({
+            BETSget(codes[i])
+            print(paste0("TESTANDO ",i,"a serie, codigo ",codes[i], " -- OK"))
+          },
+            error = function(e){
+              message = paste0("!! ERROR in BETget when code = ", codes[i], ". MESSAGE = ", e)
+              write(message, conn, append = TRUE)
+              print(paste0("TESTANDO ",i,"a serie, codigo ",codes[i], " -- ERRO"))
+              return(as.integer(codes[i]))
+          })
+    
+    if(!is.null(code)){
+      errors = c(code, errors)
+    }
     
     perc = round((i/length(codes))*100, digits = 2)
     
@@ -47,10 +55,10 @@ TEST.bacen_v7 = function(log.file = "bacen-v7.log"){
   vacant = paste0(vacant, paste(nums, collapse = ", "), " and all other positive integers greater than ", max)
   write(vacant, conn, append = TRUE)
   
-  status = paste0(">> There were a total of ", nerrors, " errors.")
+  status = paste0(">> There were a total of ", length(errors), " errors.")
   write(status, conn, append = TRUE)
   
-  status = paste0(">> Theare are ", length(nums), " codes not being used.")
+  status = paste0(">> There are ", length(nums), " codes not being used.")
   write(status, conn, append = TRUE)
   
   # Log end of test
@@ -60,4 +68,5 @@ TEST.bacen_v7 = function(log.file = "bacen-v7.log"){
   # Close file connection
   close(conn)
   
+  return(errors)
 }
