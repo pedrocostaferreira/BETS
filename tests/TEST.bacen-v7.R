@@ -1,4 +1,4 @@
-TEST.bacen_v7 = function(log.file = "bacen-v7.log"){
+TEST.bacen_v7 = function(log.file = "tests//bacen-v7.log"){
   
   # Open a file connection and write a meani header
   conn <-file(log.file, "w")
@@ -14,18 +14,17 @@ TEST.bacen_v7 = function(log.file = "bacen-v7.log"){
   errors = vector(mode = "integer")
   
   for(i in 1:length(codes)){
-
-    code = NULL
     
     code = tryCatch({
             BETSget(codes[i])
             print(paste0("TESTANDO ",i,"a serie, codigo ",codes[i], " -- OK"))
+            return(NULL)
           },
             error = function(e){
-              message = paste0("!! ERROR in BETget when code = ", codes[i], ". MESSAGE = ", e)
-              write(message, conn, append = TRUE)
-              print(paste0("TESTANDO ",i,"a serie, codigo ",codes[i], " -- ERRO"))
-              return(as.integer(codes[i]))
+            message = paste0("!! ERROR in BETget when code = ", codes[i], ". MESSAGE = ", e)
+            write(message, conn, append = TRUE)
+            print(paste0("TESTANDO ",i,"a serie, codigo ",codes[i], " -- ERRO"))
+            return(as.integer(codes[i]))
           })
     
     if(!is.null(code)){
@@ -68,5 +67,6 @@ TEST.bacen_v7 = function(log.file = "bacen-v7.log"){
   # Close file connection
   close(conn)
   
-  return(errors)
+  # Log the codes of all the series with problems
+  write.table(errors, "tests//problematic_series.csv", sep = ",", col.names = F, row.names = F)
 }
