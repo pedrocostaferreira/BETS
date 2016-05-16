@@ -69,7 +69,7 @@ acf<-
         acf.out$lag = acf.out$lag[-1, , , drop = FALSE]
       }
     if (plot) {
-      plot1.acf(acf.out, ...)
+      plot(acf.out, ...)
       return(invisible(acf.out))
     }
     else{return(acf.out)}

@@ -31,186 +31,92 @@
 #' @export 
 
 
-BETSget=function(code){
-  #require(sqldf)
-    data=bacen_v7
-    code=as.character(code)
-    resposta=sqldf(
-    paste("select Periodicity from data where Codes like " ,"\'", code ,"\'",sep=""))[1,1]
-    resposta=as.character(resposta)
-    if(resposta==" A" || resposta=="A"){
-    #-------
-    aux1=NULL
-    aux2=NULL
-    aux=sqldf(
-      paste("select data, valor, serie from ts_anuais where serie like " ,"\'", code ,"\'",sep="")
-    )
-    aux=na.omit(aux)
-    aux1=as.numeric(aux[,2])
-    aux2=as.Date(aux[,1])
-    g=duplicated(aux2)
-    if(any(g)){
-      for(i in 1:length(aux1)){
-        if(g[i]==T){
-          aux1[i]=NA
-          aux2[i]=NA
-          }
-        }
-        aux1=na.omit(aux1)
-        aux2=na.omit(aux2)
-        start_ano<-as.numeric(substr(aux2[1],1,4))
-        start_mes<-as.numeric(substr(aux2[1],6,7))
-        if(is.null(aux1))return(msg("Valores não encontrados! :("))
-        minha_ts<-ts(aux1,start<-c(start_ano),freq=1)
-        return(minha_ts)
-      
-      }else{
-      aux1=na.omit(aux1)
-      aux2=na.omit(aux2)
-      start_ano<-as.numeric(substr(aux2[1],1,4))
-      start_mes<-as.numeric(substr(aux2[1],6,7))
-      if(is.null(aux1))return(msg("Valores não encontrados! :("))
-      minha_ts<-ts(aux1,start<-c(start_ano),freq=1)
-      return(minha_ts)}
-    #-------
-  }else if(resposta==" M" || resposta=="M"){
-    
-    #----------------------------------------------------------------------------------------  
-    ###############################  mensais
-    #-------
-    aux1=NULL
-    aux2=NULL
-    
-    aux=sqldf(
-      paste("select data, valor, serie from ts_mensais where serie like " ,"\'", code ,"\'",sep="")
-    )
-    aux=na.omit(aux)
-    aux1=as.numeric(aux[,2])
-    aux2=as.Date(aux[,1])
-    g=duplicated(aux2)
-    if(any(g)){
-      for(i in 1:length(aux1)){
-        if(g[i]==T){
-          aux1[i]=NA
-          aux2[i]=NA
-        }
-      }
-      aux1=na.omit(aux1)
-      aux2=na.omit(aux2)
-      start_ano<-as.numeric(substr(aux2[1],1,4))
-      start_mes<-as.numeric(substr(aux2[1],6,7))
-      if(is.null(aux1))return(msg("Valores não encontrados! :("))
-      minha_ts<-ts(aux1,start<-c(start_ano),freq=12)
-      return(minha_ts)
-    }else{  
-      aux1=na.omit(aux1)
-      aux2=na.omit(aux2)
-      start_ano<-as.numeric(substr(aux2[1],1,4))
-      start_mes<-as.numeric(substr(aux2[1],6,7))
-      if(is.null(aux1))return(msg("Valores não encontrados! :("))
-      minha_ts<-ts(aux1,start<-c(start_ano),freq=12)
-      return(minha_ts)
-    }
-    #-------
-  }else if(resposta==" D" || resposta=="D"){
-    
-    ###############################  Diarias
-    #-------
-    aux1=NULL
-    aux2=NULL
-    aux=sqldf(
-      paste("select data, valor, serie from ts_diarias where serie like " ,"\'", code ,"\'",sep="")
-    )
-    
-    aux1=as.numeric(aux[,2])
-    #aux2=as.Date(sapply(strsplit(aux$data,"/"),function(x) paste(c(x[2:1], 1), collapse="-")), "%Y-%m-%d")
-    aux2=as.Date(sapply(aux$data,function(x)
-      paste(substr(x,6,9),paste0(0,substr(x,4,4)),substr(x,1,2),sep="-")), "%Y-%m-%d")
-    #aux2=as.Date(aux[,1])
-    g=duplicated(aux2)
-    if(any(g)){
-      for(i in 1:length(aux1)){
-        if(g[i]==T){
-          aux1[i]=NA
-          aux2[i]=NA
-        }
-      }
-      aux1=na.omit(aux1)
-      aux2=na.omit(aux2)
-      start_ano<-as.numeric(substr(aux2[1],1,4))
-      start_mes<-as.numeric(substr(aux2[1],6,7))
-      start_day<-as.numeric(substr(aux2[1],9,10))
-      if(is.null(aux1))return(msg("Valores não encontrados! :("))
-      minha_ts<-ts(aux1,start<-c(start_ano,start_mes,start_day),freq=365)
-      return(minha_ts)
-    }else{  
-      aux1=na.omit(aux1)
-      aux2=na.omit(aux2)
-      start_ano<-as.numeric(substr(aux2[1],1,4))
-      start_mes<-as.numeric(substr(aux2[1],6,7))
-      if(is.null(aux1))return(msg("Valores não encontrados! :("))
-      minha_ts<-ts(aux1,start<-c(start_ano),freq=365)
-      return(minha_ts)
-    }
-    ############################## semanais
-    
-  }else if(resposta==" W" || resposta=="W"){
-    
-    aux1=NULL
-    aux2=NULL
-    
-    aux=sqldf(
-      paste("select data, valor, serie from ts_semanais where serie like " ,"\'", code ,"\'",sep="")
-    )
-    aux=na.omit(aux)
-    aux1=as.numeric(aux[,2])
-    aux2=as.Date(aux[,1])
-    g=duplicated(aux2)
-    for(i in 1:length(aux1)){
-      if(g[i]==T){
-        aux1[i]=NA
-        aux2[i]=NA
-      }
-    }
-    aux1=na.omit(aux1)
-    aux2=na.omit(aux2)
-    start_ano<-as.numeric(substr(aux2[1],1,4))
-    start_mes<-as.numeric(substr(aux2[1],6,7))
-    if(is.null(aux1))return(msg("Valores não encontrados! :("))
-    minha_ts<-ts(aux1,start<-c(start_ano),freq=52)
-    return(minha_ts)
-    
-    
-    
-  }else if(resposta == " Q" || resposta=="Q"){
-    
-    aux1=NULL
-    aux2=NULL
-    
-    aux=sqldf(
-      paste("select data, valor, serie from ts_trimestrais where serie like " ,"\'", code ,"\'",sep="")
-    )
-    aux=na.omit(aux)
-    aux1=as.numeric(aux[,2])
-    aux2=as.Date(aux[,1])
-    g=duplicated(aux2)
-    for(i in 1:length(aux1)){
-      if(g[i]==T){
-        aux1[i]=NA
-        aux2[i]=NA
-      }
-    }
-    aux1=na.omit(aux1)
-    aux2=na.omit(aux2)
-    start_ano<-as.numeric(substr(aux2[1],1,4))
-    start_mes<-as.numeric(substr(aux2[1],6,7))
-    if(is.null(aux1))return(msg("Valores não encontrados! :("))
-    minha_ts<-ts(aux1,start<-c(start_ano),freq=4)
-    return(minha_ts)
-  }else{
-    return(msg("Série não encontrada, desculpe!:("))
+BETSget = function(code, data.frame = FALSE){
+  
+    if(data.frame){
+      return(get.data.frame(code))
     }
   
+    data = bacen_v7
+    code = as.character(code)
+    query = paste("select Periodicity from data where Codes like " ,"\'", code ,"\'",sep="")
+    
+    freq = sqldf(query)[1,1]
+    
+    if(is.na(freq)){
+      return(msg(.MSG_NOT_FOUND))
+    }
+    
+    freq = trimws(as.character(freq))
+    
+    aux1 = NULL
+    aux2 = NULL
+    
+    if(freq == "A"){
+      database = "ts_anuais"
+      freq = 1 
+    }
+    else if(freq == "Q"){
+      database = "ts_trimestrais"
+      freq = 4 
+    }
+    else if(freq == "M"){
+      database = "ts_mensais"
+      freq = 12
+    }
+    else if(freq == "W"){
+      database = "ts_semanais"
+      freq = 52 
+    }
+    else if(freq == "D"){
+      database = "ts_diarias"
+      freq = 365 
+    }
+    
+    query = paste("select data, valor from ", database, " where serie like " ,"\'", code ,"\'",sep="")
+    aux = sqldf(query)
+    
+    if(nrow(aux) == 0){
+      return(msg(.MSG_NOT_AVAILABLE))  
+    }
+    
+    aux = na.omit(aux)
+    
+    if(is.factor(aux[,2])){
+      aux[,2] <- as.vector(aux[,2])
+    }
+    
+    if(is.factor(aux[,1])){
+      aux[,1] <- as.vector(aux[,1])
+    }
+    
+    aux1 = as.numeric(aux[,2])
+    aux2 = as.date(aux[,1])
+    
+    g = duplicated(aux2)
+    
+    if(any(g)){
+      
+      for(i in 1:length(aux1)){
+        
+        if(g[i]==T){
+          aux1[i]=NA
+          aux2[i]=NA
+        }
+      }
+    }
+    
+    aux1 = na.omit(aux1)
+    aux2 = na.omit(aux2)
+    
+    if(is.null(aux1)){
+      return(msg(.MSG_NOT_AVAILABLE))
+    }
+    
+    start = get.period(aux2[1],freq)
+    ts <- ts(aux1, start = start, freq = freq)
+    
+    return(ts)
 }
 
 
