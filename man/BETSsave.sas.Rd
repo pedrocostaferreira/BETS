@@ -19,4 +19,13 @@ None
 \description{
 Writes a time series to a .sas (SAS) file.
 }
+\examples{
+
+# Exchange rate - Free - United States dollar (purchase)
+ us.brl <- BETSget(3691)
+ requires(seasonal)
+ us.brl.seasonally_adjusted <- seas(us.brl)
+ BETSsave.sas(data = us.brl.seasonally_adjusted,file.name="us.brl.seasonally_adjusted")
+
+}
 

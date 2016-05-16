@@ -2,11 +2,10 @@
 % Please edit documentation in R/IIE-Br-Mercado.R
 \name{IIE-Br-Market}
 \alias{IIE-Br-Market}
-\title{IIE-Br-Market}
+\title{Uncertawty indicator of the Brazilian economy - market}
 \format{A \code{\link[stats]{ts}} object with 185 observations.}
 \source{
-\href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)} 
-and \href{http://www.bcb.gov.br/?english}{Central Bank of Brasil (BCB)}
+\href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)}
 }
 \description{
 O \code{IIE-Br-Market} visa mensurar variabilidade do mercado acionaario
@@ -16,11 +15,11 @@ Brasileiro e seu grau de risco, ou seja, diferente IIE-Br-expectativa busca
 mensurar a variabilidade do sentimento do mercado no tempopresente.
 
 O \code{IIE-Br-Market}  e composto pela volatilidade dos ultimos 21 dias 
-decalculo dos precos das ações do IBOVESPA e opremio de cinco anos do Credit 
+decalculo dos precos das acoess do IBOVESPA e opremio de cinco anos do Credit 
 Swap Default.
 }
 \author{
-Pedro G. C. Ferreira  \email{pedro.guilherme@fgv.br},
+Pedro Costa Ferreira  \email{pedro.guilherme@fgv.br},
         Anna Carolina S. Barros \email{anna.barros@fgv.br},
         Bruno R de Miranda Neto \email{bruno.neto@fgv.br},
         Itaiguara de Oliveira Bezerra  \email{itaiguara.bezerra@fgv.br}.

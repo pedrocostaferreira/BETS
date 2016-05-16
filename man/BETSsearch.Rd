@@ -43,7 +43,7 @@ Searches the BETS databases for a time series by its name, source, periodicity, 
      BCB \tab Central Bank of Brazil \cr
      FGV \tab Getulio Vargas Foundation \cr
      FGv-IBRE \tab Getulio Vargas Foundation - Brazilian Institute of Economics \cr
-     BCB e FGV \tab Central Bank of Brazil and Getúlio Vargas Foundation \cr
+     BCB e FGV \tab Central Bank of Brazil and Getulio Vargas Foundation \cr
      BCB-Deban \tab Cetral Bank of Brazil - Department of Banking and Payments \cr
      BCB-Depin \tab Central Bank of Brazil - Department of International Reserves \cr
      BCB-Derin \tab Central Bank of Brazil - Department of International Affairs \cr

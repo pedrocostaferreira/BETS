@@ -1,4 +1,4 @@
-#' @title  IIE-Br-Market
+#' @title  Uncertawty indicator of the Brazilian economy - market
 #'
 #' @name IIE-Br-Market
 #' @description 
@@ -9,7 +9,7 @@
 #'mensurar a variabilidade do sentimento do mercado no tempopresente.
 #'
 #'O \code{IIE-Br-Market}  e composto pela volatilidade dos ultimos 21 dias 
-#'decalculo dos precos das ações do IBOVESPA e opremio de cinco anos do Credit 
+#'decalculo dos precos das acoess do IBOVESPA e opremio de cinco anos do Credit 
 #'Swap Default.
 #'
 #' 
@@ -20,13 +20,12 @@
 #' @references A shiny app with IIE-Br-expectations plots can be found 
 #'              \href{here}{https://pedroferreira.shinyapps.io/incerteza/}
 #' 
-#' @author Pedro G. C. Ferreira  \email{pedro.guilherme@fgv.br},
+#' @author Pedro Costa Ferreira  \email{pedro.guilherme@fgv.br},
 #'         Anna Carolina S. Barros \email{anna.barros@fgv.br},
 #'         Bruno R de Miranda Neto \email{bruno.neto@fgv.br},
 #'         Itaiguara de Oliveira Bezerra  \email{itaiguara.bezerra@fgv.br}.
 #' @source 
 #'\href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)} 
-#'and \href{http://www.bcb.gov.br/?english}{Central Bank of Brasil (BCB)}
 #'    
 #' @keywords IIE-Br-Market
 NULL

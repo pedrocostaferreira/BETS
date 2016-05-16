@@ -14,14 +14,14 @@
 #'  BETSget(1208)
 #'  
 #'  # International reserves - Cash concept 
-#'  x <- BETSget("3543")
-#'  plot(x)
+#'  int.reserves <- BETSget("3543")
+#'  plot(int.reserves)
 #'  
 #'  # Exchange rate - Free - United States dollar (purchase)
-#'  k <- BETSget(3691)
+#'  us.brl <- BETSget(3691)
 #'  requires(seasonal)
-#'  m <- seas(k)
-#'  plot(m)
+#'  us.brl.seasonally_adjusted <- seas(us.brl)
+#'  plot(us.brl.seasonally_adjusted)
 #'  
 #' @seealso \code{\link[stats]{ts}}, \code{\link[BETS]{BETSsearch}} and \code{\link[seasonal]{seas}}
 #' 

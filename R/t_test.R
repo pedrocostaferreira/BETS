@@ -1,15 +1,24 @@
-#' @title  Significancia dos parametro de um modelo Arima
+#' @title  Significance of parameter of an Arima model
 #' 
-#' @description  Realiza o teste de significancia dos parametro de um modelo 
-#' ARIMA.
+#' @description  Performs the test of significance of the parameter of an 
+#' Arima model
+#' 
 #' 
 #'
 #' 
-#' @param arima_model  Modelo arima utilizado
+#' @param arima_model  Arima model used
 #' @param n_x  Numero de variaveis exogenas
 #' 
 #' @details 
+#' @examples 
+#' data("AirPassengers")
+#' fit.air<- Arima(AirPassengers,order = c(1,1,1), 
+#'     seasonal = c(1,1,1), method ="ML",lambda=0)
+#'     summary(fit.air)
 #' 
+#' significance test for model SARIMA(1,1,1)(1,1,1)_12
+#' t.test(arima_model = fit.air)
+#'
 #' 
 #' @return Objeto do tipo \code{list}
 #' 

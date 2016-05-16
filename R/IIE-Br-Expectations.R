@@ -1,4 +1,4 @@
-#' @title Brazilian Market Expectations
+#' @title Uncertawty indicator of the Brazilian economy - expectation
 #'
 #' @name IIE- Br- Expectations
 #' @description The \code{IIE_Br_expectations} is a measure of dispersion of the brazilian market expectations,

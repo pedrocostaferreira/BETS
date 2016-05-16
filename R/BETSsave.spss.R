@@ -8,6 +8,14 @@
 #' 
 #' @return None
 #' 
+#' @examples 
+#' 
+#' # Exchange rate - Free - United States dollar (purchase)
+#'  us.brl <- BETSget(3691)
+#'  requires(seasonal)
+#'  us.brl.seasonally_adjusted <- seas(us.brl)
+#'  BETSsave.spss(data = us.brl.seasonally_adjusted,file.name="us.brl.seasonally_adjusted")
+#' 
 #' @import foreign
 #' @export 
 

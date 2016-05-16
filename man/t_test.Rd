@@ -2,12 +2,12 @@
 % Please edit documentation in R/t_test.R
 \name{t_test}
 \alias{t_test}
-\title{Significancia dos parametro de um modelo Arima}
+\title{Significance of parameter of an Arima model}
 \usage{
 t_test(arima_model, n_x = 0)
 }
 \arguments{
-\item{arima_model}{Modelo arima utilizado}
+\item{arima_model}{Arima model used}
 
 \item{n_x}{Numero de variaveis exogenas}
 }
@@ -15,10 +15,18 @@ t_test(arima_model, n_x = 0)
 Objeto do tipo \code{list}
 }
 \description{
-Realiza o teste de significancia dos parametro de um modelo 
-ARIMA.
+Performs the test of significance of the parameter of an 
+Arima model
 }
-\details{
+\examples{
+data("AirPassengers")
+fit.air<- Arima(AirPassengers,order = c(1,1,1), 
+    seasonal = c(1,1,1), method ="ML",lambda=0)
+    summary(fit.air)
+
+significance test for model SARIMA(1,1,1)(1,1,1)_12
+t.test(arima_model = fit.air)
+
 
 }
 \author{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/IIE-Br-Expectations.R
 \name{IIE- Br- Expectations}
 \alias{IIE- Br- Expectations}
-\title{Brazilian Market Expectations}
+\title{Uncertawty indicator of the Brazilian economy - expectation}
 \format{A \code{\link[stats]{ts}} object with 185 observations.}
 \source{
 \href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)}
