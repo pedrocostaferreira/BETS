@@ -5,18 +5,18 @@
 \title{Brazilian Market Expectations}
 \format{A \code{\link[stats]{ts}} object with 185 observations.}
 \source{
-\href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)} 
+\href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)}
 and \href{http://www.bcb.gov.br/?english}{Central Bank of Brasil (BCB)}
 }
 \description{
-The \code{IIE_Br_expectations} is a measure of dispersion of the brazilian market expectations, 
-calculated by the Central Bank of Brazil (BCB) and opinion polls conducted by the Brazilian 
+The \code{IIE_Br_expectations} is a measure of dispersion of the brazilian market expectations,
+calculated by the Central Bank of Brazil (BCB) and opinion polls conducted by the Brazilian
 Institute of Economics (FGV/IBRE). More precisely, the \code{IIE_Br_expectations} is composed by two other indicators:
- 
+
 \itemize{
-  \item{ Market expectations formed according to the IPCA (National Consumer Price Index), 
+  \item{ Market expectations formed according to the IPCA (National Consumer Price Index),
          the base interest rate (SELIC) and the primary deficit }
-  \item{ Surveys of opinion from the industry, commerce, services and construction sectors.  }
+  \item{ Surveys of opinion from the industry, commerce, services and the construction sectors.}
 }
 }
 \author{
@@ -26,7 +26,7 @@ Pedro G. C. Ferreira  \email{pedro.guilherme@fgv.br},
         Itaiguara de Oliveira Bezerra  \email{itaiguara.bezerra@fgv.br}
 }
 \references{
-A shiny app with IIE-Br-expectations plots can be found 
-             \href{here}{https://pedroferreira.shinyapps.io/incerteza/}
+A shiny app with IIE-Br-expectations plots can be found
+             \href{https://pedroferreira.shinyapps.io/incerteza/}{here}
 }
 

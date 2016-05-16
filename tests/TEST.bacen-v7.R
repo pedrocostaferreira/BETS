@@ -9,25 +9,45 @@ TEST.bacen_v7 = function(log.file = "tests//bacen-v7.log"){
   codes = bacen_v7[,1]
   
   # Check if the series are available 
-  write("## Errors in BETSget: ", conn, append = TRUE)
+  write("## Errors and issues in bacen_v7: ", conn, append = TRUE)
   
   errors = vector(mode = "integer")
+  issues = vector(mode = "character")
+  code = NULL
   
   for(i in 1:length(codes)){
+  #for(i in 1:20){
     
     code = tryCatch({
-            BETSget(codes[i])
-            print(paste0("TESTANDO ",i,"a serie, codigo ",codes[i], " -- OK"))
-            return(NULL)
+      
+            info = paste0("TESTANDO ",i,"a serie, codigo ",codes[i])
+            
+            ret = BETSget(codes[i])
+            
+            if(class(ret) == "ts"){
+              info = paste(info,"-- OK")
+            }
+            else {
+
+              info = paste(info, "-- ISSUE")
+              message = paste0("?? ISSUE in bacen_v7 when code = ", codes[i], ". MESSAGE = ", ret)
+              write(message, conn, append = TRUE)
+              issues = c(code[i],issues)
+            }
+            
+            print(info)
+            
           },
             error = function(e){
-            message = paste0("!! ERROR in BETget when code = ", codes[i], ". MESSAGE = ", e)
-            write(message, conn, append = TRUE)
-            print(paste0("TESTANDO ",i,"a serie, codigo ",codes[i], " -- ERRO"))
-            return(as.integer(codes[i]))
+              
+              message = paste0("!! ERROR in bacen_v7 when code = ", codes[i], ". MESSAGE = ", e)
+              write(message, conn, append = TRUE)
+              
+              print(paste0("TESTANDO ",i,"a serie, codigo ",codes[i], " -- ERROR"))
+              return(as.integer(codes[i]))
           })
     
-    if(!is.null(code)){
+    if(is.integer(code)){
       errors = c(code, errors)
     }
     
@@ -57,6 +77,9 @@ TEST.bacen_v7 = function(log.file = "tests//bacen-v7.log"){
   status = paste0(">> There were a total of ", length(errors), " errors.")
   write(status, conn, append = TRUE)
   
+  status = paste0(">> There were a total of ", length(issues), " issues.")
+  write(status, conn, append = TRUE)
+  
   status = paste0(">> There are ", length(nums), " codes not being used.")
   write(status, conn, append = TRUE)
   
@@ -67,6 +90,8 @@ TEST.bacen_v7 = function(log.file = "tests//bacen-v7.log"){
   # Close file connection
   close(conn)
   
+  #head(cbind(errors,issues))
+  
   # Log the codes of all the series with problems
-  write.table(errors, "tests//problematic_series.csv", sep = ",", col.names = F, row.names = F)
+  #write.table(cbind(errors,issues), "tests//problematic_series.csv", sep = ",", col.names = c("errors","issues"), row.names = F)
 }
