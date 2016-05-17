@@ -112,6 +112,7 @@ BETSget = function(code, data.frame = FALSE){
     }
     
     start = get.period(aux2[1],freq)
+
     ts <- ts(aux1, start = start, freq = freq)
     
     return(ts)
