@@ -1,6 +1,6 @@
-#' @title Uncertawty indicator of the Brazilian economy - midia
+#' @title Uncertawty indicator of the Brazilian economy - Media
 #'
-#' @name IIE-Br-Midia
+#' @name IIE-Br-Media
 #'
 #' @description 
 #'

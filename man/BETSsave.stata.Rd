@@ -26,6 +26,7 @@ Writes a time series to a .dta (STATA) file.
  requires(seasonal)
  us.brl.seasonally_adjusted <- seas(us.brl)
  BETSsave.stata(data = us.brl.seasonally_adjusted,file.name="us.brl.seasonally_adjusted")
-
+ # Or
+ BETSsave.stata(code=3691,file.name="us.brl")
 }
 

@@ -1,15 +1,15 @@
-#' @title  Significance of parameter of an Arima model
+#' @title  Significance of parameter an Arima model
 #' 
-#' @description  Performs the test of significance of the parameter of an 
+#' @description  Performs the test of significance of the parameter an 
 #' Arima model
 #' 
 #' 
 #'
 #' 
 #' @param arima_model  Arima model used
-#' @param n_x  Numero de variaveis exogenas
+#' @param n_x  Number of variables Exogenous
 #' 
-#' @details 
+#' 
 #' @examples 
 #' data("AirPassengers")
 #' fit.air<- Arima(AirPassengers,order = c(1,1,1), 

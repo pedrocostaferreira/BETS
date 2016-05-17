@@ -26,6 +26,7 @@ Writes a time series to a .spss (SPSS) file.
  requires(seasonal)
  us.brl.seasonally_adjusted <- seas(us.brl)
  BETSsave.spss(data = us.brl.seasonally_adjusted,file.name="us.brl.seasonally_adjusted")
-
+   # Or
+ BETSsave.spss(code=3691,file.name="us.brl")
 }
 

@@ -6,7 +6,6 @@
 \format{A \code{\link[stats]{ts}} object with 185 observations.}
 \source{
 \href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)}
-and \href{http://www.bcb.gov.br/?english}{Central Bank of Brasil (BCB)}
 }
 \description{
 The \code{IIE_Br_expectations} is a measure of dispersion of the brazilian market expectations,

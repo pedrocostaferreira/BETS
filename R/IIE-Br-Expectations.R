@@ -24,6 +24,5 @@
 #'
 #' @source
 #'\href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)}
-#'and \href{http://www.bcb.gov.br/?english}{Central Bank of Brasil (BCB)}
 NULL
 

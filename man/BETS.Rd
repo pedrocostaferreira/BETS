@@ -4,7 +4,7 @@
 \name{BETS}
 \alias{BETS}
 \alias{BETS-package}
-\title{BETS: A package for obtaining and analysing thousands of brazilian economic time series.}
+\title{BETS: A package for obtaining and analysing thousands of Brazilian economic time series.}
 \description{
 The Brazilian Economic Time Series (BETS) package provides access and
 information about the most important Brazilian economic time series.
@@ -12,7 +12,7 @@ information about the most important Brazilian economic time series.
 These series are created by three influential centers: the Central Bank of 
 Brazil (BCB), the Brazilian Institute of Geography and Statistics (IBGE) 
 and the Brazilian Institute of Economics, from the Getulio Vargas Foundation
-(FVG-IBRE). Currently, there are more than 15.000 available time series, most
+(FVG-IBRE). Currently, there are more than 30.000 available time series, most
 of them free of charge. Besides providing access to this vast database, the
 package allows the user to interact with data in an easy and friendly way. 
 

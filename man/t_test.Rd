@@ -2,20 +2,20 @@
 % Please edit documentation in R/t_test.R
 \name{t_test}
 \alias{t_test}
-\title{Significance of parameter of an Arima model}
+\title{Significance of parameter an Arima model}
 \usage{
 t_test(arima_model, n_x = 0)
 }
 \arguments{
 \item{arima_model}{Arima model used}
 
-\item{n_x}{Numero de variaveis exogenas}
+\item{n_x}{Number of variables Exogenous}
 }
 \value{
 Objeto do tipo \code{list}
 }
 \description{
-Performs the test of significance of the parameter of an 
+Performs the test of significance of the parameter an 
 Arima model
 }
 \examples{

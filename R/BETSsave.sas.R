@@ -15,7 +15,8 @@
 #'  requires(seasonal)
 #'  us.brl.seasonally_adjusted <- seas(us.brl)
 #'  BETSsave.sas(data = us.brl.seasonally_adjusted,file.name="us.brl.seasonally_adjusted")
-#' 
+#'  # Or
+#'  BETSsave.sas(code=3691,file.name="us.brl")
 #' @import foreign
 #' @export 
 

@@ -94,11 +94,9 @@
 
 BETSsearch=function(name,src,periodicity,unit,code,view=TRUE){
   database=bacen_v7
-  #require(sqldf)
-  #verificando para direcionar a funcao
-  #if(data == BD){
+  
   if(missing(src) & missing(periodicity) & missing(code) & missing(unit)){
-    #verificacoes:
+    
     if(is.character(name)==F) stop("Erro")
     aux=sqldf(
       paste("select Codes, Description, Periodicity,start, source, unit from database 
@@ -108,7 +106,7 @@ BETSsearch=function(name,src,periodicity,unit,code,view=TRUE){
     msg(paste(nrow(aux),"of",nrow(database)," time series","!",sep=" "))
     if(view==T){return(View(Results))}else{return(Results)}
   }else if( missing(periodicity) & missing(name) & missing(code) & missing(unit)){
-    #verificacao
+    
     if(is.character(src)==F) stop("Erro")
     aux=sqldf(
       paste("select Codes, Description, Periodicity,start, source, unit from database 
@@ -118,7 +116,7 @@ BETSsearch=function(name,src,periodicity,unit,code,view=TRUE){
     msg(paste(nrow(aux),"of",nrow(database)," time series","!",sep=" "))
     if(view==T){return(View(Results))}else{return(Results)}
   }else if(missing(src) & missing(name) & missing(code) & missing(periodicity)){
-    #verificacao
+    
     if(is.character(unit) == F)stop("Erro")
     aux=sqldf(
       paste("select Codes, Description, Periodicity,start, source, unit from database 
@@ -129,7 +127,7 @@ BETSsearch=function(name,src,periodicity,unit,code,view=TRUE){
     msg(paste(nrow(aux),"of",nrow(database)," time series","!",sep=" "))
     if(view==T){return(View(Results))}else{return(Results)}
   }else if(missing(src) & missing(name) & missing(code) & missing(unit)){
-    #verificacao
+    
     if(is.character(periodicity) == F)stop("Erro")
     aux=sqldf(
       paste("select Codes, Description, Periodicity,start, source, unit from database 
@@ -139,7 +137,7 @@ BETSsearch=function(name,src,periodicity,unit,code,view=TRUE){
     msg(paste(nrow(aux),"of",nrow(database)," time series","!",sep=" "))
     if(view==T){return(View(Results))}else{return(Results)}
   }else if(missing(name) & missing(periodicity) & missing(src) & missing(unit)){
-    #verificacao
+    
     if(is.numeric(code) && (code%%1!=0))stop("Erro")
     
     aux=sqldf(
@@ -147,21 +145,9 @@ BETSsearch=function(name,src,periodicity,unit,code,view=TRUE){
             where Codes like " ,"\'", code ,"\'",sep=""))
     Results=aux
     if(view==T){return(View(Results))}else{return(Results)}
-    #aux2=matrix(0,nrow=1,ncol=ncol(data),byrow=F)
-    #for(i in 1:nrow(data)){
-      #if(code == data[i,1]){
-        #aux2=data[i,1:ncol(data)]
-      #}
-    #}
     
     
-    #BD=as.caracter(BD)
-    #aux=sqldf(
-    #paste("select Codigos, Nome, fonte, Unidade, Periodicidade from data 
-    #  where Codigos like " ,"\'%", code ,"%\'",sep=""))
-    #msg("Results")
-    #msg(paste(nrow(aux2)," time series","of",nrow(BD),"!",sep=" "))
-    #msg("Done!")
+    
     return(aux2)
   }else if(missing(code) && missing(src) & missing(unit)){
     
