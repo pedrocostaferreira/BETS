@@ -1,4 +1,4 @@
-#' @title  Uncertawty indicator of the Brazilian economy - market
+#' @title Uncertainty Indicator for the Brazilian Economy - Market
 #'
 #' @name IIE_Br_market
 #' @description 
@@ -27,5 +27,5 @@
 #' @source 
 #'\href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)} 
 #'    
-#' @keywords IIE-Br-Market
+#' @keywords market, uncertainty 
 NULL

@@ -22,7 +22,8 @@
 #'         Itaiguara de Oliveira Bezerra  \email{itaiguara.bezerra@fgv.br}
 #'
 #'
-#' @source
-#'\href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)}
+#' @source \href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)}
+#' 
+#' @keywords expectations, uncertainty
 NULL
 

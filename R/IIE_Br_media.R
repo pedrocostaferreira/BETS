@@ -1,4 +1,4 @@
-#' @title Uncertawty indicator of the Brazilian economy - Media
+#' @title Uncertainty Indicator for the Brazilian Economy - Media
 #'
 #' @name IIE_Br_media
 #'
@@ -32,7 +32,7 @@
 #'         Anna Carolina S. Barros \email{anna.barros@fgv.br},
 #'         Bruno R de Miranda Neto \email{bruno.neto@fgv.br},
 #'         Itaiguara de Oliveira Bezerra  \email{itaiguara.bezerra@fgv.br}.
-#' @source 
-#'\href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)} 
-#' @keywords IIE-Br-Midia
+#' @source \href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)}
+#'  
+#' @keywords uncertainty, media
 NULL
