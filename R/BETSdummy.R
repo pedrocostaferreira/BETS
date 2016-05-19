@@ -2,27 +2,28 @@
 #'
 #' @description Given a informations about the time and dates, return a monthly 
 #' or quarterly ts with dummies.
-#' \code{ts} 
+#' 
 #'
 #' 
-#' @usage BETSdummy(star,end,freq = 12,year,month,quarter,date,from,to)
+#' @usage BETSdummy(start = c(year,month),end= c(year,month),frequency = 12,year,
+#'     month, quarter, date, from, to)
 #' 
 #' @param start  the time of the first observation. Either a vector of 
 #' two integers, which specify a natural time unit and a (1-based) 
 #' number of samples into the time unit. 
 #' @param end   the time of the last observation, specified in the same way as start
-#' @param freq the number of observations per unit of time (12 in defaut).
+#' @param frequency the number of observations per unit of time (12 in defaut).
 #' @param year a \code{integer},or a \code{seq} or a \code{vector} that 
-#'  contains the years.
+#'  contains the years. Which year or years will be created the dummys
 #' @param month  a \code{integer} or a \code{vector} of size 12 that 
-#'  contains the months.
+#'  contains the months. For which month or months will be created the dummys
 #' @param quarter a \code{integer} or a \code{vector} of size 4 that contains
-#' the quarters.
+#' the quarters. For which quarter or quarters will be created the dummys
 #' @param date a \code{list} with the date objects. 
 #' @param from the starting  value of the sequence. Of 
 #' length 1 unless just from is supplied as an unnamed argument.
 #' @param to the maximal value of the sequence. 
-#' @return A monthly \code{ts}.
+#' @return A monthly or a quarterly \code{ts}.
 #'
 #'
 #' @details 
@@ -31,22 +32,25 @@
 #' @examples 
 #'
 #' #1 from a specific date to another specific date
-#' BETSdummy(start = c(2000,1),end = c(2012,5),freq = 12,from = c(2005,1),to = c(2006,12))
+#' BETSdummy(start = c(2000,1),end = c(2012,5),frequency = 12,from = c(2005,1),to = c(2006,12))
 #'
 #'
 #' #Other options that may be helpful:
 #' 
 #' #over a month equal to 1
-#' BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, month = c(5,12))
+#' BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = c(5,12))
 #' 
-#' # Months equal to 1 only for some years
-#' BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5, year = 2005)
-#' BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5, year = 2005:2007)
-#' BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5, year = c(2005,2007))
-#' BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5:6, year = c(2005,2007))
+#' #Months equal to 1 only for some year
+#' BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 5, year = 2010)
+#' BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 8, year = 2002)
+#' 
+#' #Months equal to 1 only for some years
+#' BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 5, year = 2005:2007)
+#' BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 3, year = c(2005,2007))
+#' BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 5:6, year = c(2005,2007))
 #'
 #' #specific dates
-#' BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, date = list(c(2010,1)))
+#' BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, date = list(c(2010,1)))
 #' BETSdummy(start = c(2000,1), end = c(2012,5), 
 #'     freq = 12, date = list(c(2010,9), c(2011,1), c(2000,1)) )
 #'
@@ -58,23 +62,23 @@
 #' @export
 
 
-BETSdummy <- function(start = NULL, end = NULL, freq = 12,
+BETSdummy <- function(start = NULL, end = NULL, frequency = 12,
                   year = NULL, month = NULL, quarter = NULL,  
                   date = NULL, from = NULL, to = NULL){
   
  
   
-  if(is.null(freq) | !(freq %in% c(4,12))){
+  if(is.null(frequency) | !(frequency %in% c(4,12))){
     stop("Set freq as 12 for monthly series or 4 for quarterly series")
   }
   if(is.null(start)){ stop("Set start")}
   if(is.null(end)){ stop("Set end")}
   
   
-  ts <- ts(0, start = start, end = end, freq = freq)
+  ts <- ts(0, start = start, end = end, freq = frequency)
   years <- as.numeric(substr(as.Date(ts),1,4))
   
-  if(freq == 12){  
+  if(frequency == 12){  
     months <- as.numeric(substr(as.Date(ts),6,7))  
     
     if(is.null(date) & is.null(from)){
@@ -113,7 +117,7 @@ BETSdummy <- function(start = NULL, end = NULL, freq = 12,
       
     }
     
-  }else if(freq == 4){  
+  }else if(frequency == 4){  
     quarters <- as.numeric(substr(as.Date(ts),6,7))
     quarters[quarters == 4] <- 2
     quarters[quarters == 7] <- 3

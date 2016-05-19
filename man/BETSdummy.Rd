@@ -4,7 +4,7 @@
 \alias{BETSdummy}
 \title{Create dummy to monthly ts object}
 \usage{
-BETSdummy(star,end,freq = 12,year,month,quarter,date,from,to)
+BETSdummy(start = c(year,month),end= c(year,month),frequency = 12,year,month,quarter,date,from,to)
 }
 \arguments{
 \item{start}{the time of the first observation. Either a vector of 
@@ -13,16 +13,16 @@ number of samples into the time unit.}
 
 \item{end}{the time of the last observation, specified in the same way as start}
 
-\item{freq}{the number of observations per unit of time (12 in defaut).}
+\item{frequency}{the number of observations per unit of time (12 in defaut).}
 
 \item{year}{a \code{integer},or a \code{seq} or a \code{vector} that 
-contains the years.}
+contains the years. Which year or years will be created the dummys}
 
 \item{month}{a \code{integer} or a \code{vector} of size 12 that 
-contains the months.}
+contains the months. For which month or months will be created the dummys}
 
 \item{quarter}{a \code{integer} or a \code{vector} of size 4 that contains
-the quarters.}
+the quarters. For which quarter or quarters will be created the dummys}
 
 \item{date}{a \code{list} with the date objects.}
 
@@ -37,7 +37,6 @@ A monthly \code{ts}.
 \description{
 Given a informations about the time and dates, return a monthly 
 or quarterly ts with dummies.
-\code{ts}
 }
 \details{
 the BETSdummy works for the monthly or a quarterly \code{ts}.
@@ -45,22 +44,25 @@ the BETSdummy works for the monthly or a quarterly \code{ts}.
 \examples{
 
 #1 from a specific date to another specific date
-BETSdummy(start = c(2000,1),end = c(2012,5),freq = 12,from = c(2005,1),to = c(2006,12))
+BETSdummy(start = c(2000,1),end = c(2012,5),frequency = 12,from = c(2005,1),to = c(2006,12))
 
 
 #Other options that may be helpful:
 
 #over a month equal to 1
-BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, month = c(5,12))
+BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = c(5,12))
 
-# Months equal to 1 only for some years
-BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5, year = 2005)
-BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5, year = 2005:2007)
-BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5, year = c(2005,2007))
-BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5:6, year = c(2005,2007))
+#Months equal to 1 only for some year
+BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 5, year = 2010)
+BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 8, year = 2002)
+
+#Months equal to 1 only for some years
+BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 5, year = 2005:2007)
+BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 3, year = c(2005,2007))
+BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 5:6, year = c(2005,2007))
 
 #specific dates
-BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, date = list(c(2010,1)))
+BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, date = list(c(2010,1)))
 BETSdummy(start = c(2000,1), end = c(2012,5), 
     freq = 12, date = list(c(2010,9), c(2011,1), c(2000,1)) )
 
