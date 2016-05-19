@@ -1,54 +1,58 @@
-#' @title Create dummy to monthly and/or \code{ts} object
+#' @title Create dummy to monthly ts object
 #'
 #' @description Given a informations about the time and dates, return a monthly 
-#' and/or quarterly \code{ts} with dammies.
+#' or quarterly ts with dummies.
 #' \code{ts} 
 #'
 #' 
 #' @usage BETSdummy(star,end,freq = 12,year,month,quarter,date,from,to)
 #' 
-#' @param start  the time of the first observation. Either a single number or
-#'  a vector of two integers, which specify a natural time unit and a (1-based) 
-#'  number of samples into the time unit. 
+#' @param start  the time of the first observation. Either a vector of 
+#' two integers, which specify a natural time unit and a (1-based) 
+#' number of samples into the time unit. 
 #' @param end   the time of the last observation, specified in the same way as start
 #' @param freq the number of observations per unit of time (12 in defaut).
-#' @param year A \code{integer},or a \code{seq} or a \code{vector} that 
+#' @param year a \code{integer},or a \code{seq} or a \code{vector} that 
 #'  contains the years.
-#' @param month  A \code{integer} or a \code{vector} of size 12 that 
+#' @param month  a \code{integer} or a \code{vector} of size 12 that 
 #'  contains the months.
-#' @param quarter A \code{integer} or a \code{vector} of size 4 that contains
+#' @param quarter a \code{integer} or a \code{vector} of size 4 that contains
 #' the quarters.
-#' @param date A \code{list} with the date objects. 
-#' @param from, to the starting and (maximal) end values of the sequence. Of 
+#' @param date a \code{list} with the date objects. 
+#' @param from the starting  value of the sequence. Of 
 #' length 1 unless just from is supplied as an unnamed argument.
-#' 
+#' @param to the maximal value of the sequence. 
 #' @return A monthly \code{ts}.
 #'
 #'
 #' @details 
-#'   the BETSdammy works for the monthly or a quarterly \code{ts}. 
+#'   the BETSdummy works for the monthly or a quarterly \code{ts}. 
 #'
 #' @examples 
 #'
 #' #1 from a specific date to another specific date
-#' dummy(start = c(2000,1),end = c(2012,5),freq = 12,from = c(2005,1),to = c(2006,12))
+#' BETSdummy(start = c(2000,1),end = c(2012,5),freq = 12,from = c(2005,1),to = c(2006,12))
 #'
 #'
 #' #Other options that may be helpful:
 #' 
 #' #over a month equal to 1
-#' dummy(start = c(2000,1), end = c(2012,5), freq = 12, month = c(5,12))
+#' BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, month = c(5,12))
 #' 
 #' # Months equal to 1 only for some years
-#' dummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5, year = 2005)
-#' dummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5, year = 2005:2007)
-#' dummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5, year = c(2005,2007))
-#' dummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5:6, year = c(2005,2007))
+#' BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5, year = 2005)
+#' BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5, year = 2005:2007)
+#' BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5, year = c(2005,2007))
+#' BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, month = 5:6, year = c(2005,2007))
 #'
 #' #specific dates
-#' dummy(start = c(2000,1), end = c(2012,5), freq = 12, date = list(c(2010,1)))
-#' dummy(start = c(2000,1), end = c(2012,5), 
+#' BETSdummy(start = c(2000,1), end = c(2012,5), freq = 12, date = list(c(2010,1)))
+#' BETSdummy(start = c(2000,1), end = c(2012,5), 
 #'     freq = 12, date = list(c(2010,9), c(2011,1), c(2000,1)) )
+#'
+#'
+#' @seealso \code{\link[stats]{ts}}, \code{\link[BETS]{BETSdummy}}
+#'
 #'
 #' @import zoo
 #' @export
