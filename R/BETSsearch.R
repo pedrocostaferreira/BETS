@@ -8,7 +8,7 @@
 #' @param unit A \code{character}. The unit of measurement of the data. See the 'Details' section for a list of possible values.  
 #' @param code An \code{integer}. The index of the series within the database. 
 #' @param view A \code{boolean}. The default is \code{TRUE}. If set to \code{FALSE}, the results are NOT going to be shown.    
-#' @param lan A \code{character}. The Search language.
+#' @param lan A \code{character}. The Search language, which defaut is "en", but can be "pt".
 #' 
 #' @return A \code{list} that can be interpreted as a \code{data.frame}. The fields are described below.
 #' 
