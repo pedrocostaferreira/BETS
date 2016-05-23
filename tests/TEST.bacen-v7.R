@@ -2,7 +2,7 @@ TEST.bacen_v7 = function(log.file = "tests//bacen-v7.log"){
   
   require(rowr)
   
-  # Open a file connection and write a meani header
+  # Open a file connection and write a meaningful header
   conn <-file(log.file, "w")
   header <- paste("-- TESTING bacen-v7 @", Sys.time())
   write(header, conn)
@@ -17,8 +17,7 @@ TEST.bacen_v7 = function(log.file = "tests//bacen-v7.log"){
   issues = vector(mode = "character")
   code = NULL
   
-  #for(i in 1:length(codes)){
-  for(i in 1:50){
+  for(i in 1:length(codes)){
     
     code = tryCatch({
       
