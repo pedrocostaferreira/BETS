@@ -2,8 +2,8 @@
 #'
 #' @name IIE_Br_market
 #' @description 
-#'O \code{IIE-Br-Market} visa mensurar variabilidade do mercado acionaario
-#'IIE-Br-Market.
+#' O \code{IIE-Br-Market} visa mensurar variabilidade do mercado acionaario
+#' IIE-Br-Market.
 #'
 #'Brasileiro e seu grau de risco, ou seja, diferente IIE-Br-expectativa busca
 #'mensurar a variabilidade do sentimento do mercado no tempopresente.

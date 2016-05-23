@@ -1,5 +1,7 @@
 TEST.bacen_v7 = function(log.file = "tests//bacen-v7.log"){
   
+  require(rowr)
+  
   # Open a file connection and write a meani header
   conn <-file(log.file, "w")
   header <- paste("-- TESTING bacen-v7 @", Sys.time())
@@ -15,8 +17,8 @@ TEST.bacen_v7 = function(log.file = "tests//bacen-v7.log"){
   issues = vector(mode = "character")
   code = NULL
   
-  for(i in 1:length(codes)){
-  #for(i in 1:20){
+  #for(i in 1:length(codes)){
+  for(i in 1:50){
     
     code = tryCatch({
       
@@ -32,7 +34,7 @@ TEST.bacen_v7 = function(log.file = "tests//bacen-v7.log"){
               info = paste(info, "-- ISSUE")
               message = paste0("?? ISSUE in bacen_v7 when code = ", codes[i], ". MESSAGE = ", ret)
               write(message, conn, append = TRUE)
-              issues = c(code[i],issues)
+              issues = c(codes[i],issues)
             }
             
             print(info)
@@ -90,8 +92,8 @@ TEST.bacen_v7 = function(log.file = "tests//bacen-v7.log"){
   # Close file connection
   close(conn)
   
-  #head(cbind(errors,issues))
-  
   # Log the codes of all the series with problems
-  #write.table(cbind(errors,issues), "tests//problematic_series.csv", sep = ",", col.names = c("errors","issues"), row.names = F)
+  prob = cbind.fill(errors,issues,fill = "")
+  names(prob) = c("errors","issues") 
+  write.table(prob, "tests//problematic_series.csv", sep = ",", row.names = F)
 }

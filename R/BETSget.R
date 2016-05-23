@@ -68,14 +68,14 @@ BETSget = function(code, data.frame = FALSE){
       freq = 365 
     }
     else {
-      return(msg(paste(.MSG_NOT_AVAILABLE,"Malformed metadata. The value", freq, "is not valid for 'periodicity'")))
+      return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Malformed metadata. The value", freq, "is not valid for 'periodicity'"))))
     }
     
     query = paste("select data, valor from ", database, " where serie like " ,"\'", code ,"\'",sep="")
     aux = sqldf(query)
     
     if(nrow(aux) == 0){
-      return(msg(paste(.MSG_NOT_AVAILABLE,"Series is empty in database", database)))
+      return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Series is empty in database", database))))
     }
     
     aux = na.omit(aux)
@@ -108,7 +108,7 @@ BETSget = function(code, data.frame = FALSE){
     aux2 = na.omit(aux2)
     
     if(is.null(aux1)){
-      return(msg(paste(.MSG_NOT_AVAILABLE,"Series contains only NAs.")))
+      return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Series contains only NAs."))))
     }
     
     start = get.period(aux2[1],freq)

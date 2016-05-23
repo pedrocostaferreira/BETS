@@ -12,15 +12,13 @@
 
 
 msg <- function(..., skip_before=TRUE, skip_after=FALSE) {
-
-  #wrapped <- strwrap(str_c(..., sep = " "),
-                     #width = getOption("width") - 2)
+  
   m <- str_c("BETS-package: ", ...)
   if(skip_before) k <- paste0("\n", m)
   if(skip_after) k <- paste0(m, "\n")
   Encoding(k) <- "UTF-8"
   message(k)
   
-  #invisible(return(m))
+  invisible(m)
 }
 
