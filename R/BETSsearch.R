@@ -92,7 +92,7 @@
 #' @import sqldf
 #' @export 
 
-BETSsearch=function(name,src,periodicity,unit,code,view=TRUE,language="en"){
+BETSsearch=function(name,src,periodicity,unit,code,view=TRUE,lang="en"){
   
   if(lang=="pt"){database=bacen_v7_port}else{database=bacen_v7}
   
