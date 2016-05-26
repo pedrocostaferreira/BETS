@@ -1,0 +1,237 @@
+---
+title: "Fitted SARIMA Model"
+author: "Talitha Speranza"
+date: "`r Sys.Date()`"
+output: html_document
+params:
+  code: 21864
+  lag.max: 48
+  n.ahead: 12
+---
+
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+```
+
+## User-Defined Parameters
+
+ Parameter          | Value              | Variable
+ ------------------ | ------------------ | ----------
+ Series Code        | `r as.integer(params$code)`    | `code` 
+ Maximum Lag        | `r params$lag.max` | `lag.max` 
+ Prevision Horizon  | `r params$n.ahead` | `n.ahead`  
+
+
+
+ 
+```{r echo = FALSE}
+  code = params$code
+  lag.max = params$lag.max
+  n.ahead = params$n.ahead
+```
+
+
+## Getting the Time Series from the BETS database
+
+```{r}
+library(BETS)
+ts = BETSget(code)
+```
+
+### Information About the Series
+
+```{r}
+info <- BETSsearch(code = code, view = F)
+```
+
+
+```{r echo = FALSE}
+names(info) <- c("Code","Description","Periodicity","Start","Source","Unit")
+info[,"Start"] <- paste(start(ts),collapse=".")
+info[,"Description"] <- trimws(info[,"Description"])
+knitr::kable(info, format = "markdown")
+```
+
+## Graph
+
+```{r}
+library(dygraphs)
+dygraph(ts, main = info[,"Description"]) %>%
+  dyRangeSelector(strokeColor = "gray", fillColor = "gray") %>%
+    dyAxis("y", label = info[,"Unit"]) 
+```
+
+## Unit Root Tests
+
+### Augmented Dickey-Fuller 
+
+```{r echo = c(1,2,3)}
+  library(urca)
+  df <- ur.df(ts, type = "none", lags = 6, selectlags = "BIC")
+  cbind(t(df@teststat),df@cval)
+  uroot = FALSE
+```
+
+```{r echo = FALSE}
+  uroot = (df@teststat[1] > df@cval[1,2])
+```
+
+```{asis eval = uroot}
+  For a 95% confidence interval, the test statistic `tau3` is greater than the critical value. We therefore conclude that there must be a unit root. 
+  
+  Now, we are going to repeatedly apply `diff` to the series and check if the diferentiated series has a unit root.
+```
+
+```{asis eval = !uroot}
+  For a 95% confidence interval, the test statistic `tau3` is smaller than the critical value. We therefore conclude that there is no unit root. 
+```
+
+```{r eval = uroot, echo = uroot}
+  ns_roots = 0
+  d_ts = ts 
+
+  while(df@teststat[1] > df@cval[1,2]){
+    ns_roots = ns_roots + 1
+    d_ts = diff(d_ts)
+    df = ur.df(d_ts, type = "none", lags = 6, selectlags = "BIC")
+    print(cbind(t(df@teststat),df@cval))
+  }
+```
+`r if(uroot) 'These tests found that there must be a total of '` `r if(uroot) ns_roots` `r if(uroot) ' unit root(s)'`
+
+### Osborn-Chui-Smith-Birchenhall
+
+This test will be performed for lag `r frequency(ts)`, that is, the frequency of the series `r info[1,1]`. 
+
+```{r echo = c(1,2,3)}
+library(forecast)
+s_roots = nsdiffs(ts)
+print(s_roots)
+
+sroot = FALSE
+if(s_roots != 0) sroot = TRUE
+```
+
+```{asis eval = !sroot}
+  According to the OCSB test, there is no seasonal unit root, at least at a 5% significance level. 
+```
+
+`r if(sroot) 'This result holds for a 5% signficance level and means that, according to the OCSB test, there must be a total of '` `r if(sroot) s_roots` `r if(sroot) ' seasonal unit root(s)'`
+
+## Auto-Correlation Functions
+
+```{r echo = FALSE}
+library(plotly)
+```
+
+
+### ACF - Original Series
+
+```{r echo = 1}
+corrgram(ts, lag.max = lag.max, mode = "bartlett")
+```
+
+### PACF - Original Series
+
+```{r}
+corrgram(ts, lag.max = lag.max, mode = "simple", type = "partial")
+```
+
+
+```{asis eval = uroot}
+### ACF and PACF - After Non-Seasonal Differentiation
+```
+
+`r if(uroot) 'As we saw earlier, this series probably has'` `r if(uroot) ns_roots` `r if(uroot) ' non-seasonal unit root(s). It means we have look into the correlograms of the differentiated series.'`
+
+```{asis eval = uroot}
+#### ACF 
+```
+
+```{r eval =  uroot, echo = uroot}
+BETS::corrgram(d_ts, lag.max = lag.max, mode = "bartlett")
+```
+
+```{asis eval = uroot}
+#### PACF 
+```
+
+```{r eval = uroot, echo = uroot}
+BETS::corrgram(d_ts, lag.max = lag.max, mode = "simple", type = "partial")
+```
+
+```{asis eval = sroot}
+### ACF and PACF - After Seasonal Differentiation
+```
+
+`r if(sroot) 'When we performed the OCSB test, we saw that this series probably has'` `r if(sroot) s_roots` `r if(sroot) ' seasonal unit root(s). It means we have look into the correlograms of the seasonally differentiated series.'`
+
+```{r eval = !uroot, echo = !uroot}
+  d_ts = ts 
+```
+
+
+```{r eval =  sroot, echo = sroot}
+ds_ts <- d_ts
+
+for(i in 1:s_roots){
+  ds_ts <- diff(ds_ts, frequency(ts))
+}
+```
+
+```{asis eval = sroot}
+#### ACF 
+```
+
+```{r eval = sroot, echo = sroot}
+corrgram(ds_ts, lag.max = lag.max, mode = "bartlett")
+```
+
+```{asis eval = sroot}
+#### PACF 
+```
+
+```{r eval = sroot, echo = sroot}
+corrgram(ds_ts, lag.max = lag.max, mode = "simple", type = "partial")
+```
+
+## Model Identification and Estimation
+
+The correlograms from last section gives us enough information to try to identify the underlying SARIMA model parameters. We can confirm our guess by running the 'auto.arima' function from the package 'forecast'. By default, this function uses the AICc (Akaike Information Criterion with Finite Sample Correction) for model selection.
+
+
+```{r echo = c(1,2)}
+model = auto.arima(ts, ic = "bic")
+summary(model)
+
+desc = capture.output(model)[2]
+diffs = as.numeric(gsub("\\,", "", regmatches(desc,gregexpr(",.,",desc))[[1]]))
+
+p = model$arma[1]
+d = diffs[1]
+q = model$arma[2]
+P = model$arma[3]
+D = diffs[2]
+Q = model$arma[4]
+freq = model$arma[5]
+```
+
+We see that, according to the 'BIC', the best model is a `r desc`.
+
+## Forecasts
+
+```{r}
+lm = forecast(model, h = n.ahead)
+
+data = as.ts(cbind(fit = lm$mean, upr =  lm$upper[,2], lwr = lm$lower[,2]))
+data = cbind(hist = ts, md = data)
+
+dygraph(data, main = info[,"Description"]) %>%
+  dySeries("hist", label = "Actual") %>%
+  dySeries(c("md.lwr", "md.fit", "md.upr"), label = "Predicted") %>%
+    dyRangeSelector(strokeColor = "gray", fillColor = "gray") %>%
+      dyAxis("y", label = info[,"Unit"]) 
+```
+
+
+

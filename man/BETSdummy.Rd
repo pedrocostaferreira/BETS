@@ -4,7 +4,8 @@
 \alias{BETSdummy}
 \title{Create dummy to monthly ts object}
 \usage{
-BETSdummy(start = c(year,month),end= c(year,month),frequency = 12,year,month,quarter,date,from,to)
+BETSdummy(start = c(year,month),end= c(year,month),frequency = 12,year,
+    month, quarter, date, from, to)
 }
 \arguments{
 \item{start}{the time of the first observation. Either a vector of 
@@ -32,7 +33,7 @@ length 1 unless just from is supplied as an unnamed argument.}
 \item{to}{the maximal value of the sequence.}
 }
 \value{
-A monthly \code{ts}.
+A monthly or a quarterly \code{ts}.
 }
 \description{
 Given a informations about the time and dates, return a monthly 

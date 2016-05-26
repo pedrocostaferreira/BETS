@@ -4,7 +4,7 @@
 \alias{BETSsearch}
 \title{Search for a Brazilian Economic Time Series}
 \usage{
-BETSsearch(name, src, periodicity, unit, code, view = TRUE)
+BETSsearch(name, src, periodicity, unit, code, view = TRUE, lang = "en")
 }
 \arguments{
 \item{name}{A \code{character}. The complete name or a part of the name of the series.}
@@ -18,6 +18,8 @@ BETSsearch(name, src, periodicity, unit, code, view = TRUE)
 \item{code}{An \code{integer}. The index of the series within the database.}
 
 \item{view}{A \code{boolean}. The default is \code{TRUE}. If set to \code{FALSE}, the results are NOT going to be shown.}
+
+\item{language}{A \code{character}. The Search language, which defaut is "en", but can be "pt".}
 }
 \value{
 A \code{list} that can be interpreted as a \code{data.frame}. The fields are described below.
