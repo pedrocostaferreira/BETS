@@ -1,8 +1,18 @@
 #' @title  BETSparamVAR
 #'  
-#' @description 
-#' Pior perda esperada para certo volume investido, sob condicoes normais
-#' de mercado e dentro de pequeno e determinado nível de confianca.
+#' @description O Value at Risk (VaR) representa uma medida de perda potencial de um ativo
+#' ou carteira de ativos sujeita a riscos de mercado como, por exemplo, 
+#' flutuacoes de precos, de taxas de juros e de taxas de cambio. A metodologia
+#' continua relevante no cenario financeiro, principalmente pela facil 
+#' interpretacao do seu resultado e pela nao dependencia de uma distribuicao 
+#' especifica para sua aplicacao. Como se trata de um metodo parametrico, pois 
+#' envolve a estimacao de parametros. Com o objetivo de facilitar o calculo do 
+#' valor em risco, assume-se que a serie de retornos assume uma distribuicao
+#' conhecida, como a distribuicao normal. 
+#' 
+#' Resumidamente, VaR pode ser a pior perda esperada para certo volume 
+#' investido, sob condicoes normais de mercado e dentro de pequeno e 
+#' determinado nível de confianca.
 #' 
 #' 
 #'  
@@ -14,17 +24,34 @@
 #' @param volume that will be invested
 #' @param conf.level confidence level of the interval
 #'  
-#' @details
-#'  O Value at Risk (VaR) representa uma medida de perda potencial de um ativo
-#' ou carteira de ativos sujeita a riscos de mercado como, por exemplo, 
-#' flutuacoes de precos, de taxas de juros e de taxas de cambio. A metodologia
-#' continua relevante no cenario financeiro, principalmente pela facil 
-#' interpretacao do seu resultado e pela nao dependencia de uma distribuicao 
-#' especifica para sua aplicacao. Como se trata de um metodo parametrico, pois 
-#' envolve a estimacao de parametros. Com o objetivo de facilitar o calculo do 
-#' valor em risco, assume-se que a serie de retornos assume uma distribuicao
-#' conhecida, como a distribuicao normal.  
+#' @details Suponha que se tenha aplicados $1.000.000,00 numa carteira que 
+#' se espelha , exatamente, no IBOVESPA.
+#' 
+#' Pergunta-se: Qual e o VaR diario de 95%?
+#' 
+#' formulando a hipotese : 
+#' \deqn{r_{t} = u_{t} + h^{\frac{1}{2}}_{t_{\frac{1}{2}}}e_{t}}
+#'     
+#'  onde , tipicamente: 
+#'   \itemize{
+#'    \item \eqn{u_{t}} é um processo AR(1)
+#'    \item \eqn{h_{t_{\frac{1}{2}}}} é um processo GARCH(1,1) 
+#'   }
+#'   
+#'   assim, temos: 
+#'   
+#'  \eqn{r_{t}\mid r_{t-1}~ N(u_{t},h_{t}^{*})}
 #'  
+#'  \eqn{e_{t} = \frac{(r_{t}-u_{t})}{h^{\frac{1}{2}}_{t}}~N(0,1)}
+#'  
+#'  Calculando o VaR condicional a 95% (fixado pelo pesquisador por exemplo):
+#'  
+#'\deqn{Pr(r_{t}\leq \fgrac{r_{t}^{*}}{r_{t-1}}) = 5\% },  padronizando, temos:
+#'  
+#'  
+#'\deqn{Pr[(\frca{r_{t}-u_{t}}{h^{\frac{1}{2}_{t}}}) \leq \frac{(r_{t}^{*}-u_{t})}{h^{\frac{1}{2}}_{t}}] = 5\%}
+#'  
+#'   
 #' @examples 
 #' 
 #' require(quantmod)
@@ -46,6 +73,7 @@
 #'  
 #' @keywords Econometria de Series Temporais  
 #' @import rugarch
+#' @export
 
 
 
