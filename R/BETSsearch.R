@@ -94,8 +94,12 @@
 
 BETSsearch=function(name,src,periodicity,unit,code,view=TRUE,lang="en"){
   
-  if(lang=="pt"){database=bacen_v7_port}else{database=bacen_v7}
+  #if(lang=="pt"){database=bacen_v7_port}else{database=bacen_v7}
+  ##-----------------------------------------------------------
+  if(lang=="pt"){database=base_final_ptv1}else{database=bacen_v7}
+  ##-----------------------------------------------------------
   
+    
   if(missing(src) & missing(periodicity) & missing(code) & missing(unit)){
     
     if(is.character(name)==F) stop("Erro")
@@ -144,10 +148,16 @@ BETSsearch=function(name,src,periodicity,unit,code,view=TRUE,lang="en"){
     aux=sqldf(
       paste("select Codes, Description, Periodicity,start, source, unit from database 
             where Codes like " ,"\'", code ,"\'",sep=""))
+   
+    ###----------------------------------------------------
+     aux1 = sqldf(
+      paste("select Codes, Description, Periodicity,start, source, unit from database 
+            where Codes like " ,"\'", paste0("ST_",code) ,"\'",sep=""))
+    aux <- rbind(aux1,aux2)
     Results=aux
     if(view==T){return(View(Results))}else{return(Results)}
     
-    
+    ###---------------------------------------------------
     
     return(aux2)
   }else if(missing(code) && missing(src) & missing(unit)){
