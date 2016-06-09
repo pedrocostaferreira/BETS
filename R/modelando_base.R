@@ -2,8 +2,8 @@
 ##script para reorganizar a estrutura das series temporais do IBRE|FGV##
 ########################################################################
 
-base1 = readRDS("C:\\Users\\jonatha.costa\\Dropbox\\BETSgratuita_icc.rds")
-base2 = readRDS("C:\\Users\\jonatha.costa\\Dropbox\\BETS\\premium_icc.rds")
+#base1 = readRDS("C:\\Users\\jonatha.costa\\Dropbox\\BETSgratuita_icc.rds")
+#base2 = readRDS("C:\\Users\\jonatha.costa\\Dropbox\\BETS\\premium_icc.rds")
 
 
 modelando_base <- function(dados){
