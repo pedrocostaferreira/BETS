@@ -2,11 +2,13 @@
 
 export(BETSdummy)
 export(BETSget)
+export(BETSparamVaR)
 export(BETSreport)
 export(BETSsave.sas)
 export(BETSsave.spss)
 export(BETSsave.stata)
 export(BETSsearch)
+export(BETSsearch2)
 export(corrgram)
 export(t_test)
 import(forecast)
