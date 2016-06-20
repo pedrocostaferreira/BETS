@@ -128,7 +128,8 @@ BETSsearch2 = function(description,src,periodicity,unit,code,view=TRUE,lang="en"
   if(!missing(description)){
     
     ## Break description parameters
-    desc_params = vector(mode = "character")
+    and_params = vector(mode = "character")
+    or_params = vector(mode = "character")
     
     # Workaround
     description = paste0(description, " ")
@@ -136,49 +137,73 @@ BETSsearch2 = function(description,src,periodicity,unit,code,view=TRUE,lang="en"
     # Do not match whole expressions
     exprs = regmatches(description,gregexpr("~ ?'(.*?)'",description))[[1]]
     
-    for(i in 1:length(exprs)){
-      description = gsub(exprs[i], "", description)
-      exprs[i] = gsub("~", "", exprs[i])
-      exprs[i] = gsub("'", "", exprs[i])
-      exprs[i] = trimws(exprs[i])
-      desc_params = c(desc_params, paste0("Description not like " ,"\'%", exprs[i] ,"%\'"))
+    if(length(exprs) != 0){
+      for(i in 1:length(exprs)){
+        description = gsub(exprs[i], "", description)
+        exprs[i] = gsub("~", "", exprs[i])
+        exprs[i] = gsub("'", "", exprs[i])
+        exprs[i] = trimws(exprs[i])
+        and_params = c(and_params, paste0("Description not like " ,"\'%", exprs[i] ,"%\'"))
+      }
     }
 
     # Match whole expressions
     exprs = regmatches(description,gregexpr("'(.*?)'",description))[[1]]
     
-    for(i in 1:length(exprs)){
-      description = gsub(exprs[i], "", description)
-      exprs[i] = gsub("'", "", exprs[i])
-      exprs[i] = trimws(exprs[i])
-      desc_params = c(desc_params, paste0("Description like " ,"\'%", exprs[i] ,"%\'"))
+    if(length(exprs) != 0){
+      for(i in 1:length(exprs)){
+        description = gsub(exprs[i], "", description)
+        exprs[i] = gsub("'", "", exprs[i])
+        exprs[i] = trimws(exprs[i])
+        or_params = c(or_params, paste0("Description like " ,"\'%", exprs[i] ,"%\'"))
+      }
     }
     
     # Do not match words
     words = regmatches(description,gregexpr("~ ?(.*?) ",description))[[1]]
-
-    for(i in 1:length(words)){
-      description = gsub(words[i], "", description)
-      words[i] = gsub("~", "", words[i])
-      words[i] = trimws(words[i])
-      desc_params = c(desc_params, paste0("Description not like " ,"\'%", words[i] ,"%\'"))
+    
+    if(length(words) != 0){
+      for(i in 1:length(words)){
+        description = gsub(words[i], "", description)
+        words[i] = gsub("~", "", words[i])
+        words[i] = trimws(words[i])
+        and_params = c(and_params, paste0("Description not like " ,"\'%", words[i] ,"%\'"))
+      }
     }
     
     # Match words
     words = str_split(description, " ")[[1]]
     words = words[words != ""]
     
-    for(i in 1:length(words)){
-      desc_params = c(desc_params, paste0("Description like " ,"\'%", words[i] ,"%\'"))
+    if(length(words) != 0){
+      for(i in 1:length(words)){
+        or_params = c(or_params, paste0("Description like " ,"\'%", words[i] ,"%\'"))
+      }
     }
     
+    if(length(and_params) > length(or_params)){
+      desc = and_params[1]
+      and_params = and_params[-1]
+    }
+    else {
+      desc = or_params[1]
+      or_params = or_params[-1]
+    }
+
+    if(length(or_params) != 0){
+      for(i in 1:length(or_params)){
+        desc = paste(desc, "or", or_params[i])
+      }
+    }
     
-    desc = desc_params[1] 
-    for(i in 2:length(desc_params)){
-      desc = paste(desc, "or", desc_params[i])
+    if(length(and_params) != 0){
+      for(i in 1:length(and_params)){
+        desc = paste(desc, "and", and_params[i])
+      }
     }
     
     params = c(params, desc)
+    print(params)
   }
   
   if(!missing(src)){
