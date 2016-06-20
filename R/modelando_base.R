@@ -1,9 +1,7 @@
-########################################################################
-##script para reorganizar a estrutura das series temporais do IBRE|FGV##
-########################################################################
+#---------------------------------------------------------------------#
+#script para reorganizar a estrutura das series temporais do IBRE|FGV #
+#---------------------------------------------------------------------#
 
-#base1 = readRDS("C:\\Users\\jonatha.costa\\Dropbox\\BETSgratuita_icc.rds")
-#base2 = readRDS("C:\\Users\\jonatha.costa\\Dropbox\\BETS\\premium_icc.rds")
 
 
 modelando_base <- function(dados){
@@ -18,7 +16,7 @@ for(i in 1:length(datas)){
 
 data = data_certa
 codigos = colnames(dados)
-
+codigos = codigos[2:length(codigos)]
 base = dados[,-1]
 linhas = nrow(base)
 colunas = ncol(base)
@@ -28,18 +26,21 @@ ts_mensal_ibre = data.frame(NA,NA,NA)
 colnames(ts_mensal_ibre) = c("data","valor","serie")
 ts_mensal_ibre = na.omit(ts_mensal_ibre)
 
-for(i in 1:colunas ){
-    for(j in 1:linhas){
-      serie = rep(codigos[i],time = linhas)
-      valor[j] = base[j,i]
+for(j in 1:colunas ){
+  valor = NULL
+  serie = NULL
+  for(i in 1:linhas){
+    print(paste("linha",i,sep=" "))
+      serie = rep(codigos[j],time = linhas)
+      valor[i] = base[i,j]
       data = data_certa
-      aux = data.frame(data,valor,serie)
-    }
-  print = i
+  }
+  aux = data.frame(data,valor,serie)
   ts_mensal_ibre = rbind(ts_mensal_ibre,aux)
   }
   ts_mensal_ibre
 }
+
 
 
 
