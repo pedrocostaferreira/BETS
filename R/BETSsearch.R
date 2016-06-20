@@ -1,14 +1,14 @@
 #' @title Search for a Brazilian Economic Time Series
 #' 
-#' @description Searches the BETS databases for a time series by its name, source, periodicity, code, data, unit of measurement and database name. 
+#' @description Searches the BETS databases for a time series by its description, source, periodicity, code, data, unit of measurement and database name. 
 #' 
-#' @param name A \code{character}. The complete name or a part of the name of the series.   
+#' @param description A \code{character}. A search string to look for matching series descriptions. Check the syntax rules under the 'Details' section for better performance. 
 #' @param src A \code{character}. The source of the series. See the 'Details' section for a list of the available sources.
 #' @param periodicity A \code{character}. The periodicity of the series. See the 'Details' section for a list of possible values.  
 #' @param unit A \code{character}. The unit of measurement of the data. See the 'Details' section for a list of possible values.  
 #' @param code An \code{integer}. The index of the series within the database. 
 #' @param view A \code{boolean}. The default is \code{TRUE}. If set to \code{FALSE}, the results are NOT going to be shown.    
-#' @param language A \code{character}. The Search language, which defaut is "en", but can be "pt".
+#' @param language A \code{character}. The search language. The default is "en" for english, but "pt" for portuguese is also possible.
 #' 
 #' @return A \code{list} that can be interpreted as a \code{data.frame}. The fields are described below.
 #' 
@@ -24,6 +24,27 @@
 #' @details 
 #' 
 #' \itemize{
+#' 
+#' \item{ Syntax rules for the parameter \code{description}, the search string to look for matching series descriptions: 
+#'    \enumerate{
+#'        \item{To search for alternative words, separate them by white spaces. 
+#'              Example: \code{description = "ipca core"} means that the series description must contain either 'ipca' OR 'core'
+#'        }
+#'        \item{To search for whole expressions, surround them with \code{' '}.
+#'              Example: \code{description = "'core ipca' index"} means that the series description must contain either 'core ipca' OR 'index'
+#'        }
+#'        \item{To exclude words from the search, insert a \code{~} before each of them.
+#'              Example: \code{description = "ipca ~ core"} means that the series description must contain 'ipca' AND must NOT contain 'core'
+#'        }
+#'        \item{To exclude whole expressions from the search, surround them with code{' '} and insert a \code{~} before each of them.
+#'              Example: \code{description = "~ 'ipca core' index"} means that the series description must contain 'index' AND must NOT contain 'core ipca'
+#'        }
+#'        \item{It is possible to search for multiple words or expressions and to negate multiple words or expressions, as long as the preceeding rules are observed. 
+#'        }
+#'        \item{The white space after the negation sign (\code{~}) is not required. But the white spaces AFTER expressions or words ARE required.
+#'        }
+#'      }
+#'    }
 #' 
 #' \item{ Possible values for the parameter \code{src}:
 #'    \tabular{ll}{
@@ -71,17 +92,14 @@
 #' 
 #' @examples 
 #' 
-#' BETSsearch(name="sales")
-#' # Output: BETS-package: 55 of 12981 time series !
-#' 
-#' BETSsearch(code= 4500)
-#' # Output: BETS-package: DONE!
+#' BETSsearch(description="sales")
+#' # Output: BETS-package: Found 55 out of 12981 time series
 #' 
 #' BETSsearch(src="Denor")
-#' # Output: BETS-package: 1 of 12981 time series !
+#' # Output: BETS-package: Found 1 out of 12981 time series
 #' 
 #' BETSsearch(periodicity="A")
-#' # Output: BETS-package: 2308 of 12981 time series!
+#' # Output: BETS-package: Found 2308 of 12981 time series
 #' 
 #' @references 
 #' 
@@ -92,133 +110,135 @@
 #' @import sqldf
 #' @export 
 
-BETSsearch=function(name,src,periodicity,unit,code,view=TRUE,lang="en"){
+BETSsearch2 = function(description,src,periodicity,unit,code,view=TRUE,lang="en"){
   
-  #if(lang=="pt"){database=bacen_v7_port}else{database=bacen_v7}
-  ##-----------------------------------------------------------
-  if(lang=="pt"){database=base_final_ptv1}else{database=bacen_v7}
-  ##-----------------------------------------------------------
+  if(lang=="pt"){
+    database=base_final_ptv1
+  }
+  else{
+    database=bacen_v7
+  }
   
+  if(missing(description) && missing(src) && missing(periodicity) && missing(unit) && missing(code)){
+    return(msg("No search parameters. Please set the values of one or more parameters."))    
+  }
+  
+  params = vector(mode = "character")
+  
+  if(!missing(description)){
     
-  if(missing(src) & missing(periodicity) & missing(code) & missing(unit)){
+    ## Break description parameters
+    and_params = vector(mode = "character")
+    or_params = vector(mode = "character")
     
-    if(is.character(name)==F) stop("Erro")
-    aux=sqldf(
-      paste("select Codes, Description, Periodicity,start, source, unit from database 
-            where Description like " ,"\'%", name ,"%\'",sep=""))
-    msg("Results")
-    Results=aux
-    msg(paste(nrow(aux),"of",nrow(database)," time series","!",sep=" "))
-    if(view==T){return(View(Results))}else{return(Results)}
-  }else if( missing(periodicity) & missing(name) & missing(code) & missing(unit)){
+    # Workaround
+    description = paste0(description, " ")
     
-    if(is.character(src)==F) stop("Erro")
-    aux=sqldf(
-      paste("select Codes, Description, Periodicity,start, source, unit from database 
-            where source like " ,"\'%", src ,"%\'",sep=""))
-    msg("Results")
-    Results=aux
-    msg(paste(nrow(aux),"of",nrow(database)," time series","!",sep=" "))
-    if(view==T){return(View(Results))}else{return(Results)}
-  }else if(missing(src) & missing(name) & missing(code) & missing(periodicity)){
+    # Do not match whole expressions
+    exprs = regmatches(description,gregexpr("~ ?'(.*?)'",description))[[1]]
     
-    if(is.character(unit) == F)stop("Erro")
-    aux=sqldf(
-      paste("select Codes, Description, Periodicity,start, source, unit from database 
-            where unit like " ,"\'%", unit ,"%\'",sep=""))
+    if(length(exprs) != 0){
+      for(i in 1:length(exprs)){
+        description = gsub(exprs[i], "", description)
+        exprs[i] = gsub("~", "", exprs[i])
+        exprs[i] = gsub("'", "", exprs[i])
+        exprs[i] = trimws(exprs[i])
+        and_params = c(and_params, paste0("Description not like " ,"\'%", exprs[i] ,"%\'"))
+      }
+    }
+
+    # Match whole expressions
+    exprs = regmatches(description,gregexpr("'(.*?)'",description))[[1]]
     
-    msg("Results")
-    Results=aux
-    msg(paste(nrow(aux),"of",nrow(database)," time series","!",sep=" "))
-    if(view==T){return(View(Results))}else{return(Results)}
-  }else if(missing(src) & missing(name) & missing(code) & missing(unit)){
+    if(length(exprs) != 0){
+      for(i in 1:length(exprs)){
+        description = gsub(exprs[i], "", description)
+        exprs[i] = gsub("'", "", exprs[i])
+        exprs[i] = trimws(exprs[i])
+        or_params = c(or_params, paste0("Description like " ,"\'%", exprs[i] ,"%\'"))
+      }
+    }
     
-    if(is.character(periodicity) == F)stop("Erro")
-    aux=sqldf(
-      paste("select Codes, Description, Periodicity,start, source, unit from database 
-            where periodicity like " ,"\'%", periodicity ,"%\'",sep=""))
-    msg("Results")
-    Results=aux
-    msg(paste(nrow(aux),"of",nrow(database)," time series","!",sep=" "))
-    if(view==T){return(View(Results))}else{return(Results)}
-  }else if(missing(name) & missing(periodicity) & missing(src) & missing(unit)){
+    # Do not match words
+    words = regmatches(description,gregexpr("~ ?(.*?) ",description))[[1]]
     
-    if(is.numeric(code) && (code%%1!=0))stop("Erro")
+    if(length(words) != 0){
+      for(i in 1:length(words)){
+        description = gsub(words[i], "", description)
+        words[i] = gsub("~", "", words[i])
+        words[i] = trimws(words[i])
+        and_params = c(and_params, paste0("Description not like " ,"\'%", words[i] ,"%\'"))
+      }
+    }
     
-    aux=sqldf(
-      paste("select Codes, Description, Periodicity,start, source, unit from database 
-            where Codes like " ,"\'", code ,"\'",sep=""))
-   
-    ###----------------------------------------------------
-     aux1 = sqldf(
-      paste("select Codes, Description, Periodicity,start, source, unit from database 
-            where Codes like " ,"\'", paste0("ST_",code) ,"\'",sep=""))
-    aux <- rbind(aux1,aux2)
-    Results=aux
-    if(view==T){return(View(Results))}else{return(Results)}
+    # Match words
+    words = str_split(description, " ")[[1]]
+    words = words[words != ""]
     
-    ###---------------------------------------------------
+    if(length(words) != 0){
+      for(i in 1:length(words)){
+        or_params = c(or_params, paste0("Description like " ,"\'%", words[i] ,"%\'"))
+      }
+    }
     
-    return(aux2)
-  }else if(missing(code) && missing(src) & missing(unit)){
+    if(length(and_params) > length(or_params)){
+      desc = and_params[1]
+      and_params = and_params[-1]
+    }
+    else {
+      desc = or_params[1]
+      or_params = or_params[-1]
+    }
+
+    if(length(or_params) != 0){
+      for(i in 1:length(or_params)){
+        desc = paste(desc, "or", or_params[i])
+      }
+    }
     
-    aux=sqldf(
-      
-      paste("select Codes, Description, Periodicity,start, source, unit from database 
-            where Description like", "\'%" , name ,"%\'", "and Periodicity like",
-            "\'%", periodicity ,"%\'" ,sep="")
-    )
-    msg("Results")
-    Results=aux
-    msg(paste(nrow(aux),"of",nrow(database)," time series","!",sep=" "))
-    if(view==T){return(View(Results))}else{return(Results)}
-  }else if(missing(code) && missing(name) & missing(unit)){
+    if(length(and_params) != 0){
+      for(i in 1:length(and_params)){
+        desc = paste(desc, "and", and_params[i])
+      }
+    }
     
-    aux=sqldf(
-      
-      paste("select Codes, Description, Periodicity,start, source, unit from database 
-            where source like", "\'%" , src ,"%\'", "and Periodicity like",
-            "\'%", periodicity ,"%\'" ,sep="")
-    )
-    msg("Results")
-    Results=aux
-    msg(paste(nrow(aux),"of",nrow(database)," time series","!",sep=" "))
-    if(view==T){return(View(Results))}else{return(Results)}
-  }else if(missing(code) && missing(periodicity) & missing(unit)){
-    
-    aux=sqldf(
-      
-      paste("select Codes, Description, Periodicity,start, source, unit from database 
-            where source like", "\'%" , src ,"%\'", "and Description like",
-            "\'%", name ,"%\'" ,sep="")
-    )
-    msg("Results")
-    Results=aux
-    msg(paste(nrow(aux),"of",nrow(database)," time series","!",sep=" "))
-    if(view==T){return(View(Results))}else{return(Results)}
-  }else if(missing(src) && missing(name) & missing(unit)){
-    
-    aux=sqldf(
-      
-      paste("select Codes, Description, Periodicity,start, source, unit from database 
-            where Codes like", "\'%" , code ,"%\'", "and Periodicity like",
-            "\'%", periodicity ,"%\'" ,sep="")
-    )
-    msg("Results")
-    Results=aux
-    msg(paste(nrow(aux),"of",nrow(database)," time series","!",sep=" "))
-    if(view==T){return(View(Results))}else{return(Results)}
-  }else if(missing(src) && missing(name) && missing(code)){
-    
-    aux=sqldf(
-      
-      paste("select Codes, Description, Periodicity,start, source, unit from database 
-            where Periodicity like", "\'%" , periodicity ,"%\'", "and unit like",
-            "\'%", unit ,"%\'" ,sep="")
-    )
-    msg("Results")
-    Results=aux
-    msg(paste(nrow(aux),"of",nrow(database)," time series","!",sep=" "))
-    if(view==T){return(View(Results))}else{return(Results)}
+    params = c(params, desc)
+    print(params)
+  }
+  
+  if(!missing(src)){
+    params = c(params, paste0("source like " ,"\'%", src ,"%\'"))
+  }
+  
+  if(!missing(periodicity)){
+    params = c(params, paste0("periodicity like " ,"\'%", periodicity ,"%\'"))
+  }  
+  
+  if(!missing(unit)){
+    params = c(params, paste0("unit like " ,"\'%", unit ,"%\'"))
+  }  
+  
+  if(!missing(code)){
+    params = c(params, paste0("Codes like " ,"\'", code ,"\'"))
+  }  
+
+  query = "select Codes, Description, Periodicity, start, source, unit from database where"
+  query = paste(query, params[1])
+  
+  if(length(params) != 1) {
+    for(i in 2:length(params)){
+      query = paste(query, "and", params[i])
+    }
+  }
+  
+  metadata = sqldf(query)
+  
+  msg(paste("Found", nrow(metadata),"out of",nrow(database)," time series.",sep=" "))
+  
+  if(view==T){
+    return(View(metadata))
+  }
+  else{
+    return(metadata)
   }
 }
