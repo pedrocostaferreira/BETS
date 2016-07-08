@@ -5,7 +5,8 @@ Version: 0.0.1
 Date: 2016-05-09
 Depends:
     R (>= 3.2.0)
-Imports: ggplot2, plotly, urca, TTR, forecast, TSA, FinTS, fpp, stringi, sqldf, foreign, lmtest, normtest, zoo, rugarch
+Imports: ggplot2, plotly, urca, TTR, forecast, TSA, FinTS, fpp, stringi, sqldf, foreign, lmtest, normtest, zoo, rugarch,
+         xlsx
 Author: Pedro Costa Ferreira <pedro.guilherme@fgv.br>, Jonatha Costa <jonatha.costa@fgv.br>, 
         Talitha Speranza <talitha.speranza@gmail.com>,Paulo Picchetti <paulo.picchetti@fgv.br> 
         and Vagner Laerte Ardeo <Vagner.Ardeo@fgv.br>.
