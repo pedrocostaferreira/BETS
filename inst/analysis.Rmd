@@ -21,8 +21,6 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE)
  Maximum Lag        | `r params$lag.max` | `lag.max` 
  Prevision Horizon  | `r params$n.ahead` | `n.ahead`  
 
-
-
  
 ```{r echo = FALSE}
   code = params$code

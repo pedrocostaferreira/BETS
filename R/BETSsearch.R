@@ -110,7 +110,7 @@
 #' @import sqldf
 #' @export 
 
-BETSsearch2 = function(description,src,periodicity,unit,code,view=TRUE,lang="en"){
+BETSsearch = function(description,src,periodicity,unit,code,view=TRUE,lang="en"){
   
   if(lang=="pt"){
     database=base_final_ptv1
