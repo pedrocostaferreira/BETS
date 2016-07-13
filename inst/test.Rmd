@@ -1,0 +1,24 @@
+---
+title: "Untitled"
+author: "Talitha Speranza"
+date: "12 de julho de 2016"
+output: pdf_document
+---
+
+```{r, echo=FALSE,results='asis'}
+text <- "this is\nsome\ntext \\ref{fig1}"
+
+mycat <- function(text){
+  cat(gsub(pattern = "\n", replacement = "  \n", x = text))
+}
+
+mycat(text)
+```
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 6in]{serie}
+   \caption{Produção de Bens Intermediários no Brasil, por mês (Índice)}
+   \label{fig1}
+   \small{Fonte: IBGE, maio de 2016}
+\end{figure}
