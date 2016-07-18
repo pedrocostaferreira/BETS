@@ -89,8 +89,7 @@ draw.ipca = function(file){
   abline(a = 4.5, b = 0, lty = 3, lwd = 2.5, col = "darkgray")
   text(end.x - 0.2, 4.1, "Target", cex = 0.9)
   
-  par(xpd=NA)
-  points(x = 2008, y = -1, pch = 17, col = "blue", bg = "blue", cex = 1.5)
+  #add.notes(c(ipca, core), ylim = c(2,11), xlim = c(2006,2016))
   
   dev.off()
   
