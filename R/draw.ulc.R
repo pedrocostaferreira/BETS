@@ -40,6 +40,8 @@ draw.ulc = function(file){
   arrows(x0 = x1, x1 = x1, y0 = y0, y1 = y1, length = c(0.1, 0.1), lwd = 2)
   text(x1 - 0.3, y0 + 6, as.character(last), cex = 1.1, font = 1)
   
+  add.notes(cut, ylim = c(70,180), xlim = c(2006,2016))
+  
   dev.off()
   
   file.show(file)

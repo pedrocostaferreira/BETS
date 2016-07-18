@@ -37,7 +37,7 @@ draw.ipca = function(file){
   core_acc = ts(core_acc, start = c(1996,12), frequency = 12)
   core = window(core_acc, start = c(2006,1))
   
-  par(font.lab = 2, cex.axis = 1.2, bty = "n", las = 1)
+  par(font.lab = 2, cex.axis = 1.2, bty = "n", las = 1, mar=c(6.1,4.1,4.1,2.1))
   plot(ipca, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = "National Consumer Price Index (IPCA)", col = "firebrick4", ylim = c(2,11), xlim = c(2006,2016))
   mtext("Cumulative 12-Month Percentage")
   
@@ -89,7 +89,7 @@ draw.ipca = function(file){
   abline(a = 4.5, b = 0, lty = 3, lwd = 2.5, col = "darkgray")
   text(end.x - 0.2, 4.1, "Target", cex = 0.9)
   
-  #add.notes(c(ipca, core), ylim = c(2,11), xlim = c(2006,2016))
+  add.notes(list(ipca = ipca, core = core), names = c("Full","Core"), ylim = c(2,11), xlim = c(2006,2016))
   
   dev.off()
   
