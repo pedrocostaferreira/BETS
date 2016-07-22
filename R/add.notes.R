@@ -20,29 +20,30 @@ add.notes = function(series.list, xlim, ylim, names = NULL){
     series.list = list(series.list)
   }
   
+  x.spam = xlim[2] - xlim[1]
+  y.spam = ylim[2] - ylim[1]
+  
   if(length(series.list) == 1){
-    mg = 0
+    mg = -0.025*y.spam
     divs = 3
   }
   else{
     if(is.null(names)){
       names = names(series.list)
     }
-    mg = 1
+    mg = 0.11*y.spam
     divs = length(series.list)*2 + 2 
   }
   
   x.coords = vector(mode = "numeric")
-  x.spam = xlim[2] - xlim[1]
-  y.spam = ylim[2] - ylim[1]
-  
+
   dist = x.spam/divs
   
   for(i in 1:(divs-1)){
     x.coords[i] = xlim[1] + i*dist 
   }
 
-  y.coord = ylim[1] - (1/3)*y.spam - mg 
+  y.coord = ylim[1] - (1/4)*y.spam - mg 
   j = 1
   
   for(i in 1:length(series.list)){
@@ -54,23 +55,30 @@ add.notes = function(series.list, xlim, ylim, names = NULL){
     last.period.val = paste0(round((series[len]/series[len-1] - 1)*100,2),"%")
     last.year.val = paste0(round((series[len]/series[len-freq] - 1)*100,2),"%")
     
-    dt = as.Date(series)[len-1]
-    last.period.comp = paste0(format(dt,"%b"),"/", format(dt,"%Y"),": ", series[len-1])
-    last.year.comp = paste0("last ", format(as.Date(series)[len],"%b"), ": ", series[len-freq])
+
+    dt.lp = as.Date(series)[len-1]
+    dt.ly = as.Date(series)[len-freq]
+    
+    last.period.comp = paste0(format(dt.lp,"%b"),"/", format(dt.lp,"%Y"),": ", series[len-1])
+    last.year.comp = paste0(format(dt.ly,"%b"),"/", format(dt.ly,"%Y"), ": ", series[len-freq])
+    
     
     d.lp = 0
     d.ly = 0
     
     if(nchar(last.period.val) == 4){
-      d.lp = 0.15
+      d.lp = 0.015*x.spam
     }
 
     if(nchar(last.year.val) == 4){
-      d.ly = 0.15
+      d.ly = 0.015*x.spam
     }
     
+    x.coords[j] = x.coords[j] - 0.01*x.spam
+    x.coords[j + 1] = x.coords[j + 1] + 0.01*x.spam
+    
     if(last.period.val > 0){
-      points(x = x.coords[j] + d.lp, y = y.coord - 0.2, pch = 24, col = "blue", bg = "blue", cex = 1.3)
+      points(x = x.coords[j] + d.lp, y = y.coord - 0.022*y.spam, pch = 24, col = "blue", bg = "blue", cex = 1.3)
     }
     else if(last.period.val < 0){
      points(x = x.coords[j] + d.lp, y = y.coord, pch = 25, col = "red", bg = "red", cex = 1.3) 
@@ -79,11 +87,11 @@ add.notes = function(series.list, xlim, ylim, names = NULL){
       points(x = x.coords[j] + d.lp, y = y.coord, pch = "-", col = "green", bg = "green", cex = 1.3) 
     }
     
-    text(last.period.val, x = x.coords[j] + .65, y = y.coord, cex = 0.8)
-    text(last.period.comp, x = x.coords[j] + .4, y = y.coord - 0.9, cex = 0.6)
+    text(last.period.val, x = x.coords[j] + 0.067*x.spam, y = y.coord, cex = 1.1, font = 2)
+    text(last.period.comp, x = x.coords[j] +  0.06*x.spam, y = y.coord - 0.1*y.spam, cex = 0.9)
     
     if(last.year.val > 0){
-      points(x = x.coords[j+1] + d.ly, y = y.coord - 0.2, pch = 24, col = "blue", bg = "blue", cex = 1.3)
+      points(x = x.coords[j+1] + d.ly, y = y.coord - 0.022*y.spam, pch = 24, col = "blue", bg = "blue", cex = 1.3)
     }
     else if(last.year.val < 0){
       points(x = x.coords[j+1] + d.ly, y = y.coord, pch = 25, col = "red", bg = "red", cex = 1.3) 
@@ -92,13 +100,13 @@ add.notes = function(series.list, xlim, ylim, names = NULL){
       points(x = x.coords[j+1]+ d.ly, y = y.coord, pch = "-", col = "green", bg = "green", cex = 1.3) 
     }
     
-    text(last.year.val, x = x.coords[j+1] + .65, y = y.coord, cex = 0.8)
-    text(last.year.comp, x = x.coords[j+1] + .4, y = y.coord - 0.9, cex = 0.6)
+    text(last.year.val, x = x.coords[j+1] + 0.067*x.spam, y = y.coord, cex = 1.1, font = 2)
+    text(last.year.comp, x = x.coords[j+1] + 0.06*x.spam, y = y.coord - 0.1*y.spam, cex = 0.9)
     
     if(!is.null(names)){
-      title.x = 0.5*x.coords[j] + 0.5*x.coords[j+1] + .4
+      title.x = 0.5*x.coords[j] + 0.5*x.coords[j+1] + 0.04*x.spam
       title.y = y.coord + mg
-      text(names[i], x = title.x, y = title.y, cex = 0.8, font = 2)
+      text(names[i], x = title.x, y = title.y, cex = 0.9, font = 2)
     }
     
     j = j + 3

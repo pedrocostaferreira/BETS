@@ -14,23 +14,45 @@
 #' @export
 
 
-BETSchart = function(alias, file = NULL){
+BETSchart = function(alias, lang = "en", out = "png", file = NULL, start = c(2006,1), ylim = NULL){
+  
+  if(lang == "en"){
+    Sys.setlocale(category = "LC_ALL", locale = "English_United States.1252")
+  }
+  else if(lang == "pt"){
+    Sys.setlocale(category = "LC_ALL", locale = "Portuguese_Brazil.1252")
+  }
+  else {
+    return(invisible(msg(.MSG_LANG_NOT_AVAILABLE)))
+  }
+  
+  if(is.null(file)){
+    dir.create("graphs", showWarnings = F)
+    file = paste0("graphs","\\",alias)
+  }
+  
+  if(out != "png"){
+    if(out != "pdf"){
+      return(invisible(msg(.MSG_OUT_NOT_AVAILABLE)))
+    }
+    
+    if(!grepl("\\.pdf$", file)) {
+      file <- paste(file,".pdf",sep="")
+    }
+  }
+  else {
+    if(!grepl("\\.png$", file)) {
+      file <- paste(file,".png",sep="")
+    }
+  }
 
   if(alias == "ipca"){
     
-    if(is.null(file)){
-      file = "inst//ipca.png"
-    }
-    
-    draw.ipca(file)
+    draw.ipca(file , start = start, ylim = ylim)
   }
   else if(alias == "ulc"){
     
-    if(is.null(file)){
-      file = "inst//ulc.png"
-    }
-    
-    draw.ulc(file)
+    draw.ulc(file, start = start, ylim = ylim)
   }
   else {
     msg(paste("Plot was not created.",.MSG_PARAMETER_NOT_VALID))

@@ -26,6 +26,7 @@ BETSreport <- function(code = 21864, model = "SARIMA", parameters = NULL){
   }
   
   file = gsub(".Rmd", ".html", file)
+  dir.create("reports")
   saveas = gsub("analysis.html", paste0("analysis_", code, ".html"), file)
   file.copy(file, saveas)
   
