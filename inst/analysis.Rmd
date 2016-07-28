@@ -53,8 +53,11 @@ knitr::kable(info, format = "markdown")
 ## Graph
 
 ```{r}
+library(mFilter)
+trend = fitted(hpfilter(ts))
+
 library(dygraphs)
-dygraph(ts, main = info[,"Description"]) %>%
+dygraph(cbind(Series = ts, Trend = trend), main = info[,"Description"]) %>%
   dyRangeSelector(strokeColor = "gray", fillColor = "gray") %>%
     dyAxis("y", label = info[,"Unit"]) 
 ```
@@ -77,7 +80,7 @@ dygraph(ts, main = info[,"Description"]) %>%
 ```{asis eval = uroot}
   For a 95% confidence interval, the test statistic `tau3` is greater than the critical value. We therefore conclude that there must be a unit root. 
   
-  Now, we are going to repeatedly apply `diff` to the series and check if the diferentiated series has a unit root.
+  Now, we are going to repeatedly apply `diff` to the series and check if the diferenced series has a unit root.
 ```
 
 ```{asis eval = !uroot}
@@ -137,10 +140,10 @@ corrgram(ts, lag.max = lag.max, mode = "simple", type = "partial")
 
 
 ```{asis eval = uroot}
-### ACF and PACF - After Non-Seasonal Differentiation
+### ACF and PACF - After Non-Seasonal Differencing
 ```
 
-`r if(uroot) 'As we saw earlier, this series probably has'` `r if(uroot) ns_roots` `r if(uroot) ' non-seasonal unit root(s). It means we have look into the correlograms of the differentiated series.'`
+`r if(uroot) 'As we saw earlier, this series probably has'` `r if(uroot) ns_roots` `r if(uroot) ' non-seasonal unit root(s). It means we have look into the correlograms of the differenced series.'`
 
 ```{asis eval = uroot}
 #### ACF 
@@ -159,10 +162,10 @@ BETS::corrgram(d_ts, lag.max = lag.max, mode = "simple", type = "partial")
 ```
 
 ```{asis eval = sroot}
-### ACF and PACF - After Seasonal Differentiation
+### ACF and PACF - After Seasonal Differencing
 ```
 
-`r if(sroot) 'When we performed the OCSB test, we saw that this series probably has'` `r if(sroot) s_roots` `r if(sroot) ' seasonal unit root(s). It means we have look into the correlograms of the seasonally differentiated series.'`
+`r if(sroot) 'When we performed the OCSB test, we saw that this series probably has'` `r if(sroot) s_roots` `r if(sroot) ' seasonal unit root(s). It means we have look into the correlograms of the seasonally differenced series.'`
 
 ```{r eval = !uroot, echo = !uroot}
   d_ts = ts 
@@ -195,7 +198,7 @@ corrgram(ds_ts, lag.max = lag.max, mode = "simple", type = "partial")
 
 ## Model Identification and Estimation
 
-The correlograms from last section gives us enough information to try to identify the underlying SARIMA model parameters. We can confirm our guess by running the 'auto.arima' function from the package 'forecast'. By default, this function uses the AICc (Akaike Information Criterion with Finite Sample Correction) for model selection.
+The correlograms from last section gives us enough information to try to identify the underlying SARIMA model parameters. We can confirm our guess by running the `auto.arima` function from the package `forecast`. By default, this function uses the AICc (Akaike Information Criterion with Finite Sample Correction) for model selection. Here, we are going to use BIC (Bayesian Information Criterion), in which the penalty term for the number of parameters in the model is larger than in AIC.
 
 
 ```{r echo = c(1,2)}
@@ -214,7 +217,7 @@ Q = model$arma[4]
 freq = model$arma[5]
 ```
 
-We see that, according to the 'BIC', the best model is a `r desc`.
+We see that, according to BIC, the best model is a `r desc`.
 
 ## Forecasts
 

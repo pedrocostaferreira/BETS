@@ -203,7 +203,6 @@ BETSsearch = function(description,src,periodicity,unit,code,view=TRUE,lang="en")
     }
     
     params = c(params, desc)
-    print(params)
   }
   
   if(!missing(src)){

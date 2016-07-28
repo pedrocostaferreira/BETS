@@ -14,7 +14,7 @@
 #' @export
 #' @import plotly forecast ggplot2
 
-corrgram = function(ts, lag.max = 10, type = "correlation", mode = "simple", ci = 0.95){
+corrgram = function(ts, lag.max = 10, type = "correlation", mode = "simple", ci = 0.95, style = "plotly"){
   
   ## Validation
   
@@ -85,12 +85,17 @@ corrgram = function(ts, lag.max = 10, type = "correlation", mode = "simple", ci 
     geom_step(data=data, mapping=aes(x=lags, y=-var), color="red", linetype="dashed", size=0.3) + 
     labs(list(x="Lag", y= yaxis))
   
-  p <- plotly_build(gp)
-  
-  p$data[[1]]$text <- paste("Lag:", lags)
-  p$data[[2]]$text <- paste0(yaxis, ": ", round(corrs,3), " <br> Lag: ", lags)
-  p$data[[3]]$text <- paste("CI upper bound:", round(var,3))
-  p$data[[4]]$text <- paste("CI lower bound:", -round(var,3))
+  if(style == "plotly"){
+    p <- plotly_build(gp)
+    
+    p$data[[1]]$text <- paste("Lag:", lags)
+    p$data[[2]]$text <- paste0(yaxis, ": ", round(corrs,3), " <br> Lag: ", lags)
+    p$data[[3]]$text <- paste("CI upper bound:", round(var,3))
+    p$data[[4]]$text <- paste("CI lower bound:", -round(var,3))
+  }
+  else {
+    p <- gp 
+  }
   
   p
   return(p)
