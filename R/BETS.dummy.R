@@ -5,7 +5,7 @@
 #' 
 #'
 #' 
-#' @usage BETSdummy(start = c(year,month),end= c(year,month),frequency = 12,year,
+#' @usage BETS.dummy(start = c(year,month),end= c(year,month),frequency = 12,year,
 #'     month, quarter, date, from, to)
 #' 
 #' @param start  the time of the first observation. Either a vector of 
@@ -27,42 +27,42 @@
 #'
 #'
 #' @details 
-#'   the BETSdummy works for the monthly or a quarterly \code{ts}. 
+#'   the BETS.dummy works for the monthly or a quarterly \code{ts}. 
 #'
 #' @examples 
 #'
 #' #1 from a specific date to another specific date
-#' BETSdummy(start = c(2000,1),end = c(2012,5),frequency = 12,from = c(2005,1),to = c(2006,12))
+#' BETS.dummy(start = c(2000,1),end = c(2012,5),frequency = 12,from = c(2005,1),to = c(2006,12))
 #'
 #'
 #' #Other options that may be helpful:
 #' 
 #' #over a month equal to 1
-#' BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = c(5,12))
+#' BETS.dummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = c(5,12))
 #' 
 #' #Months equal to 1 only for some year
-#' BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 5, year = 2010)
-#' BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 8, year = 2002)
+#' BETS.dummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 5, year = 2010)
+#' BETS.dummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 8, year = 2002)
 #' 
 #' #Months equal to 1 only for some years
-#' BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 5, year = 2005:2007)
-#' BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 3, year = c(2005,2007))
-#' BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 5:6, year = c(2005,2007))
+#' BETS.dummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 5, year = 2005:2007)
+#' BETS.dummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 3, year = c(2005,2007))
+#' BETS.dummy(start = c(2000,1), end = c(2012,5), frequency = 12, month = 5:6, year = c(2005,2007))
 #'
 #' #specific dates
-#' BETSdummy(start = c(2000,1), end = c(2012,5), frequency = 12, date = list(c(2010,1)))
-#' BETSdummy(start = c(2000,1), end = c(2012,5), 
+#' BETS.dummy(start = c(2000,1), end = c(2012,5), frequency = 12, date = list(c(2010,1)))
+#' BETS.dummy(start = c(2000,1), end = c(2012,5), 
 #'     freq = 12, date = list(c(2010,9), c(2011,1), c(2000,1)) )
 #'
 #'
-#' @seealso \code{\link[stats]{ts}}, \code{\link[BETS]{BETSdummy}}
+#' @seealso \code{\link[stats]{ts}}, \code{\link[BETS]{BETS.dummy}}
 #'
 #'
 #' @import zoo
 #' @export
 
 
-BETSdummy <- function(start = NULL, end = NULL, frequency = 12,
+BETS.dummy <- function(start = NULL, end = NULL, frequency = 12,
                   year = NULL, month = NULL, quarter = NULL,  
                   date = NULL, from = NULL, to = NULL){
   

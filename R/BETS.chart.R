@@ -14,7 +14,7 @@
 #' @export
 
 
-BETSchart = function(alias, lang = "en", out = "png", file = NULL, start = c(2006,1), ylim = NULL){
+BETS.chart = function(alias, lang = "en", out = "png", file = NULL, start = c(2006,1), ylim = NULL){
   
   if(lang == "en"){
     Sys.setlocale(category = "LC_ALL", locale = "English_United States.1252")

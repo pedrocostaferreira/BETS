@@ -14,7 +14,7 @@
 #' @export
 #' @import plotly forecast ggplot2
 
-corrgram = function(ts, lag.max = 10, type = "correlation", mode = "simple", ci = 0.95, style = "plotly"){
+BETS.corrgram = function(ts, lag.max = 10, type = "correlation", mode = "simple", ci = 0.95, style = "plotly"){
   
   ## Validation
   
@@ -44,14 +44,17 @@ corrgram = function(ts, lag.max = 10, type = "correlation", mode = "simple", ci 
   if(type == "correlation"){
     out <- forecast::Acf(ts, plot=F, lag.max = lag.max)
     yaxis = "Correlation"
+    corrs <- out$acf[-1, , ]
+    lags = out$lag[-1, , ]
   }
   else {
     out <- forecast::Pacf(ts, plot=F, lag.max = lag.max)
     yaxis = "Partial Correlation"
+    corrs <- out$acf[ , , ]
+    lags = out$lag[ , , ] + 1
   }
   
-  corrs <- out$acf[-1, , ]
-  lags = out$lag[-1, , ]
+  
   var <- vector(mode = "numeric")
   
   N = length(ts)

@@ -13,7 +13,7 @@
 #' @import rmarkdown
 
 
-BETSreport <- function(code = 21864, model = "SARIMA", parameters = NULL){
+BETS.report <- function(code = 21864, model = "SARIMA", parameters = NULL){
   
   file = system.file(package="BETS", "analysis.Rmd")
   
