@@ -100,8 +100,8 @@ BETS.corrgram = function(ts, lag.max = 10, type = "correlation", mode = "simple"
     p <- gp 
   }
   
-  p
-  return(p)
+  plot(p)
+  return(invisible(corrs))
 }
 
 
