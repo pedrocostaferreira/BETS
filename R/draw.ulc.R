@@ -29,7 +29,7 @@ draw.ulc = function(file, start = NULL, ylim = NULL){
     ylim = c(70,180)
   }
   
-  cut = BETSget(11777)
+  cut = BETS.get(11777)
   
   if(!is.null(start)){
     cut = window(cut, start = start)

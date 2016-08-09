@@ -29,8 +29,8 @@ draw.ipca = function(file, start = NULL, ylim = NULL){
     pdf(file, width = 8.0, height = 5.3)
   }
  
-  ipca = BETSget(13522)
-  core = BETSget(4466)
+  ipca = BETS.get(13522)
+  core = BETS.get(4466)
   
   if(is.null(start)){
     
