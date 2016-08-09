@@ -23,7 +23,7 @@
 #'  us.brl.seasonally_adjusted <- seas(us.brl)
 #'  plot(us.brl.seasonally_adjusted)
 #'  
-#' @seealso \code{\link[stats]{ts}}, \code{\link[BETS]{BETSsearch}} and \code{\link[seasonal]{seas}}
+#' @seealso \code{\link[stats]{ts}}, \code{\link[BETS]{BETS.search}} and \code{\link[seasonal]{seas}}
 #' 
 #' @keywords get
 #' 
