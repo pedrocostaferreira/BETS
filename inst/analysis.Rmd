@@ -33,13 +33,13 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 
 ```{r}
 library(BETS)
-ts = BETSget(code)
+ts = BETS.get(code)
 ```
 
 ### Information About the Series
 
 ```{r}
-info <- BETSsearch(code = code, view = F)
+info <- BETS.search(code = code, view = F)
 ```
 
 
@@ -150,7 +150,7 @@ corrgram(ts, lag.max = lag.max, mode = "simple", type = "partial")
 ```
 
 ```{r eval =  uroot, echo = uroot}
-BETS::corrgram(d_ts, lag.max = lag.max, mode = "bartlett")
+BETS.corrgram(d_ts, lag.max = lag.max, mode = "bartlett")
 ```
 
 ```{asis eval = uroot}
@@ -158,7 +158,7 @@ BETS::corrgram(d_ts, lag.max = lag.max, mode = "bartlett")
 ```
 
 ```{r eval = uroot, echo = uroot}
-BETS::corrgram(d_ts, lag.max = lag.max, mode = "simple", type = "partial")
+BETS.corrgram(d_ts, lag.max = lag.max, mode = "simple", type = "partial")
 ```
 
 ```{asis eval = sroot}
@@ -185,7 +185,7 @@ for(i in 1:s_roots){
 ```
 
 ```{r eval = sroot, echo = sroot}
-corrgram(ds_ts, lag.max = lag.max, mode = "bartlett")
+BETS.corrgram(ds_ts, lag.max = lag.max, mode = "bartlett")
 ```
 
 ```{asis eval = sroot}
@@ -193,7 +193,7 @@ corrgram(ds_ts, lag.max = lag.max, mode = "bartlett")
 ```
 
 ```{r eval = sroot, echo = sroot}
-corrgram(ds_ts, lag.max = lag.max, mode = "simple", type = "partial")
+BETS.corrgram(ds_ts, lag.max = lag.max, mode = "simple", type = "partial")
 ```
 
 ## Model Identification and Estimation
