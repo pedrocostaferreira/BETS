@@ -15,7 +15,7 @@ get.data.frame = function(code, ts = NULL) {
   
   if(is.null(ts)){
     
-    result = BETSsearch(code = code, view = F)
+    result = BETS.search(code = code, view = F)
     
     if(nrow(result) != 0){
       
