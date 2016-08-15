@@ -35,7 +35,7 @@ Due to the significant size of the databases, it could take a while to retrieve 
  
 }
 \seealso{
-\code{\link[stats]{ts}}, \code{\link[BETS]{BETSsearch}} and \code{\link[seasonal]{seas}}
+\code{\link[stats]{ts}}, \code{\link[BETS]{BETS.search}} and \code{\link[seasonal]{seas}}
 }
 \keyword{get}
 
