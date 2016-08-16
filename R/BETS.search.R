@@ -110,7 +110,7 @@
 #' @import sqldf
 #' @export 
 
-BETS.search = function(description,src,periodicity,unit,code,view=TRUE,lang="en"){
+BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lang="en"){
   
   if(lang=="pt"){
     database=base_final_ptv1
@@ -192,7 +192,7 @@ BETS.search = function(description,src,periodicity,unit,code,view=TRUE,lang="en"
 
     if(length(or_params) != 0){
       for(i in 1:length(or_params)){
-        desc = paste(desc, "or", or_params[i])
+        desc = paste(desc, "and", or_params[i])
       }
     }
     
@@ -219,6 +219,10 @@ BETS.search = function(description,src,periodicity,unit,code,view=TRUE,lang="en"
   
   if(!missing(code)){
     params = c(params, paste0("Codes like " ,"\'", code ,"\'"))
+  }
+  
+  if(!missing(start)){
+    params = c(params, paste0("start like " ,"\'", start ,"\'"))
   }  
 
   query = "select Codes, Description, Periodicity, start, source, unit from database where"

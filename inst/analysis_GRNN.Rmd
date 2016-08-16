@@ -1,12 +1,15 @@
 ---
-title: "Fitted SARIMA Model"
+title: "Fitted GRNN Model"
 author: "Talitha Speranza"
 date: "`r Sys.Date()`"
 output: html_document
 params:
-  code: 21864
-  lag.max: 48
-  n.ahead: 12
+  code: 433
+  auto.reg: TRUE
+  lag.max: 2
+  regs: 4381
+  n.ahead: 10 
+  pre.process: NA
 ---
 
 ```{r setup, echo = FALSE}
@@ -129,13 +132,13 @@ library(plotly)
 ### ACF - Original Series
 
 ```{r echo = 1}
-corrgram(ts, lag.max = lag.max, mode = "bartlett")
+BETS.corrgram(ts, lag.max = lag.max, mode = "bartlett", knit = T)
 ```
 
 ### PACF - Original Series
 
 ```{r}
-corrgram(ts, lag.max = lag.max, mode = "simple", type = "partial")
+BETS.corrgram(ts, lag.max = lag.max, mode = "simple", type = "partial", knit = T)
 ```
 
 
@@ -150,7 +153,7 @@ corrgram(ts, lag.max = lag.max, mode = "simple", type = "partial")
 ```
 
 ```{r eval =  uroot, echo = uroot}
-BETS.corrgram(d_ts, lag.max = lag.max, mode = "bartlett")
+BETS.corrgram(d_ts, lag.max = lag.max, mode = "bartlett", knit = T)
 ```
 
 ```{asis eval = uroot}
@@ -158,7 +161,7 @@ BETS.corrgram(d_ts, lag.max = lag.max, mode = "bartlett")
 ```
 
 ```{r eval = uroot, echo = uroot}
-BETS.corrgram(d_ts, lag.max = lag.max, mode = "simple", type = "partial")
+BETS.corrgram(d_ts, lag.max = lag.max, mode = "simple", type = "partial", knit = T)
 ```
 
 ```{asis eval = sroot}
@@ -185,7 +188,7 @@ for(i in 1:s_roots){
 ```
 
 ```{r eval = sroot, echo = sroot}
-BETS.corrgram(ds_ts, lag.max = lag.max, mode = "bartlett")
+BETS.corrgram(ds_ts, lag.max = lag.max, mode = "bartlett", knit = T)
 ```
 
 ```{asis eval = sroot}
@@ -193,7 +196,7 @@ BETS.corrgram(ds_ts, lag.max = lag.max, mode = "bartlett")
 ```
 
 ```{r eval = sroot, echo = sroot}
-BETS.corrgram(ds_ts, lag.max = lag.max, mode = "simple", type = "partial")
+BETS.corrgram(ds_ts, lag.max = lag.max, mode = "simple", type = "partial", knit = T)
 ```
 
 ## Model Identification and Estimation

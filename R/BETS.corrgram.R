@@ -12,9 +12,9 @@
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 #' 
 #' @export
-#' @import plotly forecast ggplot2
+#' @import plotly forecast ggplot2 
 
-BETS.corrgram = function(ts, lag.max = 10, type = "correlation", mode = "simple", ci = 0.95, style = "plotly"){
+BETS.corrgram = function(ts, lag.max = 10, type = "correlation", mode = "simple", ci = 0.95, style = "plotly", knit = F){
   
   ## Validation
   
@@ -95,12 +95,25 @@ BETS.corrgram = function(ts, lag.max = 10, type = "correlation", mode = "simple"
     p$data[[2]]$text <- paste0(yaxis, ": ", round(corrs,3), " <br> Lag: ", lags)
     p$data[[3]]$text <- paste("CI upper bound:", round(var,3))
     p$data[[4]]$text <- paste("CI lower bound:", -round(var,3))
+   
+    if(knit){
+      return(p)
+    }
+    else{
+      print(p)
+    }
   }
   else {
     p <- gp 
+    
+    if(knit){
+      return(p)
+    }
+    else{
+      plot(p)
+    }
   }
   
-  plot(p)
   return(invisible(corrs))
 }
 

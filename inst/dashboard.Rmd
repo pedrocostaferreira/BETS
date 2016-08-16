@@ -55,12 +55,12 @@ analist.site = "www.terracoeconomico.com.br"
 
 
 ```{r echo = FALSE, results = "hide"}
-BETSchart(alias = "ipca", file = "..\\inst\\ipca", out = "pdf")
+BETS.chart(alias = "ipca", file = "..\\inst\\ipca", out = "pdf")
 ```
 
 
 ```{r echo = FALSE, results = "hide"}
-BETSchart(alias = "ulc", file = "..\\inst\\ulc", out = "pdf")
+BETS.chart(alias = "ulc", file = "..\\inst\\ulc", out = "pdf")
 ```
 
 \begin{figure}[h]

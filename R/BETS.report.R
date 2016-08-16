@@ -13,22 +13,24 @@
 #' @import rmarkdown
 
 
-BETS.report <- function(code = 21864, model = "SARIMA", parameters = NULL){
+BETS.report <- function(ts = 21864, mode = "SARIMA", parameters = NULL){
   
-  file = system.file(package="BETS", "analysis.Rmd")
+  name = paste0("analysis_",mode,".Rmd")
+  
+  file = system.file(package="BETS", name)
   
   if(is.null(parameters)){
     rmarkdown::render(file)
   }
   else {
-    parameters$code = code 
+    parameters$ts = ts
     rmarkdown::render(file, params = parameters)
   }
   
   file = gsub(".Rmd", ".html", file)
   dir.create("reports")
-  saveas = gsub("analysis.html", paste0("analysis_", code, ".html"), file)
-  file.copy(file, saveas)
+  saveas = paste0("reports//analysis_", mode, "_", ts, ".html")
+  file.copy(file, saveas, overwrite = T)
   
   system2("open", saveas)
 }
