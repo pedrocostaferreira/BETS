@@ -44,6 +44,10 @@ BETS.get = function(code, data.frame = FALSE){
     freq = sqldf(query)[1,1]
     freq = trimws(as.character(freq))
     
+    if(is.na(freq)){
+      return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"There is no corresponding entry in the metadata table."))))
+    }
+    
     aux1 = NULL
     aux2 = NULL
     

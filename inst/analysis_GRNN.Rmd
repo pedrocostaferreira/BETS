@@ -6,9 +6,11 @@ output: html_document
 params:
   code: 433
   auto.reg: TRUE
+  present.regs: FALSE 
   lag.max: 2
   regs: 4381
-  n.ahead: 10 
+  start: c(1996,1)
+  end: c(2015,4)
   pre.process: NA
 ---
 

@@ -14,7 +14,7 @@
 #' @export
 
 
-BETS.grnn = function(series, regs, n.ahead){
+BETS.grnn = function(series.list, sigma, lag.max, n.ahead){
   
   
 }
