@@ -5,7 +5,7 @@
 \title{xxx}
 \usage{
 BETS.corrgram(ts, lag.max = 10, type = "correlation", mode = "simple",
-  ci = 0.95, style = "plotly")
+  ci = 0.95, style = "plotly", knit = F)
 }
 \arguments{
 \item{ts}{xxx}

@@ -9,8 +9,10 @@ params:
   present.regs: FALSE 
   lag.max: 2
   regs: 4382
-  start: c(1996,1)
-  end: c(2015,4)
+  start.train: c(1996,1)
+  end.train: c(2015,4)
+  start.test: c(2015,5)
+  end.test: c(2016,4)
   sigma.interval: c(0.8,0.9)
   sigma.step: 0.1
 ---

@@ -4,7 +4,7 @@
 \alias{BETS.grnn}
 \title{xxx}
 \usage{
-BETS.grnn(regs, n.ahead)
+BETS.grnn(train, test, sigma, step = 0.1, select = TRUE, names = NA)
 }
 \arguments{
 \item{ts}{xxx}

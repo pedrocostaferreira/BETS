@@ -4,7 +4,7 @@
 \alias{BETS.report}
 \title{xxx}
 \usage{
-BETS.report(code = 21864, model = "SARIMA", parameters = NULL)
+BETS.report(ts = 21864, mode = "SARIMA", parameters = NULL)
 }
 \arguments{
 \item{model}{xxx}

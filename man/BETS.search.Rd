@@ -4,7 +4,7 @@
 \alias{BETS.search}
 \title{Search for a Brazilian Economic Time Series}
 \usage{
-BETS.search(description, src, periodicity, unit, code, view = TRUE,
+BETS.search(description, src, periodicity, unit, code, start, view = TRUE,
   lang = "en")
 }
 \arguments{
@@ -43,10 +43,10 @@ Searches the BETS databases for a time series by its description, source, period
 \item{ Syntax rules for the parameter \code{description}, the search string to look for matching series descriptions: 
    \enumerate{
        \item{To search for alternative words, separate them by white spaces. 
-             Example: \code{description = "ipca core"} means that the series description must contain either 'ipca' OR 'core'
+             Example: \code{description = "ipca core"} means that the series description must contain 'ipca' AND'core'
        }
        \item{To search for whole expressions, surround them with \code{' '}.
-             Example: \code{description = "'core ipca' index"} means that the series description must contain either 'core ipca' OR 'index'
+             Example: \code{description = "'core ipca' index"} means that the series description must contain 'core ipca' AND 'index'
        }
        \item{To exclude words from the search, insert a \code{~} before each of them.
              Example: \code{description = "ipca ~ core"} means that the series description must contain 'ipca' AND must NOT contain 'core'

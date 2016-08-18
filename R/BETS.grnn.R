@@ -17,11 +17,16 @@
 
 BETS.grnn = function(train, test, sigma, step = 0.1, select = TRUE, names = NA){
   
-  if(length(train) < 2 || !check.series(train)){
+  if(length(train) < 2 || !check.series(train, "Series list: train.")){
     return(NULL)
   }
   
-  if(length(test) < 2 || !check.series(test)){
+  if(length(test) < 2 || !check.series(test, "Series list: test.")){
+    return(NULL)
+  }
+  
+  if(!is.na(names) && length(train) != length(names)){
+    msg("ERROR")
     return(NULL)
   }
   
@@ -35,6 +40,9 @@ BETS.grnn = function(train, test, sigma, step = 0.1, select = TRUE, names = NA){
     sigma = seq(sigma[1],sigma[2],step)
   }
   
+  vec.sigmas = vector(mode = "numeric")
+  vec.mapes = vector(mode = "numeric")
+  
   train_mt = matrix(nrow = train.n_elem, ncol = train.n_series)
   test_mt = matrix(nrow = test.n_elem, ncol = test.n_series)
 
@@ -42,17 +50,18 @@ BETS.grnn = function(train, test, sigma, step = 0.1, select = TRUE, names = NA){
     train_mt[,i] = train[[i]]
   }
   
-  for(i in 2:test.n_series){
-    test_mt[,i-1] = test[[i]]
+  for(i in 1:test.n_series){
+    test_mt[,i] = test[[i+1]]
   }
+  
+  result = vector(mode = "list")
+  result$mape = 1.797693e+308
   
   if(select){
     
     for(i in 1:(train.n_series-1)){
       
       trial = combn(2:train.n_series,i) 
-      result = vector(mode = "list")
-      result.mape = 1.797693e+308
       
       for(j in 1:ncol(trial)){
         
@@ -69,22 +78,26 @@ BETS.grnn = function(train, test, sigma, step = 0.1, select = TRUE, names = NA){
         
         for(s in sigma){
           
-          nn = smooth(learn(train_mt),s)
+          nn = smooth(learn(sub_train),s)
           prevs = vector(mode = "numeric")
           
           for(r in 1:nrow(sub_test)){
             prevs[r] = guess(nn, t(as.matrix(sub_test[r,])))
           }
           
-          acc = accuracy(prevs,check)[5]
-          
-          if(acc < result.mape){
+          acc = accuracy(prevs,actual)[5]
+
+          if(acc < result$mape){
+            
+            vec.sigmas = c(vec.sigmas,s)
+            vec.mapes = c(vec.mapes,acc)
             
             result$mape = acc
             result$predicted = prevs
             result$net = nn
+            result$sigma = s
             
-            regs = as.vector(trial[,j])
+            regs = trial[,j]
             
             if(!is.na(names)){
               result$regressors = names[regs] 
@@ -95,11 +108,10 @@ BETS.grnn = function(train, test, sigma, step = 0.1, select = TRUE, names = NA){
           }
         }
       }
-      
     }
-    
-    
   }
+  
+  result$sigma.mape = data.frame(sigma = vec.sigmas, mape = vec.mapes)
 
   return(result)
 }

@@ -30,10 +30,8 @@ train = vector(mode = "list")
 test = vector(mode = "list")
 
 for(i in 1:length(complete)){
-  st = length(complete[[i]]) - 10
-  ed = length(complete[[i]])
-  train[[i]] = window(complete[[i]], start = c(1996,1), end = c(2015,4))
-  test[[i]] = ts(complete[[i]][st:ed], end = c(2016,2), frequency = 12)
+  train[[i]] = window(complete[[i]], start = c(1996,1), end = c(2015,2))
+  test[[i]] = window(complete[[i]], start = c(2015,3), end = c(2016,2),frequency=12)
 }
 
 check = test[[1]]
@@ -41,6 +39,7 @@ check = test[[1]]
 sigma = 0.9
 data_train = cbind(train[[1]],train[[2]], train[[3]],train[[4]],train[[5]])
 data_train = data_train[-(1:2),]
-data_test = cbind(test[[2]],test[[3]],test[[4]],test[[5]])
+data_test = cbind(test[[1]],test[[2]],test[[3]],test[[4]],test[[5]])
+
 nn = smooth(learn(data_train),sigma)
 guess(nn, t(as.matrix(data_test[8,])))

@@ -12,34 +12,38 @@
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 
-check.series = function(ts){
+check.series = function(ts,message = NULL){
   
   if(is.list(ts)){
     s = sum(sapply(train, function(x){anyNA(x)}))
     
     if(s != 0){
-      msg("There is at least one series with NAs.")
+      msg(paste("There is at least one series with NAs.",message))
       return(FALSE)
     }
     
     l = length(ts[[1]])
-    s = start(ts[[1]])
+    st = start(ts[[1]])
     e = end(ts[[1]])
     
     for(i in 2:length(ts)){
       
       if(l != length(ts[[i]])){
-        msg("Not all series have the same length.")
+        msg(paste("Not all series have the same length.",message))
         return(FALSE)
       }
       
-      if(s != start(ts[[i]])){
-        msg("Not all series have the same starting period.")
+      exp = all.equal(st,start(ts[[i]]))
+      
+      if(!isTRUE(exp)){
+        msg(paste("Not all series have the same starting period.",message))
         return(FALSE)
       }
       
-      if(e != end(ts[[i]])){
-        msg("Not all series have the same ending period.")
+      exp = all.equal(e,end(ts[[i]]))
+      
+      if(!isTRUE(exp)){
+        msg(paste("Not all series have the same ending period.",message))
         return(FALSE)
       }
     }
@@ -48,12 +52,12 @@ check.series = function(ts){
   else if(class(ts) == "ts") {
     
     if(anyNA(ts)){
-      msg("This series contains NAs.")
+      msg(paste("This series contains NAs.",message))
       return(FALSE)
     }
   }
   else{
-    msg("Argument is not a time series or a list of time series.")
+    msg(paste("Argument is not a time series or a list of time series.",message))
     return(FALSE)
   }
   
