@@ -46,7 +46,7 @@ BETS.chart = function(alias, lang = "en", out = "png", file = NULL, start = c(20
     }
   }
 
-  if(alias == "ipca"){
+  if(alias == "ipca_with_core"){
     
     draw.ipca(file , start = start, ylim = ylim)
   }

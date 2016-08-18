@@ -121,13 +121,13 @@ draw.ipca = function(file, start = NULL, ylim = NULL){
   text(x0 - 0.05*x.spam, ylim[2], as.character(last.ipca), cex = 1.1, font = 2)
   text(x0 - 0.05*x.spam, min(core), as.character(last.core), cex = 1.1, font = 2)
   
-  legend("topleft", c("Full", "Core"), lty=c(1,1), lwd=c(2.5,2.5),col=c("firebrick4", "firebrick3"), bty = "n", cex = 0.9)
+  legend("topleft", c("IPCA", "Core"), lty=c(1,1), lwd=c(2.5,2.5),col=c("firebrick4", "firebrick3"), bty = "n", cex = 0.9)
   text(start[1] + 0.14*x.spam, ylim[2] - 0.165*y.spam, aval, cex = 0.9)
   
   abline(a = 4.5, b = 0, lty = 3, lwd = 3, col = "darkgray")
   text(last.x - 0.02*x.spam, 0.455*y.spam, "Target", cex = 0.9)
   
-  add.notes(list(ipca = ipca, core = core), names = c("Full","Core"), ylim = ylim, xlim = c(start[1],last[1]))
+  add.notes(list(ipca = ipca, core = core), names = c("IPCA","Core"), ylim = ylim, xlim = c(start[1],last[1]))
   
   dev.off()
   
