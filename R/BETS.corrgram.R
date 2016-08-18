@@ -12,9 +12,10 @@
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 #' 
 #' @export
-#' @import plotly forecast ggplot2 
+#' @importFrom plotly plotly_build
+#' @import forecast ggplot2 
 
-BETS.corrgram = function(ts, lag.max = 10, type = "correlation", mode = "simple", ci = 0.95, style = "plotly", knit = F){
+BETS.corrgram = function(ts, lag.max = 12, type = "correlation", mode = "simple", ci = 0.95, style = "plotly", knit = F){
   
   ## Validation
   
@@ -54,6 +55,10 @@ BETS.corrgram = function(ts, lag.max = 10, type = "correlation", mode = "simple"
     lags = out$lag[ , , ] + 1
   }
   
+  step = frequency(ts)
+  lim = lag.max - lag.max%%step
+  ticks = seq(0,lim,step)
+  ticks[1] = 1
   
   var <- vector(mode = "numeric")
   
@@ -83,6 +88,7 @@ BETS.corrgram = function(ts, lag.max = 10, type = "correlation", mode = "simple"
   
   gp <- ggplot(data, aes(x = lags, y= corrs)) +
     geom_segment(aes(x=lags, xend=lags, y=0, yend=corrs), data=data, size = 0.5) +
+    scale_x_continuous(breaks = ticks) + 
     geom_point(size = 0.5) +
     geom_step(data=data, mapping=aes(x=lags, y=var), color="red", linetype="dashed", size=0.3) +
     geom_step(data=data, mapping=aes(x=lags, y=-var), color="red", linetype="dashed", size=0.3) + 

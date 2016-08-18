@@ -34,6 +34,8 @@ for(i in 1:length(complete)){
   test[[i]] = window(complete[[i]], start = c(2015,3), end = c(2016,2),frequency=12)
 }
 
+## nao precisa rodar daqui pra frente
+
 check = test[[1]]
 
 sigma = 0.9
