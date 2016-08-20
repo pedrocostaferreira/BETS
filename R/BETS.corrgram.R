@@ -40,7 +40,9 @@ BETS.corrgram = function(ts, lag.max = 12, type = "correlation", mode = "simple"
     }
   }
   
-  z = qnorm(ci, 0, 1)
+  alpha = (1 - ci)/2
+  
+  z = -qnorm(alpha, 0, 1)
   
   if(type == "correlation"){
     out <- forecast::Acf(ts, plot=F, lag.max = lag.max)

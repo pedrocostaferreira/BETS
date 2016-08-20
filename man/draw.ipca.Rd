@@ -4,7 +4,7 @@
 \alias{draw.ipca}
 \title{xxx}
 \usage{
-draw.ipca(file, start = NULL, ylim = NULL)
+draw.ipca(file, start = NULL, ylim = NULL, open = TRUE)
 }
 \arguments{
 \item{ts}{xxx}

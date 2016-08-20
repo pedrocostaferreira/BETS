@@ -4,7 +4,7 @@
 \alias{draw.ulc}
 \title{xxx}
 \usage{
-draw.ulc(file, start = NULL, ylim = NULL)
+draw.ulc(file, start = NULL, ylim = NULL, open = TRUE)
 }
 \arguments{
 \item{ts}{xxx}
