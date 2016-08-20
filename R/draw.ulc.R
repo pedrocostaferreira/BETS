@@ -11,7 +11,7 @@
 #' 
 #' @importFrom rootSolve multiroot
 
-draw.ulc = function(file, start = NULL, ylim = NULL){
+draw.ulc = function(file, start = NULL, ylim = NULL, open = TRUE){
 
   dev.new()
   op <- par(no.readonly = TRUE)
@@ -66,5 +66,7 @@ draw.ulc = function(file, start = NULL, ylim = NULL){
   
   dev.off()
   
-  file.show(file)
+  if(open){
+    file.show(file)
+  }
 }

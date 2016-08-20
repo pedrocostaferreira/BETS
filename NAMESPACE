@@ -2,6 +2,7 @@
 
 export(BETS.chart)
 export(BETS.corrgram)
+export(BETS.dashboard)
 export(BETS.deflate)
 export(BETS.dummy)
 export(BETS.get)

@@ -4,27 +4,32 @@ classoption: landscape
 sansfont: Calibri Light
 header-includes:
    - \usepackage{subcaption,fancyhdr,graphicx,lastpage,hyperref,lmodern}
+params: 
+  text: NA
+  author: NA
+  email: NA
+  url: NA
+  logo: NA
 ---
 
 \fontfamily{lmss}\selectfont
 
 ```{r echo = FALSE, results = "hide"}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+
+text = params$text
+author = params$author
+email = params$email
+logo = params$logo
+url = params$url
 ```
 
 ```{r echo = FALSE}
 library(BETS)
-has.logo = TRUE
-has.email = TRUE
-has.website = TRUE 
-analist.name = "Terraço Econômico"
-analist.email = "terracoeconomico@gmail.com"
-analist.site = "www.terracoeconomico.com.br"
 ```
 
-\def\haslogo{`r as.integer(has.logo)`}
-\def\hasemail{`r as.integer(has.email)`} 
-\def\haswebsite{`r as.integer(has.website)`} 
+\def\haslogo{`r as.integer(!is.na(logo))`}
+\def\haswebsite{`r as.integer(!is.na(url))`} 
 
 \fancypagestyle{plain}{
   \fancyhf{}
@@ -35,12 +40,12 @@ analist.site = "www.terracoeconomico.com.br"
     {\fontfamily{lmss}\selectfont
     {\footnotesize Analysis by} \\
     \ifnum\haslogo = 1
-      \includegraphics[width=\linewidth,height=35pt]{logo_terraco} \\
+      \includegraphics[width=\linewidth,height=35pt]{`r logo`} \\
     \else
-      `r analist.name` 
+      `r author` 
     \fi
     \ifnum\haswebsite = 1
-      {\small \url{`r analist.site`}}
+      {\small \url{`r url`}}
     \fi
     }
   }
@@ -55,36 +60,39 @@ analist.site = "www.terracoeconomico.com.br"
 
 
 ```{r echo = FALSE, results = "hide"}
-BETS.chart(alias = "ipca", file = "..\\inst\\ipca", out = "pdf")
+dir.create("graphs")
+BETS.chart(alias = "ipca_with_core", file = "graphs//ipca", out = "pdf", open = FALSE)
 ```
 
 
 ```{r echo = FALSE, results = "hide"}
-BETS.chart(alias = "ulc", file = "..\\inst\\ulc", out = "pdf")
+BETS.chart(alias = "ulc", file = "graphs//ulc", out = "pdf", open = FALSE)
 ```
 
 \begin{figure}[h]
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=1\linewidth]{ipca}
+  \includegraphics[width=1\linewidth]{graphs/ipca}
   \label{ipca}
 \end{subfigure}
 ~
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=1\linewidth]{ulc}
+  \includegraphics[width=1\linewidth]{graphs/ulc}
   \label{cut}
 \end{subfigure}
 \end{figure}
 
 
 ```{r, echo = FALSE, results='asis'}
-text <- paste(readLines("text.txt"), collapse=" ")
-text = gsub(pattern = "\\\\n", replacement = "  \n", x = text)
-text <- strsplit(text, "##")[[1]]
-cat(text[1])
+if(!is.na(text)){
+  text <- paste(readLines(text), collapse=" ")
+  text = gsub(pattern = "\\\\n", replacement = "  \n", x = text)
+  text <- strsplit(text, "##")[[1]]
+  cat(text[1])
+}
 ```
 
-\newpage
+
 
 

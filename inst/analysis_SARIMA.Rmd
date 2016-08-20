@@ -33,7 +33,7 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 
 ```{r}
 library(BETS)
-ts = BETS.get(ts)
+data = BETS.get(ts)
 ```
 
 ### Information About the Series
@@ -45,7 +45,7 @@ info <- BETS.search(code = ts, view = F)
 
 ```{r echo = FALSE}
 names(info) <- c("Code","Description","Periodicity","Start","Source","Unit")
-info[,"Start"] <- paste(start(ts),collapse=".")
+info[,"Start"] <- paste(start(data),collapse=".")
 info[,"Description"] <- trimws(info[,"Description"])
 knitr::kable(info, format = "markdown")
 ```
@@ -54,10 +54,10 @@ knitr::kable(info, format = "markdown")
 
 ```{r}
 library(mFilter)
-trend = fitted(hpfilter(ts))
+trend = fitted(hpfilter(data))
 
 library(dygraphs)
-dygraph(cbind(Series = ts, Trend = trend), main = info[,"Description"]) %>%
+dygraph(cbind(Series = data, Trend = trend), main = info[,"Description"]) %>%
   dyRangeSelector(strokeColor = "gray", fillColor = "gray") %>%
     dyAxis("y", label = info[,"Unit"]) 
 ```
@@ -68,7 +68,7 @@ dygraph(cbind(Series = ts, Trend = trend), main = info[,"Description"]) %>%
 
 ```{r echo = c(1,2,3)}
   library(urca)
-  df <- ur.df(ts, type = "none", lags = 6, selectlags = "BIC")
+  df <- ur.df(data, type = "none", lags = 6, selectlags = "BIC")
   cbind(t(df@teststat),df@cval)
   uroot = FALSE
 ```
@@ -89,7 +89,7 @@ dygraph(cbind(Series = ts, Trend = trend), main = info[,"Description"]) %>%
 
 ```{r eval = uroot, echo = uroot}
   ns_roots = 0
-  d_ts = ts 
+  d_ts = data 
 
   while(df@teststat[1] > df@cval[1,2]){
     ns_roots = ns_roots + 1
@@ -102,11 +102,11 @@ dygraph(cbind(Series = ts, Trend = trend), main = info[,"Description"]) %>%
 
 ### Osborn-Chui-Smith-Birchenhall
 
-This test will be performed for lag `r frequency(ts)`, that is, the frequency of the series `r info[1,1]`. 
+This test will be performed for lag `r frequency(data)`, that is, the frequency of the series `r info[1,1]`. 
 
 ```{r echo = c(1,2,3)}
 library(forecast)
-s_roots = nsdiffs(ts)
+s_roots = nsdiffs(data)
 print(s_roots)
 
 sroot = FALSE
@@ -129,13 +129,13 @@ library(plotly)
 ### ACF - Original Series
 
 ```{r echo = 1}
-BETS.corrgram(ts, lag.max = lag.max, mode = "bartlett", knit = T)
+BETS.corrgram(data, lag.max = lag.max, mode = "bartlett", knit = T)
 ```
 
 ### PACF - Original Series
 
 ```{r}
-BETS.corrgram(ts, lag.max = lag.max, mode = "simple", type = "partial", knit = T)
+BETS.corrgram(data, lag.max = lag.max, mode = "simple", type = "partial", knit = T)
 ```
 
 
@@ -168,7 +168,7 @@ BETS.corrgram(d_ts, lag.max = lag.max, mode = "simple", type = "partial", knit =
 `r if(sroot) 'When we performed the OCSB test, we saw that this series probably has'` `r if(sroot) s_roots` `r if(sroot) ' seasonal unit root(s). It means we have look into the correlograms of the seasonally differenced series.'`
 
 ```{r eval = !uroot, echo = !uroot}
-  d_ts = ts 
+  d_ts = data 
 ```
 
 
@@ -176,7 +176,7 @@ BETS.corrgram(d_ts, lag.max = lag.max, mode = "simple", type = "partial", knit =
 ds_ts <- d_ts
 
 for(i in 1:s_roots){
-  ds_ts <- diff(ds_ts, frequency(ts))
+  ds_ts <- diff(ds_ts, frequency(data))
 }
 ```
 
@@ -202,7 +202,7 @@ The correlograms from last section gives us enough information to try to identif
 
 
 ```{r echo = c(1,2)}
-model = auto.arima(ts, ic = "bic")
+model = auto.arima(data, ic = "bic")
 summary(model)
 
 desc = capture.output(model)[2]
@@ -224,10 +224,10 @@ We see that, according to BIC, the best model is a `r desc`.
 ```{r}
 lm = forecast(model, h = n.ahead)
 
-data = as.ts(cbind(fit = lm$mean, upr =  lm$upper[,2], lwr = lm$lower[,2]))
-data = cbind(hist = ts, md = data)
+dt = as.ts(cbind(fit = lm$mean, upr =  lm$upper[,2], lwr = lm$lower[,2]))
+dt = cbind(hist = data, md = dt)
 
-dygraph(data, main = info[,"Description"]) %>%
+dygraph(dt, main = info[,"Description"]) %>%
   dySeries("hist", label = "Actual") %>%
   dySeries(c("md.lwr", "md.fit", "md.upr"), label = "Predicted") %>%
     dyRangeSelector(strokeColor = "gray", fillColor = "gray") %>%

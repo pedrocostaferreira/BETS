@@ -4,7 +4,7 @@
 \alias{BETS.corrgram}
 \title{xxx}
 \usage{
-BETS.corrgram(ts, lag.max = 10, type = "correlation", mode = "simple",
+BETS.corrgram(ts, lag.max = 12, type = "correlation", mode = "simple",
   ci = 0.95, style = "plotly", knit = F)
 }
 \arguments{

@@ -14,7 +14,7 @@
 #' @export
 
 
-BETS.chart = function(alias, lang = "en", out = "png", file = NULL, start = c(2006,1), ylim = NULL){
+BETS.chart = function(alias, lang = "en", out = "png", file = NULL, start = c(2006,1), ylim = NULL, open = TRUE){
   
   if(lang == "en"){
     Sys.setlocale(category = "LC_ALL", locale = "English_United States.1252")
@@ -48,11 +48,11 @@ BETS.chart = function(alias, lang = "en", out = "png", file = NULL, start = c(20
 
   if(alias == "ipca_with_core"){
     
-    draw.ipca(file , start = start, ylim = ylim)
+    draw.ipca(file , start = start, ylim = ylim, open = open)
   }
   else if(alias == "ulc"){
     
-    draw.ulc(file, start = start, ylim = ylim)
+    draw.ulc(file, start = start, ylim = ylim, open = open)
   }
   else {
     msg(paste("Plot was not created.",.MSG_PARAMETER_NOT_VALID))

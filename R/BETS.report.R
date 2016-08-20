@@ -13,10 +13,9 @@
 #' @import rmarkdown
 
 
-BETS.report <- function(ts = 21864, mode = "SARIMA", parameters = NULL){
+BETS.report <- function(mode = "SARIMA", ts = 21864, parameters = NULL, saveas= NA){
   
   name = paste0("analysis_",mode,".Rmd")
-  
   file = system.file(package="BETS", name)
   
   if(is.null(parameters)){
@@ -28,9 +27,14 @@ BETS.report <- function(ts = 21864, mode = "SARIMA", parameters = NULL){
   }
   
   file = gsub(".Rmd", ".html", file)
-  dir.create("reports")
-  saveas = paste0("reports//analysis_", mode, "_", ts, ".html")
-  file.copy(file, saveas, overwrite = T)
   
+  if(is.na(saveas)){
+    dir = paste0(system.file(package="BETS"),"//reports")
+    dir.create(dir)
+    saveas = paste0(dir,"//analysis_", mode, "_", ts, ".html")
+  }
+  
+  file.copy(file, saveas, overwrite = T)
+  file.remove(file)
   system2("open", saveas)
 }
