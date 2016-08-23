@@ -13,7 +13,7 @@
 #' @import rmarkdown
 
 
-BETS.dashboard = function(type = "inflation", parameters = NULL, saveas = NA){
+BETS.dashboard = function(type = "inflation", country = "BR", parameters = NULL, saveas = NA){
   
   rmd = paste0(type, "_dashboard.Rmd")
   file = system.file(package="BETS", rmd)

@@ -4,7 +4,8 @@
 \alias{BETS.dashboard}
 \title{xxx}
 \usage{
-BETS.dashboard(type = "inflation", parameters = NULL, saveas = NA)
+BETS.dashboard(type = "inflation", country = "BR", parameters = NULL,
+  saveas = NA)
 }
 \arguments{
 \item{model}{xxx}

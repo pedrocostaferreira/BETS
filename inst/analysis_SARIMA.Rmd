@@ -66,15 +66,14 @@ dygraph(cbind(Series = data, Trend = trend), main = info[,"Description"]) %>%
 
 ### Augmented Dickey-Fuller 
 
-```{r echo = c(1,2,3)}
-  library(urca)
-  df <- ur.df(data, type = "none", lags = 6, selectlags = "BIC")
-  cbind(t(df@teststat),df@cval)
-  uroot = FALSE
+```{r}
+  df = BETS.ur_test(y = diff(data), type = "drift", lags = 11, selectlags = "BIC", level = "5pct")
+  df$results
 ```
 
 ```{r echo = FALSE}
-  uroot = (df@teststat[1] > df@cval[1,2])
+  uroot = FALSE
+  uroot = (df$results[1,"statistic"]> df$results[1,"crit.val"])
 ```
 
 ```{asis eval = uroot}
@@ -91,12 +90,12 @@ dygraph(cbind(Series = data, Trend = trend), main = info[,"Description"]) %>%
   ns_roots = 0
   d_ts = data 
 
-  while(df@teststat[1] > df@cval[1,2]){
+  while(df$results[1,"statistic"]> df$results[1,"crit.val"]){
     ns_roots = ns_roots + 1
     d_ts = diff(d_ts)
-    df = ur.df(d_ts, type = "none", lags = 6, selectlags = "BIC")
-    print(cbind(t(df@teststat),df@cval))
-  }
+    df = BETS.ur_test(y = d_ts, type = "none", lags = 6, selectlags = "BIC", level = "5pct")
+    print(df$results)
+ }
 ```
 `r if(uroot) 'These tests found that there must be a total of '` `r if(uroot) ns_roots` `r if(uroot) ' unit root(s)'`
 
@@ -222,16 +221,7 @@ We see that, according to BIC, the best model is a `r desc`.
 ## Forecasts
 
 ```{r}
-lm = forecast(model, h = n.ahead)
-
-dt = as.ts(cbind(fit = lm$mean, upr =  lm$upper[,2], lwr = lm$lower[,2]))
-dt = cbind(hist = data, md = dt)
-
-dygraph(dt, main = info[,"Description"]) %>%
-  dySeries("hist", label = "Actual") %>%
-  dySeries(c("md.lwr", "md.fit", "md.upr"), label = "Predicted") %>%
-    dyRangeSelector(strokeColor = "gray", fillColor = "gray") %>%
-      dyAxis("y", label = info[,"Unit"]) 
+BETS.predict(model,h=n.ahead, main = info[,"Description"], ylab = info[,"Unit"], knit = T)
 ```
 
 

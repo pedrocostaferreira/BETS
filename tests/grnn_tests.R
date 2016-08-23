@@ -1,5 +1,5 @@
-gdp = window(BETS.get(4382))
-ipca = window(BETS.get(13522))
+gdp = BETS.get(4382)
+ipca = BETS.get(13522)
 
 
 gdp_real = BETS.deflate(gdp, ipca, type = "point.perc")
@@ -16,7 +16,7 @@ complete = vector(mode = "list")
 complete[[1]] = ipca_norm
 
 lag.max = 2
-pres = 1
+pres = lenght(series) - 1 
 
 nvars = length(series)
 for(i in 1:nvars){
