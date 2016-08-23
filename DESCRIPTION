@@ -5,8 +5,34 @@ Version: 0.0.1
 Date: 2016-05-09
 Depends:
     R (>= 3.2.0)
-Imports: rootSolve, ggplot2, plotly, urca, TTR, forecast, TSA, FinTS, fpp, stringi, sqldf, foreign, lmtest, normtest, zoo, rugarch,
-         xlsx, colorspace, fracdiff, tseries, timeDate, htmlwidgets, quadprog, Rcpp, gtable, scales, viridis
+Imports: 
+    rootSolve, 
+    ggplot2, 
+    plotly, 
+    urca, 
+    TTR, 
+    forecast, 
+    TSA, 
+    FinTS, 
+    fpp, 
+    stringi, 
+    sqldf, 
+    foreign, 
+    lmtest, 
+    normtest, 
+    zoo, 
+    rugarch,
+    xlsx, 
+    colorspace, 
+    fracdiff, 
+    tseries, 
+    timeDate,
+    htmlwidgets, 
+    quadprog, 
+    Rcpp, 
+    gtable, 
+    scales, 
+    viridis
 Author: Pedro Costa Ferreira <pedro.guilherme@fgv.br>, Jonatha Costa <jonatha.costa@fgv.br>, 
         Talitha Speranza <talitha.speranza@gmail.com>,Paulo Picchetti <paulo.picchetti@fgv.br> 
         and Vagner Laerte Ardeo <Vagner.Ardeo@fgv.br>.
