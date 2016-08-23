@@ -5,7 +5,7 @@
 \title{xxx}
 \usage{
 BETS.predict(..., actual = NULL, main = "", ylab = "", xlim = NULL,
-  style = "dygraphs")
+  style = "dygraphs", knit = F)
 }
 \arguments{
 \item{ts}{xxx}

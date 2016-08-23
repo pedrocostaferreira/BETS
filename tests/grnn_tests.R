@@ -43,5 +43,7 @@ data_train = cbind(train[[1]],train[[2]], train[[3]],train[[4]],train[[5]])
 data_train = data_train[-(1:2),]
 data_test = cbind(test[[1]],test[[2]],test[[3]],test[[4]],test[[5]])
 
+BETS.grnn(train,test, sigma = c(0.9,1))
+
 nn = smooth(learn(data_train),sigma)
 guess(nn, t(as.matrix(data_test[8,])))
