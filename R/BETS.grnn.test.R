@@ -50,7 +50,7 @@ BETS.grnn.test = function(results, test.set, select = TRUE){
       acc = accuracy(preds,actual)[5]
       
       if(acc < res$mape){
-        res$model = results[[i]]$nn
+        res$model = results[[i]]$net
         res$mape = acc 
         res$id = results[[i]]$id
         res$sigma = results[[i]]$sigma
