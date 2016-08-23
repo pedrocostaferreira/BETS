@@ -16,11 +16,11 @@ complete = vector(mode = "list")
 complete[[1]] = ipca_norm
 
 lag.max = 2
-pres = lenght(series) - 1 
+
 
 nvars = length(series)
 for(i in 1:nvars){
-  s = (nvars - pres) + (i-1)*lag.max
+  s = 1 + (i-1)*lag.max
   for(j in 1:lag.max){
     complete[[s + j]] = lag(series[[i]],-j)
   }

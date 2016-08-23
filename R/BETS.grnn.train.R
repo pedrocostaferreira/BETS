@@ -15,9 +15,9 @@
 #' @import grnn forecast
 
 
-BETS.grnn.train = function(train, sigma, step = 0.1, select = TRUE, names = NA){
+BETS.grnn.train = function(train.set, sigma, step = 0.1, select = TRUE, names = NA){
   
-  if(length(train) < 2 || !check.series(train, "Series list: train.")){
+  if(length(train.set) < 2 || !check.series(train.set, "Series list: train.")){
     return(NULL)
   }
   
@@ -25,13 +25,14 @@ BETS.grnn.train = function(train, sigma, step = 0.1, select = TRUE, names = NA){
     #return(NULL)
   #}
   
-  if(!is.na(names) && length(train) != length(names)){
+  if(!is.na(names) && length(train.set) != length(names)){
     msg("ERROR")
     return(NULL)
   }
   
-  train.n_elem = length(train[[1]])
-  train.n_series = length(train)
+  train.n_elem = length(train.set[[1]])
+  train.n_series = length(train.set)
+  series = train.set[[1]]
   #test.n_elem = length(test[[1]])
   #test.n_series = length(test) - 1
   #actual = test[[1]]
@@ -40,22 +41,19 @@ BETS.grnn.train = function(train, sigma, step = 0.1, select = TRUE, names = NA){
     sigma = seq(sigma[1],sigma[2],step)
   }
   
-  vec.sigmas = vector(mode = "numeric")
-  vec.mapes = vector(mode = "numeric")
-  
   train_mt = matrix(nrow = train.n_elem, ncol = train.n_series)
   #test_mt = matrix(nrow = test.n_elem, ncol = test.n_series)
 
   for(i in 1:train.n_series){
-    train_mt[,i] = train[[i]]
+    train_mt[,i] = train.set[[i]]
   }
   
   #for(i in 1:test.n_series){
    # test_mt[,i] = test[[i+1]]
   #}
   
-  result = vector(mode = "list")
-  result$mape = 1.797693e+308
+  results.list = vector(mode = "list")
+  id = 1
   
   if(select){
     
@@ -75,6 +73,11 @@ BETS.grnn.train = function(train, sigma, step = 0.1, select = TRUE, names = NA){
           sub_train[,k+1] = train_mt[,ind]
           #sub_test[,k] = test_mt[,ind-1]
         }
+        
+        result = vector(mode = "list")
+        result$mape = 1.797693e+308
+        vec.sigmas = vector(mode = "numeric")
+        vec.mapes = vector(mode = "numeric")
         
         for(s in sigma){
           
@@ -96,12 +99,12 @@ BETS.grnn.train = function(train, sigma, step = 0.1, select = TRUE, names = NA){
           
           acc = accuracy(fitted,sub_train[,1])[5]
           
+          vec.sigmas = c(vec.sigmas,s)
+          vec.mapes = c(vec.mapes,acc)
+          
           #print(c(acc,floor(trial[,j]),s))
 
           if(acc < result$mape){
-            
-            vec.sigmas = c(vec.sigmas,s)
-            vec.mapes = c(vec.mapes,acc)
             
             result$mape = acc
             #result$predicted = prevs
@@ -120,13 +123,35 @@ BETS.grnn.train = function(train, sigma, step = 0.1, select = TRUE, names = NA){
           }
         }
         
-        vec.sigmas = c(vec.sigmas,result$sigma)
-        vec.mapes = c(vec.mapes,result$mape)
+        result$sigma.mape = cbind(sigma = vec.sigmas, mape = vec.mapes)
+        result$series = series
+        result$residuals = result$series - result$fitted
+        results.list[[id]] = result
+        id = id + 1
       }
     }
   }
   
-  result$sigma.mape = data.frame(sigma = vec.sigmas, mape = vec.mapes)
-
-  return(result)
+  len = length(results.list)
+  rankm = data.frame(matrix(nrow = len, ncol = 4))
+  names(rankm) = c("id","mape","regs","sigma")
+  
+  for(i in 1:len){
+    rankm[i,"id"] = i
+    rankm[i,"mape"] = results.list[[i]]$mape
+    rankm[i,"regs"] = paste(results.list[[i]]$regressors, collapse = ",")
+    rankm[i,"sigma"] = results.list[[i]]$sigma
+  }
+  
+  rankm = head(rankm[order(rankm[,2]),],10)
+  
+  print("General Regression Neural Network")
+  print(rankm)
+  
+  results = vector(mode = "list")
+  for(i in 1:10){
+    results[[i]] = results.list[[rankm[i,"id"]]]
+  }
+  
+  return(results)
 }
