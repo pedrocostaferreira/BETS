@@ -1,10 +1,13 @@
-gdp = BETS.get(4382)
-ipca = BETS.get(13522)
+gdp = window(BETS.get(4382),start = c(1998,1))
+ipca = window(BETS.get(13522),start = c(1998,1))
 
 
 gdp_real = BETS.deflate(gdp, ipca, type = "point.perc")
 gdp_real_norm = BETS.normalize(gdp_real, mode = "scale")
 ipca_norm = BETS.normalize(ipca, mode = "scale")
+
+mean.ipca = mean(ipca)
+sd.ipca = sd(ipca)
 
 lag.max = 2
 
@@ -30,7 +33,7 @@ train = vector(mode = "list")
 test = vector(mode = "list")
 
 for(i in 1:length(complete)){
-  train[[i]] = window(complete[[i]], start = c(1996,1), end = c(2015,2))
+  train[[i]] = window(complete[[i]], start = c(1999,1), end = c(2015,2))
   test[[i]] = window(complete[[i]], start = c(2015,3), end = c(2016,2),frequency=12)
 }
 

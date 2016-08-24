@@ -14,33 +14,33 @@
 #' @export
 #' @import forecast dygraphs
 
-BETS.predict = function(..., actual = NULL, main = "", ylab = "", xlim = NULL, style = "dygraphs", knit = F){
+BETS.predict = function(..., actual = NULL, main = "", ylab = "", xlim = NULL, style = "dygraphs", unnorm = NULL, knit = F){
   
   l = list(...)
   
   if(is.null(l$object)){
-    if(is.null(l$nn)){
       model = l[[1]]
-    }
+  }
+  else{
+    model = l$object
   }
   
-  if(class(model) == "arima" || class(model) == "Arima"){
+  if(class(model)[1] == "arima" || class(model)[1] == "Arima" || class(model)[1] == "ARIMA"){
     preds = forecast(...)
   }
   else {
+    preds = BETS.grnn.test(...)
     
-    m = vector(mode = "numeric")
-    preds = vector(mode = "list")
-    
-    for(r in 1:nrow(sub_test)){
-      m[r] = guess(l[[1]], t(as.matrix(l[[2]][r,])))
+    if(!is.null(unnorm)){
+      preds$x = preds$series*unnorm[2] + unnorm[1]
+      preds$mean = preds$mean*unnorm[2] + unnorm[1]
+      preds$fitted = preds$fitted*unnorm[2] + unnorm[1]
+      
+      if(!is.null(actual)){
+        actual = actual*unnorm[2] + unnorm[1]
+      }
     }
-    
-    preds$mean = ts(p, start = start(actual), end = end(actual), frequency = frequency(actual))
-
   }
-  
- 
   
   if(style == "dygraphs"){
     
@@ -82,14 +82,24 @@ BETS.predict = function(..., actual = NULL, main = "", ylab = "", xlim = NULL, s
     min = floor(min - 0.1*min)
     step = floor((max - min)/4)
     
-    plot(preds, main = main, ylab = ylab, xlim = xlim, yaxt = "n", xaxp  = c(1900, 2500, 600))
+    if(!is.null(preds$lower)){
+       series = preds
+    }
+    else{
+      series = preds$x
+    }
+    
+    plot(series, main = main, ylab = ylab, xlim = xlim, yaxt = "n", xaxp  = c(1900, 2500, 600))
     abline(v = seq(1900,2500,1), col = "gray60", lty = 3)
     axis(side = 2, at = seq(min,max,step))
     par(new = TRUE)
     lines(actual, col = "firebrick3", lwd = 2)
     
+    if(is.null(preds$lower)){
+      lines(preds$mean, col = "royalblue", lwd = 2)
+    }
+    
   }
-  
   
   if(!is.null(actual)){
     

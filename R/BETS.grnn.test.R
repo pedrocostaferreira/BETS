@@ -21,14 +21,14 @@ BETS.grnn.test = function(results, test.set, select = TRUE){
     return(NULL)
   }
   
-  test.n_elem = length(test[[1]])
-  test.n_series = length(test) - 1
-  actual = test[[1]]
+  test.n_elem = length(test.set[[1]])
+  test.n_series = length(test.set) 
+  actual = test.set[[1]]
   
   test_mt = matrix(nrow = test.n_elem, ncol = test.n_series)
   
   for(i in 1:test.n_series){
-    test_mt[,i] = test[[i+1]]
+    test_mt[,i] = test.set[[i]]
   }
   
   res = vector(mode = "list")
@@ -39,26 +39,32 @@ BETS.grnn.test = function(results, test.set, select = TRUE){
     for(i in 1:length(results)){
       
       regs = results[[i]]$regressors
-      sub_test = test_mt[,regs]
+      sub_test = as.matrix(test_mt[,regs])
       
       preds = vector(mode = "numeric")
       
       for(r in 1:nrow(sub_test)){
-        preds[r] = guess(results[[i]]$nn, t(as.matrix(sub_test[r,])))
+        preds[r] = guess(results[[i]]$net, t(as.matrix(sub_test[r,])))
       }
       
-      acc = accuracy(preds,actual)[5]
+      if(!any(is.nan(preds))){
+        acc = accuracy(preds,actual)[5]
+      }
+      else{
+        acc = res$mape
+      }
       
       if(acc < res$mape){
         res$model = results[[i]]$net
         res$mape = acc 
         res$id = results[[i]]$id
         res$sigma = results[[i]]$sigma
-        res$mean = preds
+        res$mean = ts(preds,start = start(actual), end=end(actual), frequency = frequency(actual))
         res$x = results[[i]]$series
         res$fitted = results[[i]]$fitted
         res$actual = actual
         res$residuals = results[[i]]$residuals
+        res$regressors = results[[i]]$regressors
       }
     }
     
