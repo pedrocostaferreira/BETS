@@ -20,7 +20,7 @@
 #' @import foreign
 #' @export 
 
-BETSsave.stata=function(code, data = NULL, file.name="series"){
+BETS.save.stata=function(code, data = NULL, file.name="series"){
   
   local=getwd()
   
