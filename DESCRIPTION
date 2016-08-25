@@ -32,6 +32,26 @@ Imports:
     gtable, 
     scales, 
     viridis
+Suggests:
+    grnn,
+    Rsolnp,
+    numDeriv,
+    spd,
+    ks,
+    SkewHyperbolic,
+    expm,
+    DBI,
+    RSQLite,
+    gsubfn,
+    tidyr,
+    dygraphs,
+    munsell,
+    plyr,
+    rmarkdown,
+    nloptr,
+    chron,
+    gridExtra,
+    xts
 Author: Pedro Costa Ferreira <pedro.guilherme@fgv.br>, Jonatha Costa <jonatha.costa@fgv.br>, 
         Talitha Speranza <talitha.speranza@gmail.com>,Paulo Picchetti <paulo.picchetti@fgv.br> 
         and Vagner Laerte Ardeo <Vagner.Ardeo@fgv.br>.
