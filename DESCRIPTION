@@ -22,7 +22,6 @@ Imports:
     normtest, 
     zoo, 
     rugarch,
-    xlsx, 
     colorspace, 
     fracdiff, 
     tseries, 
