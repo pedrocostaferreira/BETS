@@ -2,9 +2,11 @@
 
 ## Brazilian Economic Times Series
 
-Para usar o BETS é necessário instalar, antes, os seguintes pacotes:
+## Installation
 
-```
+```R
+install.packages("devtools")
+
 install.packages("grnn")
 install.packages("Rsolnp")
 install.packages("numDeriv")
@@ -25,4 +27,11 @@ install.packages("chron")
 install.packages("gridExtra")
 install.packages("xts")
 
+devtools::install_github("pedrocostaferreira/BETS")
+
+```
+## Usage
+
+```R
+library(BETS)
 ```
