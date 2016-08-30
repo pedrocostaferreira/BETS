@@ -2,6 +2,8 @@
 
 ## Brazilian Economic Times Series
 
+É necessário instalar antes do BETS
+
 ```
 install.packages("grnn")
 install.packages("Rsolnp")
