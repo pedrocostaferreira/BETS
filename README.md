@@ -1,6 +1,4 @@
-# BETS
-
-## Brazilian Economic Times Series
+# BETS - Brazilian Economic Times Series
 
 ## Installation
 
