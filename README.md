@@ -2,7 +2,7 @@
 
 ## Brazilian Economic Times Series
 
-É necessário instalar antes do BETS
+Para usar o BETS é necessário instalar, antes, os seguintes pacotes:
 
 ```
 install.packages("grnn")
