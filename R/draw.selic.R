@@ -27,10 +27,13 @@ draw.selic = function(file, start = NULL, ylim = NULL, open = TRUE){
   
   selic = BETS.get(4189)
   
+  # --- QUE COMPLICACAO
   #target = read.csv2("inst//target_selic.csv", stringsAsFactors = F)
   #d = as.Date("2000-09-25")
   #z <- zooreg(target[,2], start = d, frequency = 1)
   #window(z, start = as.Date("2006-01-01"))
+  # OU subset(z, time %in% c(as.Date("2016-09-21"),as.Date("2016-09-22")))
+  # usar Sys.Date()
   
   if(is.null(ylim)){
     ylim = c(min(selic)-5,max(selic)+5)
