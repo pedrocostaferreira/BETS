@@ -59,8 +59,8 @@ add.notes = function(series.list, xlim, ylim, names = NULL){
     dt.lp = as.Date(series)[len-1]
     dt.ly = as.Date(series)[len-freq]
     
-    last.period.comp = paste0(format(dt.lp,"%b"),"/", format(dt.lp,"%Y"),": ", series[len-1])
-    last.year.comp = paste0(format(dt.ly,"%b"),"/", format(dt.ly,"%Y"), ": ", series[len-freq])
+    last.period.comp = paste0(format(dt.lp,"%b"),"/", format(dt.lp,"%Y"),": ", round(series[len-1],2))
+    last.year.comp = paste0(format(dt.ly,"%b"),"/", format(dt.ly,"%Y"), ": ", round(series[len-freq],2))
     
     
     d.lp = 0
