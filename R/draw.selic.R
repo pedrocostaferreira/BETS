@@ -35,12 +35,12 @@ draw.selic = function(file, start = NULL, ylim = NULL, open = TRUE){
   # OU subset(z, time %in% c(as.Date("2016-09-21"),as.Date("2016-09-22")))
   # usar Sys.Date()
   
-  if(is.null(ylim)){
-    ylim = c(min(selic)-5,max(selic)+5)
-  }
-  
   if(!is.null(start)){
     selic = window(selic, start = start)
+  }
+  
+  if(is.null(ylim)){
+    ylim = c(min(selic)-1,max(selic)+1)
   }
   
   dt = as.Date(selic)[length(selic)]
@@ -55,15 +55,14 @@ draw.selic = function(file, start = NULL, ylim = NULL, open = TRUE){
   par(font.lab = 2, cex.axis = 1.2, bty = "n", las = 1)
   plot(selic, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = "Base Interest Rate (SELIC)", col = "darkolivegreen", ylim = ylim)
   #lines(trend, lty = 6, col = "darkgray", lwd = 2)
-  mtext("Accumulated in the Month in Annual Terms")
+  mtext("Accumulated in the Month, in Annual Terms")
   
   end.x = last[1]
   d.x = last[2]/12 
   val = round(selic[length(selic)],2)
   
-  points(end.x + d.x, val, pch = 21, cex = 1.25, lwd = 2, bg = "royalblue", col = "darkgray")
-  legend("topleft", "Trend (HP Filter)", lty = 6, lwd = 2, col="darkgrey", bty = "n", cex = 0.9)
-  text(start[1] + 0.14*x.spam, ylim[2] - 0.1*y.spam, aval, cex = 0.9)
+  points(end.x + d.x, val, pch = 21, cex = 1.25, lwd = 2, bg = "darkolivegreen", col = "darkgray")
+  text(start[1] + 0.14*x.spam, ylim[2] - 0.05*y.spam, aval, cex = 0.9)
   
   x1 = end.x + d.x 
   y0 = ylim[1] + 0.2*y.spam

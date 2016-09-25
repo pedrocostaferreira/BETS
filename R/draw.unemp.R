@@ -28,13 +28,13 @@ draw.unemp = function(file, start = NULL, ylim = NULL, open = TRUE){
   unemp = BETS.get(10777)
   trend = fitted(hpfilter(unemp))
   
-  if(is.null(ylim)){
-    ylim = c(min(unemp)-5,max(unemp)+5)
-  }
-  
   if(!is.null(start)){
     unemp = window(unemp, start = start)
     trend = window(trend, start = start)
+  }
+  
+  if(is.null(ylim)){
+    ylim = c(min(unemp)-5,max(unemp)+5)
   }
   
   dt = as.Date(unemp)[length(unemp)]

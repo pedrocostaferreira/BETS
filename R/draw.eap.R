@@ -25,13 +25,14 @@ draw.eap = function(file, start = NULL, ylim = NULL, open = TRUE){
   
   eap = (BETS.get(10810)/BETS.get(10800))*100
   
+  if(!is.null(start)){
+    eap = window(eap, start = start)
+  }
+  
   if(is.null(ylim)){
     ylim = c(min(eap)-5,max(eap)+5)
   }
   
-  if(!is.null(start)){
-    eap = window(eap, start = start)
-  }
   
   dt = as.Date(eap)[length(eap)]
   last = vector(mode = "numeric")

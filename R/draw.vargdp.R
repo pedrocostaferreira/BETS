@@ -28,13 +28,13 @@ draw.vargdp = function(file, start = NULL, ylim = NULL, open = TRUE){
   vargdp = BETS.get(7326)
   trend = fitted(hpfilter(vargdp))
   
-  if(is.null(ylim)){
-    ylim = c(min(vargdp)-1,max(vargdp)+1)
-  }
-  
   if(!is.null(start)){
     vargdp = window(vargdp, start = start)
     trend = window(trend, start = start)
+  }
+  
+  if(is.null(ylim)){
+    ylim = c(min(vargdp)-1,max(vargdp)+1)
   }
   
   years = as.Date(vargdp)
@@ -54,7 +54,7 @@ draw.vargdp = function(file, start = NULL, ylim = NULL, open = TRUE){
   val = round(vargdp[length(vargdp)],2)
   y0 = ylim[1] + 0.2*y.spam
   
-  text(2014.5, y0 - 0.18*y.spam, as.character(val), cex = 1.1, font = 2)
+  text(2014.5, y0 - 0.2*y.spam, as.character(val), cex = 1.1, font = 2)
   legend("topleft", "Trend (HP Filter)", lty = 6, lwd = 2, col="darkgrey", bty = "n", cex = 0.9)
   
   dev.off()
