@@ -47,16 +47,28 @@ BETS.chart = function(alias, lang = "en", out = "png", file = NULL, start = c(20
   }
 
   if(alias == "ipca_with_core"){
-    
     draw.ipca(file , start = start, ylim = ylim, open = open)
   }
   else if(alias == "ulc"){
-    
     draw.ulc(file, start = start, ylim = ylim, open = open)
   }
   else if(alias == "eap"){
-    
     draw.eap(file, start = start, ylim = ylim, open = open)
+  }
+  else if(alias == "cdb"){
+    draw.cdb(file, start = start, ylim = ylim, open = open)
+  }
+  else if(alias == "indprod"){
+    draw.indprod(file, start = start, ylim = ylim, open = open)
+  }
+  else if(alias == "selic"){
+    draw.selic(file, start = start, ylim = ylim, open = open)
+  }
+  else if(alias == "unemp"){
+    draw.unemp(file, start = start, ylim = ylim, open = open)
+  }
+  else if(alias == "vargdp"){
+    draw.vargdp(file, start = start, ylim = ylim, open = open)
   }
   else {
     msg(paste("Plot was not created.",.MSG_PARAMETER_NOT_VALID))
