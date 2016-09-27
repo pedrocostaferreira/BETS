@@ -8,8 +8,6 @@
 #' @param ci xxx 
 #' 
 #' @return xxx
-#' 
-#' @importFrom seas seasonal
 
 draw.cdb= function(file, start = NULL, ylim = NULL, open = TRUE){
   
@@ -32,7 +30,7 @@ draw.cdb= function(file, start = NULL, ylim = NULL, open = TRUE){
   #weekdays = weekdays[1:length(cdb)]
   #15-04-2016
   
-  cdb = read.csv2("inst//cdb.csv",stringsAsFactors = F)
+  cdb = read.csv2("cdb.csv",stringsAsFactors = F)
   cdb = data.frame(as.Date(cdb[,1],format = "%d/%m/%Y"),as.numeric(cdb[,2]))
   
   if(!is.null(start)){

@@ -127,7 +127,7 @@ if(!is.na(text)){
 \newpage
 
 ```{r echo = FALSE, results = "hide"}
-BETS.chart(alias = "vargdp", file = "graphs//vargdp", out = "pdf", open = FALSE)
+BETS.chart(alias = "vargdp", file = "graphs//vargdp", start = 1994, out = "pdf", open = FALSE)
 ```
 
 ```{r echo = FALSE, results = "hide"}
@@ -161,7 +161,7 @@ BETS.chart(alias = "selic", file = "graphs//selic", out = "pdf", open = FALSE)
 ```
 
 ```{r echo = FALSE, results = "hide"}
-BETS.chart(alias = "cdb", file = "graphs//cdb", out = "pdf", open = FALSE)
+BETS.chart(alias = "cdb", file = "graphs//cdb", start = c(2006,1,1), out = "pdf", open = FALSE)
 ```
 
 \begin{figure}[h]

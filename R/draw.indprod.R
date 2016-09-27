@@ -9,7 +9,8 @@
 #' 
 #' @return xxx
 #' 
-#' @importFrom seas seasonal
+#' @import seasonal 
+
 
 draw.indprod = function(file, start = NULL, ylim = NULL, open = TRUE){
   
@@ -46,7 +47,6 @@ draw.indprod = function(file, start = NULL, ylim = NULL, open = TRUE){
   
   par(font.lab = 2, cex.axis = 1.2, bty = "n", las = 1)
   plot(indprod, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = "Industrial Production", col = "chocolate1", ylim = ylim)
-  lines(trend, lty = 6, col = "darkgray", lwd = 2)
   mtext("Seasonally Adjusted. Index (2012 = 100)")
   
   end.x = last[1]

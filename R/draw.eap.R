@@ -30,7 +30,7 @@ draw.eap = function(file, start = NULL, ylim = NULL, open = TRUE){
   }
   
   if(is.null(ylim)){
-    ylim = c(min(eap)-5,max(eap)+5)
+    ylim = c(min(eap)-1,max(eap)+1)
   }
   
   

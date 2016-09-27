@@ -40,7 +40,7 @@ draw.selic = function(file, start = NULL, ylim = NULL, open = TRUE){
   last[2] = as.integer(format(dt, "%m"))
   
   # --- QUE COMPLICACAO
-  target = read.csv2("inst//target_selic.csv", stringsAsFactors = F)
+  target = read.csv2("target_selic.csv", stringsAsFactors = F)
   
   dates = vector(mode = "character")
   curr = start
