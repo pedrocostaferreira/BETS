@@ -55,22 +55,34 @@ add.notes = function(series.list, xlim, ylim, names = NULL){
     last.period.val = paste0(round((series[len]/series[len-1] - 1)*100,2),"%")
     last.year.val = paste0(round((series[len]/series[len-freq] - 1)*100,2),"%")
     
+    if(freq != 365){
+      dt.lp = as.Date(series)[len-1]
+      dt.ly = as.Date(series)[len-freq]
+      
+      last.period.comp = paste0(format(dt.lp,"%b"),"/", format(dt.lp,"%Y"),": ", round(series[len-1],2))
+      last.year.comp = paste0(format(dt.ly,"%b"),"/", format(dt.ly,"%Y"), ": ", round(series[len-freq],2))
+    }
+    else {
+      last.period.comp = paste0("A day before: ", round(series[len-1],2))
+      last.year.comp = paste0("A month before: ", round(series[len-30],2))
+    }
 
-    dt.lp = as.Date(series)[len-1]
-    dt.ly = as.Date(series)[len-freq]
-    
-    last.period.comp = paste0(format(dt.lp,"%b"),"/", format(dt.lp,"%Y"),": ", round(series[len-1],2))
-    last.year.comp = paste0(format(dt.ly,"%b"),"/", format(dt.ly,"%Y"), ": ", round(series[len-freq],2))
-    
-    
     d.lp = 0
     d.ly = 0
     
     if(nchar(last.period.val) == 4){
-      d.lp = 0.015*x.spam
+      d.lp = 0.05*x.spam
     }
 
     if(nchar(last.year.val) == 4){
+      d.ly = 0.05*x.spam
+    }
+    
+    if(nchar(last.period.val) == 5){
+      d.lp = 0.015*x.spam
+    }
+    
+    if(nchar(last.year.val) == 5){
       d.ly = 0.015*x.spam
     }
     
@@ -87,7 +99,7 @@ add.notes = function(series.list, xlim, ylim, names = NULL){
       points(x = x.coords[j] + d.lp, y = y.coord, pch = "-", col = "green", bg = "green", cex = 1.3) 
     }
     
-    text(last.period.val, x = x.coords[j] + 0.067*x.spam, y = y.coord, cex = 1.1, font = 2)
+    text(last.period.val, x = x.coords[j] + 0.075*x.spam, y = y.coord, cex = 1.1, font = 2)
     text(last.period.comp, x = x.coords[j] +  0.06*x.spam, y = y.coord - 0.1*y.spam, cex = 0.9)
     
     if(last.year.val > 0){
