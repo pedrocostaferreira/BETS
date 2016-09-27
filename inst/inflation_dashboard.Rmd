@@ -93,6 +93,95 @@ if(!is.na(text)){
 }
 ```
 
+\newpage
 
+```{r echo = FALSE, results = "hide"}
+BETS.chart(alias = "eap", file = "graphs//eap", out = "pdf", open = FALSE)
+```
+
+```{r echo = FALSE, results = "hide"}
+BETS.chart(alias = "unemp", file = "graphs//unemp", out = "pdf", open = FALSE)
+```
+
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graphs/eap}
+  \label{ipca}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graphs/unemp}
+  \label{cut}
+\end{subfigure}
+\end{figure}
+
+
+```{r, echo = FALSE, results='asis'}
+if(!is.na(text)){
+  cat(text[2])
+}
+```
+
+\newpage
+
+```{r echo = FALSE, results = "hide"}
+BETS.chart(alias = "vargdp", file = "graphs//vargdp", out = "pdf", open = FALSE)
+```
+
+```{r echo = FALSE, results = "hide"}
+BETS.chart(alias = "indprod", file = "graphs//indprod", out = "pdf", open = FALSE)
+```
+
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graphs/vargdp}
+  \label{ipca}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graphs/indprod}
+  \label{cut}
+\end{subfigure}
+\end{figure}
+
+```{r, echo = FALSE, results='asis'}
+if(!is.na(text)){
+  cat(text[3])
+}
+```
+
+\newpage
+
+```{r echo = FALSE, results = "hide"}
+BETS.chart(alias = "selic", file = "graphs//selic", out = "pdf", open = FALSE)
+```
+
+```{r echo = FALSE, results = "hide"}
+BETS.chart(alias = "cdb", file = "graphs//cdb", out = "pdf", open = FALSE)
+```
+
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graphs/selic}
+  \label{ipca}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graphs/cdb}
+  \label{cut}
+\end{subfigure}
+\end{figure}
+
+```{r, echo = FALSE, results='asis'}
+if(!is.na(text)){
+  cat(text[4])
+}
+```
 
 
