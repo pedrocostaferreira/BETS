@@ -5,7 +5,7 @@
   txt <- c("\n",
            paste(sQuote("BETS"), "version:", ver),
            "\n",
-           paste(sQuote("mFilter"),
+           paste(sQuote("BETS"),
                  "Brazilian Economic Time Series"),
            "\n",
            paste("See",
