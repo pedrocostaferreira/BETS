@@ -76,7 +76,6 @@ BETS.corrgram = function(ts, lag.max = 12, type = "correlation", mode = "simple"
       }
       var[i] = sqrt((1 + 2*sum)/N)
     }
-    
   } 
   else {
     
@@ -99,10 +98,10 @@ BETS.corrgram = function(ts, lag.max = 12, type = "correlation", mode = "simple"
   if(style == "plotly"){
     p <- plotly_build(gp)
     
-    p$data[[1]]$text <- paste("Lag:", lags)
-    p$data[[2]]$text <- paste0(yaxis, ": ", round(corrs,3), " <br> Lag: ", lags)
-    p$data[[3]]$text <- paste("CI upper bound:", round(var,3))
-    p$data[[4]]$text <- paste("CI lower bound:", -round(var,3))
+    p$x$data[[1]]$text <- paste("Lag:", lags)
+    p$x$data[[2]]$text <- paste0(yaxis, ": ", round(corrs,3), " <br> Lag: ", lags)
+    p$x$data[[3]]$text <- paste("CI upper bound:", round(var,3))
+    p$x$data[[4]]$text <- paste("CI lower bound:", -round(var,3))
    
     if(knit){
       return(p)
