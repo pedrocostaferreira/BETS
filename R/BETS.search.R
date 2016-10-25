@@ -236,7 +236,7 @@ BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lan
   
   metadata = sqldf(query)
   
-  msg(paste("Found", nrow(metadata),"out of",nrow(database)," time series.",sep=" "))
+  msg(paste("Found", nrow(metadata),"out of",nrow(base_final_ptv1)," time series.",sep=" "))
   
   if(view==T){
     return(View(metadata))
