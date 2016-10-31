@@ -35,11 +35,9 @@ Imports:
     scales, 
     viridis
 Author: Pedro Costa Ferreira <pedro.guilherme@fgv.br>, Jonatha Costa <jonatha.costa@fgv.br>, 
-        Talitha Speranza <talitha.speranza@gmail.com>,Paulo Picchetti <paulo.picchetti@fgv.br> 
-        and Vagner Laerte Ardeo <Vagner.Ardeo@fgv.br>.
-Maintainer: Pedro Costa Ferreira <pedro.guilherme@fgv.br>, Jonatha Costa <jonatha.costa@fgv.br>, 
-            Talitha Speranza <talitha.speranza@gmail.com> and 
-            Daiane Mattos <daiane.mattos@fgv.br>
+        Talitha Speranza <talitha.speranza@gmail.com>.
+Maintainer: Pedro Costa Ferreira <pedro.guilherme@fgv.br>, Talitha Speranza <talitha.speranza@gmail.com> 
+            and Jonatha Costa <jonatha.costa@fgv.br>. 
 BugReports:	https://github.com/pedrocostaferreira/BETS/issues
 Description: The Brazilian Economic Time Series (BETS) package provides access and information about the most important Brazilian economic time series.
 License: GPL(>=2)
