@@ -117,7 +117,7 @@ BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lan
     database=base_final_ptv1
   }
   else{
-    database=bacen_v7
+    database=base_final_env1
   }
   
   if(missing(description) && missing(src) && missing(periodicity) && missing(unit) && missing(code)){
