@@ -28,17 +28,17 @@
 
 
 
-BETS.t_test <- function(arima, n = 0, alpha = 0.05){
+BETS.t_test <- function(arima_model, n_x = 0, alpha = 0.05){
 
   # Esta fun??o faz o teste de Signific?ncia dos par?metros de um modelo ARIMA
   # n_x ? o n?mero de vari?veis ex?genas
 
   # Estat?stica T
-  coef <- arima$coef
-  se <- sqrt(diag(arima$var.coef))
+  coef <- arima_model$coef
+  se <- sqrt(diag(arima_model$var.coef))
   t <- abs(coef/se)
   
-  crit = qt(1 - alpha/2, length(arima$x) - sum(arima$arma[c(1,2,3,4,6,7)]) - n)
+  crit = qt(1 - alpha/2, length(arima_model$x) - sum(arima_model$arma[c(1,2,3,4,6,7)]) - n_x)
   ok <- t > crit
   resul <- data.frame(Coeffs = coef, Std.Errors = se, t = t, Crit.Values = crit, Rej.H0 = ok )
   return(resul)
