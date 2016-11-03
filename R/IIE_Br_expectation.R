@@ -1,7 +1,7 @@
-#' @title Uncertainty Indicator for the Brazilian Economy - Expectations
+#' @title Uncertainty Indicator for the Brazilian Economy - Expectation
 #'
-#' @name IIE_Br_expectations
-#' @description The \code{IIE_Br_expectations} is a measure of dispersion of the brazilian market expectations,
+#' @name IIE_Br_expectation
+#' @description The \code{IIE_Br_expectation} is a measure of dispersion of the brazilian market expectation,
 #' calculated by the Central Bank of Brazil (BCB) and opinion polls conducted by the Brazilian
 #' Institute of Economics (FGV/IBRE). More precisely, the \code{IIE_Br_expectations} is composed by two other indicators:
 #'
@@ -13,7 +13,7 @@
 #'
 #' @format A \code{\link[stats]{ts}} object with 185 observations.
 #'
-#' @references A shiny app with IIE-Br-expectations plots can be found
+#' @references A shiny app with IIE-Br-expectation plots can be found
 #'              \href{https://pedroferreira.shinyapps.io/incerteza/}{here}
 #'
 #' @author Pedro G. C. Ferreira  \email{pedro.guilherme@fgv.br},
@@ -24,6 +24,6 @@
 #'
 #' @source \href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)}
 #' 
-#' @keywords expectations, uncertainty
+#' @keywords expectation, uncertainty
 NULL
 
