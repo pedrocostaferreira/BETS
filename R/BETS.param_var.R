@@ -24,32 +24,6 @@
 #' @param volume that will be invested
 #' @param conf.level confidence level of the interval
 #'  
-#' @details Suponha que se tenha aplicados $1.000.000,00 numa carteira que 
-#' se espelha , exatamente, no IBOVESPA.
-#' 
-#' Pergunta-se: Qual e o VaR diario de 95%?
-#' 
-#' formulando a hipotese : 
-#' \deqn{r_{t} = u_{t} + h^{\frac{1}{2}}_{t_{\frac{1}{2}}}e_{t}}
-#'     
-#'  onde , tipicamente: 
-#'   \itemize{
-#'    \item \eqn{u_{t}} é um processo AR(1)
-#'    \item \eqn{h_{t_{\frac{1}{2}}}} é um processo GARCH(1,1) 
-#'   }
-#'   
-#'   assim, temos: 
-#'   
-#'  \eqn{r_{t}\mid r_{t-1}~ N(u_{t},h_{t}^{*})}
-#'  
-#'  \eqn{e_{t} = \frac{(r_{t}-u_{t})}{h^{\frac{1}{2}}_{t}}~N(0,1)}
-#'  
-#'  Calculando o VaR condicional a 95% (fixado pelo pesquisador por exemplo):
-#'  
-#'\deqn{Pr(r_{t}\leq \fgrac{r_{t}^{*}}{r_{t-1}}) = 5\% },  padronizando, temos:
-#'  
-#'  
-#'\deqn{Pr[(\frca{r_{t}-u_{t}}{h^{\frac{1}{2}_{t}}}) \leq \frac{(r_{t}^{*}-u_{t})}{h^{\frac{1}{2}}_{t}}] = 5\%}
 #'  
 #'   
 #' @examples 
