@@ -19,7 +19,7 @@
 #'  
 #'  # Exchange rate - Free - United States dollar (purchase)
 #'  us.brl <- BETS.get(3691)
-#'  requires(seasonal)
+#'  require(seasonal)
 #'  us.brl.seasonally_adjusted <- seas(us.brl)
 #'  plot(us.brl.seasonally_adjusted)
 #'  
