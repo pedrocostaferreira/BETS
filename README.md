@@ -24,6 +24,9 @@ install.packages("nloptr")
 install.packages("chron")
 install.packages("gridExtra")
 install.packages("xts")
+install.packages("purrr")
+install.packages("x13binary")
+install.packages("viridisLite")
 
 devtools::install_github("pedrocostaferreira/BETS")
 
