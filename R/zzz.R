@@ -16,6 +16,8 @@
            "\n",
            paste("BugReports: https://github.com/pedrocostaferreira/BETS/issues"),
            "\n"
+           paste("Maintainer: Pedro costa Ferreira <pedro.guilherme@fgv.br>"),
+           "\n"
   )
   if(interactive() || getOption("verbose"))
     writeLines(strwrap(txt, indent = 4, exdent = 4))
