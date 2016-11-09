@@ -11,7 +11,7 @@
 #'Cohen (2009), que construiram indices semelhantes para os Estados Unidos. 
 #'Os autores mostram que periodos de maior incerteza tendem a ser representados 
 #'em noticias contendo os fatos causadores da incerteza. Essas noticias por 
-#'consequencia, disseminam a sensação de incerteza para consumidores e 
+#'consequencia, disseminam a sensacao de incerteza para consumidores e 
 #'produtores, e influenciam suas tomadas de decisoes. Filho(2014) tambem cria 
 #'um indice semelhante para a economia brasileira.
 #'
