@@ -15,7 +15,7 @@
                  "for details"),
            "\n",
            paste("BugReports: https://github.com/pedrocostaferreira/BETS/issues"),
-           "\n"
+           "\n",
            paste("Maintainer: Pedro costa Ferreira <pedro.guilherme@fgv.br>"),
            "\n"
   )
