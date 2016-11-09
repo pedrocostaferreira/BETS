@@ -11,13 +11,14 @@
 #' 
 #' 
 #' @examples 
-#' data("AirPassengers")
-#' fit.air<- Arima(AirPassengers,order = c(1,1,1), 
-#'     seasonal = c(1,1,1), method ="ML",lambda=0)
-#'     summary(fit.air)
+#' # require(forecast)
+#' # data("AirPassengers")
+#' # fit.air<- Arima(AirPassengers,order = c(1,1,1), 
+#'     # seasonal = c(1,1,1), method ="ML",lambda=0)
+#'     # summary(fit.air)
 #' 
 #' # significance test for model SARIMA(1,1,1)(1,1,1)_12
-#' t.test(arima_model = fit.air)
+#' # t.test(arima_model = fit.air)
 #'
 #' 
 #' @return Objeto do tipo \code{list}
