@@ -12,7 +12,7 @@
 #' 
 #' Resumidamente, VaR pode ser a pior perda esperada para certo volume 
 #' investido, sob condicoes normais de mercado e dentro de pequeno e 
-#' determinado nível de confianca.
+#' determinado nivel de confianca.
 #' 
 #' 
 #'  
