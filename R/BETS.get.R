@@ -38,7 +38,7 @@ BETS.get = function(code, data.frame = FALSE){
       return(get.data.frame(code))
     }
   
-    data = bacen_v7
+    data = base_final_env1
     code = as.character(code)
     query = paste("select Periodicity from data where Codes like " ,"\'", code ,"\'",sep="")
     
