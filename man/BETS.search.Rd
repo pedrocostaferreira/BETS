@@ -18,9 +18,11 @@ BETS.search(description, src, periodicity, unit, code, start, view = TRUE,
 
 \item{code}{An \code{integer}. The index of the series within the database.}
 
+\item{start}{A \code{date}. Starting date of the series.}
+
 \item{view}{A \code{boolean}. The default is \code{TRUE}. If set to \code{FALSE}, the results are NOT going to be shown.}
 
-\item{language}{A \code{character}. The search language. The default is "en" for english, but "pt" for portuguese is also possible.}
+\item{lang}{A \code{character}. The search language. The default is "en" for english, but "pt" for portuguese is also possible.}
 }
 \value{
 A \code{list} that can be interpreted as a \code{data.frame}. The fields are described below.
@@ -105,13 +107,13 @@ This function uses \code{\link[sqldf]{sqldf}} for optimization.
 }
 \examples{
 
-BETS.search(description="sales")
+BETS.search(description="sales",view = FALSE)
 # Output: BETS-package: Found 55 out of 12981 time series
 
-BETS.search(src="Denor")
+BETS.search(src="Denor", view = FALSE)
 # Output: BETS-package: Found 1 out of 12981 time series
 
-BETS.search(periodicity="A")
+BETS.search(periodicity="A", view = FALSE)
 # Output: BETS-package: Found 2308 of 12981 time series
 
 }

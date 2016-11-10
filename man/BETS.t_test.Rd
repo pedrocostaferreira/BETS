@@ -4,7 +4,7 @@
 \alias{BETS.t_test}
 \title{Significance of parameter an Arima model}
 \usage{
-BETS.t_test(arima, n = 0, alpha = 0.05)
+BETS.t_test(arima_model, n_x = 0, alpha = 0.05)
 }
 \arguments{
 \item{arima_model}{Arima model used}
@@ -19,13 +19,14 @@ Performs the test of significance of the parameter an
 Arima model
 }
 \examples{
-data("AirPassengers")
-fit.air<- Arima(AirPassengers,order = c(1,1,1), 
-    seasonal = c(1,1,1), method ="ML",lambda=0)
-    summary(fit.air)
+# require(forecast)
+# data("AirPassengers")
+# fit.air<- Arima(AirPassengers,order = c(1,1,1), 
+    # seasonal = c(1,1,1), method ="ML",lambda=0)
+    # summary(fit.air)
 
-significance test for model SARIMA(1,1,1)(1,1,1)_12
-t.test(arima_model = fit.air)
+# significance test for model SARIMA(1,1,1)(1,1,1)_12
+# t.test(arima_model = fit.air)
 
 
 }

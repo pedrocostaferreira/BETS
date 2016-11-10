@@ -10,10 +10,10 @@
 \description{
 The \code{IIE_Br_expectation} is a measure of dispersion of the brazilian market expectation,
 calculated by the Central Bank of Brazil (BCB) and opinion polls conducted by the Brazilian
-Institute of Economics (FGV/IBRE). More precisely, the \code{IIE_Br_expectation} is composed by two other indicators:
+Institute of Economics (FGV/IBRE). More precisely, the \code{IIE_Br_expectations} is composed by two other indicators:
 
 \itemize{
-  \item{ Market expectation formed according to the IPCA (National Consumer Price Index),
+  \item{ Market expectations formed according to the IPCA (National Consumer Price Index),
          the base interest rate (SELIC) and the primary deficit }
   \item{ Surveys of opinion from the industry, commerce, services and the construction sectors.}
 }
