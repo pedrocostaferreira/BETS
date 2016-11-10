@@ -1,9 +1,11 @@
-#' @title  xxx
+#' @title  Create a BETS custom dashboard
 #' 
-#' @description  xxxx
+#' @description  Generate thematic dashboards using a selection of BETS time series and charts. For now, themes and charts are pre-defined.
 #' 
-#' @param model xxx
-#' @param params xxx
+#' @param type
+#' @param country
+#' @param parameters
+#' @param saveas
 #' 
 #' @return xxx
 #' 

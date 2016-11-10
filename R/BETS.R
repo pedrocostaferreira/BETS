@@ -24,10 +24,7 @@
 #'
 #' @author Pedro Costa Ferreira \email{pedro.guilherme@fgv.br}, 
 #'         Jonatha Costa \email{jonatha.costa@fgv.br}, 
-#'         Talitha Speranza \email{talitha.speranza@fgv.br},
-#'         Daiane Mattos \email{daiane.mattos@fgv.br},
-#'         Paulo Picchetti \email{paulo.picchetti@fgv.br} and
-#'         Vagner Laerte Ardeo \email{Vagner.Ardeo@fgv.br}.
+#'         Talitha Speranza \email{talitha.speranza@fgv.br}
 #'
 #' @docType package
 #' @name BETS
