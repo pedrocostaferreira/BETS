@@ -2,12 +2,10 @@
 #' 
 #' @description  Generate thematic dashboards using a selection of BETS time series and charts. For now, themes and charts are pre-defined.
 #' 
-#' @param type
-#' @param country
-#' @param parameters
-#' @param saveas
-#' 
-#' @return xxx
+#' @param type A \code{character}. The theme of the dashboard. The only option, for the time being, is 'inflation'.
+#' @param country A \code{character}. The country from which data must drawn. For now, BETS only accepts 'BR' (Brazil) 
+#' @param parameters A \code{list}. A list of parameters. See the 'Details' section for a description of these parameters for each type of dashboard.
+#' @param saveas A \code{character}. 
 #' 
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 #' 
