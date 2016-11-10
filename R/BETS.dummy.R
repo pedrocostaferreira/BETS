@@ -5,8 +5,7 @@
 #' 
 #'
 #' 
-#' @usage BETS.dummy(start = c(year,month),end= c(year,month),frequency = 12,year,
-#'     month, quarter, date, from, to)
+#' 
 #' 
 #' @param start  the time of the first observation. Either a vector of 
 #' two integers, which specify a natural time unit and a (1-based) 
