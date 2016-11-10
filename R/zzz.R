@@ -1,6 +1,6 @@
 .onLoad <- function(lib, pkg)
 {
-  base::suppressMessages(library("mFilter"))
+  base::suppressMessages(base::library("mFilter"))
   
   mylib <- base::dirname(system.file(package = "BETS"))
   ver <- utils::packageDescription("BETS", lib = mylib)["Version"]
