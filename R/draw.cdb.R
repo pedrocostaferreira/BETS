@@ -83,7 +83,7 @@ draw.cdb= function(file, start = NULL, ylim = NULL, open = TRUE){
   points(last, val, pch = 21, cex = 1.25, lwd = 2, bg = "darkolivegreen", col = "darkgray")
   text(first + 0.22*x.spam, ylim[2] - 0.05*y.spam, aval, cex = 0.9)
   
-  x1 = end.x 
+  x1 = last
   y0 = ylim[1] + 0.4*y.spam
   y1 = val - 0.03*y.spam
   

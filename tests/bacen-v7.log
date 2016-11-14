@@ -1,0 +1,91 @@
+-- TESTING bacen-v7 @ 2016-11-14 03:44:24
+## Errors and issues in bacen_v7: 
+?? ISSUE in bacen_v7 when code = 345. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 346. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 347. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 348. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 351. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 352. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 353. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 354. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 355. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 356. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 358. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 359. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 360. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 361. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 362. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 363. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 364. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 365. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 366. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 367. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 368. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 369. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 370. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 371. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 372. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 373. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 374. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 375. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 376. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 377. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 378. MESSAGE = BETS-package: Sorry. This series is not yet available. Series is empty in database ts_semanais
+?? ISSUE in bacen_v7 when code = 14. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 15. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 16. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 17. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 18. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 19. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 20. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 21. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 23. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 24. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 25. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 26. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 27. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 28. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 29. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 30. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 31. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 32. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 33. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 34. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 35. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 36. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 37. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 38. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 39. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 40. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 41. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 45. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 46. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 47. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 48. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 49. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 50. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 51. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 52. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 53. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 54. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 55. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 56. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 60. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 61. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 63. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 64. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 67. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 68. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 69. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 70. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 73. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 74. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 75. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 76. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 77. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 78. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 79. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 80. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 81. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 82. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.
+?? ISSUE in bacen_v7 when code = 83. MESSAGE = BETS-package: Sorry. This series is not yet available. Date formatting is inadequate.

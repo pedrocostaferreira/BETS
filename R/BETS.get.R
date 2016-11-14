@@ -38,7 +38,7 @@ BETS.get = function(code, data.frame = FALSE){
       return(get.data.frame(code))
     }
   
-    data = base_final_env1
+    data = bacen_v7
     code = as.character(code)
     query = paste("select Periodicity from data where Codes like " ,"\'", code ,"\'",sep="")
     
@@ -94,7 +94,19 @@ BETS.get = function(code, data.frame = FALSE){
     }
     
     aux1 = as.numeric(aux[,2])
-    aux2 = as.date(aux[,1])
+    
+    try = FALSE
+    
+    try = tryCatch({
+      aux2 = as.date(aux[,1])},
+      error = function(err) {
+          return(TRUE)
+      }
+    )
+    
+    if(try){
+      return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Date formatting is inadequate."))))
+    }
     
     g = duplicated(aux2)
     
