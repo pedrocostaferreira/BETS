@@ -1,32 +1,18 @@
-#' @title Create dummy to monthly ts object
+#' @title Create a monthly or quarterly dummy 
 #'
-#' @description Given a informations about the time and dates, return a monthly 
-#' or quarterly ts with dummies.
+#' @description Returns a monthly or quarterly dummy (a time series with only 0s and 1s). 
 #' 
-#'
+#' @param start An \code{integer vector}. The period of the first observation. The first element of the \code{vector} specifies the year of the first observation, whereas the second, the month (for monthly dummies) or quarter (for quarterly dummies)
+#' @param end An \code{integer vector}. The period of the last observation. The first element of the \code{vector} specifies the year of the last observation, whereas the second, the month (for monthly dummies) or quarter (for quarterly dummies)
+#' @param frequency An \code{integer}. The frequency of the dummy, that is, the number of observations per unit of time. The defaulf is 12 (a monthly dummy).
+#' @param year An \code{integer}, a \code{seq} or a \code{vector}. The years for which the dummy must be set to 1. All periods of these years will be set to 1.
+#' @param month An \code{integer}, a \code{seq} or a \code{vector}. The months for which the dummy must be set to 1. These months will be set to 1 for all years.
+#' @param quarter An \code{integer}, a \code{seq} or a \code{vector}. The quarters for which the dummy must be set to 1. The quarters will be set to 1 for all years.
+#' @param date a \code{list}. The periods for which the dummy must be set to one. Periods must be represented as {integer vectors}, as described for \code{start} and \code{end}.
+#' @param from An \code{integer vector} The starting period of a sequence of perids for which the dummy must be set to one. Periods must be represented as {integer vectors}, as described for \code{start} and \code{end}. 
+#' @param to The ending period of a sequence of perids for which the dummy must be set to one. Periods must be represented as {integer vectors}, as described for \code{start} and \code{end}.
 #' 
-#' 
-#' 
-#' @param start  the time of the first observation. Either a vector of 
-#' two integers, which specify a natural time unit and a (1-based) 
-#' number of samples into the time unit. 
-#' @param end   the time of the last observation, specified in the same way as start
-#' @param frequency the number of observations per unit of time (12 in defaut).
-#' @param year a \code{integer},or a \code{seq} or a \code{vector} that 
-#'  contains the years. Which year or years will be created the dummys
-#' @param month  a \code{integer} or a \code{vector} of size 12 that 
-#'  contains the months. For which month or months will be created the dummys
-#' @param quarter a \code{integer} or a \code{vector} of size 4 that contains
-#' the quarters. For which quarter or quarters will be created the dummys
-#' @param date a \code{list} with the date objects. 
-#' @param from the starting  value of the sequence. Of 
-#' length 1 unless just from is supplied as an unnamed argument.
-#' @param to the maximal value of the sequence. 
-#' @return A monthly or a quarterly \code{ts}.
-#'
-#'
-#' @details 
-#'   the BETS.dummy works for the monthly or a quarterly \code{ts}. 
+#' @return A monthly or a quarterly \code{ts} object.
 #'
 #' @examples 
 #'
