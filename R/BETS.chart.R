@@ -16,8 +16,8 @@
 #'  \bold{'cdb'} \tab Time deposits (CDB/RDB-preset) - Daily return (percentage) \tab 14 \cr
 #'  \bold{'indprod'} \tab Prodcution Indicators (2012=100) - General	\tab 21859 \cr
 #'  \bold{'selic'} \tab Interest rate - Selic accumulated in the month in annual terms (basis 252) \tab 4189 \cr
-#'  \bold{'unemp'} \tab \tab \cr
-#'  \bold{'vargdp'} \tab \tab 
+#'  \bold{'unemp'} \tab Open unemployment rate - by metropolitan region - Brasil (weekly) \tab 10777\cr
+#'  \bold{'vargdp'}  GDP - real percentage change in the year \tab 7326 \tab 
 #'}
 #' 
 #' 
