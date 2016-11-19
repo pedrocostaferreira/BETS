@@ -1,13 +1,12 @@
-#' @title  xxx
+#' @title Deflate a time series
 #' 
-#' @description  xxxx
+#' @description  Deflate a time series using a deflator series. The deflator can be an index, a percentage or a point percentage series.
 #' 
-#' @param ts xxx
-#' @param lag.max xxx
-#' @param mode xxx
-#' @param ci xxx 
+#' @param ts A \code{ts} object. The time series to be deflated.
+#' @param deflator A \code{ts} object. The deflator series.
+#' @param type A \code{character}. Can be either \code{'index'}, \code{'point.perc'} (for point percentage) or \code{'perc'} (for percentage).
 #' 
-#' @return xxx
+#' @return The deflated series.
 #' 
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 #' 
