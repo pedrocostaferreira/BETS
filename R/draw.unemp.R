@@ -1,4 +1,4 @@
-#' @title Create an Open Unemployment Rate chart
+#' @title Create a chart of the Open Unemployment Rate time series
 #' 
 #' @description  Creates a plot of series 10777
 #' @param file A \code{character}. The name of the file in which the plot must be printed. The extension can be either '.png' or '.pdf'. All charts are stored in the 'graphs' folder, under the BETS installation directory. 

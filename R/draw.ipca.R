@@ -1,4 +1,4 @@
-#' @title Create a National Consumer Price Index chart
+#' @title Create a chart of the National Consumer Price Index time series
 #' 
 #' @description  Creates a plot of series 13522 (NCPI), along with series 4466 (NCPI core)
 #' 

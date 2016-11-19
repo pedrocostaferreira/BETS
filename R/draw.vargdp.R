@@ -1,4 +1,4 @@
-#' @title Create a chart of Real Percentage Change of GDP in the Year 
+#' @title Create a chart of the Real Percentage Change of GDP in the Year time series
 #' 
 #' @description  Creates a plot of series 7326
 #' 

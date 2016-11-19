@@ -1,4 +1,4 @@
-#' @title Create a Production Indicators chart
+#' @title Create a chart of the Production Indicators time series
 #' 
 #' @description  Creates a plot of series 21859
 #' 

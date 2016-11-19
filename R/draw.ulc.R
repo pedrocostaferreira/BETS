@@ -1,4 +1,4 @@
-#' @title Create a Unitary Cost of Labor chart
+#' @title Create a chart of the Unitary Labor Cost time series
 #' 
 #' @description  Creates a plot of series 11777
 #' 

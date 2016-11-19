@@ -2,7 +2,7 @@
 % Please edit documentation in R/draw.cdb.R
 \name{draw.cdb}
 \alias{draw.cdb}
-\title{Create a Time Deposits chart}
+\title{Create a chart of the Time Deposits time series}
 \usage{
 draw.cdb(file, start = NULL, ylim = NULL, open = TRUE)
 }

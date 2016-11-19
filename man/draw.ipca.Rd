@@ -2,23 +2,23 @@
 % Please edit documentation in R/draw.ipca.R
 \name{draw.ipca}
 \alias{draw.ipca}
-\title{xxx}
+\title{Create a chart of the National Consumer Price Index time series}
 \usage{
 draw.ipca(file, start = NULL, ylim = NULL, open = TRUE)
 }
 \arguments{
-\item{ts}{xxx}
+\item{file}{A \code{character}. The name of the file in which the plot must be printed. The extension can be either '.png' or '.pdf'. All charts are stored in the 'graphs' folder, under the BETS installation directory.}
 
-\item{lag.max}{xxx}
+\item{start}{A \code{character}. The stating period of the series.}
 
-\item{mode}{xxx}
+\item{ylim}{A \code{numeric vector}. Y axis limits.}
 
-\item{ci}{xxx}
+\item{open}{A \code{boolean}. Indicates whether the plot must be opened after being created.}
 }
 \value{
-xxx
+An image file is saved in the 'graphs' folder, under the BETS installation directory.
 }
 \description{
-xxxx
+Creates a plot of series 13522 (NCPI), along with series 4466 (NCPI core)
 }
 

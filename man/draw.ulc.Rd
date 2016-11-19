@@ -2,7 +2,7 @@
 % Please edit documentation in R/draw.ulc.R
 \name{draw.ulc}
 \alias{draw.ulc}
-\title{Create a Unitary Cost of Labor chart}
+\title{Create a chart of the Unitary Labor Cost time series}
 \usage{
 draw.ulc(file, start = NULL, ylim = NULL, open = TRUE)
 }

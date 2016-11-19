@@ -1,4 +1,4 @@
-#' @title Create a Time Deposits chart
+#' @title Create a chart of the Time Deposits time series 
 #' 
 #' @description  Creates a plot of series 14
 #' 

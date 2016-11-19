@@ -1,4 +1,4 @@
-#' @title Create an Economicallt Active Population chart
+#' @title Create a chart of the Economically Active Population time series
 #' 
 #' @description  Creates a plot of series 10810
 #' 
