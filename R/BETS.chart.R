@@ -12,7 +12,7 @@
 #' \tabular{lll}{
 #'  \bold{'ipca_with_core'} \tab National consumer price index (IPCA) - in 12 months and  Broad national consumer price index - Core IPCA trimmed means smoothed \tab 13522 and 4466 \cr
 #'  \bold{'ulc'} \tab Unit labor cost - ULC-US$ - June/1994=100 \tab 11777 \cr
-#'  \bold{'eap'} \tab \tab \cr
+#'  \bold{'eap'} \tab Economically active population \tab 10810 \cr
 #'  \bold{'cdb'} \tab Time deposits (CDB/RDB-preset) - Daily return (percentage) \tab 14 \cr
 #'  \bold{'indprod'} \tab \tab \cr
 #'  \bold{'selic'} \tab \tab \cr
