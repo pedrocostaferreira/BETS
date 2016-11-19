@@ -15,7 +15,7 @@
 #'  \bold{'eap'} \tab Economically active population \tab 10810 \cr
 #'  \bold{'cdb'} \tab Time deposits (CDB/RDB-preset) - Daily return (percentage) \tab 14 \cr
 #'  \bold{'indprod'} \tab Prodcution Indicators (2012=100) - General	\tab 21859 \cr
-#'  \bold{'selic'} \tab Base Interest Rate \tab 4189 \cr
+#'  \bold{'selic'} \tab Interest rate - Selic accumulated in the month in annual terms (basis 252) \tab 4189 \cr
 #'  \bold{'unemp'} \tab \tab \cr
 #'  \bold{'vargdp'} \tab \tab 
 #'}
