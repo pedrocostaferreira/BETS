@@ -1,13 +1,12 @@
-#' @title  xxx
+#' @title Create a Base Interest Rate (SELIC) chart
 #' 
-#' @description  xxxx
+#' @description  Creates a plot of series 
+#' @param file A \code{character}. The name of the file in which the plot must be printed. The extension can be either '.png' or '.pdf'. All charts are stored in the 'graphs' folder, under the BETS installation directory. 
+#' @param start A \code{character}. The stating period of the series.
+#' @param ylim A \code{numeric vector}. Y axis limits.
+#' @param open A \code{boolean}. Indicates whether the plot must be opened after being created.
 #' 
-#' @param ts xxx
-#' @param lag.max xxx
-#' @param mode xxx
-#' @param ci xxx 
-#' 
-#' @return xxx
+#' @return An image file is saved in the 'graphs' folder, under the BETS installation directory. 
 #' 
 #' @importFrom zoo zooreg
 
