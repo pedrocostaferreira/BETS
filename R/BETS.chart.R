@@ -2,7 +2,7 @@
 #' 
 #' @description  
 #' 
-#' @param alias A \code{character}. The alias of the chart. A complete list of available charts is under the 'Details' section.
+#' @param alias A \code{character}. The alias of the chart. A complete list of aliases for available charts is under the 'Details' section.
 #' @param lang A \code{character}. The language. For now, only 'en' (english) is available.
 #' @param out A \code{character}. The format of the output, that is, the image file. Can be either 'pdf' or 'png'. 'pdf' is a better choice if you need high resolution images. 
 #' @param file A \code{character}. The whole path, including a custom name, for the output (an image file). The default value is 'graphs//parameter_alias' (the 'graphs' directory is under the BETS installation directory).
@@ -11,9 +11,9 @@
 #' 
 #' \tabular{lll}{
 #'  \bold{'ipca_with_core'} \tab National consumer price index (IPCA) - in 12 months and  Broad national consumer price index - Core IPCA trimmed means smoothed \tab 13522 and 4466 \cr
-#'  \bold{'ulc'} \tab  \tab \cr
+#'  \bold{'ulc'} \tab Unit labor cost - ULC-US$ - June/1994=100 \tab 11777 \cr
 #'  \bold{'eap'} \tab \tab \cr
-#'  \bold{'cdb'} \tab \tab \cr
+#'  \bold{'cdb'} \tab Time deposits (CDB/RDB-preset) - Daily return (percentage) \tab 14 \cr
 #'  \bold{'indprod'} \tab \tab \cr
 #'  \bold{'selic'} \tab \tab \cr
 #'  \bold{'unemp'} \tab \tab \cr

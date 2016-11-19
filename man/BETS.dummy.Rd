@@ -4,8 +4,8 @@
 \alias{BETS.dummy}
 \title{Create dummy to monthly ts object}
 \usage{
-BETS.dummy(start = c(year,month),end= c(year,month),frequency = 12,year,
-    month, quarter, date, from, to)
+BETS.dummy(start = NULL, end = NULL, frequency = 12, year = NULL,
+  month = NULL, quarter = NULL, date = NULL, from = NULL, to = NULL)
 }
 \arguments{
 \item{start}{the time of the first observation. Either a vector of 

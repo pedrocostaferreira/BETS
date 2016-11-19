@@ -2,21 +2,22 @@
 % Please edit documentation in R/BETS.dashboard.R
 \name{BETS.dashboard}
 \alias{BETS.dashboard}
-\title{xxx}
+\title{Create a BETS custom dashboard}
 \usage{
 BETS.dashboard(type = "inflation", country = "BR", parameters = NULL,
   saveas = NA)
 }
 \arguments{
-\item{model}{xxx}
+\item{type}{A \code{character}. The theme of the dashboard. The only option, for the time being, is 'inflation'.}
 
-\item{params}{xxx}
-}
-\value{
-xxx
+\item{country}{A \code{character}. The country from which data must drawn. For now, BETS only accepts 'BR' (Brazil)}
+
+\item{parameters}{A \code{list}. A list of parameters. See the 'Details' section for a description of these parameters for each type of dashboard.}
+
+\item{saveas}{A \code{character}.}
 }
 \description{
-xxxx
+Generate thematic dashboards using a selection of BETS time series and charts. For now, themes and charts are pre-defined.
 }
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}

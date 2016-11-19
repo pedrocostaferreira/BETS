@@ -8,7 +8,7 @@ BETS.chart(alias, lang = "en", out = "png", file = NULL, start = c(2006,
   1), ylim = NULL, open = TRUE)
 }
 \arguments{
-\item{alias}{A \code{character}. The alias of the chart. A complete list of available charts is under the 'Details' section.}
+\item{alias}{A \code{character}. The alias of the chart. A complete list of aliases for available charts is under the 'Details' section.}
 
 \item{lang}{A \code{character}. The language. For now, only 'en' (english) is available.}
 
@@ -24,8 +24,14 @@ If the parameter \code{file} is not set by the user, the chart will be placed in
 }
 \details{
 \tabular{lll}{
- \code{alias} \tab Description \tab BETS code \cr
- 'ipca_with_core' \tab National consumer price index (IPCA) - in 12 months and  Broad national consumer price index - Core IPCA trimmed means smoothed \tab 13522 and 4466
+ \bold{'ipca_with_core'} \tab National consumer price index (IPCA) - in 12 months and  Broad national consumer price index - Core IPCA trimmed means smoothed \tab 13522 and 4466 \cr
+ \bold{'ulc'} \tab Unit labor cost - ULC-US$ - June/1994=100 \tab 11777 \cr
+ \bold{'eap'} \tab \tab \cr
+ \bold{'cdb'} \tab Time deposits (CDB/RDB-preset) - Daily return (percentage) \tab 14 \cr
+ \bold{'indprod'} \tab \tab \cr
+ \bold{'selic'} \tab \tab \cr
+ \bold{'unemp'} \tab \tab \cr
+ \bold{'vargdp'} \tab \tab 
 }
 }
 \author{
