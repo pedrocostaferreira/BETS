@@ -1,13 +1,11 @@
-#' @title  xxx
+#' @title Normalize a time series
 #' 
-#' @description  xxxx
+#' @description  Normalizes a time series, either by stardization or by mapping to values between 0 and 1. 
 #' 
-#' @param ts xxx
-#' @param lag.max xxx
-#' @param mode xxx
-#' @param ci xxx 
+#' @param series A \code{ts} object or a \code{ts list}. The series to be normalized. 
+#' @param mode A \code{character}. The normalization method. Set this parameter to 'maxmin' to map series values to values between 0 and 1. Alternatively, set this parameter to 'scale' to standardize (substract the mean and divide by the standard deviation).
 #' 
-#' @return xxx
+#' @return A \code{ts} object or a \code{ts list}. The normalized series. 
 #' 
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 #' 

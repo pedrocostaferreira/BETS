@@ -2,24 +2,20 @@
 % Please edit documentation in R/BETS.normalize.R
 \name{BETS.normalize}
 \alias{BETS.normalize}
-\title{xxx}
+\title{Normalize a time series}
 \usage{
 BETS.normalize(series, mode)
 }
 \arguments{
-\item{mode}{xxx}
+\item{series}{A \code{ts} object or a \code{ts list}. The series to be normalized.}
 
-\item{ts}{xxx}
-
-\item{lag.max}{xxx}
-
-\item{ci}{xxx}
+\item{mode}{A \code{character}. The normalization method. Set this parameter to 'maxmin' to map series values to values between 0 and 1. Alternatively, set this parameter to 'scale' to standardize (substract the mean and divide by the standard deviation).}
 }
 \value{
-xxx
+A \code{ts} object or a \code{ts list}. The normalized series.
 }
 \description{
-xxxx
+Normalizes a time series, either by stardization or by mapping to values between 0 and 1.
 }
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
