@@ -1,13 +1,22 @@
-#' @title  xxx
+#' @title Get the predicted values of a model and visualize it
 #' 
-#' @description  xxxx
+#' @description This function is built upon \link[forecast]{forecast}. Besides the model predictions, it returns an accuracy measure table (calculated by the \link[forecast]{accuracy} function) and a graph showing the original series, the predicted values and the actual values. 
 #' 
-#' @param ts xxx
-#' @param lag.max xxx
-#' @param mode xxx
-#' @param ci xxx 
+#' @param ... arguments passed on to \link[forecast]{forecast}. If the model is a neural network, these arguments will be passed on to \link[BETS]{BETS.grnn.test}.
+#' @param actual A \code{numeric vector}. The actual values (to be compared with predicted values).
+#' @param main A \code{character}. The name of the prediction plot.
+#' @param ylab A \code{character}. The Y axis label.
+#' @param xlim A \code{numeric vector}. The limits of the X axis.
+#' @param style A \code{character}. Can be either 'dygraphs' (the \link[dygraphs]{dygraph} function will be use to make the plot, which is going to be HTML based) or 'normal' (standard R functions will be used to make the plot)
+#' @param unnorm A \code{numeric vector}. If predictions must be unnormalized, set the first element of this vector to the mean and the second, to the standard deviation.
+#' @param knit A \code{boolean}. Set this parameter to \code{TRUE} if 
 #' 
-#' @return xxx
+#' @return Besides the prediction plot, this function returns an object whose fields are:
+#' 
+#' \itemize{
+#' \item{\code{accuracy}: An object returned by \link[forecast]{accuracy}. It is a table containing several accuracy measures}
+#' \item{\code{predictions}: A \code{numeric vector} containing the predicted values. }
+#' }
 #' 
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 #' 
