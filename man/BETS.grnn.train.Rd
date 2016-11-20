@@ -18,12 +18,12 @@ BETS.grnn.train(train.set, sigma, step = 0.1, select = TRUE, names = NA)
 \item{names}{A \code{character vector}. Optional. The names of the regressors. If not provided, indexes will be used and reported.}
 }
 \value{
-A \code{list} whose elements are:
+A \code{list} of result objects, each representing a network. These objects are ordered by MAPE (the 20 best MAPEs) and its fields are:
 
 \itemize{
 \item{\code{accuracy}: A \code{numeric} value. Accuracy measure between the fitted and the actual series values. By default, the MAPE. In future versions, it will be possible to change it.}
 \item{\code{fitted}: The fitted values, that is, one step ahead predicitions calculated by the trained net.}
-\item{\code{net}: A \code{list} object returned by the \link[grnn]{grnn} function. Represents a trained net. }
+\item{\code{net}: An object returned by the \link[grnn]{grnn} function. Represents a trained net. }
 \item{\code{sigma}: A \code{numeric}. The sigma that was chosen, either by the user or by the function itself (in case \code{select} was set to \code{TRUE})}
 \item{\code{regressors}: A \code{character vector}. Regressors that were chosen, either by the user or by the fuction itself (in case \code{select} was set to \code{TRUE})}
 \item{\code{sigma.accuracy}: A \code{data.frame}. Sigma versus accuracy value of the corresponding trained network. Those networks were trained using the best set of regressors.}
@@ -33,7 +33,7 @@ A \code{list} whose elements are:
 BETS.grnn.train also returns a diagnostic of training rounds and a \code{sigma} versus \code{accuracy} plot.
 }
 \description{
-Creates a probabilistic neural network as proposed by \href{http://www.inf.ufrgs.br/~engel/data/media/file/cmp121/GRNN.pdf}{Specht [1991]}. The user provides a set of regressors and the function chooses which subset is the best, based on an accuracy measure (by default, the MAPE) between fited and actual values. These networks have only one parameter, the \code{sigma}, which is the standard deviation of each activation function (gaussian) of the pattern layer. Sigma can also be automatically chosen. This function builds on \link[grnn]{grnn-package}.
+Creates a set of probabilistic neural networks as proposed by \href{http://www.inf.ufrgs.br/~engel/data/media/file/cmp121/GRNN.pdf}{Specht [1991]}. The user provides a set of regressors and the function chooses which subset is the best, based on an accuracy measure (by default, the MAPE) between fited and actual values. These networks have only one parameter, the \code{sigma}, which is the standard deviation of each activation function (gaussian) of the pattern layer. Sigma can also be automatically chosen. This function builds on \link[grnn]{grnn-package}.
 }
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}

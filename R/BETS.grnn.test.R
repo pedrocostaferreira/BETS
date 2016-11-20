@@ -1,21 +1,33 @@
-#' @title  xxxx
+#' @title Test a set of General Regression Neural Networks
 #' 
-#' @description  xxxx
+#' @description Given new values of the independent variables, tests a list of trained GRNNs and picks the best net, based on an accuracy measure between the forecasted and the actual values. 
 #' 
-#' @param ts xxx
-#' @param lag.max xxx
-#' @param mode xxx
-#' @param ci xxx 
+#' @param results The object returned by \link[BETS]{BETS.grnn.train}. 
+#' @param test.set A \code{ts list}. The first element must be the actual values of the dependent variable. The others, the new values of the regressors.
 #' 
-#' @return xxx
+#' @return A \code{list} object representing the best network (according to forecasting MAPE). Its fields are:
+#' 
+#' \itemize{
+#' \item{\code{mape}: The forecasting MAPE }
+#' \item{\code{model}: The network object (returned by \link[grnn]{grnn})}
+#' \item{\code{sigma}: The sigma parameter}
+#' \item{\code{id}: The id number of the network, as given by \link[BETS]{BETS.grnn.train} }
+#' \item{\code{mean}: The predicted values }
+#' \item{\code{x}: The original series } 
+#' \item{\code{fitted}: The fitted values }
+#' \item{\code{actual}: The actual values (to be compared with the predicted values)}
+#' \item{\code{residuals}: Difference between the fitted values and the series original values }
+#' \item{\code{regressors}: The regressors used to train the network }
+#' }
 #' 
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 #'
 #' @export
 #' @import grnn forecast
 
-
-BETS.grnn.test = function(results, test.set, select = TRUE){
+BETS.grnn.test = function(results, test.set){
+  
+  select = TRUE 
   
   if(length(test) < 2 || !check.series(test, "Series list: test.")){
     return(NULL)
