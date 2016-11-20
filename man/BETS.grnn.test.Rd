@@ -2,7 +2,7 @@
 % Please edit documentation in R/BETS.grnn.test.R
 \name{BETS.grnn.test}
 \alias{BETS.grnn.test}
-\title{xxx}
+\title{xxxx}
 \usage{
 BETS.grnn.test(results, test.set, select = TRUE)
 }

@@ -2,24 +2,22 @@
 % Please edit documentation in R/BETS.deflate.R
 \name{BETS.deflate}
 \alias{BETS.deflate}
-\title{xxx}
+\title{Deflate a time series}
 \usage{
 BETS.deflate(ts, deflator, type = "index")
 }
 \arguments{
-\item{ts}{xxx}
+\item{ts}{A \code{ts} object. The time series to be deflated.}
 
-\item{lag.max}{xxx}
+\item{deflator}{A \code{ts} object. The deflator series.}
 
-\item{mode}{xxx}
-
-\item{ci}{xxx}
+\item{type}{A \code{character}. Can be either \code{'index'}, \code{'point.perc'} (for point percentage) or \code{'perc'} (for percentage).}
 }
 \value{
-xxx
+The deflated series.
 }
 \description{
-xxxx
+Deflate a time series using a deflator series. The deflator can be an index, a percentage or a point percentage series.
 }
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}

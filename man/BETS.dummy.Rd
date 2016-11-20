@@ -2,45 +2,35 @@
 % Please edit documentation in R/BETS.dummy.R
 \name{BETS.dummy}
 \alias{BETS.dummy}
-\title{Create dummy to monthly ts object}
+\title{Create a monthly or quarterly dummy}
 \usage{
 BETS.dummy(start = NULL, end = NULL, frequency = 12, year = NULL,
   month = NULL, quarter = NULL, date = NULL, from = NULL, to = NULL)
 }
 \arguments{
-\item{start}{the time of the first observation. Either a vector of 
-two integers, which specify a natural time unit and a (1-based) 
-number of samples into the time unit.}
+\item{start}{An \code{integer vector}. The period of the first observation. The first element of the \code{vector} specifies the year of the first observation, whereas the second, the month (for monthly dummies) or quarter (for quarterly dummies)}
 
-\item{end}{the time of the last observation, specified in the same way as start}
+\item{end}{An \code{integer vector}. The period of the last observation. The first element of the \code{vector} specifies the year of the last observation, whereas the second, the month (for monthly dummies) or quarter (for quarterly dummies)}
 
-\item{frequency}{the number of observations per unit of time (12 in defaut).}
+\item{frequency}{An \code{integer}. The frequency of the dummy, that is, the number of observations per unit of time. The defaulf is 12 (a monthly dummy).}
 
-\item{year}{a \code{integer},or a \code{seq} or a \code{vector} that 
-contains the years. Which year or years will be created the dummys}
+\item{year}{An \code{integer}, a \code{seq} or a \code{vector}. The years for which the dummy must be set to 1. All periods of these years will be set to 1.}
 
-\item{month}{a \code{integer} or a \code{vector} of size 12 that 
-contains the months. For which month or months will be created the dummys}
+\item{month}{An \code{integer}, a \code{seq} or a \code{vector}. The months for which the dummy must be set to 1. These months will be set to 1 for all years.}
 
-\item{quarter}{a \code{integer} or a \code{vector} of size 4 that contains
-the quarters. For which quarter or quarters will be created the dummys}
+\item{quarter}{An \code{integer}, a \code{seq} or a \code{vector}. The quarters for which the dummy must be set to 1. The quarters will be set to 1 for all years.}
 
-\item{date}{a \code{list} with the date objects.}
+\item{date}{a \code{list}. The periods for which the dummy must be set to one. Periods must be represented as {integer vectors}, as described for \code{start} and \code{end}.}
 
-\item{from}{the starting  value of the sequence. Of 
-length 1 unless just from is supplied as an unnamed argument.}
+\item{from}{An \code{integer vector} The starting period of a sequence of perids for which the dummy must be set to one. Periods must be represented as {integer vectors}, as described for \code{start} and \code{end}.}
 
-\item{to}{the maximal value of the sequence.}
+\item{to}{The ending period of a sequence of perids for which the dummy must be set to one. Periods must be represented as {integer vectors}, as described for \code{start} and \code{end}.}
 }
 \value{
-A monthly or a quarterly \code{ts}.
+A monthly or a quarterly \code{ts} object.
 }
 \description{
-Given a informations about the time and dates, return a monthly 
-or quarterly ts with dummies.
-}
-\details{
-the BETS.dummy works for the monthly or a quarterly \code{ts}.
+Returns a monthly or quarterly dummy (a time series with only 0s and 1s).
 }
 \examples{
 

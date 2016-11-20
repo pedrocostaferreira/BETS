@@ -1,4 +1,4 @@
-#' @title  xxx
+#' @title  xxxx
 #' 
 #' @description  xxxx
 #' 
@@ -10,7 +10,7 @@
 #' @return xxx
 #' 
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
-#' 
+#'
 #' @export
 #' @import grnn forecast
 

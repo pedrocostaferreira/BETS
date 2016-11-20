@@ -14,11 +14,11 @@ BETS.corrgram(ts, lag.max = 12, type = "correlation", mode = "simple",
 
 \item{type}{A \code{character}. Can be either 'correlation' (for the ACF) or 'partial' (for the PACF).}
 
-\item{mode}{A \code{character}. Set this parameter to 'bartlett' if you want the variance to be calculated according to \href{Bartlett's formula}{https://en.wikipedia.org/wiki/Correlogram#Statistical_inference_with_correlograms}. Otherwise, it is going to be simply equal to \code{1/sqrt(N)}.}
+\item{mode}{A \code{character}. Set this parameter to 'bartlett' if you want the variance to be calculated according to \href{https://en.wikipedia.org/wiki/Correlogram#Statistical_inference_with_correlograms}{Bartlett's formula}. Otherwise, it is going to be simply equal to \code{1/sqrt(N)}.}
 
 \item{ci}{A \code{numeric} value. The confidence interval to be shown in the plot.}
 
-\item{style}{A \code{character}. Set this parameter to 'normal' if you want it made with ggplot2 or to 'plotly' if you want to be a \link[pkg]{plotly} object.}
+\item{style}{A \code{character}. Set this parameter to 'normal' if you want it made with ggplot2 or to 'plotly' if you want to be a \link[plotly]{plotly} object.}
 
 \item{knit}{A \code{boolean}. If you're using this function to exhibit correlograms on a R dynamic report, set this parameter to true.}
 }
@@ -26,7 +26,7 @@ BETS.corrgram(ts, lag.max = 12, type = "correlation", mode = "simple",
 A plot and a \code{vector} containing the correlations.
 }
 \description{
-Plot correlograms using plot.ly and several other options that differ theses plots from \link[pkg]{forecast}s ACF and PACF.
+Plot correlograms using plot.ly and several other options that differ theses plots from \link[forecast]{forecast}s ACF and PACF.
 }
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}

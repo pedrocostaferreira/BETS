@@ -10,6 +10,7 @@
 #' @details 
 #' 
 #' \tabular{lll}{
+#'  VALUE \tab DESCRIPTION \tab CODE \cr
 #'  \bold{'ipca_with_core'} \tab National consumer price index (IPCA) - in 12 months and  Broad national consumer price index - Core IPCA trimmed means smoothed \tab 13522 and 4466 \cr
 #'  \bold{'ulc'} \tab Unit labor cost - ULC-US$ - June/1994=100 \tab 11777 \cr
 #'  \bold{'eap'} \tab Economically active population \tab 10810 \cr
@@ -17,7 +18,7 @@
 #'  \bold{'indprod'} \tab Prodcution Indicators (2012=100) - General	\tab 21859 \cr
 #'  \bold{'selic'} \tab Interest rate - Selic accumulated in the month in annual terms (basis 252) \tab 4189 \cr
 #'  \bold{'unemp'} \tab Open unemployment rate - by metropolitan region - Brasil (weekly) \tab 10777\cr
-#'  \bold{'vargdp'}  GDP - real percentage change in the year \tab 7326 \tab 
+#'  \bold{'vargdp'} \tab GDP - real percentage change in the year \tab 7326 
 #'}
 #' 
 #' 

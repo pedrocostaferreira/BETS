@@ -1,13 +1,13 @@
 #' @title  Plot the ACF or the PACF of a time series
 #' 
-#' @description  Plot correlograms using plot.ly and several other options that differ theses plots from \link[pkg]{forecast}s ACF and PACF.
+#' @description  Plot correlograms using plot.ly and several other options that differ theses plots from \link[forecast]{forecast}s ACF and PACF.
 #' 
 #' @param ts An object of type \code{ts} or \code{xts}. The time series for which the plot must be constructed.  
 #' @param lag.max A \code{numeric} value. The number of lags to be shown in the plot.
 #' @param type A \code{character}. Can be either 'correlation' (for the ACF) or 'partial' (for the PACF).
-#' @param style A \code{character}. Set this parameter to 'normal' if you want it made with ggplot2 or to 'plotly' if you want to be a \link[pkg]{plotly} object.
+#' @param style A \code{character}. Set this parameter to 'normal' if you want it made with ggplot2 or to 'plotly' if you want to be a \link[plotly]{plotly} object.
 #' @param ci A \code{numeric} value. The confidence interval to be shown in the plot.
-#' @param mode A \code{character}. Set this parameter to 'bartlett' if you want the variance to be calculated according to \href{Bartlett's formula}{https://en.wikipedia.org/wiki/Correlogram#Statistical_inference_with_correlograms}. Otherwise, it is going to be simply equal to \code{1/sqrt(N)}. 
+#' @param mode A \code{character}. Set this parameter to 'bartlett' if you want the variance to be calculated according to \href{https://en.wikipedia.org/wiki/Correlogram#Statistical_inference_with_correlograms}{Bartlett's formula}. Otherwise, it is going to be simply equal to \code{1/sqrt(N)}. 
 #' @param knit A \code{boolean}. If you're using this function to exhibit correlograms on a R dynamic report, set this parameter to true.
 #' 
 #' @return A plot and a \code{vector} containing the correlations.
