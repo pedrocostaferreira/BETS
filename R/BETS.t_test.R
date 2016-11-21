@@ -8,13 +8,12 @@
 #' 
 #' 
 #' @examples 
-#' # require(forecast)
-#' # data("AirPassengers")
-#' # fit.air<- Arima(AirPassengers,order = c(1,1,1), 
-#'     # seasonal = c(1,1,1), method ="ML",lambda=0)
-#'     # summary(fit.air)
+#' require(forecast)
+#' data("AirPassengers")
+#' fit.air<- Arima(AirPassengers,order = c(1,1,1), seasonal = c(1,1,1), method ="ML",lambda=0)
+#' summary(fit.air)
 #' 
-#' # significance test for model SARIMA(1,1,1)(1,1,1)_12
+#' # Significance test for the model SARIMA(1,1,1)(1,1,1)[12]
 #' # t.test(model = fit.air)
 #'
 #' 

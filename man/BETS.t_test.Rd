@@ -20,13 +20,12 @@ A \code{data.frame} containing the standard erros, the t-statistic, the critical
 Performs the t test on every parameter of an ARIMA model. This model can be an \link[forecast]{Arima} or an \link[stats]{arima}.
 }
 \examples{
-# require(forecast)
-# data("AirPassengers")
-# fit.air<- Arima(AirPassengers,order = c(1,1,1), 
-    # seasonal = c(1,1,1), method ="ML",lambda=0)
-    # summary(fit.air)
+require(forecast)
+data("AirPassengers")
+fit.air<- Arima(AirPassengers,order = c(1,1,1), seasonal = c(1,1,1), method ="ML",lambda=0)
+summary(fit.air)
 
-# significance test for model SARIMA(1,1,1)(1,1,1)_12
+# Significance test for the model SARIMA(1,1,1)(1,1,1)[12]
 # t.test(model = fit.air)
 
 
