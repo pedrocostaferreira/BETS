@@ -1,13 +1,10 @@
-#' @title  Significance of parameter an Arima model
+#' @title Test the significance of the parameters of an ARIMA model
 #' 
-#' @description  Performs the test of significance of the parameter an 
-#' Arima model
+#' @description  Performs the t test on every parameter of an ARIMA model. This model can be an \link[forecast]{Arima} or an \link[stats]{arima}. 
 #' 
-#' 
-#'
-#' 
-#' @param arima_model  Arima model used
-#' @param n_x  Number of variables Exogenous
+#' @param model An \link[forecast]{Arima} or an \link[stats]{arima} object. The model for which the parameters must be tested.
+#' @param nx An \code{integer}. The number of exogenous variables
+#' @param alpha A \code{numeric} value between 0 and 1. The significance level.
 #' 
 #' 
 #' @examples 
@@ -18,28 +15,24 @@
 #'     # summary(fit.air)
 #' 
 #' # significance test for model SARIMA(1,1,1)(1,1,1)_12
-#' # t.test(arima_model = fit.air)
+#' # t.test(model = fit.air)
 #'
 #' 
-#' @return Objeto do tipo \code{list}
+#' @return A \code{data.frame} containing the standard erros, the t-statistic, the critical values and whether the null hypothesis should be rejected or not, for each model parameter. 
 #' 
-#' @author Daiane Mattos \email{daiane.mattos@fgv.br}
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 #' 
 #' @export
 
 
 
-BETS.t_test <- function(arima_model, n_x = 0, alpha = 0.05){
+BETS.t_test <- function(model, nx = 0, alpha = 0.05){
 
-  # Esta fun??o faz o teste de Signific?ncia dos par?metros de um modelo ARIMA
-  # n_x ? o n?mero de vari?veis ex?genas
-
-  # Estat?stica T
-  coef <- arima_model$coef
-  se <- sqrt(diag(arima_model$var.coef))
+  coef <- model$coef
+  se <- sqrt(diag(model$var.coef))
   t <- abs(coef/se)
   
-  crit = qt(1 - alpha/2, length(arima_model$x) - sum(arima_model$arma[c(1,2,3,4,6,7)]) - n_x)
+  crit = qt(1 - alpha/2, length(model$x) - sum(model$arma[c(1,2,3,4,6,7)]) - nx)
   ok <- t > crit
   resul <- data.frame(Coeffs = coef, Std.Errors = se, t = t, Crit.Values = crit, Rej.H0 = ok )
   return(resul)

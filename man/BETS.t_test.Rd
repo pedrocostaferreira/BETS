@@ -2,21 +2,22 @@
 % Please edit documentation in R/BETS.t_test.R
 \name{BETS.t_test}
 \alias{BETS.t_test}
-\title{Significance of parameter an Arima model}
+\title{Test the significance of the parameters of an ARIMA model}
 \usage{
-BETS.t_test(arima_model, n_x = 0, alpha = 0.05)
+BETS.t_test(model, nx = 0, alpha = 0.05)
 }
 \arguments{
-\item{arima_model}{Arima model used}
+\item{model}{An \link[forecast]{Arima} or an \link[stats]{arima} object. The model for which the parameters must be tested.}
 
-\item{n_x}{Number of variables Exogenous}
+\item{nx}{An \code{integer}. The number of exogenous variables}
+
+\item{alpha}{A \code{numeric} value between 0 and 1. The significance level.}
 }
 \value{
-Objeto do tipo \code{list}
+A \code{data.frame} containing the standard erros, the t-statistic, the critical values and whether the null hypothesis should be rejected or not, for each model parameter.
 }
 \description{
-Performs the test of significance of the parameter an 
-Arima model
+Performs the t test on every parameter of an ARIMA model. This model can be an \link[forecast]{Arima} or an \link[stats]{arima}.
 }
 \examples{
 # require(forecast)
@@ -26,11 +27,11 @@ Arima model
     # summary(fit.air)
 
 # significance test for model SARIMA(1,1,1)(1,1,1)_12
-# t.test(arima_model = fit.air)
+# t.test(model = fit.air)
 
 
 }
 \author{
-Daiane Mattos \email{daiane.mattos@fgv.br}
+Talitha Speranza \email{talitha.speranza@fgv.br}
 }
 
