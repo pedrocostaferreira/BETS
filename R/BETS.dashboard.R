@@ -5,7 +5,7 @@
 #' @param type A \code{character}. The theme of the dashboard. The only option, for the time being, is 'inflation'.
 #' @param country A \code{character}. The country from which data must drawn. For now, BETS only accepts 'BR' (Brazil) 
 #' @param parameters A \code{list}. A list of parameters. See the 'Details' section for a description of these parameters for each type of dashboard.
-#' @param saveas A \code{character}. A path and a name for the dashboard file (a .pdf file). If this parameter is not provided, the dashboard will be saved in the 'dashboards' folder, under the BETS installation directory.
+#' @param saveas A \code{character}. A path and a name for the dashboard file (a .pdf file). If this parameter is not provided, the dashboard will be saved inside the 'dashboards' folder, under the BETS installation directory.
 #' 
 #' @details
 #' 

@@ -2,20 +2,32 @@
 % Please edit documentation in R/BETS.report.R
 \name{BETS.report}
 \alias{BETS.report}
-\title{xxx}
+\title{Create a dynamic report with a full analysis of a time series}
 \usage{
 BETS.report(mode = "SARIMA", ts = 21864, parameters = NULL, saveas = NA)
 }
 \arguments{
-\item{model}{xxx}
+\item{mode}{A \code{character}. The type of the analysis. So far, only 'SARIMA' is available.}
 
-\item{params}{xxx}
+\item{ts}{A \code{integer} or a \code{ts} object. Either the id of the series in the BETS database or a time series object (any series, not just BETS's)}
+
+\item{parameters}{A \code{list}. The parameters of the report. See the 'details' section for more information.}
+
+\item{saveas}{A \code{character}. A path and a name for the report file (an .html file). If this parameter is not provided, the report will be saved inside the 'reports' folder, under the BETS installation directory.}
 }
 \value{
-xxx
+An .html file (the report)
 }
 \description{
-xxxx
+Generate an automatic report with a complete analysis of a time series. For now, only a SARIMA analysis (Box & Jenkins approach) is possible. In a near future, a GRNN (General Regression Neural Network) analysis will be released. Soon after, Holt-Winters, Multilayer Perceptron, Fuzzy Logic and Box-Cox analysis will become available.
+}
+\details{
+\bold{SARIMA Report Parameters}
+
+\itemize{
+\item{\code{lag.max}: Maximum number of lags to show on the ACFs e PACFs}
+\item{\code{n.ahead}: Prevision horizon (number of steps ahead)}
+}
 }
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}

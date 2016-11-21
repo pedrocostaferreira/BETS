@@ -14,7 +14,7 @@ BETS.dashboard(type = "inflation", country = "BR", parameters = NULL,
 
 \item{parameters}{A \code{list}. A list of parameters. See the 'Details' section for a description of these parameters for each type of dashboard.}
 
-\item{saveas}{A \code{character}. A path and a name for the dashboard file (a .pdf file). If this parameter is not provided, the dashboard will be saved in the 'dashboards' folder, under the BETS installation directory.}
+\item{saveas}{A \code{character}. A path and a name for the dashboard file (a .pdf file). If this parameter is not provided, the dashboard will be saved inside the 'dashboards' folder, under the BETS installation directory.}
 }
 \value{
 A .pdf file (the dashboard)
