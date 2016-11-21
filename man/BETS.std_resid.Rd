@@ -2,24 +2,20 @@
 % Please edit documentation in R/BETS.std_resid.R
 \name{BETS.std_resid}
 \alias{BETS.std_resid}
-\title{xxx}
+\title{Plot standardized residuals}
 \usage{
 BETS.std_resid(model, alpha = 0.05)
 }
 \arguments{
-\item{ts}{xxx}
+\item{model}{An \link[forecast]{Arima} or an \link[stats]{arima} object. The model.}
 
-\item{lag.max}{xxx}
-
-\item{mode}{xxx}
-
-\item{ci}{xxx}
+\item{alpha}{A \code{numeric} between 0 and 1. The significance level.}
 }
 \value{
-xxx
+Besides showing the plot, this functin returns a \code{numeric vector} containing the standardized residuals.
 }
 \description{
-xxxx
+Uses a model object to create a plot of standardized residuals. This model can be an \link[forecast]{Arima} or an \link[stats]{arima}. In a near future, this function will also accept objects returned by \link[BETS]{BETS.grnn.train}.
 }
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}

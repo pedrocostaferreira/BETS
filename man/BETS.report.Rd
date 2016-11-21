@@ -9,7 +9,7 @@ BETS.report(mode = "SARIMA", ts = 21864, parameters = NULL, saveas = NA)
 \arguments{
 \item{mode}{A \code{character}. The type of the analysis. So far, only 'SARIMA' is available.}
 
-\item{ts}{A \code{integer} or a \code{ts} object. Either the id of the series in the BETS database or a time series object (any series, not just BETS's)}
+\item{ts}{A \code{integer} or a \code{ts} object. Either the ID of the series in the BETS database or a time series object (any series, not just BETS's)}
 
 \item{parameters}{A \code{list}. The parameters of the report. See the 'details' section for more information.}
 

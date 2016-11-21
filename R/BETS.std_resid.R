@@ -1,13 +1,11 @@
-#' @title  xxx
+#' @title Plot standardized residuals
 #' 
-#' @description  xxxx
+#' @description Uses a model object to create a plot of standardized residuals. This model can be an \link[forecast]{Arima} or an \link[stats]{arima}. In a near future, this function will also accept objects returned by \link[BETS]{BETS.grnn.train}.
 #' 
-#' @param ts xxx
-#' @param lag.max xxx
-#' @param mode xxx
-#' @param ci xxx 
+#' @param model An \link[forecast]{Arima} or an \link[stats]{arima} object. The model.
+#' @param alpha A \code{numeric} between 0 and 1. The significance level.
 #' 
-#' @return xxx
+#' @return Besides showing the plot, this functin returns a \code{numeric vector} containing the standardized residuals.
 #' 
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 #' 

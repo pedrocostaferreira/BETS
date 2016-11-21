@@ -3,7 +3,7 @@
 #' @description Generate an automatic report with a complete analysis of a time series. For now, only a SARIMA analysis (Box & Jenkins approach) is possible. In a near future, a GRNN (General Regression Neural Network) analysis will be released. Soon after, Holt-Winters, Multilayer Perceptron, Fuzzy Logic and Box-Cox analysis will become available.
 #' 
 #' @param mode A \code{character}. The type of the analysis. So far, only 'SARIMA' is available.
-#' @param ts A \code{integer} or a \code{ts} object. Either the id of the series in the BETS database or a time series object (any series, not just BETS's)
+#' @param ts A \code{integer} or a \code{ts} object. Either the ID of the series in the BETS database or a time series object (any series, not just BETS's)
 #' @param parameters A \code{list}. The parameters of the report. See the 'details' section for more information.
 #' @param saveas A \code{character}. A path and a name for the report file (an .html file). If this parameter is not provided, the report will be saved inside the 'reports' folder, under the BETS installation directory.
 #' 
