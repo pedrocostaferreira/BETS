@@ -1,13 +1,12 @@
-#' @title  xxx
+#' @title  Perform unit root tests
 #' 
-#' @description  xxxx
+#' @description This function uses the package 'urca' to perform unit root tests on a pre-defined time series. Unlike urca functions, it returns a meaningful table summarizing the results. 
 #' 
-#' @param ts xxx
-#' @param lag.max xxx
-#' @param mode xxx
-#' @param ci xxx 
+#' @param ... Arguments passed on to urca functions
+#' @param mode A \code{character}. The type of the test. For now, only the Augmented Dickey-Fuller test is available.
+#' @param level A \code{character}. The confidence level. Can be either '1pct','5pct' or '10pct'
 #' 
-#' @return xxx
+#' @return A \code{list} object. The first element is a \code{data.frame} with the test statistics, the critical values and the test results. The second, the model residuals. 
 #' 
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 #' 
