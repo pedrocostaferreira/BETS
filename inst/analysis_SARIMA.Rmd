@@ -5,56 +5,75 @@ date: "`r Sys.Date()`"
 output: html_document
 params:
   ts: 21864
+  name: NA
+  unit: NA
   lag.max: 48
   n.ahead: 12
 ---
 
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+
+custom.ts = TRUE
+ts = params$ts
+
+if(class(ts) != 'ts'){
+  custom.ts = FALSE
+  code = ts 
+} else{
+  code = "None"
+}
 ```
 
 ## User-Defined Parameters
 
  Parameter          | Value              | Variable
  ------------------ | ------------------ | ----------
- Series Code        | `r as.integer(params$ts)`    | `ts` 
+ Series Code        | `r code`    | `ts` 
  Maximum Lag        | `r params$lag.max` | `lag.max` 
  Prevision Horizon  | `r params$n.ahead` | `n.ahead`  
 
  
 ```{r echo = FALSE}
-  ts = params$ts
   lag.max = params$lag.max
   n.ahead = params$n.ahead
-  
-  custom.ts = FALSE
-  if(class(ts) == 'ts'){
-    custom.ts = TRUE
-  }
 ```
 
-```{asis eval = !custom.ts}
+```{asis echo = !custom.ts}
 ## Getting the Time Series from the BETS database
 ```
 
-```{r eval = !custom.ts}
+```{r eval = !custom.ts, echo = !custom.ts}
 library(BETS)
-data = BETS.get(ts)
+data = BETS.get(code)
 ```
 
 ### Information About the Series
 
-```{r}
+```{r eval = !custom.ts, echo = !custom.ts}
 info <- BETS.search(code = ts, view = F)
 ```
 
+```{r eval = custom.ts, echo = custom.ts}
+data <- ts
+```
 
-```{r echo = FALSE}
+```{r echo = FALSE, eval = custom.ts}
+info <- data.frame(matrix(nrow = 1, ncol = 6))
+names(info) <- c("Code","Description","Periodicity","Start","Source","Unit")
+info[1,] <- c(code,params$name,frequency(data),start(data),"Custom",params$unit)
+```
+
+```{r echo = FALSE, eval = !custom.ts}
 names(info) <- c("Code","Description","Periodicity","Start","Source","Unit")
 info[,"Start"] <- paste(start(data),collapse=".")
 info[,"Description"] <- trimws(info[,"Description"])
+```
+
+```{r echo = FALSE}
 knitr::kable(info, format = "markdown")
 ```
+
 
 ## Graph
 

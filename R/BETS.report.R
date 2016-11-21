@@ -40,6 +40,10 @@ BETS.report <- function(mode = "SARIMA", ts = 21864, parameters = NULL, saveas= 
   file = gsub(".Rmd", ".html", file)
   
   if(is.na(saveas)){
+    if(class(ts) == 'ts'){
+      ts = "custom"
+    }
+    
     dir = paste0(system.file(package="BETS"),"//reports")
     dir.create(dir)
     saveas = paste0(dir,"//analysis_", mode, "_", ts, ".html")
