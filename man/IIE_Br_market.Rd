@@ -5,18 +5,13 @@
 \title{Uncertainty Indicator for the Brazilian Economy - Market}
 \format{A \code{\link[stats]{ts}} object with 185 observations.}
 \source{
-\href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV/IBRE)}
+\href{http://portalibre.fgv.br/}{Brazilian Institute of Economics (FGV|IBRE)}
 }
 \description{
-O \code{IIE-Br-Market} visa mensurar variabilidade do mercado acionaario
-IIE-Br-Market.
-
-Brasileiro e seu grau de risco, ou seja, diferente IIE-Br-expectativa busca
-mensurar a variabilidade do sentimento do mercado no tempopresente.
-
-O \code{IIE-Br-Market}  e composto pela volatilidade dos ultimos 21 dias 
-decalculo dos precos das acoess do IBOVESPA e opremio de cinco anos do Credit 
-Swap Default.
+This \code{IIE_Br_market} measures the variability of the Brazilian assets market 
+and its risk degree. Unlike the \link[BETS]{IIE_Br_expectation}, it seeks to capture the sentiments
+of the market at the present time. It is composed by the last 21 days volatility, the IBOVESPA asset 
+prices and the credit swap default's 5-year premium
 }
 \author{
 Pedro Costa Ferreira  \email{pedro.guilherme@fgv.br},
@@ -25,8 +20,7 @@ Pedro Costa Ferreira  \email{pedro.guilherme@fgv.br},
         Itaiguara de Oliveira Bezerra  \email{itaiguara.bezerra@fgv.br}.
 }
 \references{
-A shiny app with IIE-Br-expectations plots can be found 
-             \href{here}{https://pedroferreira.shinyapps.io/incerteza/}
+A shiny app with IIE-Br-expectations plots can be found \href{https://pedroferreira.shinyapps.io/incerteza/}{here}
 }
 \keyword{market,}
 \keyword{uncertainty}

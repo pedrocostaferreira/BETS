@@ -1,6 +1,7 @@
 #' @title Uncertainty Indicator for the Brazilian Economy - Expectation
 #'
 #' @name IIE_Br_expectation
+#' 
 #' @description The \code{IIE_Br_expectation} is a measure of dispersion of the brazilian market expectation,
 #' calculated by the Central Bank of Brazil (BCB) and opinion polls conducted by the Brazilian
 #' Institute of Economics (FGV/IBRE). More precisely, the \code{IIE_Br_expectations} is composed by two other indicators:
