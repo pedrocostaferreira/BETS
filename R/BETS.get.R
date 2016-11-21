@@ -104,9 +104,10 @@ BETS.get = function(code, data.frame = FALSE){
       }
     )
     
-    if(try){
-      return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Date formatting is inadequate."))))
-    }
+    
+   suppressWarnings(if(try==TRUE){
+     return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Date formatting is inadequate."))))
+   })
     
     g = duplicated(aux2)
     

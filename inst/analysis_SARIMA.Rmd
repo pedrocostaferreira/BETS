@@ -26,12 +26,18 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE)
   ts = params$ts
   lag.max = params$lag.max
   n.ahead = params$n.ahead
+  
+  custom.ts = FALSE
+  if(class(ts) == 'ts'){
+    custom.ts = TRUE
+  }
 ```
 
-
+```{asis eval = !custom.ts}
 ## Getting the Time Series from the BETS database
+```
 
-```{r}
+```{r eval = !custom.ts}
 library(BETS)
 data = BETS.get(ts)
 ```
