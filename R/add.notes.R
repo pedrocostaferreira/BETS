@@ -1,13 +1,15 @@
-#' @title  xxx
+#' @title  Add notes
 #' 
-#' @description  xxxx
+#' @description  Add notes
 #' 
-#' @param ts xxx
-#' @param lag.max xxx
-#' @param mode xxx
-#' @param ci xxx 
+#' @param series.list A \code{ts object}
+#' @param xlim A \code{vector}
+#' @param ylim A \code{vector}
+#' @param names A \code{character}
 #' 
-#' @return xxx
+#' 
+#' @importFrom graphics par points  text
+#' @importFrom stats frequency
 #' 
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 

@@ -12,17 +12,17 @@
 #' @examples 
 #'
 #'  # Anual series: GDP at constant prices, in R$ (brazilian reais)
-#'  BETS.get(1208)
+#'  #BETS.get(1208)
 #'  
 #'  # International reserves - Cash concept 
-#'  int.reserves <- BETS.get("3543")
-#'  plot(int.reserves)
+#'  #int.reserves <- BETS.get("3543")
+#'  #plot(int.reserves)
 #'  
 #'  # Exchange rate - Free - United States dollar (purchase)
-#'  us.brl <- BETS.get(3691)
-#'  require(seasonal)
-#'  us.brl.seasonally_adjusted <- seas(us.brl)
-#'  plot(us.brl.seasonally_adjusted)
+#'  #us.brl <- BETS.get(3691)
+#'  #require(seasonal)
+#'  #us.brl.seasonally_adjusted <- seas(us.brl)
+#'  #plot(us.brl.seasonally_adjusted)
 #'  
 #' @seealso \code{\link[stats]{ts}}, \code{\link[BETS]{BETS.search}} and \code{\link[seasonal]{seas}}
 #' 
@@ -38,7 +38,7 @@ BETS.get = function(code, data.frame = FALSE){
       return(get.data.frame(code))
     }
   
-    data = bacen_v7
+    data = BETS::bacen_v7
     code = as.character(code)
     query = paste("select Periodicity from data where Codes like " ,"\'", code ,"\'",sep="")
     

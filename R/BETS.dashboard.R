@@ -12,7 +12,7 @@
 #' \bold{Inflation Dashboard Parameters} 
 #' 
 #' \itemize{
-#' \item{ \code{text} - The text to be printed in the dashboard. Separate paragraphs with '\n\n' and pages with '##'. There are no other syntax rules.}
+#' \item{ \code{text} - The text to be printed in the dashboard. Separate paragraphs with two backslashes 'n' and pages with '##'. There are no other syntax rules.}
 #' \item{ \code{author} - The author's name.}
 #' \item{ \code{email} - The author's email.}
 #' \item{ \code{url} - The author's webpage.}

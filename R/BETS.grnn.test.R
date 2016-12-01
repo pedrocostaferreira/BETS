@@ -21,7 +21,7 @@
 #' }
 #' 
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
-#'
+#' @importFrom utils head combn
 #' @export
 #' @import grnn forecast
 

@@ -107,17 +107,17 @@
 #' Central Bank of Brazil. \href{https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSerie}{Time Series Management System - v2.1}
 #' 
 #' @keywords search
-#' 
+#' @importFrom utils View
 #' @import sqldf
 #' @export 
 
 BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lang="en"){
   
   if(lang=="pt"){
-    database=bacen_v7 
+    database=BETS::bacen_v7 
   }
   else{
-    database=bacen_v7
+    database=BETS::bacen_v7
   }
   
   if(missing(description) && missing(src) && missing(periodicity) && missing(unit) && missing(code)){
@@ -237,7 +237,7 @@ BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lan
   
   metadata = sqldf(query)
   
-  msg(paste("Found", nrow(metadata),"out of",nrow(base_final_ptv1)," time series.",sep=" "))
+  msg(paste("Found", nrow(metadata),"out of",nrow(BETS::base_final_ptv1)," time series.",sep=" "))
   
   if(view==T){
     return(View(metadata))

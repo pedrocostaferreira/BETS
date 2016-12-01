@@ -1,11 +1,15 @@
 #' @title  Create a chart with a pre-defined BETS series
 #' 
-#' @description  
+#' @description  Create a chart with a pre-defined BETS series
 #' 
 #' @param alias A \code{character}. The alias of the chart. A complete list of aliases for available charts is under the 'Details' section.
 #' @param lang A \code{character}. The language. For now, only 'en' (english) is available.
 #' @param out A \code{character}. The format of the output, that is, the image file. Can be either 'pdf' or 'png'. 'pdf' is a better choice if you need high resolution images. 
 #' @param file A \code{character}. The whole path, including a custom name, for the output (an image file). The default value is 'graphs//parameter_alias' (the 'graphs' directory is under the BETS installation directory).
+#' @param start A \code{vector}.
+#' @param ylim  A \code{vector}.
+#' @param open  A \code{boolean}.
+#'  
 #' 
 #' @details 
 #' 

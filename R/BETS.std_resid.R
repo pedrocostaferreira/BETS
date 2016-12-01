@@ -7,6 +7,8 @@
 #' 
 #' @return Besides showing the plot, this functin returns a \code{numeric vector} containing the standardized residuals.
 #' 
+#' @importFrom stats sd qnorm
+#' @importFrom  graphics abline
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 #' 
 #' @export

@@ -1,14 +1,11 @@
-#' @title  xxx
+#' @title  Check series
 #' 
-#' @description  xxxx
+#' @description  Check series in BETS dataset
 #' 
-#' @param ts xxx
-#' @param lag.max xxx
-#' @param mode xxx
-#' @param ci xxx 
+#' @param ts A \code{ts object}
+#' @param message A \code{character}
 #' 
-#' @return xxx
-#' 
+#' @importFrom  stats start end
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 

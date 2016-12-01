@@ -20,6 +20,8 @@
 #' 
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 #' 
+#' @importFrom  stats as.ts end fitted frequency na.omit plot.ts qnorm qt sd start time ts uniroot window 
+#' @importFrom graphics abline arrows axis barplot legend lines mtext par points text
 #' @export
 #' @import forecast dygraphs
 

@@ -10,13 +10,13 @@
 #' 
 #' @examples 
 #' 
-#' # Exchange rate - Free - United States dollar (purchase)
-#'  us.brl <- BETS.get(3691)
-#'  require(seasonal)
-#'  us.brl.seasonally_adjusted <- seas(us.brl)
-#'  BETS.save.sas(data = us.brl.seasonally_adjusted,file.name="us.brl.seasonally_adjusted")
+#'  #Exchange rate - Free - United States dollar (purchase)
+#'  #us.brl <- BETS.get(3691)
+#'  #require(seasonal)
+#'  #us.brl.seasonally_adjusted <- seas(us.brl)
+#'  #BETS.save.sas(data = us.brl.seasonally_adjusted,file.name="us.brl.seasonally_adjusted")
 #'  # Or
-#'  BETS.save.sas(code=3691,file.name="us.brl")
+#'  #BETS.save.sas(code=3691,file.name="us.brl")
 #' @import foreign
 #' @export 
 
