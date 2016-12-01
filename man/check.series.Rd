@@ -2,24 +2,17 @@
 % Please edit documentation in R/check.series.R
 \name{check.series}
 \alias{check.series}
-\title{xxx}
+\title{Check series}
 \usage{
 check.series(ts, message = NULL)
 }
 \arguments{
-\item{ts}{xxx}
+\item{ts}{A \code{ts object}}
 
-\item{lag.max}{xxx}
-
-\item{mode}{xxx}
-
-\item{ci}{xxx}
-}
-\value{
-xxx
+\item{message}{A \code{character}}
 }
 \description{
-xxxx
+Check series in BETS dataset
 }
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}

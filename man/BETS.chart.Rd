@@ -15,12 +15,18 @@ BETS.chart(alias, lang = "en", out = "png", file = NULL, start = c(2006,
 \item{out}{A \code{character}. The format of the output, that is, the image file. Can be either 'pdf' or 'png'. 'pdf' is a better choice if you need high resolution images.}
 
 \item{file}{A \code{character}. The whole path, including a custom name, for the output (an image file). The default value is 'graphs//parameter_alias' (the 'graphs' directory is under the BETS installation directory).}
+
+\item{start}{A \code{vector}.}
+
+\item{ylim}{A \code{vector}.}
+
+\item{open}{A \code{boolean}.}
 }
 \value{
 If the parameter \code{file} is not set by the user, the chart will be placed in the 'graphs' directory, under the BETS installation directory.
 }
 \description{
-
+Create a chart with a pre-defined BETS series
 }
 \details{
 \tabular{lll}{

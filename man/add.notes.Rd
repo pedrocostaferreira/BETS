@@ -2,24 +2,21 @@
 % Please edit documentation in R/add.notes.R
 \name{add.notes}
 \alias{add.notes}
-\title{xxx}
+\title{Add notes}
 \usage{
 add.notes(series.list, xlim, ylim, names = NULL)
 }
 \arguments{
-\item{ts}{xxx}
+\item{series.list}{A \code{ts object}}
 
-\item{lag.max}{xxx}
+\item{xlim}{A \code{vector}}
 
-\item{mode}{xxx}
+\item{ylim}{A \code{vector}}
 
-\item{ci}{xxx}
-}
-\value{
-xxx
+\item{names}{A \code{character}}
 }
 \description{
-xxxx
+Add notes
 }
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}

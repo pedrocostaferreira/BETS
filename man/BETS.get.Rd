@@ -23,17 +23,17 @@ Due to the significant size of the databases, it could take a while to retrieve 
 \examples{
 
  # Anual series: GDP at constant prices, in R$ (brazilian reais)
- BETS.get(1208)
+ #BETS.get(1208)
  
  # International reserves - Cash concept 
- int.reserves <- BETS.get("3543")
- plot(int.reserves)
+ #int.reserves <- BETS.get("3543")
+ #plot(int.reserves)
  
  # Exchange rate - Free - United States dollar (purchase)
- us.brl <- BETS.get(3691)
- require(seasonal)
- us.brl.seasonally_adjusted <- seas(us.brl)
- plot(us.brl.seasonally_adjusted)
+ #us.brl <- BETS.get(3691)
+ #require(seasonal)
+ #us.brl.seasonally_adjusted <- seas(us.brl)
+ #plot(us.brl.seasonally_adjusted)
  
 }
 \seealso{
