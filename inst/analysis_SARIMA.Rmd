@@ -1,6 +1,6 @@
 ---
 title: "Fitted SARIMA Model"
-author: "Talitha Speranza"
+author: "BETS Package"
 date: "`r Sys.Date()`"
 output: html_document
 params:
