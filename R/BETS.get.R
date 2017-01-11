@@ -4,7 +4,8 @@
 #' 
 #' @param code A \code{character}. The unique code that references the time series. This code can be obtained by using the \code{\link{BETS.search}} function.
 #' @param  data.frame A \code{boolean}. True if you want the output to be a data frame. True to \code{ts} output.
-#'
+#' @param from Start date of the time series
+#' @param to End date of the time series
 #' @return A \code{\link[stats]{ts}} (time series) object containing the desired series.
 #' 
 #' @note Due to the significant size of the databases, it could take a while to retrieve the values. However, it shouldn't take more than 90 seconds. 
@@ -37,37 +38,37 @@ BETS.get = function(code, from = "", to = "", data.frame = FALSE){
     # }
     aux = get.series.bacen(code, from = from, to = to)[[1]]
   
-    data = BETS::bacen_v7
-    code = as.character(code)
-    query = paste("select Periodicity from data where Codes like " ,"\'", code ,"\'",sep="")
-    
-    freq = sqldf(query)[1,1]
-    freq = trimws(as.character(freq))
-    
-    if(is.na(freq)){
-      return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"There is no corresponding entry in the metadata table."))))
-    }
-    
-    
-    if(freq == "A"){
-      freq = 1 
-    }
-    else if(freq == "Q"){
-      freq = 4 
-    }
-    else if(freq == "M"){
-      freq = 12
-    }
-    else if(freq == "W"){
-      freq = 52 
-    }
-    else if(freq == "D"){
-      freq = 365 
-    }
-    else {
-      return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Malformed metadata. The value", freq, "is not valid for 'periodicity'"))))
-    }
-    
+    #  # data = BETS::bacen_v7
+    #  code = as.character(code)
+    #  query = paste("select Periodicity from data where Codes like " ,"\'", code ,"\'",sep="")
+    # 
+    # freq = sqldf(query)[1,1]
+    # freq = trimws(as.character(freq))
+    # 
+    # if(is.na(freq)){
+    #   return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"There is no corresponding entry in the metadata table."))))
+    # }
+    # 
+    # 
+    # if(freq == "A"){
+    #   freq = 1 
+    # }
+    # else if(freq == "Q"){
+    #   freq = 4 
+    # }
+    # else if(freq == "M"){
+    #   freq = 12
+    # }
+    # else if(freq == "W"){
+    #   freq = 52 
+    # }
+    # else if(freq == "D"){
+    #   freq = 365 
+    # }
+    # else {
+    #   return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Malformed metadata. The value", freq, "is not valid for 'periodicity'"))))
+    # }
+    # 
     if(nrow(aux) == 0){
       return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Series is empty in the BACEN databases"))))
     }
@@ -118,18 +119,13 @@ BETS.get = function(code, from = "", to = "", data.frame = FALSE){
       return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Series contains only NAs."))))
     }
     
-    if(freq != 365 && !data.frame){
-      start = get.period(aux2[1],freq)
-      ts <- ts(aux1, start = start, freq = freq)
-    }
-    else {
-      ts = data.frame(date = aux1, value = aux2) 
-    }
+    # if(freq != 365 && !data.frame){
+    #   start = get.period(aux2[1],freq)
+    #   ts <- ts(aux1, start = start, freq = freq)
+    # }
+    # else {
+    #   ts = data.frame(date = aux1, value = aux2) 
+    # }
     
     return(ts)
 }
-
-
-
-
-
