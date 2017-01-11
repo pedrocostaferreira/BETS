@@ -8,11 +8,6 @@
 #' 
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory. 
 #' 
-#' @importFrom grDevices dev.new dev.off  pdf  png
-#' @importFrom utils read.csv2
-#' @importFrom stats ts plot.ts
-#' @importFrom graphics axis text  points  mtext arrows
-#' 
 #' @importFrom zoo zooreg
 
 draw.selic = function(file, start = NULL, ylim = NULL, open = TRUE){

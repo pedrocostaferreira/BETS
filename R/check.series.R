@@ -12,7 +12,7 @@
 check.series = function(ts,message = NULL){
   
   if(is.list(ts)){
-    s = sum(sapply(train, function(x){anyNA(x)}))
+    s = sum(sapply(ts, function(x){anyNA(x)}))
     
     if(s != 0){
       msg(paste("There is at least one series with NAs.",message))
