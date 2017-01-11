@@ -7,6 +7,11 @@
 #' @param ylim A \code{numeric vector}. Y axis limits.
 #' @param open A \code{boolean}. Indicates whether the plot must be opened after being created.
 #' 
+#' @importFrom grDevices dev.new dev.off  pdf  png
+#' @importFrom utils read.csv2
+#' @importFrom stats ts plot.ts
+#' @importFrom graphics axis text  points  mtext arrows
+#' 
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory. 
 
 draw.eap = function(file, start = NULL, ylim = NULL, open = TRUE){

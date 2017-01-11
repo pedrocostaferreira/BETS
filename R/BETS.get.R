@@ -32,43 +32,36 @@
 
 
 BETS.get = function(code, from = "", to = "", data.frame = FALSE){
-    # 
-    # if(data.frame){
-    #   return(get.data.frame(code))
-    # }
+
+    code = as.numeric(code)
     aux = get.series.bacen(code, from = from, to = to)[[1]]
+    
+    freq = suppressMessages(BETS.search(code = code, view = F)[1,3])
+    freq = trimws(freq)
   
-    #  # data = BETS::bacen_v7
-    #  code = as.character(code)
-    #  query = paste("select Periodicity from data where Codes like " ,"\'", code ,"\'",sep="")
-    # 
-    # freq = sqldf(query)[1,1]
-    # freq = trimws(as.character(freq))
-    # 
-    # if(is.na(freq)){
-    #   return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"There is no corresponding entry in the metadata table."))))
-    # }
-    # 
-    # 
-    # if(freq == "A"){
-    #   freq = 1 
-    # }
-    # else if(freq == "Q"){
-    #   freq = 4 
-    # }
-    # else if(freq == "M"){
-    #   freq = 12
-    # }
-    # else if(freq == "W"){
-    #   freq = 52 
-    # }
-    # else if(freq == "D"){
-    #   freq = 365 
-    # }
-    # else {
-    #   return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Malformed metadata. The value", freq, "is not valid for 'periodicity'"))))
-    # }
-    # 
+    if(is.na(freq)){
+      return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"There is no corresponding entry in the metadata table."))))
+    }
+
+    if(freq == "A"){
+      freq = 1
+    }
+    else if(freq == "Q"){
+      freq = 4
+    }
+    else if(freq == "M"){
+      freq = 12
+    }
+    else if(freq == "W"){
+      freq = 52
+    }
+    else if(freq == "D"){
+      freq = 365
+    }
+    else {
+      return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Malformed metadata. The value", freq, "is not valid for 'periodicity'"))))
+    }
+    
     if(nrow(aux) == 0){
       return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Series is empty in the BACEN databases"))))
     }
@@ -119,13 +112,13 @@ BETS.get = function(code, from = "", to = "", data.frame = FALSE){
       return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Series contains only NAs."))))
     }
     
-    # if(freq != 365 && !data.frame){
-    #   start = get.period(aux2[1],freq)
-    #   ts <- ts(aux1, start = start, freq = freq)
-    # }
-    # else {
-    #   ts = data.frame(date = aux1, value = aux2) 
-    # }
+    if(freq != 365 && !data.frame){
+      start = get.period(aux2[1],freq)
+      ts <- ts(aux1, start = start, freq = freq)
+    }
+    else {
+      ts = data.frame(date = aux1, value = aux2)
+    }
     
     return(ts)
 }
