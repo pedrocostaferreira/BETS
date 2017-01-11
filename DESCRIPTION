@@ -19,7 +19,8 @@ Imports:
     seasonal,
     stringr,
     mFilter,
-    dygraphs
+    dygraphs,
+    RCurl
 Author: Pedro Costa Ferreira <pedro.guilherme@fgv.br>, Jonatha Costa <jonatha.costa@fgv.br>, 
         Talitha Speranza <talitha.speranza@fgv.br>.
 Maintainer: Pedro Costa Ferreira <pedro.guilherme@fgv.br>

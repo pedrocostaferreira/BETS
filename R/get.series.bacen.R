@@ -6,7 +6,7 @@
 #' Defaults to not saving.
 #' @keywords bacen
 #' @author Fernando Teixeira \email{fernando.teixeira@fgv.br}
-#' @import RCurl xlsx
+#' @import RCurl 
 #' @examples
 #' get.series.bacen(1242,2134)
 
@@ -52,15 +52,15 @@ get.series.bacen <- function(x, from = "", to = "", save = ""){
   
   rm(texto)
   
-  if (save != ""){
+  #if (save != ""){
     if (save == "csv"){
       for(i in len) {utils::write.csv(eval(as.symbol(serie[i])), file = paste0(serie[i], ".csv"))}
-    } else if (save == "xls" | save == "xlsx") {
-      for(i in len) {write.xlsx(eval(as.symbol(serie[i])), file = paste0(serie[i], ".xlsx"), 
-                                row.names = FALSE)}} else{ 
-                                  stop("save argument must be 'csv' or 'xlsx' ")}
-  }
-  
+  #   } else if (save == "xls" | save == "xlsx") {
+  #     for(i in len) {write.xlsx(eval(as.symbol(serie[i])), file = paste0(serie[i], ".xlsx"), 
+  #                               row.names = FALSE)}} else{ 
+  #                                 stop("save argument must be 'csv' or 'xlsx' ")}
+    }
+
   lista = list()
   ls_df = ls()[grepl('data.frame', sapply(ls(), function(x) class(get(x))))]
   for ( obj in ls_df ) { lista[obj]=list(get(obj)) }
