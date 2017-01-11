@@ -27,16 +27,15 @@
 #' @seealso \code{\link[stats]{ts}}, \code{\link[BETS]{BETS.search}} and \code{\link[seasonal]{seas}}
 #' 
 #' @keywords get
-#' 
-#' @import sqldf
 #' @export 
 
 
-BETS.get = function(code, data.frame = FALSE){
-  
-    if(data.frame){
-      return(get.data.frame(code))
-    }
+BETS.get = function(code, from = "", to = "", data.frame = FALSE){
+    # 
+    # if(data.frame){
+    #   return(get.data.frame(code))
+    # }
+    aux = get.series.bacen(code, from = from, to = to)[[1]]
   
     data = BETS::bacen_v7
     code = as.character(code)
@@ -49,56 +48,46 @@ BETS.get = function(code, data.frame = FALSE){
       return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"There is no corresponding entry in the metadata table."))))
     }
     
-    aux1 = NULL
-    aux2 = NULL
     
     if(freq == "A"){
-      database = "ts_anuais"
       freq = 1 
     }
     else if(freq == "Q"){
-      database = "ts_trimestrais"
       freq = 4 
     }
     else if(freq == "M"){
-      database = "ts_mensais"
       freq = 12
     }
     else if(freq == "W"){
-      database = "ts_semanais"
       freq = 52 
     }
     else if(freq == "D"){
-      database = "ts_diarias"
       freq = 365 
     }
     else {
       return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Malformed metadata. The value", freq, "is not valid for 'periodicity'"))))
     }
     
-    query = paste("select data, valor from ", database, " where serie like " ,"\'", code ,"\'",sep="")
-    aux = sqldf(query)
-    
     if(nrow(aux) == 0){
-      return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Series is empty in database", database))))
+      return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Series is empty in the BACEN databases"))))
     }
     
     aux = na.omit(aux)
-    
-    if(is.factor(aux[,2])){
-      aux[,2] <- as.vector(aux[,2])
-    }
-    
-    if(is.factor(aux[,1])){
-      aux[,1] <- as.vector(aux[,1])
-    }
-    
+    # 
+    # if(is.factor(aux[,2])){
+    #   aux[,2] <- as.vector(aux[,2])
+    # }
+    # 
+    # if(is.factor(aux[,1])){
+    #   aux[,1] <- as.vector(aux[,1])
+    # }
+    # 
     aux1 = as.numeric(aux[,2])
-    
+ 
     try = FALSE
     
     try = tryCatch({
-      aux2 = as.date(aux[,1])},
+      aux2 = as.Date(aux[,1], format = "%d/%m/%Y")},
       error = function(err) {
           return(TRUE)
       }
@@ -129,9 +118,13 @@ BETS.get = function(code, data.frame = FALSE){
       return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Series contains only NAs."))))
     }
     
-    start = get.period(aux2[1],freq)
-
-    ts <- ts(aux1, start = start, freq = freq)
+    if(freq != 365 && !data.frame){
+      start = get.period(aux2[1],freq)
+      ts <- ts(aux1, start = start, freq = freq)
+    }
+    else {
+      ts = data.frame(date = aux1, value = aux2) 
+    }
     
     return(ts)
 }
