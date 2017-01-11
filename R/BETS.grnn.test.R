@@ -29,7 +29,7 @@ BETS.grnn.test = function(results, test.set){
   
   select = TRUE 
   
-  if(length(test) < 2 || !check.series(test, "Series list: test.")){
+  if(length(test.set) < 2 || !check.series(test.set, "Series list: test.")){
     return(NULL)
   }
   
