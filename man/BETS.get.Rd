@@ -4,7 +4,7 @@
 \alias{BETS.get}
 \title{Get a complete time series from a BETS database}
 \usage{
-BETS.get(code, data.frame = FALSE)
+BETS.get(code, from = "", to = "", data.frame = FALSE)
 }
 \arguments{
 \item{code}{A \code{character}. The unique code that references the time series. This code can be obtained by using the \code{\link{BETS.search}} function.}
