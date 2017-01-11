@@ -115,13 +115,15 @@ BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lan
   
   if(lang=="pt"){
     githubURL<-("https://github.com/GreedBlink/databases/raw/master/base_final_ptv1.Rdata")
-    load(url(githubURL))
+    load(conn <- url(githubURL))
+    close(conn)
     database="base_final_ptv1"
   }
   else{
     githubURL<- "https://github.com/GreedBlink/databases/raw/master/bacen_v7.Rdata"
     # readRDS(file=paste0(local,"/","bacen_v7.rda"))
-    load(url(githubURL))
+    load(conn <- url(githubURL))
+    close(conn)
     database="bacen_v7"
   }
   

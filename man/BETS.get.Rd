@@ -9,6 +9,10 @@ BETS.get(code, from = "", to = "", data.frame = FALSE)
 \arguments{
 \item{code}{A \code{character}. The unique code that references the time series. This code can be obtained by using the \code{\link{BETS.search}} function.}
 
+\item{from}{Start date of the time series}
+
+\item{to}{End date of the time series}
+
 \item{data.frame}{A \code{boolean}. True if you want the output to be a data frame. True to \code{ts} output.}
 }
 \value{
