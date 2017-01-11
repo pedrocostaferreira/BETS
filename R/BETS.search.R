@@ -104,7 +104,7 @@
 #' 
 #' @references 
 #' 
-#' Central Bank of Brazil. \href{https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSerie}{Time Series Management System - v2.1}
+#' Central Bank of Brazil. 
 #' 
 #' @keywords search
 #' @importFrom utils View
@@ -114,10 +114,15 @@
 BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lang="en"){
   
   if(lang=="pt"){
-    database=BETS::bacen_v7 
+    githubURL<-("https://github.com/GreedBlink/databases/raw/master/base_final_ptv1.Rdata")
+    load(url(githubURL))
+    database="base_final_ptv1"
   }
   else{
-    database=BETS::bacen_v7
+    githubURL<- "https://github.com/GreedBlink/databases/raw/master/bacen_v7.Rdata"
+    # readRDS(file=paste0(local,"/","bacen_v7.rda"))
+    load(url(githubURL))
+    database="bacen_v7"
   }
   
   if(missing(description) && missing(src) && missing(periodicity) && missing(unit) && missing(code)){
@@ -147,7 +152,7 @@ BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lan
         and_params = c(and_params, paste0("Description not like " ,"\'%", exprs[i] ,"%\'"))
       }
     }
-
+    
     # Match whole expressions
     exprs = regmatches(description,gregexpr("'(.*?)'",description))[[1]]
     
@@ -190,7 +195,7 @@ BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lan
       desc = or_params[1]
       or_params = or_params[-1]
     }
-
+    
     if(length(or_params) != 0){
       for(i in 1:length(or_params)){
         desc = paste(desc, "and", or_params[i])
@@ -225,8 +230,8 @@ BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lan
   if(!missing(start)){
     params = c(params, paste0("start like " ,"\'", start ,"\'"))
   }  
-
-  query = "select Codes, Description, Periodicity, start, source, unit from database where"
+  
+  query = paste("select Codes, Description, Periodicity, start, source, unit from", database ,"where")
   query = paste(query, params[1])
   
   if(length(params) != 1) {
@@ -237,7 +242,7 @@ BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lan
   
   metadata = sqldf(query)
   
-  msg(paste("Found", nrow(metadata),"out of",nrow(BETS::base_final_ptv1)," time series.",sep=" "))
+  msg(paste("Found", nrow(metadata),"out of 39073 time series.",sep=" "))
   
   if(view==T){
     return(View(metadata))
