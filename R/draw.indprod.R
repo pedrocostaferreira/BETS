@@ -7,12 +7,7 @@
 #' @param ylim A \code{numeric vector}. Y axis limits.
 #' @param open A \code{boolean}. Indicates whether the plot must be opened after being created.
 #' 
-#' @importFrom grDevices dev.new dev.off  pdf  png
-#' @importFrom utils read.csv2
-#' @importFrom stats ts plot.ts
-#' @importFrom graphics axis text  points  mtext arrows
 #' @importFrom seasonal seas
-#' 
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory. 
 
 draw.indprod = function(file, start = NULL, ylim = NULL, open = TRUE){
@@ -29,7 +24,7 @@ draw.indprod = function(file, start = NULL, ylim = NULL, open = TRUE){
     pdf(file, width = 8.0, height = 5.3)
   }
   
-  indprod = final(seas(BETS.get(21859)))
+  indprod = seasonal::final(seas(BETS.get(21859)))
   
   if(!is.null(start)){
     indprod = window(indprod, start = start)
