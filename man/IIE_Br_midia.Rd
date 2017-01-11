@@ -35,7 +35,7 @@ Pedro Costa Ferreira  \email{pedro.guilherme@fgv.br},
 }
 \references{
 A shiny app with IIE-Br-expectations plots can be found 
-             \href{here}{https://pedroferreira.shinyapps.io/incerteza/}
+             \href{https://pedroferreira.shinyapps.io/incerteza/}{here}
 }
 \keyword{media}
 \keyword{uncertainty,}
