@@ -7,8 +7,6 @@
 #' @keywords bacen
 #' @author Fernando Teixeira \email{fernando.teixeira@fgv.br}
 #' @import RCurl 
-#' @examples
-#' get.series.bacen(1242,2134)
 
 get.series.bacen <- function(x, from = "", to = "", save = ""){
   

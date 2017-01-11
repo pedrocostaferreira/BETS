@@ -19,9 +19,6 @@ Defaults to not saving.}
 \description{
 A function to extract BACEN series using their API
 }
-\examples{
-get.series.bacen(1242,2134)
-}
 \author{
 Fernando Teixeira \email{fernando.teixeira@fgv.br}
 }
