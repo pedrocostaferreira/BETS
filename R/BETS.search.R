@@ -104,28 +104,44 @@
 #' 
 #' @references 
 #' 
-#' Central Bank of Brazil. 
+#' Central Bank of Brazil
 #' 
 #' @keywords search
+#' 
 #' @importFrom utils View
+#' @importFrom rappdirs site_config_dir
 #' @import sqldf
 #' @export 
 
 BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lang="en"){
   
+  meta.dir = site_config_dir(appname = "Metadata", appauthor = "BETS")
+  
+  if(!file.exists(meta.dir)){
+    dir.create(meta.dir, recursive = T)
+  } 
+  
   if(lang=="pt"){
-    githubURL<-("https://github.com/GreedBlink/databases/raw/master/base_final_ptv1.Rdata")
-    load(conn <- url(githubURL))
-    close(conn)
+    
     database="base_final_ptv1"
+    meta.file = paste0(meta.dir,"\\", database, ".Rda")
   }
   else{
-    githubURL<- "https://github.com/GreedBlink/databases/raw/master/bacen_v7.Rdata"
-    # readRDS(file=paste0(local,"/","bacen_v7.rda"))
-    load(conn <- url(githubURL))
-    close(conn)
+    
     database="bacen_v7"
+    meta.file = paste0(meta.dir,"\\", database, ".Rda")
   }
+  
+  if(!file.exists(meta.file)){
+    githubURL<- paste0("https://github.com/GreedBlink/databases/raw/master/",database,".Rdata")
+    
+    load(conn <- url(githubURL))
+    metadata <- get(database)
+    save(metadata, file = meta.file)
+    close(conn)
+  }
+  
+  load(meta.file)
   
   if(missing(description) && missing(src) && missing(periodicity) && missing(unit) && missing(code)){
     return(msg("No search parameters. Please set the values of one or more parameters."))    
@@ -233,7 +249,7 @@ BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lan
     params = c(params, paste0("start like " ,"\'", start ,"\'"))
   }  
   
-  query = paste("select Codes, Description, Periodicity, start, source, unit from", database ,"where")
+  query = paste("select Codes, Description, Periodicity, start, source, unit from metadata where")
   query = paste(query, params[1])
   
   if(length(params) != 1) {
@@ -242,14 +258,20 @@ BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lan
     }
   }
   
-  metadata = sqldf(query)
+  results = sqldf(query)
   
-  msg(paste("Found", nrow(metadata),"out of 39073 time series.",sep=" "))
   
-  if(view==T){
-    return(View(metadata))
+  if(nrow(results) > 0){
+    msg(paste("Found", nrow(results),"out of", nrow(metadata) ,"time series.",sep=" "))
+    
+    if(view==T){
+      return(View(results))
+    }
+    else{
+      return(results)
+    }
   }
   else{
-    return(metadata)
+    msg("No series found. Try using another combination of search terms.")
   }
 }

@@ -118,7 +118,7 @@ BETS.search(periodicity="A", view = FALSE)
 
 }
 \references{
-Central Bank of Brazil.
+Central Bank of Brazil
 }
 \keyword{search}
 
