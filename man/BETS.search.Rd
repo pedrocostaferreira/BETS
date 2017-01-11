@@ -118,7 +118,7 @@ BETS.search(periodicity="A", view = FALSE)
 
 }
 \references{
-Central Bank of Brazil. \href{https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSerie}{Time Series Management System - v2.1}
+Central Bank of Brazil.
 }
 \keyword{search}
 
