@@ -11,13 +11,20 @@
 #' @import stringr
 
 
-msg <- function(..., skip_before=TRUE, skip_after=FALSE) {
+msg <- function(..., skip_before=TRUE, skip_after=FALSE, warn = FALSE) {
   
   m <- str_c("BETS-package: ", ...)
+  
   if(skip_before) k <- paste0("\n", m)
   if(skip_after) k <- paste0(m, "\n")
   Encoding(k) <- "UTF-8"
-  message(k)
+  
+  if(warn){
+    warning(k, call. = FALSE)
+  }
+  else {
+    message(k)
+  }
   
   invisible(m)
 }

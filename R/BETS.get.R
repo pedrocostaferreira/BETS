@@ -31,7 +31,7 @@
 #' @export 
 
 
-BETS.get = function(code, from = "", to = "", data.frame = FALSE){
+BETS.get = function(code, from = "", to = "", data.frame = FALSE, frequency = NULL){
 
     code = as.numeric(code)
     aux = get.series.bacen(code, from = from, to = to)[[1]]
@@ -59,7 +59,14 @@ BETS.get = function(code, from = "", to = "", data.frame = FALSE){
       freq = 365
     }
     else {
-      return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Malformed metadata. The value", freq, "is not valid for 'periodicity'"))))
+      msg(paste("Malformed metadata. The value", freq, "is not valid for 'periodicity'\n\n", .WARN_SOFT), warn = TRUE)
+      
+      if(is.null(frequency)){
+        data.frame = T
+      }
+      else {
+        freq = frequency 
+      }
     }
     
     if(nrow(aux) == 0){
