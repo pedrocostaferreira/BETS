@@ -5,6 +5,7 @@
 #' @param ... Arguments to be passed to \code{\link[base]{message}}
 #' @param skip_before A \code{boolean}. Indicates if a line should be skipped before the message. 
 #' @param skip_after A \code{boolean}. Indicates if a line should be skipped after the message. 
+#' @param warn A \code{boolean}. Indicates whether a warning should be thrown.
 #' 
 #' @return None
 #' 

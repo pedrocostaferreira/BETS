@@ -4,7 +4,7 @@
 \alias{msg}
 \title{Format and show a console message.}
 \usage{
-msg(..., skip_before = TRUE, skip_after = FALSE)
+msg(..., skip_before = TRUE, skip_after = FALSE, warn = FALSE)
 }
 \arguments{
 \item{...}{Arguments to be passed to \code{\link[base]{message}}}
@@ -12,6 +12,8 @@ msg(..., skip_before = TRUE, skip_after = FALSE)
 \item{skip_before}{A \code{boolean}. Indicates if a line should be skipped before the message.}
 
 \item{skip_after}{A \code{boolean}. Indicates if a line should be skipped after the message.}
+
+\item{warn}{A \code{boolean}. Indicates whether a warning should be thrown.}
 }
 \value{
 None

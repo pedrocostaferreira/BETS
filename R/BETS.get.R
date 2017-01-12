@@ -3,9 +3,11 @@
 #' @description Extracts a complete time series from either the Central Bank of Brazil (BCB), the Brazilian Institute of Geography and Statistics (IBGE) or the Brazilian Institute of Economics (FGV/IBRE).
 #' 
 #' @param code A \code{character}. The unique code that references the time series. This code can be obtained by using the \code{\link{BETS.search}} function.
-#' @param  data.frame A \code{boolean}. True if you want the output to be a data frame. True to \code{ts} output.
-#' @param from Start date of the time series
-#' @param to End date of the time series
+#' @param data.frame A \code{boolean}. True if you want the output to be a data frame. True to \code{ts} output.
+#' @param from A \code{character} or a \code{Data} object. Starting date of the time series.
+#' @param to A \code{character} or a \code{Data} object. Ending date of the time series.
+#' @param frequency An \code{integer}. The frequency of the time series. It is not needed. It is going to be used only if the metadata for the series is corrupted. 
+#' 
 #' @return A \code{\link[stats]{ts}} (time series) object containing the desired series.
 #' 
 #' @note Due to the significant size of the databases, it could take a while to retrieve the values. However, it shouldn't take more than 90 seconds. 
