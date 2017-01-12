@@ -124,12 +124,12 @@ BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lan
   if(lang=="pt"){
     
     database="base_final_ptv1"
-    meta.file = paste0(meta.dir,"\\", database, ".Rda")
+    meta.file = paste0(meta.dir,"/", database, ".Rda")
   }
   else{
     
     database="bacen_v7"
-    meta.file = paste0(meta.dir,"\\", database, ".Rda")
+    meta.file = paste0(meta.dir,"/", database, ".Rda")
   }
   
   if(!file.exists(meta.file)){
@@ -260,9 +260,11 @@ BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lan
   
   results = sqldf(query)
   
+  codes = suppressWarnings(as.numeric(metadata[,1]))
+  codes <- codes[!is.na(codes)]
   
   if(nrow(results) > 0){
-    msg(paste("Found", nrow(results),"out of", nrow(metadata) ,"time series.",sep=" "))
+    msg(paste("Found", nrow(results),"out of", length(codes) ,"time series.",sep=" "))
     
     if(view==T){
       return(View(results))
