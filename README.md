@@ -4,6 +4,7 @@
 
 ## Installation
 
+```R
 install.packages("BETS") 
 ```
 ## Usage
