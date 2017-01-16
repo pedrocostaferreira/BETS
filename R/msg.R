@@ -9,7 +9,7 @@
 #' 
 #' @return None
 #' 
-#' @import stringr
+#' @importFrom stringr str_c
 
 
 msg <- function(..., skip_before=TRUE, skip_after=FALSE, warn = FALSE) {

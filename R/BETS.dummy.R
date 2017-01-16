@@ -43,7 +43,7 @@
 #' @seealso \code{\link[stats]{ts}}, \code{\link[BETS]{BETS.dummy}}
 #'
 #'
-#' @import zoo
+#' @importFrom zoo as.Date
 #' @export
 
 

@@ -110,6 +110,7 @@
 #' 
 #' @importFrom utils View
 #' @importFrom rappdirs site_config_dir
+#' @importFrom stringr str_split
 #' @import sqldf
 #' @export 
 
