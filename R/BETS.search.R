@@ -108,7 +108,7 @@
 #' 
 #' @keywords search
 #' 
-#' @importFrom utils View
+#' 
 #' @importFrom rappdirs site_config_dir
 #' @importFrom stringr str_split
 #' @import sqldf
@@ -268,7 +268,7 @@ BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lan
     msg(paste("Found", nrow(results),"out of", length(codes) ,"time series.",sep=" "))
     
     if(view==T){
-      return(utils::View(results))
+      return(View(results))
     }
     else{
       return(results)
