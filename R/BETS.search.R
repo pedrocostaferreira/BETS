@@ -268,7 +268,7 @@ BETS.search = function(description,src,periodicity,unit,code,start,view=TRUE,lan
     msg(paste("Found", nrow(results),"out of", length(codes) ,"time series.",sep=" "))
     
     if(view==T){
-      return(View(results))
+      return(utils::View(results))
     }
     else{
       return(results)
