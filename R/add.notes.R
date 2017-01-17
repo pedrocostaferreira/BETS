@@ -69,19 +69,10 @@ add.notes = function(series.list, xlim, ylim, names = NULL){
       last.year.comp = paste0("A month before: ", round(series[len-30],2))
     }
 
-    d.lp = 0
     d.ly = 0
-    
-    if(nchar(last.period.val) == 4){
-      d.lp = 0.05*x.spam
-    }
 
     if(nchar(last.year.val) == 4){
       d.ly = 0.05*x.spam
-    }
-    
-    if(nchar(last.period.val) == 5){
-      d.lp = 0.015*x.spam
     }
     
     if(nchar(last.year.val) == 5){
@@ -89,20 +80,20 @@ add.notes = function(series.list, xlim, ylim, names = NULL){
     }
     
     x.coords[j] = x.coords[j] - 0.01*x.spam
-    x.coords[j + 1] = x.coords[j + 1] + 0.01*x.spam
+    x.coords[j + 1] = x.coords[j + 1] + 0.04*x.spam
     
     if(last.period.val > 0){
-      points(x = x.coords[j] + d.lp, y = y.coord - 0.022*y.spam, pch = 24, col = "blue", bg = "blue", cex = 1.3)
+      points(x = x.coords[j] + d.ly, y = y.coord - 0.022*y.spam, pch = 24, col = "blue", bg = "blue", cex = 1.3)
     }
     else if(last.period.val < 0){
-     points(x = x.coords[j] + d.lp, y = y.coord, pch = 25, col = "red", bg = "red", cex = 1.3) 
+     points(x = x.coords[j] + d.ly, y = y.coord, pch = 25, col = "red", bg = "red", cex = 1.3) 
     }
     else {
-      points(x = x.coords[j] + d.lp, y = y.coord, pch = "-", col = "green", bg = "green", cex = 1.3) 
+      points(x = x.coords[j] + d.ly, y = y.coord, pch = "-", col = "green", bg = "green", cex = 1.3) 
     }
     
     text(last.period.val, x = x.coords[j] + 0.075*x.spam, y = y.coord, cex = 1.1, font = 2)
-    text(last.period.comp, x = x.coords[j] +  0.06*x.spam, y = y.coord - 0.1*y.spam, cex = 0.9)
+    text(last.period.comp, x = x.coords[j] +  0.075*x.spam, y = y.coord - 0.1*y.spam, cex = 0.9)
     
     if(last.year.val > 0){
       points(x = x.coords[j+1] + d.ly, y = y.coord - 0.022*y.spam, pch = 24, col = "blue", bg = "blue", cex = 1.3)
@@ -114,8 +105,8 @@ add.notes = function(series.list, xlim, ylim, names = NULL){
       points(x = x.coords[j+1]+ d.ly, y = y.coord, pch = "-", col = "green", bg = "green", cex = 1.3) 
     }
     
-    text(last.year.val, x = x.coords[j+1] + 0.067*x.spam, y = y.coord, cex = 1.1, font = 2)
-    text(last.year.comp, x = x.coords[j+1] + 0.06*x.spam, y = y.coord - 0.1*y.spam, cex = 0.9)
+    text(last.year.val, x = x.coords[j+1] + 0.075*x.spam, y = y.coord, cex = 1.1, font = 2)
+    text(last.year.comp, x = x.coords[j+1] + 0.075*x.spam, y = y.coord - 0.1*y.spam, cex = 0.9)
     
     if(!is.null(names)){
       title.x = 0.5*x.coords[j] + 0.5*x.coords[j+1] + 0.04*x.spam
