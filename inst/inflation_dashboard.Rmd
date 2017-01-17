@@ -32,7 +32,7 @@ library(BETS)
 \def\haswebsite{`r as.integer(!is.na(url))`} 
 
 \fancypagestyle{plain}{
-  \fancyhf{}
+  \fancyhf{}%
   \setlength{\headheight}{45pt} 
   \fancyhead[L]{
     \includegraphics[width=\linewidth,height=40pt]{logo_bets} }
@@ -94,6 +94,7 @@ if(!is.na(text)){
 ```
 
 \newpage
+\pagestyle{plain}
 
 ```{r echo = FALSE, results = "hide"}
 BETS.chart(alias = "eap", file = "graphs//eap", out = "pdf", open = FALSE)
@@ -125,6 +126,7 @@ if(!is.na(text)){
 ```
 
 \newpage
+\pagestyle{plain}
 
 ```{r echo = FALSE, results = "hide"}
 BETS.chart(alias = "vargdp", file = "graphs//vargdp", start = 1994, out = "pdf", open = FALSE)
@@ -155,6 +157,7 @@ if(!is.na(text)){
 ```
 
 \newpage
+\pagestyle{plain}
 
 ```{r echo = FALSE, results = "hide"}
 BETS.chart(alias = "selic", file = "graphs//selic", out = "pdf", open = FALSE)
