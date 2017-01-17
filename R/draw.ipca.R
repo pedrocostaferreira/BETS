@@ -10,6 +10,7 @@
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory. 
 #' 
 #' @importFrom rootSolve multiroot
+#' @importFrom zoo as.Date
 #' 
 #' @importFrom grDevices dev.new dev.off  pdf  png
 #' @importFrom utils read.csv2
@@ -77,11 +78,11 @@ draw.ipca = function(file, start = NULL, ylim = NULL, open = TRUE){
   y.spam = ylim[2] - ylim[1]
   
   par(font.lab = 2, cex.axis = 1.2, bty = "n", las = 1, mar=c(7.1,4.1,4.1,2.1))
-  plot(ipca, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = "National Consumer Price Index (IPCA)", col = "firebrick4", ylim = ylim, xlim = c(start[1],last[1]))
+  plot(ipca, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = "National Consumer Price Index (IPCA)", col = "firebrick4", ylim = ylim, xlim = c(start[1],last[1] + 1))
   mtext("Cumulative 12-Month Percentage")
   
   par(new = TRUE)
-  plot(core, lwd = 2.5, lty = 2, xlab = "", ylab = "", col = "firebrick3", ylim = ylim, xlim = c(start[1],last[1]))
+  plot(core, lwd = 2.5, lty = 2, xlab = "", ylab = "", col = "firebrick3", ylim = ylim, xlim = c(start[1],last[1] + 1))
   
   last.x = last[1]
   start.x = start(ipca)[1]
@@ -130,7 +131,7 @@ draw.ipca = function(file, start = NULL, ylim = NULL, open = TRUE){
   text(start[1] + 0.14*x.spam, ylim[2] - 0.165*y.spam, aval, cex = 0.9)
   
   abline(a = 4.5, b = 0, lty = 3, lwd = 3, col = "darkgray")
-  text(last.x - 0.02*x.spam, 0.455*y.spam, "Target", cex = 0.9)
+  text(last.x + 1 - 0.02*x.spam, 0.455*y.spam, "Target", cex = 0.9)
   
   add.notes(list(ipca = ipca, core = core), names = c("IPCA","Core"), ylim = ylim, xlim = c(start[1],last[1]))
   
