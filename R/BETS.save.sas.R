@@ -17,31 +17,19 @@
 #'  #BETS.save.sas(data = us.brl.seasonally_adjusted,file.name="us.brl.seasonally_adjusted")
 #'  # Or
 #'  #BETS.save.sas(code=3691,file.name="us.brl")
-#' @import foreign
+#' 
+#' @importFrom foreign write.foreign
 #' @export 
 
 
-BETS.save.sas=function(code, data = NULL, file.name="series"){
+BETS.save.sas=function(code = NULL, data = NULL, file.name="series"){
   
-  local=getwd()
+  ret = BETS.save(code, data, file.name, "sas")
   
-  if(is.null(data)){
-    y = get.data.frame(code)
-  }
-  else if(is.data.frame(data)){
-    y = data 
-  }
-  else if(class(data) == 'ts'){
-    y = get.data.frame(ts = data)
-  }
-  else {
-    return(msg('Invalid parameters. The parameter "data" must be either a data.frame or a ts object'))
+  if(class(ret) == "list"){
+    write.foreign(ret$data, datafile = ret$file, codefile = tempfile(), package="SAS")
   }
   
-  #-- temporario 
-  y[,1] = as.character(y[,1])
-  
-  write.foreign(y, paste0(local,"/",file.name,".sas"),package="SAS")
 }
 
 

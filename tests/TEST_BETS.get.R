@@ -26,14 +26,15 @@ TEST_BETS.get = function(db = "bacen", lang = "en"){
   
   githubURL<- paste0("https://github.com/GreedBlink/databases/raw/master/",database,".Rdata")
   load(url(githubURL))
+  metadata <- get(database)
   
   # Open a file connection and write a meaningful header
   conn <-file(log.file, "w")
-  header <- paste("-- TESTING BETS.get with ", database, "metadata @", Sys.time())
+  header <- paste("-- TESTING BETS.get with ", database, " metadata @", Sys.time())
   write(header, conn)
   
   # Get all codes
-  codes = suppressWarnings(as.numeric(bacen_v7[,1]))
+  codes = suppressWarnings(as.numeric(metadata[,1]))
   codes <- codes[!is.na(codes)]
   
   # Check if the series are available 
@@ -129,5 +130,5 @@ TEST_BETS.get = function(db = "bacen", lang = "en"){
   # Log the codes of all the series with problems
   prob = cbind.fill(errors,issues,fill = "")
   names(prob) = c("errors","issues") 
-  write.table(prob, "tests//problematic_series.csv", sep = ",", row.names = F)
+  write.table(prob, paste0("tests//problematic_series-", database, ".csv"), sep = ",", row.names = F)
 }

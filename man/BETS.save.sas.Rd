@@ -4,7 +4,7 @@
 \alias{BETS.save.sas}
 \title{Export a time series to SAS}
 \usage{
-BETS.save.sas(code, data = NULL, file.name = "series")
+BETS.save.sas(code = NULL, data = NULL, file.name = "series")
 }
 \arguments{
 \item{code}{An \code{integer}. The unique identifier of the series within the BETS database.}
@@ -28,5 +28,6 @@ Writes a time series to a .sas (SAS) file.
  #BETS.save.sas(data = us.brl.seasonally_adjusted,file.name="us.brl.seasonally_adjusted")
  # Or
  #BETS.save.sas(code=3691,file.name="us.brl")
+
 }
 

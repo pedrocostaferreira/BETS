@@ -17,30 +17,17 @@
 #'  #BETS.save.stata(data = us.brl.seasonally_adjusted,file.name="us.brl.seasonally_adjusted")
 #'  # Or
 #'  #BETS.save.stata(code=3691,file.name="us.brl")
-#' @import foreign
+#' 
+#' @importFrom foreign write.dta
 #' @export 
 
-BETS.save.stata=function(code, data = NULL, file.name="series"){
+BETS.save.stata=function(code = NULL, data = NULL, file.name="series"){
   
-  local=getwd()
+  ret = BETS.save(code, data, file.name, "dta")
   
-  if(is.null(data)){
-    y = get.data.frame(code)
+  if(class(ret) == "list"){
+    write.dta(ret$data, ret$file)
   }
-  else if(is.data.frame(data)){
-    y = data 
-  }
-  else if(class(data) == 'ts'){
-    y = get.data.frame(ts = data)
-  }
-  else {
-    return(msg('The parameter "data" must be either a data.frame or a ts object'))
-  }
-  
-  #-- temporario 
-  y[,1] = as.character(y[,1])
-  
-  write.dta(y, paste0(local,"/",file.name,".dta"))
 }
 
 

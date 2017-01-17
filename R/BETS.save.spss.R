@@ -6,8 +6,6 @@
 #' @param data A \code{data.frame} or a \code{ts}. Contains the data to be written. If \code{data} is supplied, the BETS database will not be searched. 
 #' @param file.name A \code{character}. The name of the output file. The default is 'series.spss'.
 #' 
-#' @return None
-#' 
 #' @examples 
 #' 
 #' #Exchange rate - Free - United States dollar (purchase)
@@ -17,31 +15,18 @@
 #'  #BETS.save.spss(data = us.brl.seasonally_adjusted,file.name="us.brl.seasonally_adjusted")
 #'    # Or
 #'  #BETS.save.spss(code=3691,file.name="us.brl")
-#' @import foreign
+#' 
+#' @importFrom foreign write.foreign
 #' @export 
 
 
-BETS.save.spss=function(code, data = NULL, file.name="series"){
+BETS.save.spss=function(code = NULL, data = NULL, file.name="series"){
   
-  local=getwd()
+  ret = BETS.save(code, data, file.name, "spss")
   
-  if(is.null(data)){
-    y = get.data.frame(code)
+  if(class(ret) == "list"){
+    write.foreign(ret$data, datafile = ret$file, codefile = tempfile(), package="SPSS")
   }
-  else if(is.data.frame(data)){
-    y = data 
-  }
-  else if(class(data) == 'ts'){
-    y = get.data.frame(ts = data)
-  }
-  else {
-    return(msg('The parameter "data" must be either a data.frame or a ts object'))
-  }
-  
-  #-- temporario 
-  y[,1] = as.character(y[,1])
-  
-  write.foreign(y, paste0(local,"/",file.name,".spss"),package="SPSS")
-  
+
 }
 

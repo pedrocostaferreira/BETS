@@ -4,7 +4,7 @@
 \alias{BETS.save.stata}
 \title{Export a time series to STATA}
 \usage{
-BETS.save.stata(code, data = NULL, file.name = "series")
+BETS.save.stata(code = NULL, data = NULL, file.name = "series")
 }
 \arguments{
 \item{code}{An \code{integer}. The unique identifier of the series within the BETS database.}
@@ -28,5 +28,6 @@ Writes a time series to a .dta (STATA) file.
  #BETS.save.stata(data = us.brl.seasonally_adjusted,file.name="us.brl.seasonally_adjusted")
  # Or
  #BETS.save.stata(code=3691,file.name="us.brl")
+
 }
 

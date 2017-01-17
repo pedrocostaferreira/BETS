@@ -4,7 +4,7 @@
 \alias{BETS.save.spss}
 \title{Export a time series to SPSS}
 \usage{
-BETS.save.spss(code, data = NULL, file.name = "series")
+BETS.save.spss(code = NULL, data = NULL, file.name = "series")
 }
 \arguments{
 \item{code}{An \code{integer}. The unique identifier of the series within the BETS database.}
@@ -12,9 +12,6 @@ BETS.save.spss(code, data = NULL, file.name = "series")
 \item{data}{A \code{data.frame} or a \code{ts}. Contains the data to be written. If \code{data} is supplied, the BETS database will not be searched.}
 
 \item{file.name}{A \code{character}. The name of the output file. The default is 'series.spss'.}
-}
-\value{
-None
 }
 \description{
 Writes a time series to a .spss (SPSS) file.
@@ -28,5 +25,6 @@ Writes a time series to a .spss (SPSS) file.
  #BETS.save.spss(data = us.brl.seasonally_adjusted,file.name="us.brl.seasonally_adjusted")
    # Or
  #BETS.save.spss(code=3691,file.name="us.brl")
+
 }
 
