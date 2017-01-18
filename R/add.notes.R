@@ -92,7 +92,7 @@ add.notes = function(series.list, xlim, ylim, names = NULL){
       points(x = x.coords[j] + d.ly, y = y.coord, pch = "-", col = "green", bg = "green", cex = 1.3) 
     }
     
-    text(last.period.val, x = x.coords[j] + 0.075*x.spam, y = y.coord, cex = 1.1, font = 2)
+    text(last.period.val, x = x.coords[j] + 0.075*x.spam, y = y.coord - 0.01*y.spam, cex = 1.1, font = 2)
     text(last.period.comp, x = x.coords[j] +  0.075*x.spam, y = y.coord - 0.1*y.spam, cex = 0.9)
     
     if(last.year.val > 0){
@@ -105,7 +105,7 @@ add.notes = function(series.list, xlim, ylim, names = NULL){
       points(x = x.coords[j+1]+ d.ly, y = y.coord, pch = "-", col = "green", bg = "green", cex = 1.3) 
     }
     
-    text(last.year.val, x = x.coords[j+1] + 0.075*x.spam, y = y.coord, cex = 1.1, font = 2)
+    text(last.year.val, x = x.coords[j+1] + 0.075*x.spam, y = y.coord - 0.01*y.spam, cex = 1.1, font = 2)
     text(last.year.comp, x = x.coords[j+1] + 0.075*x.spam, y = y.coord - 0.1*y.spam, cex = 0.9)
     
     if(!is.null(names)){

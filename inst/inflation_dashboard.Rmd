@@ -5,11 +5,11 @@ sansfont: Calibri Light
 header-includes:
    - \usepackage{subcaption,fancyhdr,graphicx,lastpage,hyperref,lmodern}
 params: 
-  text: NA
-  author: NA
-  email: NA
-  url: NA
-  logo: NA
+  text: !r NA
+  author: !r NA
+  email: !r NA
+  url: !r NA
+  logo: !r NA
 ---
 
 \fontfamily{lmss}\selectfont
@@ -30,6 +30,7 @@ library(BETS)
 
 \def\haslogo{`r as.integer(!is.na(logo))`}
 \def\haswebsite{`r as.integer(!is.na(url))`} 
+\def\hastext{`r as.integer(!is.na(text))`} 
 
 \fancypagestyle{plain}{
   \fancyhf{}%
@@ -42,7 +43,7 @@ library(BETS)
     \ifnum\haslogo = 1
       \includegraphics[width=\linewidth,height=35pt]{`r logo`} \\
     \else
-      `r author` 
+      `r author` \\
     \fi
     \ifnum\haswebsite = 1
       {\small \url{`r url`}}
