@@ -5,3 +5,4 @@
 ^tests$
 ^data$
 ^\.travis\.yml$
+^graphs$

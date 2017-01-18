@@ -35,8 +35,9 @@ draw.cdb= function(file, start = NULL, ylim = NULL, open = TRUE){
   #weekdays = weekdays[1:length(cdb)]
   #15-04-2016
   
-  cdb = read.csv2("cdb.csv",stringsAsFactors = F)
-  cdb = data.frame(as.Date(cdb[,1],format = "%d/%m/%Y"),as.numeric(cdb[,2]))
+  #cdb = read.csv2("cdb.csv",stringsAsFactors = F)
+  #cdb = data.frame(as.Date(cdb[,1],format = "%d/%m/%Y"),as.numeric(cdb[,2]))
+  cdb = BETS.get(code = 14, data.frame = TRUE)
   
   if(!is.null(start)){
     
@@ -51,12 +52,11 @@ draw.cdb= function(file, start = NULL, ylim = NULL, open = TRUE){
     
     if(weekdays(init) == "Sunday"){
       init = init + 1
-    }
-    else if(weekdays(init) == "Saturday"){
+    }else if(weekdays(init) == "Saturday"){
       init = init - 1
     }
     
-    i = which(cdb[,1] == init)
+    i = which(cdb[,2] == init)
     
     if(i != F){
       cdb = cdb[i:nrow(cdb),]
@@ -65,25 +65,25 @@ draw.cdb= function(file, start = NULL, ylim = NULL, open = TRUE){
   
   
   if(is.null(ylim)){
-    ylim = c(min(cdb[,2]),max(cdb[,2])+0.02)
+    ylim = c(min(cdb[,1]),max(cdb[,1])+0.02)
   }
   
-  first = as.numeric(cdb[1,1])
-  last = as.numeric(cdb[nrow(cdb),1])
-  aval = paste0("Last available data: ",cdb[nrow(cdb),1])
+  first = as.numeric(cdb[1,2])
+  last = as.numeric(cdb[nrow(cdb),2])
+  aval = paste0("Last available data: ",cdb[nrow(cdb),2])
   
   x.spam = last - first
   y.spam = ylim[2] - ylim[1]
   
-  s = seq(1,nrow(cdb),by = floor(nrow(cdb)/5))
-  labs = cdb[,1][s]
+  s = seq(1,nrow(cdb),by = floor(nrow(cdb)/6))
+  labs = cdb[,2][s]
   
   par(font.lab = 2, cex.axis = 1.2, bty = "n", las = 1)
-  plot.ts(x = cdb[,1], y = cdb[,2], type = "l", xaxt = "n", ylim = ylim, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = "Time Deposits (CDB/RDB-Preset)", col = "darkolivegreen")
+  plot.ts(x = cdb[,2], y = cdb[,1], type = "l", xaxt = "n", ylim = ylim, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = "Time Deposits (CDB/RDB-Preset)", col = "darkolivegreen")
   axis(1, at = labs, labels = labs, las=1, cex.axis = 0.75)
   mtext("Daily Returns (%)")
   
-  val = round(cdb[nrow(cdb),2],2)
+  val = round(cdb[nrow(cdb),1],4)
   
   points(last, val, pch = 21, cex = 1.25, lwd = 2, bg = "darkolivegreen", col = "darkgray")
   text(first + 0.22*x.spam, ylim[2] - 0.05*y.spam, aval, cex = 0.9)
@@ -95,7 +95,7 @@ draw.cdb= function(file, start = NULL, ylim = NULL, open = TRUE){
   arrows(x0 = x1, x1 = x1, y0 = y0, y1 = y1, length = c(0.00003*x.spam, 0.00006*y.spam), lwd = 2)
   text(x1 - 0.005*x.spam, y0 - 0.05*y.spam, as.character(val), cex = 1.1, font = 2)
   
-  add.notes(ts(cdb[,2], frequency = 365), ylim = ylim, xlim = c(first,last))
+  add.notes(ts(cdb[,1], frequency = 365), ylim = ylim, xlim = c(first,last),dec = 4)
   
   dev.off()
   

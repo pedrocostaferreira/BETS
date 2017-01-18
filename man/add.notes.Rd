@@ -4,7 +4,7 @@
 \alias{add.notes}
 \title{Add notes}
 \usage{
-add.notes(series.list, xlim, ylim, names = NULL)
+add.notes(series.list, xlim, ylim, names = NULL, dec = 2)
 }
 \arguments{
 \item{series.list}{A \code{ts object}}
@@ -14,6 +14,8 @@ add.notes(series.list, xlim, ylim, names = NULL)
 \item{ylim}{A \code{vector}}
 
 \item{names}{A \code{character}}
+
+\item{dec}{An \code{integer}}
 }
 \description{
 Add notes

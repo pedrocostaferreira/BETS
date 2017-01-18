@@ -1,4 +1,4 @@
-# With text
+# With text, without logo
 
 parameters = list(author = "FGV/IBRE", 
                   text = "text.txt",
@@ -6,7 +6,7 @@ parameters = list(author = "FGV/IBRE",
 
 BETS.dashboard(parameters = parameters, saveas = "inst/inflation_dashboard.pdf")
 
-# Without text
+# Without text, with logo
 
 parameters = list(author = "FGV/IBRE", 
                   url = "http://portalibre.fgv.br/",

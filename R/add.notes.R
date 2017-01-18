@@ -6,6 +6,7 @@
 #' @param xlim A \code{vector}
 #' @param ylim A \code{vector}
 #' @param names A \code{character}
+#' @param dec An \code{integer}
 #' 
 #' 
 #' @importFrom graphics par points  text
@@ -14,7 +15,7 @@
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 
-add.notes = function(series.list, xlim, ylim, names = NULL){
+add.notes = function(series.list, xlim, ylim, names = NULL, dec = 2){
   
   par(xpd=NA)
   
@@ -61,12 +62,12 @@ add.notes = function(series.list, xlim, ylim, names = NULL){
       dt.lp = as.Date(series)[len-1]
       dt.ly = as.Date(series)[len-freq]
       
-      last.period.comp = paste0(format(dt.lp,"%b"),"/", format(dt.lp,"%Y"),": ", round(series[len-1],2))
-      last.year.comp = paste0(format(dt.ly,"%b"),"/", format(dt.ly,"%Y"), ": ", round(series[len-freq],2))
+      last.period.comp = paste0(format(dt.lp,"%b"),"/", format(dt.lp,"%Y"),": ", round(series[len-1],dec))
+      last.year.comp = paste0(format(dt.ly,"%b"),"/", format(dt.ly,"%Y"), ": ", round(series[len-freq],dec))
     }
     else {
-      last.period.comp = paste0("A day before: ", round(series[len-1],2))
-      last.year.comp = paste0("A month before: ", round(series[len-30],2))
+      last.period.comp = paste0("A day before: ", round(series[len-1],dec))
+      last.year.comp = paste0("A month before: ", round(series[len-30],dec))
     }
 
     d.ly = 0
