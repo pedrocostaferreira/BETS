@@ -11,6 +11,7 @@
 #' @importFrom mFilter hpfilter
 #' 
 #' @importFrom grDevices dev.new dev.off  pdf  png
+#' @importFrom zoo as.Date
 #' @importFrom utils read.csv2
 #' @importFrom stats ts plot.ts
 #' @importFrom graphics axis text  points  mtext arrows
@@ -51,7 +52,7 @@ draw.unemp = function(file, start = NULL, ylim = NULL, open = TRUE){
   y.spam = ylim[2] - ylim[1]
   
   par(font.lab = 2, cex.axis = 1.2, bty = "n", las = 1)
-  plot(unemp, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = "Open Unemployment Rate", col = "royalblue", ylim = ylim)
+  plot(unemp, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = "Open Unemployment Rate", col = "royalblue", ylim = ylim, xlim = c(start[1],last[1] + 1))
   lines(trend, lty = 6, col = "darkgray", lwd = 2)
   mtext("Metropolitan Regions")
   

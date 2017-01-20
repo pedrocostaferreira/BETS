@@ -1,9 +1,10 @@
 ---
-output: pdf_document
 classoption: landscape
 sansfont: Calibri Light
-header-includes:
-   - \usepackage{subcaption,fancyhdr,graphicx,lastpage,hyperref,lmodern}
+output:
+  rmarkdown::pdf_document:
+    includes:  
+      in_header: fix_figs.tex
 params: 
   text: !r NA
   author: !r NA
@@ -94,8 +95,10 @@ if(!is.na(text)){
 }
 ```
 
-\newpage
-\pagestyle{plain}
+\ifnum\hastext = 1
+  \newpage
+  \pagestyle{plain}
+\fi
 
 ```{r echo = FALSE, results = "hide"}
 BETS.chart(alias = "eap", file = "graphs//eap", out = "pdf", open = FALSE)
@@ -108,13 +111,13 @@ BETS.chart(alias = "unemp", file = "graphs//unemp", out = "pdf", open = FALSE)
 \begin{figure}[h]
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=1\linewidth]{graphs/eap}
+  \includegraphics[width=1\linewidth,height=10cm,keepaspectratio]{graphs/eap}
   \label{ipca}
 \end{subfigure}
 ~
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=1\linewidth]{graphs/unemp}
+  \includegraphics[width=1\linewidth,height=10cm,keepaspectratio]{graphs/unemp}
   \label{cut}
 \end{subfigure}
 \end{figure}
@@ -157,8 +160,10 @@ if(!is.na(text)){
 }
 ```
 
-\newpage
-\pagestyle{plain}
+\ifnum\hastext = 1
+  \newpage
+  \pagestyle{plain}
+\fi
 
 ```{r echo = FALSE, results = "hide"}
 BETS.chart(alias = "selic", file = "graphs//selic", out = "pdf", open = FALSE)

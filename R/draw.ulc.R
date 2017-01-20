@@ -11,6 +11,7 @@
 #' 
 #' @importFrom grDevices dev.new dev.off  pdf  png
 #' @importFrom utils read.csv2
+#' @importFrom zoo as.Date
 #' @importFrom stats ts plot.ts
 #' @importFrom graphics axis text  points  mtext arrows
 
@@ -47,8 +48,9 @@ draw.ulc = function(file, start = NULL, ylim = NULL, open = TRUE){
   x.spam = last[1] - start[1]
   y.spam = ylim[2] - ylim[1]
   
+  xlim = c(as.Date(cut)[1], dt)
   par(font.lab = 2, cex.axis = 1.2, bty = "n", las = 1)
-  plot(cut, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = "Unitary Labor Cost", col = "firebrick4", ylim = c(70,180), xlim = c(2006,2016))
+  plot(cut, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = "Unitary Labor Cost", col = "firebrick4", ylim = ylim, xlim = c(start[1],last[1] + 1))
   mtext("US$ - June 1994 = 100")
   
   end.x = last[1]
@@ -59,8 +61,8 @@ draw.ulc = function(file, start = NULL, ylim = NULL, open = TRUE){
   text(start[1] + 0.14*x.spam, ylim[2] - 0.0165*y.spam, aval, cex = 0.9)
   
   x1 = end.x + d.x 
-  y0 = 0.75*ylim[2]
-  y1 = val + 0.028*y.spam
+  y0 = val + 0.08*y.spam
+  y1 = val + 0.038*y.spam
   
   arrows(x0 = x1, x1 = x1, y0 = y0, y1 = y1, length = c(0.01*x.spam, 0.00006*y.spam), lwd = 2)
   text(x1 - 0.03*x.spam, y0 + 0.067*y.spam, as.character(val), cex = 1.1, font = 2)
