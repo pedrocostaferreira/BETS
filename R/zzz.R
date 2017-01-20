@@ -1,7 +1,5 @@
 .onLoad <- function(lib, pkg)
 {
-   base::suppressMessages(base::library("mFilter"))
-   
    txt <- c("\n",
             paste(sQuote("BETS")),
             "\n",

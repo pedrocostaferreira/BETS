@@ -75,7 +75,7 @@ draw.cdb= function(file, start = NULL, ylim = NULL, open = TRUE){
   x.spam = last - first
   y.spam = ylim[2] - ylim[1]
   
-  s = seq(1,nrow(cdb),by = floor(nrow(cdb)/6))
+  s = seq(1,nrow(cdb),by = floor(nrow(cdb)/8))
   labs = cdb[,2][s]
   
   par(font.lab = 2, cex.axis = 1.2, bty = "n", las = 1)

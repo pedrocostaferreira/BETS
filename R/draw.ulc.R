@@ -61,8 +61,8 @@ draw.ulc = function(file, start = NULL, ylim = NULL, open = TRUE){
   text(start[1] + 0.14*x.spam, ylim[2] - 0.0165*y.spam, aval, cex = 0.9)
   
   x1 = end.x + d.x 
-  y0 = val + 0.08*y.spam
-  y1 = val + 0.038*y.spam
+  y0 = val + 0.09*y.spam
+  y1 = val + 0.028*y.spam
   
   arrows(x0 = x1, x1 = x1, y0 = y0, y1 = y1, length = c(0.01*x.spam, 0.00006*y.spam), lwd = 2)
   text(x1 - 0.03*x.spam, y0 + 0.067*y.spam, as.character(val), cex = 1.1, font = 2)
