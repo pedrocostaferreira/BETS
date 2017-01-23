@@ -41,15 +41,15 @@ BETS.predict = function(..., actual = NULL, main = "", ylab = "", xlim = NULL, s
   }
   else {
     preds = BETS.grnn.test(...)
+  }
+  
+  if(!is.null(unnorm)){
+    preds$x = preds$x*unnorm[2] + unnorm[1]
+    preds$mean = preds$mean*unnorm[2] + unnorm[1]
+    preds$fitted = preds$fitted*unnorm[2] + unnorm[1]
     
-    if(!is.null(unnorm)){
-      preds$x = preds$x*unnorm[2] + unnorm[1]
-      preds$mean = preds$mean*unnorm[2] + unnorm[1]
-      preds$fitted = preds$fitted*unnorm[2] + unnorm[1]
-      
-      if(!is.null(actual)){
-        actual = actual*unnorm[2] + unnorm[1]
-      }
+    if(!is.null(actual)){
+      actual = actual*unnorm[2] + unnorm[1]
     }
   }
   
