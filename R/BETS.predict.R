@@ -43,7 +43,7 @@ BETS.predict = function(..., actual = NULL, main = "", ylab = "", xlim = NULL, s
     preds = BETS.grnn.test(...)
     
     if(!is.null(unnorm)){
-      preds$x = preds$series*unnorm[2] + unnorm[1]
+      preds$x = preds$x*unnorm[2] + unnorm[1]
       preds$mean = preds$mean*unnorm[2] + unnorm[1]
       preds$fitted = preds$fitted*unnorm[2] + unnorm[1]
       
@@ -99,7 +99,7 @@ BETS.predict = function(..., actual = NULL, main = "", ylab = "", xlim = NULL, s
     else{
       series = preds$x
     }
-    
+
     plot(series, main = main, ylab = ylab, xlim = xlim, yaxt = "n", xaxp  = c(1900, 2500, 600))
     abline(v = seq(1900,2500,1), col = "gray60", lty = 3)
     axis(side = 2, at = seq(min,max,step))
@@ -118,6 +118,7 @@ BETS.predict = function(..., actual = NULL, main = "", ylab = "", xlim = NULL, s
     acc = accuracy(preds$mean, actual)
     results$accuracy = acc 
     results$predictions = preds
+    results$forecasting.errors = preds$mean - actual
   }
   else {
     results = preds
