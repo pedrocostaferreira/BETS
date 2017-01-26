@@ -23,14 +23,14 @@ BETS.ur_test = function(..., mode = "DF", level = "5pct"){
   for(i in 1:length(stat)){
     
     if(stat[i] > cval[i]){
-      res = c(res, "TRUE")
+      res = c(res, "no")
     }
     else {
-      res = c(res, "FALSE")
+      res = c(res, "yes")
     }
   }
   
   res = as.matrix(res)
-  results = data.frame(statistic = stat,crit.val = cval, result = res)
+  results = data.frame(statistic = stat,crit.val = cval,  rej.H0 = res)
   return(list(results = results, residuals = df@res))
 }

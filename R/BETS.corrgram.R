@@ -120,6 +120,7 @@ BETS.corrgram = function(ts, lag.max = 12, type = "correlation", mode = "simple"
       return(p)
     }
     else{
+      par(cex.axis = 0.75, cex.lab = 0.8, mar = c(5.1, 4.1, 0.5, 2.1))
       plot(p)
     }
   }

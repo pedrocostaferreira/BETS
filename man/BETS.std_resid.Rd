@@ -12,7 +12,7 @@ BETS.std_resid(model, alpha = 0.05)
 \item{alpha}{A \code{numeric} between 0 and 1. The significance level.}
 }
 \value{
-Besides showing the plot, this functin returns a \code{numeric vector} containing the standardized residuals.
+Besides showing the plot, this function returns a \code{numeric vector} containing the standardized residuals.
 }
 \description{
 Uses a model object to create a plot of standardized residuals. This model can be an \link[forecast]{Arima} or an \link[stats]{arima}. In a near future, this function will also accept objects returned by \link[BETS]{BETS.grnn.train}.
