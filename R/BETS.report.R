@@ -5,15 +5,16 @@
 #' @param mode A \code{character}. The type of the analysis. So far, only 'SARIMA' is available.
 #' @param ts A \code{integer} or a \code{ts} object. Either the ID of the series in the BETS database or a time series object (any series, not just BETS's)
 #' @param parameters A \code{list}. The parameters of the report. See the 'details' section for more information.
-#' @param saveas A \code{character}. A path and a name for the report file (an .html file). If this parameter is not provided, the report will be saved inside the 'reports' folder, under the BETS installation directory.
+#' @param report.file A \code{character}. A path and a name for the report file (an .html file). If this parameter is not provided, the report will be saved inside the 'reports' folder, under the BETS installation directory.
+#' @param series.saveas \code{character} The format of the file in which the series and the previsions should be saved. Possible values are 'none' (default), 'sas', 'dta' and 'spss' . Is is going to be saved under the same directory as the report file.
 #' 
 #' @details 
 #' 
 #' \bold{SARIMA Report Parameters}
 #' 
 #' \itemize{
-#' \item{\code{lag.max}: Maximum number of lags to show on the ACFs e PACFs}
-#' \item{\code{n.ahead}: Prevision horizon (number of steps ahead)}
+#' \item{\code{lag.max}: An \code{integer} Maximum number of lags to show on the ACFs e PACFs}
+#' \item{\code{n.ahead}: An \code{integer} Prevision horizon (number of steps ahead)}
 #' }
 #' 
 #' @return An .html file (the report)
@@ -24,7 +25,7 @@
 #' @import rmarkdown
 
 
-BETS.report <- function(mode = "SARIMA", ts = 21864, parameters = NULL, saveas= NA){
+BETS.report <- function(mode = "SARIMA", ts = 21864, parameters = NULL, report.file= NA){
   
   name = paste0("analysis_",mode,".Rmd")
   file = system.file(package="BETS", name)
@@ -39,17 +40,17 @@ BETS.report <- function(mode = "SARIMA", ts = 21864, parameters = NULL, saveas= 
   
   file = gsub(".Rmd", ".html", file)
   
-  if(is.na(saveas)){
+  if(is.na(report.file)){
     if(class(ts) == 'ts'){
       ts = "custom"
     }
     
     dir = paste0(system.file(package="BETS"),"//reports")
     dir.create(dir)
-    saveas = paste0(dir,"//analysis_", mode, "_", ts, ".html")
+    report.file = paste0(dir,"//analysis_", mode, "_", ts, ".html")
   }
   
-  file.copy(file, saveas, overwrite = T)
+  file.copy(file, report.file, overwrite = T)
   file.remove(file)
-  system2("open", saveas)
+  system2("open", report.file)
 }
