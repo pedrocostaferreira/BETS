@@ -5,7 +5,7 @@
 \title{Get the predicted values of a model and visualize it}
 \usage{
 BETS.predict(..., actual = NULL, main = "", ylab = "", xlim = NULL,
-  style = "dygraphs", unnorm = NULL, knit = F)
+  style = "dygraphs", unnorm = NULL, legend.pos = "topright", knit = F)
 }
 \arguments{
 \item{...}{arguments passed on to \link[forecast]{forecast}. If the model is a neural network, these arguments will be passed on to \link[BETS]{BETS.grnn.test}.}
@@ -21,6 +21,8 @@ BETS.predict(..., actual = NULL, main = "", ylab = "", xlim = NULL,
 \item{style}{A \code{character}. Can be either 'dygraphs' (the \link[dygraphs]{dygraph} function will be use to make the plot, which is going to be HTML based) or 'normal' (standard R functions will be used to make the plot)}
 
 \item{unnorm}{A \code{numeric vector}. If predictions must be unnormalized, set the first element of this vector to the mean and the second, to the standard deviation.}
+
+\item{legend.pos}{A \code{character}. The position of the legend. Possible values are standard R plot values, i.e., "topright', "bottomleft', etc.}
 
 \item{knit}{A \code{boolean}. Set this parameter to \code{TRUE} if}
 }

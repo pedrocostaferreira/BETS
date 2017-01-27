@@ -144,5 +144,7 @@ BETS.grnn.train = function(train.set, sigma, step = 0.1, select = TRUE, names = 
     results[[i]] = results.list[[rankm[i,"id"]]]
   }
   
+  plot(results[[1]]$sigma.mape, col = "royalblue", type = "b")
+  
   return(results)
 }
