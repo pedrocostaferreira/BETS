@@ -2,31 +2,34 @@
 % Please edit documentation in R/BETS.report.R
 \name{BETS.report}
 \alias{BETS.report}
-\title{Create a dynamic report with a full analysis of a time series}
+\title{Create dynamic reports with a full analysis of a set of time series}
 \usage{
-BETS.report(mode = "SARIMA", ts = 21864, parameters = NULL, saveas = NA)
+BETS.report(mode = "SARIMA", ts = 21864, parameters = NULL,
+  report.file = NA, series.saveas = "none")
 }
 \arguments{
-\item{mode}{A \code{character}. The type of the analysis. So far, only 'SARIMA' is available.}
+\item{mode}{A \code{character}.The type of the analysis. So far, only 'SARIMA' is available.}
 
-\item{ts}{A \code{integer} or a \code{ts} object. Either the ID of the series in the BETS database or a time series object (any series, not just BETS's)}
+\item{ts}{A \code{integer}, a \code{ts} object or a \code{list} of \code{integer}s and \code{ts} objects. Either the ID of the series in the BETS database or a time series object (any series, not just BETS's). If a \code{list} is provided, a report is generated for each series in this list, which can be mixed with IDs and time series objects.}
 
 \item{parameters}{A \code{list}. The parameters of the report. See the 'details' section for more information.}
 
-\item{saveas}{A \code{character}. A path and a name for the report file (an .html file). If this parameter is not provided, the report will be saved inside the 'reports' folder, under the BETS installation directory.}
+\item{report.file}{A \code{character}. A path and a name for the report file (an .html file). If there is more than one series, this name will be used as a prefix. If this parameter is not provided, the report will be saved inside the 'reports' folder, under the BETS installation directory.}
+
+\item{series.saveas}{A \code{character}. The format of the file on which the series and the predictions should be written. Possible values are 'none' (default), 'sas', 'dta', 'spss', 'csv', 'csv2' . Is is saved under the same directory as the report file.}
 }
 \value{
-An .html file (the report)
+One or more .html files (the reports) and, optionally, data files (series plus predictions).
 }
 \description{
-Generate an automatic report with a complete analysis of a time series. For now, only a SARIMA analysis (Box & Jenkins approach) is possible. In a near future, a GRNN (General Regression Neural Network) analysis will be released. Soon after, Holt-Winters, Multilayer Perceptron, Fuzzy Logic and Box-Cox analysis will become available.
+Generate automatic reports with a complete analysis of a set of time series. For now, only a SARIMA analysis (Box & Jenkins approach) is possible. In a near future, a GRNN (General Regression Neural Network) analysis will be released. Soon after, Holt-Winters, GRNN, Multilayer Perceptron, Fuzzy Logic and Box-Cox analysis will become available.
 }
 \details{
 \bold{SARIMA Report Parameters}
 
 \itemize{
-\item{\code{lag.max}: Maximum number of lags to show on the ACFs e PACFs}
-\item{\code{n.ahead}: Prevision horizon (number of steps ahead)}
+\item{\code{lag.max}: An \code{integer} Maximum number of lags to show on the ACFs e PACFs}
+\item{\code{n.ahead}: An \code{integer} Prevision horizon (number of steps ahead)}
 }
 }
 \author{
