@@ -5,8 +5,9 @@ date: "`r Sys.Date()`"
 output: html_document
 params:
   ts: 21864
-  name: NA
-  unit: NA
+  series.file: !r NA
+  description: !r NA
+  unit: !r NA
   lag.max: 48
   n.ahead: 12
 ---
@@ -61,7 +62,7 @@ data <- ts
 ```{r echo = FALSE, eval = custom.ts}
 info <- data.frame(matrix(nrow = 1, ncol = 6))
 names(info) <- c("Code","Description","Periodicity","Start","Source","Unit")
-info[1,] <- c(code,params$name,frequency(data),start(data),"Custom",params$unit)
+info[1,] <- c(code,params$description,frequency(data),start(data),"Custom",params$unit)
 ```
 
 ```{r echo = FALSE, eval = !custom.ts}
@@ -250,4 +251,22 @@ BETS.predict(model,h=n.ahead, main = info[,"Description"], ylab = info[,"Unit"],
 ```
 
 
+```{r echo = F, eval = !is.na(series.file)}
+preds = BETS.predict(model,h=n.ahead, main = info[,"Description"], ylab = info[,"Unit"], knit = T)
+data = c(data,preds)
+
+if(grepl("\\.spss$", series.file)){
+  BETS.save.spss(file.name = gsub("\\.spss$", "", series.file), data = data)
+} else if(grepl("\\.dta$", series.file)){
+  BETS.save.stata(file.name = gsub("\\.dta$", "", series.file), data = data)
+} else if(grepl("\\.sas$", series.file)){
+  BETS.save.sas(file.name = gsub("\\.sas$", "", series.file), data = data)
+}else if(grepl("\\.sas$", series.file)){
+  BETS.save.sas(file.name = gsub("\\.sas$", "", series.file), data = data)
+}else if(grepl("\\.csv$", series.file)) {
+  write.csv(data, file = series.file)
+} else if(grepl("\\.csv2$", series.file)) {
+  write.csv2(data, file = series.file)
+}
+```
 

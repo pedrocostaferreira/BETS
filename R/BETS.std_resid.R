@@ -5,7 +5,7 @@
 #' @param model An \link[forecast]{Arima} or an \link[stats]{arima} object. The model.
 #' @param alpha A \code{numeric} between 0 and 1. The significance level.
 #' 
-#' @return Besides showing the plot, this functin returns a \code{numeric vector} containing the standardized residuals.
+#' @return Besides showing the plot, this function returns a \code{numeric vector} containing the standardized residuals.
 #' 
 #' @importFrom stats sd qnorm
 #' @importFrom  graphics abline
