@@ -6,8 +6,6 @@ output: html_document
 params:
   ts: 21864
   series.file: !r NA
-  description: !r NA
-  unit: !r NA
   lag.max: 48
   n.ahead: 12
 ---
@@ -20,7 +18,7 @@ ts = params$ts
 
 if(class(ts) != 'ts'){
   custom.ts = FALSE
-  code = ts 
+  code = as.integer(ts) 
 } else{
   code = "None"
 }
@@ -62,7 +60,7 @@ data <- ts
 ```{r echo = FALSE, eval = custom.ts}
 info <- data.frame(matrix(nrow = 1, ncol = 6))
 names(info) <- c("Code","Description","Periodicity","Start","Source","Unit")
-info[1,] <- c(code,params$description,frequency(data),start(data),"Custom",params$unit)
+info[1,] <- c(code," ",frequency(data),paste0(start(data),collapse = "."),"Custom"," ")
 ```
 
 ```{r echo = FALSE, eval = !custom.ts}
@@ -252,8 +250,8 @@ BETS.predict(model,h=n.ahead, main = info[,"Description"], ylab = info[,"Unit"],
 
 
 ```{r echo = F, eval = !is.na(series.file)}
-preds = BETS.predict(model,h=n.ahead, main = info[,"Description"], ylab = info[,"Unit"], knit = T)
-data = c(data,preds)
+preds = BETS.predict(model,h=n.ahead, main = info[,"Description"], ylab = info[,"Unit"], knit = F)
+data = c(data,preds$mean)
 
 if(grepl("\\.spss$", series.file)){
   BETS.save.spss(file.name = gsub("\\.spss$", "", series.file), data = data)
@@ -261,12 +259,13 @@ if(grepl("\\.spss$", series.file)){
   BETS.save.stata(file.name = gsub("\\.dta$", "", series.file), data = data)
 } else if(grepl("\\.sas$", series.file)){
   BETS.save.sas(file.name = gsub("\\.sas$", "", series.file), data = data)
-}else if(grepl("\\.sas$", series.file)){
-  BETS.save.sas(file.name = gsub("\\.sas$", "", series.file), data = data)
-}else if(grepl("\\.csv$", series.file)) {
+}else if(grepl("\\.csv$", series.file, row.names = F)) {
   write.csv(data, file = series.file)
 } else if(grepl("\\.csv2$", series.file)) {
-  write.csv2(data, file = series.file)
+  write.csv2(data, file = series.file, row.names = F)
 }
 ```
+
+<br>
+`r if(!is.na(series.file)) 'The whole series and the model predictions are available at [THIS LINK]('``r if(!is.na(series.file)) series.file``r if(!is.na(series.file)) ')'`
 
