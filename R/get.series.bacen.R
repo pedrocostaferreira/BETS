@@ -32,12 +32,29 @@ get.series.bacen <- function(x, from = "", to = "", save = ""){
   serie = mapply(paste0, "serie_", inputs, USE.NAMES = FALSE)
   
   
-  for (i in len){ assign(serie[i],
-                         RCurl::getURL(paste0('http://api.bcb.gov.br/dados/serie/bcdata.sgs.',
+  for (i in len){ 
+    
+    result = tryCatch({
+      
+      
+      RCurl::getURL(paste0('http://api.bcb.gov.br/dados/serie/bcdata.sgs.',
+                              inputs[i], 
+                              '/dados?formato=csv&dataInicial=', data_init, '&dataFinal=',
+                              data_end),
+                       ssl.verifyhost=FALSE, ssl.verifypeer=FALSE, .opts = list(timeout = 1, maxredirs = 2))
+      },
+      error = function(e) {
+        
+        return(RCurl::getURL(paste0('http://api.bcb.gov.br/dados/serie/bcdata.sgs.',
                                               inputs[i], 
                                               '/dados?formato=csv&dataInicial=', data_init, '&dataFinal=',
                                               data_end),
-                                       ssl.verifyhost=FALSE, ssl.verifypeer=FALSE))}
+                                       ssl.verifyhost=FALSE, ssl.verifypeer=FALSE))
+          
+        })
+    
+        assign(serie[i], result) 
+  }
   
   
   for (i in len){

@@ -36,7 +36,6 @@
 BETS.get = function(code, from = "", to = "", data.frame = FALSE, frequency = NULL){
 
     code = as.numeric(code)
-    print(code)
     aux = get.series.bacen(code, from = from, to = to)[[1]]
     
     freq = suppressMessages(BETS.search(code = code, view = F)[1,3])
