@@ -46,6 +46,7 @@ BETS.report <- function(mode = "SARIMA", ts = 21864, parameters = NULL, report.f
 
   for(ts in vec){ 
     
+    
     name = paste0("analysis_",mode,".Rmd")
     file = system.file(package="BETS", name)
     
@@ -75,6 +76,7 @@ BETS.report <- function(mode = "SARIMA", ts = 21864, parameters = NULL, report.f
       parameters$ts = ts
       parameters$series.file = series.file
       
+      print(parameters)
       rmarkdown::render(file, params = parameters)
     }
     

@@ -259,8 +259,8 @@ if(grepl("\\.spss$", series.file)){
   BETS.save.stata(file.name = gsub("\\.dta$", "", series.file), data = data)
 } else if(grepl("\\.sas$", series.file)){
   BETS.save.sas(file.name = gsub("\\.sas$", "", series.file), data = data)
-}else if(grepl("\\.csv$", series.file, row.names = F)) {
-  write.csv(data, file = series.file)
+}else if(grepl("\\.csv$", series.file)) {
+  write.csv(data, file = series.file, row.names = F)
 } else if(grepl("\\.csv2$", series.file)) {
   write.csv2(data, file = series.file, row.names = F)
 }
