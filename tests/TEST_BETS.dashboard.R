@@ -14,4 +14,13 @@ parameters = list(author = "FGV/IBRE",
 
 BETS.dashboard(parameters = parameters, saveas = "inst/inflation_dashboard.pdf")
 
+# With text, with logo
+
+parameters = list(author = "FGV/IBRE", 
+                  url = "http://portalibre.fgv.br/",
+                  text = "text.txt",
+                  logo = "logo_ibre.png")
+
+BETS.dashboard(parameters = parameters, saveas = "inst/inflation_dashboard.pdf")
+
 
