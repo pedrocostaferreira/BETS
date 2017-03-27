@@ -69,16 +69,12 @@ BETS.report <- function(mode = "SARIMA", ts = 21864, parameters = NULL, report.f
     
     rep.file = paste0(rep.file,".html")
     
-    if(is.null(parameters)){
-      rmarkdown::render(file)
-    }
-    else {
+    if(!(ts == 21864 && is.null(parameters))){
       parameters$ts = ts
-      parameters$series.file = series.file
-      
-      print(parameters)
-      rmarkdown::render(file, params = parameters)
     }
+
+    parameters$series.file = series.file
+    rmarkdown::render(file, params = parameters)
     
     file = gsub(".Rmd", ".html", file)
   

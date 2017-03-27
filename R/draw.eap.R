@@ -14,19 +14,7 @@
 #' 
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory. 
 
-draw.eap = function(file, start = NULL, ylim = NULL, open = TRUE){
-  
-  dev.new()
-  op <- par(no.readonly = TRUE)
-  dev.off()
-  par(op)
-  
-  if(grepl("\\.png", file)){
-    png(file,width=728,height=478, pointsize = 15) 
-  }
-  else {
-    pdf(file, width = 8.0, height = 5.3)
-  }
+draw.eap = function(start = NULL, ylim = NULL, xlim = NULL){
   
   eap = (BETS.get(10810)/BETS.get(10800))*100
   
@@ -34,43 +22,7 @@ draw.eap = function(file, start = NULL, ylim = NULL, open = TRUE){
     eap = window(eap, start = start)
   }
   
-  if(is.null(ylim)){
-    ylim = c(min(eap)-1,max(eap)+1)
-  }
-  
-  
-  dt = as.Date(eap)[length(eap)]
-  last = vector(mode = "numeric")
-  last[1] = as.integer(format(dt, "%Y"))
-  last[2] = as.integer(format(dt, "%m"))
-  aval = paste0("Last available data: ",format(dt, "%b"),"/", format(dt,"%Y"))
-  
-  x.spam = last[1] - start[1]
-  y.spam = ylim[2] - ylim[1]
-  
-  par(font.lab = 2, cex.axis = 1.2, bty = "n", las = 1)
-  plot(eap, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = "Economically Active Population", col = "royalblue", ylim = ylim)
-  mtext("Percentage of Population in Active Age")
-  
-  end.x = last[1]
-  d.x = last[2]/12 
-  val = round(eap[length(eap)],2)
-  
-  points(end.x + d.x, val, pch = 21, cex = 1.25, lwd = 2, bg = "royalblue", col = "darkgray")
-  text(start[1] + 0.14*x.spam, ylim[2] - 0.06*y.spam, aval, cex = 0.9)
-  
-  x1 = end.x + d.x 
-  y0 = ylim[1] + 0.08*y.spam
-  y1 = val - 0.018*y.spam
-  
-  arrows(x0 = x1, x1 = x1, y0 = y0, y1 = y1, length = c(0.01*x.spam, 0.00006*y.spam), lwd = 2)
-  text(x1 - 0.005*x.spam, y0 - 0.067*y.spam, as.character(val), cex = 1.1, font = 2)
-  
-  add.notes(eap, ylim = ylim, xlim = c(start[1],last[1]))
-  
-  dev.off()
-  
-  if(open){
-    file.show(file)
-  }
+  lims = chart.add_basic(ts = eap, ylim = ylim, xlim = xlim, title = "Economically Active Population", subtitle = "Percentage of Population in Active Age", col = "royalblue", arr.pos = "h", leg.pos = "bottom")
+  chart.add_notes(eap, ylim = lims[3:4], xlim = lims[1:2])
+
 }

@@ -17,24 +17,8 @@
 #' @importFrom stats ts plot.ts
 #' @importFrom graphics axis text  points  mtext arrows
 
-draw.ipca = function(file, start = NULL, ylim = NULL, open = TRUE){
+draw.ipca = function(start = NULL, ylim = NULL, xlim = NULL){
   
-  dev.new()
-  op <- par(no.readonly = TRUE)
-  dev.off()
-  par(op)
-  
-  if(is.null(ylim)){
-    ylim = c(2,11)
-  }
-  
-  if(grepl("\\.png", file)){
-    png(file,width=728,height=478, pointsize = 15) 
-  }
-  else {
-    pdf(file, width = 8.0, height = 5.3)
-  }
- 
   ipca = BETS.get(13522)
   core = BETS.get(4466)
   
@@ -66,78 +50,18 @@ draw.ipca = function(file, start = NULL, ylim = NULL, open = TRUE){
     core_acc[i-11] = sum 
   }
   
+  par(mar = c(7,4,4,2))
+  
   core_acc = ts(core_acc, start = c(1996,12), frequency = 12)
   core = window(core_acc, start = start)
   
-  dt = as.Date(ipca)[length(ipca)]
-  last = vector(mode = "numeric")
-  last[1] = as.integer(format(dt, "%Y"))
-  last[2] = as.integer(format(dt, "%m"))
-  
-  x.spam = last[1] - start[1]
-  y.spam = ylim[2] - ylim[1]
-  
-  par(font.lab = 2, cex.axis = 1.2, bty = "n", las = 1, mar=c(7.1,4.1,4.1,2.1))
-  plot(ipca, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = "National Consumer Price Index (IPCA)", col = "firebrick4", ylim = ylim, xlim = c(start[1],last[1] + 1))
-  mtext("Cumulative 12-Month Percentage")
-  
-  par(new = TRUE)
-  plot(core, lwd = 2.5, lty = 2, xlab = "", ylab = "", col = "firebrick3", ylim = ylim, xlim = c(start[1],last[1] + 1))
-  
-  last.x = last[1]
-  start.x = start(ipca)[1]
-  d.x = last[2]/12 
-  
-  last.core = core[length(core)]
-  last.ipca = ipca[length(ipca)]
-  
-  par(new = TRUE)
-  points(last.x + d.x, last.core, pch = 21, cex = 1.25, lwd = 2, bg = "firebrick3", col = "darkgray")
-  points(last.x + d.x, last.ipca, pch = 21, cex = 1.25, lwd = 2, bg = "firebrick4", col = "darkgray")
-  
-  x0 = last.x - 1
-  x1 = last.x + d.x 
-  y0 = ylim[2]
-  y1 = last.ipca
-  
-  tan = (y1 - y0)/(x1 - x0)
-  mod = sqrt((y1 - y0)^2 + (x1 - x0)^2)
-  func = function(x) (1 + tan^2)*(x - x0)^2 - (mod^2)*0.75
-  
-  x1.ipca = uniroot(func, c(2014,x1))$root
-  y1.ipca = tan*(x1.ipca - x0) + y0
-  
-  arrows(x0 = x0, x1 = x1.ipca, y0 = y0, y1 = y1.ipca, length = c(0.01*x.spam, 0.011*y.spam), lwd = 2)
-  
-  x1 = last.x + d.x 
-  y0 = min(core)
-  y1 = last.core
-  
-  tan = (y1 - y0)/(x1 - x0)
-  mod = sqrt((y1 - y0)^2 + (x1 - x0)^2)
-  func = function(x) (1 + tan^2)*(x - x0)^2 - (mod^2)*0.9
-  
-  x1.core = multiroot(func, start = 2015)$root
-  y1.core = tan*(x1.core - x0) + y0
-  
-  arrows(x0 = x0, x1 = x1.core, y0 = y0, y1 = y1.core, length = c(0.01*x.spam, 0.011*y.spam), lwd = 2)
-  
-  aval = paste0("Last available data: ",format(dt, "%b"),"/", format(dt,"%Y"))
-  
-  text(x0 - 0.05*x.spam, ylim[2], as.character(last.ipca), cex = 1.1, font = 2)
-  text(x0 - 0.05*x.spam, min(core), as.character(last.core), cex = 1.1, font = 2)
-  
-  legend("topleft", c("IPCA", "Core"), lty=c(1,1), lwd=c(2.5,2.5),col=c("firebrick4", "firebrick3"), bty = "n", cex = 0.9)
-  text(start[1] + 0.14*x.spam, ylim[2] - 0.165*y.spam, aval, cex = 0.9)
-  
+  lims = chart.add_basic(ts = ipca, ylim = ylim, xlim = xlim, title = "National Consumer Price Index (IPCA)", subtitle = "Cumulative 12-Month Percentage", arr.pos = "h", leg.pos = "none")
+  chart.add_extra(core, ylim = lims[3:4], xlim = lims[1:2], leg.pos = "none")
   abline(a = 4.5, b = 0, lty = 3, lwd = 3, col = "darkgray")
-  text(last.x + 1 - 0.02*x.spam, 0.455*y.spam, "Target", cex = 0.9)
   
-  add.notes(list(ipca = ipca, core = core), names = c("IPCA","Core"), ylim = ylim, xlim = c(start[1],last[1]))
+  legend("topleft", c("IPCA", "Core"), lty=c(1,2), lwd=c(2.5,2.5),col=c("firebrick4", "firebrick3"), bty = "n", cex = 0.9)
+  text(lims[2] - strwidth("Target"), 4.1, "Target", cex = 0.9)
   
-  dev.off()
-  
-  if(open){
-    file.show(file)
-  }
+  chart.add_notes(list(ipca = ipca, core = core), names = c("IPCA","Core"), ylim = lims[3:4], xlim = lims[1:2])
+
 }

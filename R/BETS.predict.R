@@ -38,7 +38,7 @@ BETS.predict = function(..., actual = NULL, main = "", ylab = "", xlim = NULL, s
     model = l$object
   }
   
-  if(class(model)[1] == "arima" || class(model)[1] == "Arima" || class(model)[1] == "ARIMA"){
+  if(class(model)[1] == "arima" || class(model)[1] == "Arima" || class(model)[1] == "ARIMA" || class(model) == "HoltWinters"){
     preds = forecast(...)
   }
   else {
@@ -109,16 +109,19 @@ BETS.predict = function(..., actual = NULL, main = "", ylab = "", xlim = NULL, s
     else{
       series = preds$x
     }
-
+    
     plot(series, main = main, ylab = ylab, xlim = xlim, yaxt = "n", xaxp  = c(1900, 2500, 600))
     abline(v = seq(1900,2500,1), col = "gray60", lty = 3)
     axis(side = 2, at = seq(min,max,step))
     par(new = TRUE)
-    lines(actual, col = "firebrick3", lwd = 2)
     
-    y_ac = actual[1]
+    if(!is.null(actual)){
+      lines(actual, col = "firebrick3", lwd = 2)
+      y_ac = actual[1]
+      x_ac = as.Date(actual)[1]
+    }
+    
     y_pr = preds$mean[1]
-    x_ac = as.Date(actual)[1]
     
     #lines(x = c(x_last, x_ac), y = c(y_last, y_ac), col = "firebrick3", lw = 2)
     #lines(x = c(x_last, x_ac), y = c(y_last, y_pr), col = "royalblue", lw = 2)

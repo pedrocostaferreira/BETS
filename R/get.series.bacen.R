@@ -38,44 +38,50 @@ get.series.bacen <- function(x, from = "", to = "", save = ""){
       
       
       RCurl::getURL(paste0('http://api.bcb.gov.br/dados/serie/bcdata.sgs.',
-                              inputs[i], 
-                              '/dados?formato=csv&dataInicial=', data_init, '&dataFinal=',
-                              data_end),
-                       ssl.verifyhost=FALSE, ssl.verifypeer=FALSE, .opts = list(timeout = 1, maxredirs = 2))
-      },
-      error = function(e) {
-        
-        return(RCurl::getURL(paste0('http://api.bcb.gov.br/dados/serie/bcdata.sgs.',
-                                              inputs[i], 
-                                              '/dados?formato=csv&dataInicial=', data_init, '&dataFinal=',
-                                              data_end),
-                                       ssl.verifyhost=FALSE, ssl.verifypeer=FALSE))
-          
-        })
+                           inputs[i], 
+                           '/dados?formato=csv&dataInicial=', data_init, '&dataFinal=',
+                           data_end),
+                    ssl.verifyhost=FALSE, ssl.verifypeer=FALSE, .opts = list(timeout = 1, maxredirs = 2))
+    },
+    error = function(e) {
+      
+      return(RCurl::getURL(paste0('http://api.bcb.gov.br/dados/serie/bcdata.sgs.',
+                                  inputs[i], 
+                                  '/dados?formato=csv&dataInicial=', data_init,
+                                  '&dataFinal=',
+                                  data_end),
+                           ssl.verifyhost=FALSE, ssl.verifypeer=FALSE))
+      
+    })
     
-        assign(serie[i], result) 
+    assign(serie[i], result) 
   }
   
   
   for (i in len){
-    texto = utils::read.csv(textConnection(eval(as.symbol(
+    texto = utils::read.csv2(textConnection(eval(as.symbol(
       serie[i]))), header=T)
     texto$data = gsub(' .*$','', eval(texto$data))
     assign(serie[i], texto)
     
   }
   
+  if(ncol(texto) == 1){
+    for (i in len){
+      texto = utils::read.csv(textConnection(eval(as.symbol(
+        serie[i]))), header=T)
+      texto$data = gsub(' .*$','', eval(texto$data))
+      assign(serie[i], texto)
+    }
+  }
+  
   rm(texto)
   
-  #if (save != ""){
-    if (save == "csv"){
-      for(i in len) {utils::write.csv(eval(as.symbol(serie[i])), file = paste0(serie[i], ".csv"))}
-  #   } else if (save == "xls" | save == "xlsx") {
-  #     for(i in len) {write.xlsx(eval(as.symbol(serie[i])), file = paste0(serie[i], ".xlsx"), 
-  #                               row.names = FALSE)}} else{ 
-  #                                 stop("save argument must be 'csv' or 'xlsx' ")}
-    }
-
+  if (save == "csv"){
+    for(i in len) {utils::write.csv(eval(as.symbol(serie[i])), file = paste0(serie[i], ".csv"))}
+    
+  }
+  
   lista = list()
   ls_df = ls()[grepl('data.frame', sapply(ls(), function(x) class(get(x))))]
   for ( obj in ls_df ) { lista[obj]=list(get(obj)) }

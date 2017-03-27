@@ -33,7 +33,7 @@
 #' @export
 
 
-BETS.chart = function(alias, lang = "en", out = "png", file = NULL, start = c(2006,1), ylim = NULL, open = TRUE){
+BETS.chart = function(alias, lang = "en", out = "png", file = NULL, start = c(2006,1), ylim = NULL, xlim = NULL, open = TRUE){
   
   if(lang == "en"){
     Sys.setlocale(category = "LC_ALL", locale = "English_United States.1252")
@@ -64,33 +64,56 @@ BETS.chart = function(alias, lang = "en", out = "png", file = NULL, start = c(20
       file <- paste(file,".png",sep="")
     }
   }
+  
+  dev.new()
+  op <- par(no.readonly = TRUE)
+  dev.off()
+  par(op)
+  
+  if(grepl("\\.png", file)){
+    png(file,width=728,height=478, pointsize = 15) 
+  }
+  else {
+    pdf(file, width = 7, height = 4.5)
+  }
 
   if(alias == "ipca_with_core"){
-    draw.ipca(file , start = start, ylim = ylim, open = open)
+    draw.ipca(start = start, ylim = ylim, xlim = xlim)
   }
   else if(alias == "ulc"){
-    draw.ulc(file, start = start, ylim = ylim, open = open)
+    draw.ulc(start = start, ylim = ylim, xlim = xlim)
   }
   else if(alias == "eap"){
-    draw.eap(file, start = start, ylim = ylim, open = open)
+    draw.eap(start = start, ylim = ylim, xlim = xlim)
   }
   else if(alias == "cdb"){
-    draw.cdb(file, start = start, ylim = ylim, open = open)
+    
+    if(identical(c(2006,1),start)){
+      start = c(2006,1,1)
+    }
+    
+    draw.cdb(start = start, ylim = ylim, xlim = xlim)
   }
   else if(alias == "indprod"){
-    draw.indprod(file, start = start, ylim = ylim, open = open)
+    draw.indprod(start = start, xlim = xlim, ylim = ylim)
   }
   else if(alias == "selic"){
-    draw.selic(file, start = start, ylim = ylim, open = open)
+    draw.selic(start = start, ylim = ylim, xlim = xlim)
   }
   else if(alias == "unemp"){
-    draw.unemp(file, start = start, ylim = ylim, open = open)
+    draw.unemp(start = start, ylim = ylim, xlim = xlim)
   }
   else if(alias == "vargdp"){
-    draw.vargdp(file, start = start, ylim = ylim, open = open)
+    draw.vargdp(start = start, ylim = ylim, xlim = xlim)
   }
   else {
     msg(paste("Plot was not created.",.MSG_PARAMETER_NOT_VALID))
+  }
+  
+  dev.off()
+  
+  if(open){
+    file.show(file)
   }
   
 }
