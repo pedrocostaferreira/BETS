@@ -2,31 +2,40 @@ Package: BETS
 Type: Package
 Title: Brazilian Economic Time Series
 Version: 0.1.0
-Date: 2017-01-15
+Date: 2017-03-29
 Authors@R: c(person("Pedro", "Costa Ferreira", email = "pedro.guilherme@fgv.br", role = c("aut", "cre")),
               person("Talitha", "Speranza", email = "talitha.speranza@fgv.br", role = "aut"),
 			        person("Jonatha", "Azevedo", email = "jonatha.azevedo@fgv.br", role = "aut"))
 Maintainer: Pedro Costa Ferreira <pedro.guilherme@fgv.br>
 Depends:
     R (>= 3.2.0)
-Imports: 
-    rootSolve, 
+Imports:
+    rootSolve,
     grnn,
-    ggplot2, 
-    plotly, 
-    urca, 
-    forecast, 
-    sqldf, 
-    zoo, 
+    ggplot2,
+    plotly,
+    urca,
+    forecast,
+    sqldf,
+    zoo,
     rmarkdown,
     foreign,
     seasonal,
     stringr,
-    mFilter,
     dygraphs,
     RCurl,
-    rappdirs
-Description: It provides access to and information about the most important Brazilian economic time series - from the Getulio Vargas Foundation (FGV), the Central Bank of Brazil (BACEN) and the Brazilian Institute of Geography and Statistics (IBGE). It also presents tools for managing, analysing (e.g. generating dynamic reports with a complete analysis of a series) and exporting these time series.
+    shiny (>= 0.13),
+    miniUI (>= 0.1.1),
+    rstudioapi (>= 0.4),
+    DT
+Suggests:
+    mFilter
+Description: It provides access to and information about the most important
+    Brazilian economic time series - from the Getulio Vargas Foundation (FGV),
+    the Central Bank of Brazil (BACEN) and the Brazilian Institute of Geography
+    and Statistics (IBGE). It also presents tools for managing, analysing (e.g.
+    generating dynamic reports with a complete analysis of a series) and exporting
+    these time series.
 License: GPL-3
 BugReports: https://github.com/pedrocostaferreira/BETS/issues
 URL: https://github.com/pedrocostaferreira/BETS
