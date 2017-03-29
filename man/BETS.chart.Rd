@@ -5,7 +5,7 @@
 \title{Create a chart with a pre-defined BETS series}
 \usage{
 BETS.chart(alias, lang = "en", out = "png", file = NULL, start = c(2006,
-  1), ylim = NULL, open = TRUE)
+  1), ylim = NULL, xlim = NULL, open = TRUE)
 }
 \arguments{
 \item{alias}{A \code{character}. The alias of the chart. A complete list of aliases for available charts is under the 'Details' section.}
@@ -19,6 +19,8 @@ BETS.chart(alias, lang = "en", out = "png", file = NULL, start = c(2006,
 \item{start}{A \code{vector}.}
 
 \item{ylim}{A \code{vector}.}
+
+\item{xlim}{A \code{vector}.}
 
 \item{open}{A \code{boolean}.}
 }

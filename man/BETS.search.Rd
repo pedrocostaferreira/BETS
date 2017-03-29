@@ -4,8 +4,8 @@
 \alias{BETS.search}
 \title{Search for a Brazilian Economic Time Series}
 \usage{
-BETS.search(description, src, periodicity, unit, code, start, view = TRUE,
-  lang = "en")
+BETS.search(description = "*", src, periodicity, unit, code, start,
+  view = TRUE, lang = "en")
 }
 \arguments{
 \item{description}{A \code{character}. A search string to look for matching series descriptions. Check the syntax rules under the 'Details' section for better performance.}
