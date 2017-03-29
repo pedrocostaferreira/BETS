@@ -2,11 +2,17 @@
 #' 
 #' @description  Creates a plot of series 11777
 #' 
-#' @param file A \code{character}. The name of the file in which the plot must be printed. The extension can be either '.png' or '.pdf'. All charts are stored in the 'graphs' folder, under the BETS installation directory. 
-#' @param start A \code{character}. The stating period of the series.
 #' @param ylim A \code{numeric vector}. Y axis limits.
-#' @param open A \code{boolean}. Indicates whether the plot must be opened after being created.
-#' 
+#' @param xlim  A \code{numeric vector}. x axis limits.
+#' @param type A \code{character}. The type of of plot (lines).
+#' @param title A \code{character}. The plot title.
+#' @param subtitle A \code{character}. The plot subtitle.
+#' @param ts A \code{ts}. the ts object.
+#' @param col A \code{character}. Color.
+#' @param arr.size A \code{vector}.
+#' @param arr.pos  A \code{vector}.
+#' @param leg.pos  A \code{vector}.
+#' @param trend    A \code{boolean}.
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory. 
 #' 
 #' @importFrom grDevices dev.new dev.off  pdf  png
@@ -14,6 +20,8 @@
 #' @importFrom zoo as.Date
 #' @importFrom stats ts plot.ts
 #' @importFrom graphics axis text  points  mtext arrows
+#' @importFrom graphics strheight strwidth
+#' @importFrom utils tail
 
 chart.add_basic = function(ts, type = "lines", ylim = NULL, xlim = NULL, title = "", subtitle = "", col = "firebrick4", arr.size = NULL, arr.pos = "v", leg.pos = "top", trend = FALSE){
   
@@ -35,7 +43,7 @@ chart.add_basic = function(ts, type = "lines", ylim = NULL, xlim = NULL, title =
   
   if(trend){
     requireNamespace("mFilter")
-    hp = fitted(hpfilter(series))
+    hp = fitted(mFilter::hpfilter(series))
   }
   
   last = vector(mode = "numeric")

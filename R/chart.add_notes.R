@@ -11,6 +11,8 @@
 #' 
 #' @importFrom graphics par points  text
 #' @importFrom stats frequency
+#' @importFrom graphics strheight strwidth
+#' 
 #' 
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
