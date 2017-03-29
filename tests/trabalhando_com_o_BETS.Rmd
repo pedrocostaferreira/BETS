@@ -44,8 +44,8 @@ getwd()
 **BETS.chart**
 
 ```{r}
-BETS.chart(alias = 'ipca_with_core', file = "images/ipca", out = "pdf")
-BETS.chart(alias = 'ulc', start = c(2008,1), file = "images/ulc", out = "pdf")
+#BETS.chart(alias = 'ipca_with_core', file = "ipca", out = "pdf")
+BETS.chart(alias = 'ulc', start = c(2008,1), file = "ulc", out = "pdf")
 
 ```
 

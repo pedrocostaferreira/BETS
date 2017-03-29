@@ -14,7 +14,17 @@
 
 BETS.save = function(code = NULL, data = NULL, file.name="series", type = ""){
   
-  local=getwd()
+  path = FALSE
+  
+  if(grepl("\\\\",file.name) || grepl("/",file.name)){
+    path = TRUE
+  }
+  
+  if(!path){
+    local= paste0(getwd(),"/") 
+  } else {
+    local = ""
+  }
   
   if(is.null(data) && !is.null(code)){
     y = BETS.get(code, data.frame = TRUE)
@@ -23,17 +33,17 @@ BETS.save = function(code = NULL, data = NULL, file.name="series", type = ""){
       file.name = paste0(file.name, "_", code)
     }
   }
-  else if(is.data.frame(data)){
-    y = data 
+  else if(is.data.frame(data) || is.numeric(data)){
+    y = data.frame(data) 
   }
   else if(class(data) == 'ts'){
     y = data.frame(date = as.Date(data), value = data)
   }
   else {
-    return(msg('The parameter "data" must be either a data.frame or a ts object'))
+    return(msg('The parameter "data" must be either a data.frame, a numeric vector or a ts object'))
   }
   
-  file.name = paste0(local,"/",file.name,".",type)
+  file.name = paste0(local,file.name,".",type)
   
   return(list(data = y, file = file.name))
 }

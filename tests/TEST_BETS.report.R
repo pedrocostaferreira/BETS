@@ -125,9 +125,11 @@ BETS.report(mode = "HOLT-WINTERS", ts = 4447)
 
 # Save forecasts
 
-BETS.report(mode = "HOLT-WINTERS", ts = 21864, series.saveas = "csv")
+BETS.report(mode = "HOLT-WINTERS", ts = 21864, series.saveas = "sas")
 
 # Change parameters
+
+library(knitr)
 
 params = list(alpha = 0.5, gamma = T)
 

@@ -22,13 +22,15 @@ if(class(ts) != 'ts'){
 } else{
   code = "None"
 }
+
+series.file = params$series.file
 ```
 
 ## User-Defined Parameters
 
  Parameter          | Value              | Variable
  ------------------ | ------------------ | ----------
- Series Code        | `r code`    | `ts` 
+ Series Code        | `r code`           | `ts` 
  Maximum Lag        | `r params$lag.max` | `lag.max` 
  Prevision Horizon  | `r params$n.ahead` | `n.ahead`  
 
@@ -262,6 +264,7 @@ if(grepl("\\.spss$", series.file)){
 }else if(grepl("\\.csv$", series.file)) {
   write.csv(data, file = series.file, row.names = F)
 } else if(grepl("\\.csv2$", series.file)) {
+  series.file = gsub("\\.csv2$", ".csv", series.file)
   write.csv2(data, file = series.file, row.names = F)
 }
 ```

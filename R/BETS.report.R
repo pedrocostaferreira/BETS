@@ -37,9 +37,9 @@ BETS.report <- function(mode = "SARIMA", ts = 21864, parameters = NULL, report.f
   
   if(is.na(report.file)){
     
-    dir = paste0(system.file(package="BETS"),"//reports")
+    dir = paste0(system.file(package="BETS"),"/reports")
     dir.create(dir)
-    report.file = paste0(dir,"//analysis")
+    report.file = paste0(dir,"/analysis")
   }
   
   i = 1

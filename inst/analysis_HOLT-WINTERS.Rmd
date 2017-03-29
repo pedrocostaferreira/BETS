@@ -50,7 +50,7 @@ if(!is.null(s.start)){
 ## User-Defined Parameters
 
  Parameter                          | Value              | Variable
- ---------------------------------- | ------------------ | ----------
+ ---------------------------------- | -------------------| ----------
  Series code                        | `r code`           | `ts` 
  Alpha                              | `r alpha`          | `alpha` 
  Beta                               | `r beta`           | `beta` 
@@ -218,6 +218,7 @@ if(grepl("\\.spss$", series.file)){
 }else if(grepl("\\.csv$", series.file)) {
   write.csv(data, file = series.file, row.names = F)
 } else if(grepl("\\.csv2$", series.file)) {
+  series.file = gsub("\\.csv2$", ".csv", series.file)
   write.csv2(data, file = series.file, row.names = F)
 }
 ```
