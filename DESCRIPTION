@@ -29,7 +29,9 @@ Imports:
     rstudioapi (>= 0.4),
     DT
 Suggests:
-    mFilter
+    mFilter,
+    lubridate,
+    xts
 Description: It provides access to and information about the most important
     Brazilian economic time series - from the Getulio Vargas Foundation (FGV),
     the Central Bank of Brazil (BACEN) and the Brazilian Institute of Geography

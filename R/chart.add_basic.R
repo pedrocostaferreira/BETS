@@ -34,8 +34,8 @@ chart.add_basic = function(ts, type = "lines", ylim = NULL, xlim = NULL, title =
     labs = NULL
   }
   else {
-    series = as.ts(ts[,2])
-    dates = as.Date(ts[,1])
+    series = as.ts(ts[,"value"])
+    dates = as.Date(ts[,"date"])
     dt = tail(dates,1)
     s = seq(1,nrow(ts),by = floor(nrow(ts)/8))
     labs = dates[s]

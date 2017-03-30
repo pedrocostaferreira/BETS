@@ -133,7 +133,7 @@ BETS.get = function(code, from = "", to = "", data.frame = FALSE, frequency = NU
       ts <- ts(aux1, start = start, freq = freq)
     }
     else {
-      ts = data.frame(date = aux1, value = aux2)
+      ts = data.frame(value = aux1, date = aux2)
     }
     
     return(ts)

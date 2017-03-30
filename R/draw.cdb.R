@@ -26,9 +26,9 @@ draw.cdb= function(start = NULL, ylim = NULL, xlim = NULL){
       start[3] = paste0("0",start[3])
     }
     
-    init = as.Date(paste0(start[1],"-",start[2],"-",start[3]))
+    init = as.Date(paste0(start[1],"-",start[2],"-",start[3]), format = "%Y-%m-%d")
     
-    i = which(cdb[,1] >= init)
+    i = which(cdb[,"date"] >= init)
     
     if(length(i) != 0){
       cdb = cdb[i,]
@@ -36,7 +36,7 @@ draw.cdb= function(start = NULL, ylim = NULL, xlim = NULL){
   }
   
   lims = chart.add_basic(ts = cdb, ylim = ylim, xlim = xlim, title = "Time Deposits (CDB/RDB-Preset)", subtitle = "Daily Returns (%)", col = "darkolivegreen", leg.pos = "bottom")
-  chart.add_notes(ts(cdb[,2], frequency = 365), ylim = lims[3:4], xlim = lims[1:2],dec = 4)
+  chart.add_notes(ts(cdb[,"value"], frequency = 365), ylim = lims[3:4], xlim = lims[1:2],dec = 4)
   
   
 }
