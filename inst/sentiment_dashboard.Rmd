@@ -14,6 +14,10 @@ output:
 library(BETS)
 ```
 
+```{r echo = FALSE, results = "hide"}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+```
+
 \fancypagestyle{plain}{
   \fancyhf{}%
   \setlength{\headheight}{45pt} 
@@ -31,8 +35,21 @@ library(BETS)
 
 ```{r echo = FALSE, results = "hide"}
 dir.create("graphs")
+BETS.chart(type = "sentiment", alias = "animal_spirits", open = F, file = "graphs//animal_spirits")
 ```
 
 
-
+\begin{figure}[h]
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graphs/animal_spirits}
+  \label{ipca}
+\end{subfigure}
+~
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graphs/animal_spirits}
+  \label{cut}
+\end{subfigure}
+\end{figure}
 

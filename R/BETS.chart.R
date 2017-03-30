@@ -10,6 +10,7 @@
 #' @param ylim  A \code{vector}.
 #' @param xlim  A \code{vector}.
 #' @param open  A \code{boolean}.
+#' @param type A \code{character}.
 #'  
 #' 
 #' @details 
@@ -31,10 +32,11 @@
 #' 
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 #' 
+#' @importFrom plotly export 
 #' @export
 
 
-BETS.chart = function(alias, lang = "en", out = "png", file = NULL, start = c(2006,1), ylim = NULL, xlim = NULL, open = TRUE){
+BETS.chart = function(alias, type = "inflation", lang = "en", out = "png", file = NULL, start = c(2006,1), ylim = NULL, xlim = NULL, open = TRUE){
   
   if(lang == "en"){
     Sys.setlocale(category = "LC_ALL", locale = "English_United States.1252")
@@ -51,67 +53,77 @@ BETS.chart = function(alias, lang = "en", out = "png", file = NULL, start = c(20
     file = paste0("graphs","\\",alias)
   }
   
-  if(out != "png"){
-    if(out != "pdf"){
-      return(invisible(msg(.MSG_OUT_NOT_AVAILABLE)))
-    }
+  if(type == "inflation"){
     
-    if(!grepl("\\.pdf$", file)) {
-      file <- paste(file,".pdf",sep="")
+    if(out != "png"){
+      
+      if(out != "pdf"){
+        return(invisible(msg(.MSG_OUT_NOT_AVAILABLE)))
+      }
+      
+      if(!grepl("\\.pdf$", file)) {
+        file <- paste(file,".pdf",sep="")
+      }
+    }
+    else {
+      if(!grepl("\\.png$", file)) {
+        file <- paste(file,".png",sep="")
+      }
+    }
+  
+    dev.new()
+    op <- par(no.readonly = TRUE)
+    dev.off()
+    par(op)
+  
+    if(grepl("\\.png", file)){
+      png(file,width=728,height=478, pointsize = 15) 
+    }
+    else {
+      pdf(file, width = 7, height = 4.5)
     }
   }
   else {
+    
     if(!grepl("\\.png$", file)) {
       file <- paste(file,".png",sep="")
     }
   }
-  
-  dev.new()
-  op <- par(no.readonly = TRUE)
-  dev.off()
-  par(op)
-  
-  if(grepl("\\.png", file)){
-    png(file,width=728,height=478, pointsize = 15) 
-  }
-  else {
-    pdf(file, width = 7, height = 4.5)
-  }
 
   if(alias == "ipca_with_core"){
     draw.ipca(start = start, ylim = ylim, xlim = xlim)
-  }
-  else if(alias == "ulc"){
+  } else if(alias == "ulc"){
     draw.ulc(start = start, ylim = ylim, xlim = xlim)
-  }
-  else if(alias == "eap"){
+  } else if(alias == "eap"){
     draw.eap(start = start, ylim = ylim, xlim = xlim)
-  }
-  else if(alias == "cdb"){
+  } else if(alias == "cdb"){
     
     if(identical(c(2006,1),start)){
       start = c(2006,1,1)
     }
     
     draw.cdb(start = start, ylim = ylim, xlim = xlim)
-  }
-  else if(alias == "indprod"){
+  } else if(alias == "indprod"){
     draw.indprod(start = start, xlim = xlim, ylim = ylim)
-  }
-  else if(alias == "selic"){
+  } else if(alias == "selic"){
     draw.selic(start = start, ylim = ylim, xlim = xlim)
-  }
-  else if(alias == "unemp"){
+  } else if(alias == "unemp"){
     draw.unemp(start = start, ylim = ylim, xlim = xlim)
-  }
-  else if(alias == "vargdp"){
+  } else if(alias == "vargdp"){
     draw.vargdp(start = start, ylim = ylim, xlim = xlim)
-  }
-  else {
+  } else if(alias == "animal_spirits"){
+    p = draw.animal_spirits()
+  } else {
     msg(paste("Plot was not created.",.MSG_PARAMETER_NOT_VALID))
   }
   
-  dev.off()
+  if(type == "inflation"){
+    
+    dev.off()
+  }
+  else {
+    export(p, file = file, zoom = 4)
+  }
   
   if(open){
     file.show(file)

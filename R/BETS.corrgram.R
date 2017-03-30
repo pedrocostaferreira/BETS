@@ -16,7 +16,8 @@
 #' 
 #' @export
 #' @importFrom plotly plotly_build
-#' @import forecast ggplot2 
+#' @import forecast 
+#' @importFrom ggplot2 ggplot geom_segment scale_x_continuous geom_point geom_step labs aes
 
 BETS.corrgram = function(ts, lag.max = 12, type = "correlation", mode = "simple", ci = 0.95, style = "plotly", knit = F){
   
