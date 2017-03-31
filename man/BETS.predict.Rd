@@ -40,4 +40,3 @@ This function is built upon \link[forecast]{forecast}. Besides the model predict
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
 }
-

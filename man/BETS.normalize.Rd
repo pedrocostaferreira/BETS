@@ -20,4 +20,3 @@ Normalizes a time series, either by stardization or by mapping to values between
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
 }
-

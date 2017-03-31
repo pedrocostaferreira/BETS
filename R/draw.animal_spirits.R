@@ -4,6 +4,7 @@
 #' 
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory.
 #' @importFrom zoo as.Date 
+#' @importFrom grDevices rgb
 #' @import plotly 
 
 draw.animal_spirits = function(){
@@ -30,16 +31,22 @@ draw.animal_spirits = function(){
     arrowhead = 6,
     ay = 40,
     ax = 0,
-    font = list(size = 30)
+    font = list(size = 22)
+  )
+  
+  m <- list(
+    t = 50,
+    pad = 1
   )
   
   rg = rgb(162,7,7, maxColorValue = 255)
   
-  p = plot_ly(mode = "lines", type = "scatter", x = as.Date(as), y = as, name = "Animal Spirits") %>% 
-    layout(title = "<b>Animal Spirits</b>", 
-           yaxis = list(title = "Index", tickfont = list(size = 30), titlefont = list(size = 30)),
-           xaxis = list(title = "", titlefont = list(size = 30)),
-           titlefont = list(size = 30),
+  p = plot_ly(mode = "lines", type = "scatter", x = as.Date(as), y = as, name = "Animal Spirits", width = 700, height = 450) %>% 
+    layout(title = "<b>ANIMAL SPIRITS</b>", 
+           yaxis = list(title = "Index", tickfont = list(size = 22), titlefont = list(size = 22)),
+           xaxis = list(title = "", tickfont = list(size = 22)),
+           margin = m,
+           titlefont = list(size = 19),
            annotations = a,
            shapes = list(
              list(type = "rect",

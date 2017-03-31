@@ -62,4 +62,3 @@ BETS.dummy(start = c(2000,1), end = c(2012,5),
 \seealso{
 \code{\link[stats]{ts}}, \code{\link[BETS]{BETS.dummy}}
 }
-

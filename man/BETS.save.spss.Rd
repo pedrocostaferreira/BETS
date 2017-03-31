@@ -27,4 +27,3 @@ Writes a time series to a .spss (SPSS) file.
  #BETS.save.spss(code=3691,file.name="us.brl")
 
 }
-

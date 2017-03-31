@@ -20,4 +20,3 @@ Uses a model object to create a plot of standardized residuals. This model can b
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
 }
-
