@@ -10,7 +10,7 @@
 #' @param ylim  A \code{vector}.
 #' @param xlim  A \code{vector}.
 #' @param open  A \code{boolean}.
-#' @param type A \code{character}.
+#' @param style A \code{character}.
 #'  
 #' 
 #' @details 
@@ -33,10 +33,11 @@
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 #' 
 #' @importFrom plotly export 
+#' @import webshot 
 #' @export
 
 
-BETS.chart = function(alias, type = "inflation", lang = "en", out = "png", file = NULL, start = c(2006,1), ylim = NULL, xlim = NULL, open = TRUE){
+BETS.chart = function(alias, style = "normal", lang = "en", out = "png", file = NULL, start = c(2006,1), ylim = NULL, xlim = NULL, open = TRUE){
   
   if(lang == "en"){
     Sys.setlocale(category = "LC_ALL", locale = "English_United States.1252")
@@ -53,7 +54,7 @@ BETS.chart = function(alias, type = "inflation", lang = "en", out = "png", file 
     file = paste0("graphs","\\",alias)
   }
   
-  if(type == "inflation"){
+  if(style == "normal"){
     
     if(out != "png"){
       
@@ -117,12 +118,19 @@ BETS.chart = function(alias, type = "inflation", lang = "en", out = "png", file 
     msg(paste("Plot was not created.",.MSG_PARAMETER_NOT_VALID))
   }
   
-  if(type == "inflation"){
+  if(style == "normal"){
     
     dev.off()
   }
   else {
-    export(p, file = file, zoom = 4)
+    
+    tryCatch({
+      export(p, file = file, zoom = 4, cliprect = c(0,0,740,500))},
+      message = function(e){
+        install_phantomjs() 
+      }
+    )
+    
   }
   
   if(open){

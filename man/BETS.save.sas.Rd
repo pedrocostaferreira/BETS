@@ -30,4 +30,3 @@ Writes a time series to a .sas (SAS) file.
  #BETS.save.sas(code=3691,file.name="us.brl")
 
 }
-

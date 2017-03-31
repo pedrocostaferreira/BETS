@@ -23,4 +23,3 @@ A function to extract BACEN series using their API
 Fernando Teixeira \email{fernando.teixeira@fgv.br}
 }
 \keyword{bacen}
-

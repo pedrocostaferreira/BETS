@@ -121,4 +121,3 @@ BETS.search(periodicity="A", view = FALSE)
 Central Bank of Brazil
 }
 \keyword{search}
-

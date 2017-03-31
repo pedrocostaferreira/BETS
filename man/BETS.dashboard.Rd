@@ -36,4 +36,3 @@ Generate thematic dashboards using a selection of BETS time series and charts. F
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
 }
-
