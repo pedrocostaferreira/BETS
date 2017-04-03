@@ -33,3 +33,4 @@ Given new values of the independent variables, tests a list of trained GRNNs and
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
 }
+

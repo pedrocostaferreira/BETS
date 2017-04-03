@@ -4,14 +4,14 @@
 \alias{BETS.chart}
 \title{Create a chart with a pre-defined BETS series}
 \usage{
-BETS.chart(alias, style = "normal", lang = "en", out = "png",
+BETS.chart(alias, dashboard = "inflation", lang = "en", out = "png",
   file = NULL, start = c(2006, 1), ylim = NULL, xlim = NULL,
   open = TRUE)
 }
 \arguments{
 \item{alias}{A \code{character}. The alias of the chart. A complete list of aliases for available charts is under the 'Details' section.}
 
-\item{style}{A \code{character}.}
+\item{dashboard}{A \code{character}.}
 
 \item{lang}{A \code{character}. The language. For now, only 'en' (english) is available.}
 
@@ -49,3 +49,4 @@ Create a chart with a pre-defined BETS series
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
 }
+

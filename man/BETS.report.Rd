@@ -35,3 +35,4 @@ Generate automatic reports with a complete analysis of a set of time series. For
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
 }
+

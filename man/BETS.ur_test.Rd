@@ -22,3 +22,4 @@ This function uses the package 'urca' to perform unit root tests on a pre-define
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
 }
+

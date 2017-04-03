@@ -10,7 +10,7 @@
 #' @param ylim  A \code{vector}.
 #' @param xlim  A \code{vector}.
 #' @param open  A \code{boolean}.
-#' @param style A \code{character}.
+#' @param dashboard A \code{character}.
 #'  
 #' 
 #' @details 
@@ -37,7 +37,7 @@
 #' @export
 
 
-BETS.chart = function(alias, style = "normal", lang = "en", out = "png", file = NULL, start = c(2006,1), ylim = NULL, xlim = NULL, open = TRUE){
+BETS.chart = function(alias, dashboard = "inflation", lang = "en", out = "png", file = NULL, start = c(2006,1), ylim = NULL, xlim = NULL, open = TRUE){
   
   if(lang == "en"){
     Sys.setlocale(category = "LC_ALL", locale = "English_United States.1252")
@@ -54,7 +54,7 @@ BETS.chart = function(alias, style = "normal", lang = "en", out = "png", file = 
     file = paste0("graphs","\\",alias)
   }
   
-  if(style == "normal"){
+  if(dashboard == "inflation"){
     
     if(out != "png"){
       
@@ -71,66 +71,82 @@ BETS.chart = function(alias, style = "normal", lang = "en", out = "png", file = 
         file <- paste(file,".png",sep="")
       }
     }
-  
+    
     dev.new()
     op <- par(no.readonly = TRUE)
     dev.off()
     par(op)
-  
+    
     if(grepl("\\.png", file)){
       png(file,width=728,height=478, pointsize = 15) 
     }
     else {
       pdf(file, width = 7, height = 4.5)
     }
-  }
-  else {
+    
+    if(alias == "ipca_with_core"){
+      draw.ipca(start = start, ylim = ylim, xlim = xlim)
+    } else if(alias == "ulc"){
+      draw.ulc(start = start, ylim = ylim, xlim = xlim)
+    } else if(alias == "eap"){
+      draw.eap(start = start, ylim = ylim, xlim = xlim)
+    } else if(alias == "cdb"){
+      
+      if(identical(c(2006,1),start)){
+        start = c(2006,1,1)
+      }
+      
+      draw.cdb(start = start, ylim = ylim, xlim = xlim)
+    } else if(alias == "indprod"){
+      draw.indprod(start = start, xlim = xlim, ylim = ylim)
+    } else if(alias == "selic"){
+      draw.selic(start = start, ylim = ylim, xlim = xlim)
+    } else if(alias == "unemp"){
+      draw.unemp(start = start, ylim = ylim, xlim = xlim)
+    } else if(alias == "vargdp"){
+      draw.vargdp(start = start, ylim = ylim, xlim = xlim)
+    } else {
+      msg(paste("Plot was not created.",.MSG_PARAMETER_NOT_VALID))
+    }
+    
+    dev.off()
+    
+  } else if(dashboard == "sentiment"){
     
     if(!grepl("\\.png$", file)) {
       file <- paste(file,".png",sep="")
     }
-  }
-
-  if(alias == "ipca_with_core"){
-    draw.ipca(start = start, ylim = ylim, xlim = xlim)
-  } else if(alias == "ulc"){
-    draw.ulc(start = start, ylim = ylim, xlim = xlim)
-  } else if(alias == "eap"){
-    draw.eap(start = start, ylim = ylim, xlim = xlim)
-  } else if(alias == "cdb"){
     
-    if(identical(c(2006,1),start)){
-      start = c(2006,1,1)
+    if(alias == "animal_spirits"){
+      p = draw.animal_spirits()
+    } else if(alias == "iie_br"){
+      p = draw.iie_br()
+    } else if(alias == "gdpcomp_series"){
+      p = draw.gdpcomp_series()
+    } else if(alias == "gdpcomp_discs"){
+      p = draw.gdpcomp_discs()
+    } else if(alias == "misery_rate"){
+      p = draw.misery_rate()
+    } else if(alias == "gdp_unemp"){
+      p = draw.gdp_unemp()
+    } else if(alias == "lei"){
+      p = draw.lei()
+    } else if(alias == "cei"){
+      p = draw.cei()
+    } else {
+      msg(paste("Plot was not created.",.MSG_PARAMETER_NOT_VALID))
     }
     
-    draw.cdb(start = start, ylim = ylim, xlim = xlim)
-  } else if(alias == "indprod"){
-    draw.indprod(start = start, xlim = xlim, ylim = ylim)
-  } else if(alias == "selic"){
-    draw.selic(start = start, ylim = ylim, xlim = xlim)
-  } else if(alias == "unemp"){
-    draw.unemp(start = start, ylim = ylim, xlim = xlim)
-  } else if(alias == "vargdp"){
-    draw.vargdp(start = start, ylim = ylim, xlim = xlim)
-  } else if(alias == "animal_spirits"){
-    p = draw.animal_spirits()
-  } else {
-    msg(paste("Plot was not created.",.MSG_PARAMETER_NOT_VALID))
-  }
-  
-  if(style == "normal"){
-    
-    dev.off()
-  }
-  else {
     
     tryCatch({
-      export(p, file = file, zoom = 4, cliprect = c(0,0,740,500))},
+      export(p, file = file, zoom = 4, cliprect = c(20,20,740,500))},
       message = function(e){
         install_phantomjs() 
+        export(p, file = file, zoom = 4, cliprect = c(0,0,740,500))
       }
     )
-    
+  } else {
+    ## custom chart logic
   }
   
   if(open){

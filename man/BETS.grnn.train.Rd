@@ -38,3 +38,4 @@ Creates a set of probabilistic neural networks as proposed by \href{http://www.i
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
 }
+

@@ -30,3 +30,4 @@ Writes a time series to a .dta (STATA) file.
  #BETS.save.stata(code=3691,file.name="us.brl")
 
 }
+

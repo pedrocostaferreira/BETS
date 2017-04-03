@@ -31,3 +31,4 @@ Plot correlograms using plot.ly and several other options that differ theses plo
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
 }
+

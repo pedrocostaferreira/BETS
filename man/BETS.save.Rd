@@ -21,3 +21,4 @@ A list with the data frame to be saved and the file name
 \description{
 To be used with BETS.save.spss, BETS.save.sas and others.
 }
+

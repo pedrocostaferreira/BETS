@@ -10,3 +10,4 @@ BETS.addin_en()
 An interface for searching time series with possibility 
 to extract the data in different extensions.
 }
+
