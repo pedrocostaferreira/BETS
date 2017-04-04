@@ -29,4 +29,3 @@ msg <- function(..., skip_before=TRUE, skip_after=FALSE, warn = FALSE) {
   
   invisible(m)
 }
-
