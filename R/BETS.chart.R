@@ -121,10 +121,10 @@ BETS.chart = function(alias, dashboard = "inflation", lang = "en", out = "png", 
       p = draw.animal_spirits()
     } else if(alias == "iie_br"){
       p = draw.iie_br()
-    } else if(alias == "gdpcomp_series"){
-      p = draw.gdpcomp_series()
-    } else if(alias == "gdpcomp_discs"){
-      p = draw.gdpcomp_discs()
+    } else if(alias == "gdp_vars"){
+      p = draw.gdp_vars()
+    } else if(alias == "gdp_comps"){
+      p = draw.gdp_comps()
     } else if(alias == "misery_rate"){
       p = draw.misery_rate()
     } else if(alias == "gdp_unemp"){

@@ -3,14 +3,14 @@
 #' @description  Creates a plot of series 4189
 #' 
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory.
-#' @importFrom zoo as.Date 
+#' @importFrom zoo as.Date as.yearqtr 
 #' @importFrom forecast ma
 #' @import plotly 
 #' @importFrom seasonal seas
 
-draw.gdpcomp_series = function(){
+draw.gdp_vars = function(){
   
-  gdp_comp = paste0(system.file(package="BETS"), "/pib_componentes.csv")
+  gdp_comp = paste0(system.file(package="BETS"), "/pib_vars.csv")
   data <- read.csv2(gdp_comp, stringsAsFactors = F)
   
   gdp = window(ts(as.numeric(data[,2]), start = c(1996,1), frequency = 4),start = c(2013,1))
@@ -20,16 +20,7 @@ draw.gdpcomp_series = function(){
   
   m <- list(
     t = 50,
-    l = 75,
     pad = 1
-  )
-  
-  ay <- list(
-    title = "% do PIB (Dívida)",
-    overlaying = "y",
-    side = "right",
-    zeroline = FALSE,
-    showgrid = FALSE
   )
   
   if(gdp[length(gdp)] < 0){
@@ -51,18 +42,20 @@ draw.gdpcomp_series = function(){
     font = list(size = 22)
   )
   
-  p = plot_ly(type = "bar", x = as.Date(gdp), y = gdp, name = "GDP", width = 700, height = 450) %>% 
-    add_trace(y = gdp_gov, x = as.Date(gdp_gov), name = "Gov. Exp.", type = "scatter", mode = "lines") %>%
-    add_trace(y = gdp_cons, x = as.Date(gdp_cons), name = "Hous. Exp.", type = "scatter", mode = "lines") %>%
-    add_trace(y = gdp_bffk, x = as.Date(gdp_bffk), name = "BFFK", type = "scatter", mode = "lines") %>%
-    layout(title = "<b>GDP COMPONENTS</b>", 
-           yaxis = list(title = "% variation", tickfont = list(size = 20), titlefont = list(size = 22)),
-           xaxis = list(title = "", tickfont = list(size = 17)),
-           #yaxis2 = ay,
+  dates = as.Date(gdp)
+  quarters = as.yearqtr(dates)
+  
+  p = plot_ly(type = "bar", x = dates, y = gdp, name = "GDP", width = 700, height = 450) %>% 
+    add_trace(y = gdp_gov, x = dates, name = "Gov. Exp.", type = "scatter", mode = "lines") %>%
+    add_trace(y = gdp_cons, x = dates, name = "Hous. Exp.", type = "scatter", mode = "lines") %>%
+    add_trace(y = gdp_bffk, x = dates, name = "BFFK", type = "scatter", mode = "lines", line = list(color = "#908989")) %>%
+    layout(title = '<b>GDP COMPONENTS VARIATION</b><br><span style = "font-size:13">Accumulated variation in the Year (Quarter over Last Quarter)</span>', 
+           yaxis = list(title = "", tickfont = list(size = 20)),
+           xaxis = list(title = "", tickfont = list(size = 15), tickangle = 60, tickvals = dates, ticktext=as.character(quarters), showgrid = T),
            margin = m,
            titlefont = list(size = 19),
            annotations = a,
-           legend = list(orientation = 'h', x = 0.15)
+           legend = list(orientation = 'h', x = 0.15, y = -0.33)
     )
   
   return(p)

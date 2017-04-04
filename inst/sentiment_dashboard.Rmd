@@ -37,32 +37,33 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 dir.create("graphs")
 BETS.chart(dashboard = "sentiment", alias = "animal_spirits", open = F, file = "graphs//animal_spirits")
 BETS.chart(dashboard = "sentiment", alias = "iie_br", open = F, file = "graphs//iie_br")
+BETS.chart(dashboard = "sentiment", alias = "gdp_vars", open = F, file = "graphs//gdp_vars")
+BETS.chart(dashboard = "sentiment", alias = "gdp_comps", open = F, file = "graphs//gdp_comps")
 ```
 
 
 \begin{figure}[h]
-\begin{subfigure}{.49\textwidth}
+\begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=11cm,keepaspectratio]{graphs/animal_spirits}
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/animal_spirits}
   \label{ipca}
 \end{subfigure}
 ~
-\begin{subfigure}{.49\textwidth}
+\begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=11cm,keepaspectratio]{graphs/iie_br}
-  \label{cut}
-  \caption{Main caption}
-\end{subfigure}
-~
-\begin{subfigure}{.49\textwidth}
-  \centering
-  \includegraphics[width=11cm,keepaspectratio]{graphs/iie_br}
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/iie_br}
   \label{cut}
 \end{subfigure}
 ~
-\begin{subfigure}{.49\textwidth}
+\begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=11cm,keepaspectratio]{graphs/animal_spirits}
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/gdp_vars}
+  \label{cut}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/gdp_comps}
   \label{cut}
 \end{subfigure}
 \end{figure}

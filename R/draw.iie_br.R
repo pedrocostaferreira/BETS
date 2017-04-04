@@ -17,7 +17,6 @@ draw.iie_br = function(){
   
   m <- list(
     t = 50,
-    l = 70, 
     pad = 1
   )
   
@@ -37,8 +36,8 @@ draw.iie_br = function(){
   p = plot_ly(mode = "lines", type = "scatter", x = as.Date(iiebr), y = iiebr, name = "IIE-Br", 
                 line = list(color = "#908989"), width = 700, height = 450) %>% 
         add_trace(y = iiebr.ma, x = as.Date(iiebr.ma), name = "MA 6 periods", line = list(color = "#bd081c", dash = "dash")) %>%
-        layout(title = "<b>UNCERTAINTY INDEX (FGV/IBRE)</b>", 
-                 yaxis = list(title = "Index", tickfont = list(size = 22), titlefont = list(size = 22)),
+        layout(title = "<b>UNCERTAINTY INDEX</b><br>IIE-Br (FGV/IBRE)", 
+                 yaxis = list(title = "", tickfont = list(size = 22), titlefont = list(size = 22)),
                  xaxis = list(title = "", tickfont = list(size = 22)),
                  margin = m,
                  titlefont = list(size = 19),
