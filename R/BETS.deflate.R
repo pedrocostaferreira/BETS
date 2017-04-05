@@ -14,9 +14,15 @@
 
 BETS.deflate = function(ts, deflator, type = "index"){
   
+  freq_ts = frequency(ts)
+  freq_def = frequency(deflator)
+  
+  
+  if(freq_ts != freq_def){
+    return("ERROR")
+  }
   
   if(length(ts) == length(deflator)){
-    
     
     if(type == "index"){
       deflator = 100/deflator
@@ -31,15 +37,6 @@ BETS.deflate = function(ts, deflator, type = "index"){
     
     
   } else{
-      
-      
-    freq_ts = frequency(ts)
-    freq_def = frequency(deflator)
-    
-    
-    if(freq_ts != freq_def){
-      return("ERROR")
-    }
     
     start_ts = start(ts)
     start_def = start(deflator)

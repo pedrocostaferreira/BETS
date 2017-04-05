@@ -125,8 +125,8 @@ BETS.chart = function(alias, dashboard = "inflation", lang = "en", out = "png", 
       p = draw.gdp_vars()
     } else if(alias == "gdp_comps"){
       p = draw.gdp_comps()
-    } else if(alias == "misery_rate"){
-      p = draw.misery_rate()
+    } else if(alias == "misery_index"){
+      p = draw.misery_index()
     } else if(alias == "gdp_unemp"){
       p = draw.gdp_unemp()
     } else if(alias == "lei"){

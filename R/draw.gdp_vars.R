@@ -19,8 +19,18 @@ draw.gdp_vars = function(){
   gdp_bffk = window(ts(as.numeric(data[,5]), start = c(1996,1), frequency = 4),start = c(2013,1))
   
   m <- list(
-    t = 50,
+    t = 60,
     pad = 1
+  )
+  
+  t <- list(
+    x = 0.5,
+    y = 1.25,
+    text = "<b>GDP COMPONENTS VARIATION</b><br><span style = 'font-size:14'>Accumulated variation in the Year (Quarter over Last Quarter)</span>",
+    xref = "paper",
+    yref = "paper",
+    showarrow = F,
+    font = list(size = 19)
   )
   
   if(gdp[length(gdp)] < 0){
@@ -49,12 +59,12 @@ draw.gdp_vars = function(){
     add_trace(y = gdp_gov, x = dates, name = "Gov. Exp.", type = "scatter", mode = "lines") %>%
     add_trace(y = gdp_cons, x = dates, name = "Hous. Exp.", type = "scatter", mode = "lines") %>%
     add_trace(y = gdp_bffk, x = dates, name = "BFFK", type = "scatter", mode = "lines", line = list(color = "#908989")) %>%
-    layout(title = '<b>GDP COMPONENTS VARIATION</b><br><span style = "font-size:13">Accumulated variation in the Year (Quarter over Last Quarter)</span>', 
-           yaxis = list(title = "", tickfont = list(size = 20)),
-           xaxis = list(title = "", tickfont = list(size = 15), tickangle = 60, tickvals = dates, ticktext=as.character(quarters), showgrid = T),
+    layout(title = '', 
+           yaxis = list(tickfont = list(size = 20)),
+           xaxis = list(tickfont = list(size = 15), tickangle = 60, tickvals = dates, ticktext=as.character(quarters), showgrid = T),
            margin = m,
            titlefont = list(size = 19),
-           annotations = a,
+           annotations = list(a,t),
            legend = list(orientation = 'h', x = 0.15, y = -0.33)
     )
   

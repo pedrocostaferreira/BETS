@@ -34,20 +34,29 @@ draw.animal_spirits = function(){
     font = list(size = 22)
   )
   
+  t <- list(
+    x = 0.5,
+    y = 1.18,
+    text = "<b>ANIMAL SPIRITS</b><br><span style = 'font-size:17'>Index</span>",
+    xref = "paper",
+    yref = "paper",
+    showarrow = F,
+    font = list(size = 19)
+  )
+  
   m <- list(
-    t = 50,
+    t = 60,
     pad = 1
   )
   
   rg = rgb(162,7,7, maxColorValue = 255)
   
   p = plot_ly(mode = "lines", type = "scatter", x = as.Date(as), y = as, name = "Animal Spirits", width = 700, height = 450) %>% 
-    layout(title = "<b>ANIMAL SPIRITS</b>", 
-           yaxis = list(title = "Index", tickfont = list(size = 22), titlefont = list(size = 22)),
+    layout(title = "", 
+           yaxis = list(tickfont = list(size = 22)),
            xaxis = list(title = "", tickfont = list(size = 22)),
            margin = m,
-           titlefont = list(size = 19),
-           annotations = a,
+           annotations = list(a,t),
            shapes = list(
              list(type = "rect",
                   fillcolor = rg, line = list(color = rg), opacity = 0.2,
