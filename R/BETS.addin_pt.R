@@ -155,15 +155,14 @@ BETS.addin_pt  = function(){
       
       
       
-      nomes = c("Codigo","Descricao","Unidade","Periodicidade","Inicio","Ultimo Valor","Fonte")
+      #nomes = c("Codigo","Descricao","Unidade","Periodicidade","Inicio","Ultimo Valor","Fonte")
       
       data.addin <- BETS.search(description ="*",lang="pt",view=F)
-      names(data.addin) = nomes
+      #names(data.addin) = nomes
       
       
       
       if(input$description != "Search"){
-        print(input$description)
         req(input$description) # tratamento para o input da descricao
         data.addin <- BETS.search(description = input$description,lang="pt",view=F)
         if(is.character(data.addin)){
@@ -200,7 +199,7 @@ BETS.addin_pt  = function(){
         }
       }
       
-      print(data.addin)
+      
       
       if(is.character(data.addin)){
         data.addin = BETS.search(description="*",lang="pt",view=F)
@@ -208,7 +207,7 @@ BETS.addin_pt  = function(){
         data.addin 
       }
       
-      names(data.addin) = nomes
+      #names(data.addin) = nomes
       data.addin  
       
       
@@ -224,26 +223,25 @@ BETS.addin_pt  = function(){
       
       
       
-      nomes = c("Codigo","Descricao","Unidade","Periodicidade","Inicio","Ultimo Valor","Fonte")
+      #nomes = c("Code","Description","Unit","Periodicity","Start","Last Value","Source")
       
-      data.addin <- BETS.search(description ="*",lang="pt",view=F)
-      names(data.addin) = nomes
+      data.addin <- BETS.search(description ="*",view=F)
+      #names(data.addin) = nomes
       
       
       
       if(input$description != "Search"){
-        print(input$description)
         req(input$description) # tratamento para o input da descricao
-        data.addin <- BETS.search(description = input$description,view=F)
+        data.addin <- BETS.search(description = input$description,view=F,lang="pt")
         if(is.character(data.addin)){
-          data.addin = BETS.search(description="*",lang="pt",view=F)
+          data.addin = BETS.search(description="*",view=F,lang="pt")
           
         }else{
           data.addin 
         }
         
       }else{
-        data.addin <- BETS.search(description ="*",lang="pt",view=F)
+        data.addin <- BETS.search(description ="*",view=F,lang="pt")
       }
       
       
@@ -252,7 +250,7 @@ BETS.addin_pt  = function(){
         #data.addin <- BETS.search(description = input$description,view=F)
         data.addin <- data.addin[data.addin$periodicity == input$periodicity,]
         if(is.character(data.addin)){
-          data.addin = BETS.search(description="*",lang="pt",view=F)
+          data.addin = BETS.search(description="*",view=F,lang="pt")
         }else{
           data.addin 
         }
@@ -263,7 +261,7 @@ BETS.addin_pt  = function(){
         #data.addin <- BETS.search(description = input$description,view=F)
         data.addin <- data.addin[data.addin$source == input$source,]
         if(is.character(data.addin)){
-          data.addin = BETS.search(description="*",lang="pt",view=F)
+          data.addin = BETS.search(description="*",view=F,lang="pt")
         }else{
           data.addin 
         }
@@ -272,12 +270,12 @@ BETS.addin_pt  = function(){
       
       
       if(is.character(data.addin)){
-        data.addin = BETS.search(description="*",lang="pt",view=F)
+        data.addin = BETS.search(description="*",view=F,lang="pt")
       }else{
         data.addin 
       }
       
-      names(data.addin) = nomes
+      #names(data.addin) = nomes
       data.addin  
       
       
