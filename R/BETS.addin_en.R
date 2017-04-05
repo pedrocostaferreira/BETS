@@ -154,10 +154,10 @@ BETS.addin_en  = function(){
       
       
       
-      nomes = c("Code","Description","Unit","Periodicity","Start","Last Value","Source")
+      #nomes = c("Code","Description","Unit","Periodicity","Start","Last Value","Source")
       
       data.addin <- BETS.search(description ="*",view=F)
-      names(data.addin) = nomes
+      #names(data.addin) = nomes
       
       
       
@@ -231,7 +231,7 @@ BETS.addin_en  = function(){
         data.addin 
       }
       
-      names(data.addin) = nomes
+      #names(data.addin) = nomes
       data.addin  
       
       
@@ -247,10 +247,10 @@ BETS.addin_en  = function(){
       
       
       
-      nomes = c("Code","Description","Unit","Periodicity","Start","Last Value","Source")
+      #nomes = c("Code","Description","Unit","Periodicity","Start","Last Value","Source")
       
       data.addin <- BETS.search(description ="*",view=F)
-      names(data.addin) = nomes
+      #names(data.addin) = nomes
       
       
       
@@ -300,7 +300,7 @@ BETS.addin_en  = function(){
         data.addin 
       }
       
-      names(data.addin) = nomes
+      #names(data.addin) = nomes
       data.addin  
       
       
