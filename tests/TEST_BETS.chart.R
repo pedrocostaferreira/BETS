@@ -1,26 +1,29 @@
-BETS.chart("ipca_with_core", out = "png", open = F)
-BETS.chart("ipca_with_core", out = "pdf", open = F)
+library(BETS)
 
-BETS.chart("ulc", out = "png", open = F)
-BETS.chart("ulc", out = "pdf", open = F)
+BETS.chart(ts = "animal_spirits", file = "graphs/animal_spirits", open = T)
+BETS.chart(ts = "animal_spirits", file = "graphs/animal_spirits.png", open = F)
+BETS.chart(ts = "animal_spirits")
 
-BETS.chart("unemp", out = "pdf", open = F)
-BETS.chart("unemp", out = "png", open = F)
+BETS.chart(ts = "ei_vars", file = "graphs/ei_vars", open = T)
+BETS.chart(ts = "ei_vars", file = "graphs/ei_vars.png", open = F)
+BETS.chart(ts = "ei_vars")
 
-BETS.chart("vargdp", out = "pdf", open = F)
-BETS.chart("vargdp", out = "png", open = F)
+BETS.chart(ts = "gdp_comps", file = "graphs/gdp_comps", open = T)
+BETS.chart(ts = "gdp_comps", file = "graphs/gdp_comps.png", open = F)
+BETS.chart(ts = "gdp_comps")
 
-BETS.chart("indprod", out = "pdf", open = F)
-BETS.chart("indprod", out = "png", open = F)
+BETS.chart(ts = "gdp_unemp", file = "graphs/gdp_unemp", open = T)
+BETS.chart(ts = "gdp_unemp", file = "graphs/gdp_unemp.png", open = F)
+BETS.chart(ts = "gdp_unemp")
 
-BETS.chart("eap", out = "pdf", open = F)
-BETS.chart("eap", out = "png", open = F)
+BETS.chart(ts = "gdp_vars", file = "graphs/gdp_vars", open = T)
+BETS.chart(ts = "gdp_vars", file = "graphs/gdp_vars.png", open = F)
+BETS.chart(ts = "gdp_vars")
 
-BETS.chart("cdb", out = "pdf", open = F)
-BETS.chart("cdb", out = "png", open = F)
+BETS.chart(ts = "iie_br", file = "iie_br", open = T)
+BETS.chart(ts = "iie_br", file = "iie_br", open = F)
+BETS.chart(ts = "iie_br")
 
-BETS.chart("selic", out = "pdf", open = F)
-BETS.chart("selic", out = "png", open = F)
-
-
-BETS.chart("ipca_with_core", out = "pdf", open = T)
+BETS.chart(ts = "misery_index", file = "misery_index", open = T)
+BETS.chart(ts = "misery_index", file = "misery_index", open = F)
+BETS.chart(ts = "misery_index")

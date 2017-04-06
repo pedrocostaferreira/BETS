@@ -2,16 +2,10 @@
 #' 
 #' @description  Create a chart with a pre-defined BETS series
 #' 
-#' @param alias A \code{character}. The alias of the chart. A complete list of aliases for available charts is under the 'Details' section.
+#' @param ts A \code{character}. The ts of the chart. A complete list of tses for available charts is under the 'Details' section.
 #' @param lang A \code{character}. The language. For now, only 'en' (english) is available.
-#' @param out A \code{character}. The format of the output, that is, the image file. Can be either 'pdf' or 'png'. 'pdf' is a better choice if you need high resolution images. 
-#' @param file A \code{character}. The whole path, including a custom name, for the output (an image file). The default value is 'graphs//parameter_alias' (the 'graphs' directory is under the BETS installation directory).
-#' @param start A \code{vector}.
-#' @param ylim  A \code{vector}.
-#' @param xlim  A \code{vector}.
+#' @param file A \code{character}. The whole path, including a custom name, for the output (an image file). The default value is 'graphs//parameter_ts' (the 'graphs' directory is under the BETS installation directory).
 #' @param open  A \code{boolean}.
-#' @param dashboard A \code{character}.
-#'  
 #' 
 #' @details 
 #' 
@@ -37,7 +31,7 @@
 #' @export
 
 
-BETS.chart = function(alias, dashboard = "inflation", lang = "en", out = "png", file = NULL, start = c(2006,1), ylim = NULL, xlim = NULL, open = TRUE){
+BETS.chart = function(ts, file = NULL, open = TRUE, lang = "en"){
   
   if(lang == "en"){
     Sys.setlocale(category = "LC_ALL", locale = "English_United States.1252")
@@ -49,108 +43,73 @@ BETS.chart = function(alias, dashboard = "inflation", lang = "en", out = "png", 
     return(invisible(msg(.MSG_LANG_NOT_AVAILABLE)))
   }
   
-  if(is.null(file)){
+  if(!is.null(file)){
+    
     dir.create("graphs", showWarnings = F)
-    file = paste0("graphs","\\",alias)
-  }
-  
-  if(dashboard == "inflation"){
-    
-    if(out != "png"){
-      
-      if(out != "pdf"){
-        return(invisible(msg(.MSG_OUT_NOT_AVAILABLE)))
-      }
-      
-      if(!grepl("\\.pdf$", file)) {
-        file <- paste(file,".pdf",sep="")
-      }
-    }
-    else {
-      if(!grepl("\\.png$", file)) {
-        file <- paste(file,".png",sep="")
-      }
-    }
-    
-    dev.new()
-    op <- par(no.readonly = TRUE)
-    dev.off()
-    par(op)
-    
-    if(grepl("\\.png", file)){
-      png(file,width=728,height=478, pointsize = 15) 
-    }
-    else {
-      pdf(file, width = 7, height = 4.5)
-    }
-    
-    if(alias == "ipca_with_core"){
-      draw.ipca(start = start, ylim = ylim, xlim = xlim)
-    } else if(alias == "ulc"){
-      draw.ulc(start = start, ylim = ylim, xlim = xlim)
-    } else if(alias == "eap"){
-      draw.eap(start = start, ylim = ylim, xlim = xlim)
-    } else if(alias == "cdb"){
-      
-      if(identical(c(2006,1),start)){
-        start = c(2006,1,1)
-      }
-      
-      draw.cdb(start = start, ylim = ylim, xlim = xlim)
-    } else if(alias == "indprod"){
-      draw.indprod(start = start, xlim = xlim, ylim = ylim)
-    } else if(alias == "selic"){
-      draw.selic(start = start, ylim = ylim, xlim = xlim)
-    } else if(alias == "unemp"){
-      draw.unemp(start = start, ylim = ylim, xlim = xlim)
-    } else if(alias == "vargdp"){
-      draw.vargdp(start = start, ylim = ylim, xlim = xlim)
-    } else {
-      msg(paste("Plot was not created.",.MSG_PARAMETER_NOT_VALID))
-    }
-    
-    dev.off()
-    
-  } else if(dashboard == "sentiment"){
+    file = paste0("graphs","\\",ts)
     
     if(!grepl("\\.png$", file)) {
       file <- paste(file,".png",sep="")
-    }
+    }  
+  } 
+  
+  if(class(ts) == "character"){
     
-    if(alias == "animal_spirits"){
+    if(ts == "animal_spirits"){
       p = draw.animal_spirits()
-    } else if(alias == "iie_br"){
+    } else if(ts == "iie_br"){
       p = draw.iie_br()
-    } else if(alias == "gdp_vars"){
+    } else if(ts == "gdp_vars"){
       p = draw.gdp_vars()
-    } else if(alias == "gdp_comps"){
+    } else if(ts == "gdp_comps"){
       p = draw.gdp_comps()
-    } else if(alias == "misery_index"){
+    } else if(ts == "misery_index"){
       p = draw.misery_index()
-    } else if(alias == "gdp_unemp"){
+    } else if(ts == "gdp_unemp"){
       p = draw.gdp_unemp()
-    } else if(alias == "ei_vars"){
+    } else if(ts == "ei_vars"){
       p = draw.ei_vars()
-    } else if(alias == "ei_comps"){
+    } else if(ts == "ei_comps"){
       p = draw.ei_comps()
+    } else if(ts == "confidence"){
+      p = draw.confidence()
+    } else if(ts == "lab_mrkt"){
+      p = draw.lab_mrkt()
+    } else if(ts == "capacity"){
+      p = draw.capacity()
+    } else if(ts == "transf_ind"){
+      p = draw.transf_ind()
+    } else if(ts == "services"){
+      p = draw.services()
+    } else if(ts == "commerce"){
+      p = draw.commmerce()
+    } else if(ts == "construction"){
+      p = draw.construction()
+    } else if(ts == "consumer"){
+      p = draw.consumer()
     } else {
       msg(paste("Plot was not created.",.MSG_PARAMETER_NOT_VALID))
     }
     
+  } else {
+    ## custom chart logic
+  }
+  
+  
+  if(!is.null(file)){
     
     tryCatch({
       export(p, file = file, zoom = 4, cliprect = c(20,20,740,500))},
       message = function(e){
         install_phantomjs() 
-        export(p, file = file, zoom = 4, cliprect = c(0,0,740,500))
-      }
-    )
-  } else {
-    ## custom chart logic
+        export(p, file = file, zoom = 4, cliprect = c(20,20,740,500))
+      })
+    
+    if(open){
+      file.show(file)
+    }
   }
-  
-  if(open){
-    file.show(file)
+  else {
+    p
   }
-  
 }

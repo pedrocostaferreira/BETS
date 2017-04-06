@@ -35,10 +35,10 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 
 ```{r echo = FALSE, results = "hide"}
 dir.create("graphs")
-BETS.chart(dashboard = "sentiment", alias = "animal_spirits", open = F, file = "graphs//animal_spirits")
-BETS.chart(dashboard = "sentiment", alias = "iie_br", open = F, file = "graphs//iie_br")
-BETS.chart(dashboard = "sentiment", alias = "gdp_vars", open = F, file = "graphs//gdp_vars")
-BETS.chart(dashboard = "sentiment", alias = "gdp_comps", open = F, file = "graphs//gdp_comps")
+BETS.chart(ts = "animal_spirits", open = F, file = "graphs//animal_spirits")
+BETS.chart(ts = "iie_br", open = F, file = "graphs//iie_br")
+BETS.chart(ts = "gdp_vars", open = F, file = "graphs//gdp_vars")
+BETS.chart(ts = "gdp_comps", open = F, file = "graphs//gdp_comps")
 ```
 
 

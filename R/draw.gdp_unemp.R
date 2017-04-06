@@ -7,7 +7,7 @@
 #' @importFrom grDevices rgb
 #' @import plotly 
 
-draw.animal_spirits = function(){
+draw.gdp_unemp = function(){
   
   gdp = window(BETS.get(22109), start = c(2012,2))
   #ipca = window(aggregate(BETS.get(433), nfrequency = 4), start = c(2012,2))
