@@ -129,10 +129,10 @@ BETS.chart = function(alias, dashboard = "inflation", lang = "en", out = "png", 
       p = draw.misery_index()
     } else if(alias == "gdp_unemp"){
       p = draw.gdp_unemp()
-    } else if(alias == "lei"){
-      p = draw.lei()
-    } else if(alias == "cei"){
-      p = draw.cei()
+    } else if(alias == "ei_vars"){
+      p = draw.ei_vars()
+    } else if(alias == "ei_comps"){
+      p = draw.ei_comps()
     } else {
       msg(paste("Plot was not created.",.MSG_PARAMETER_NOT_VALID))
     }

@@ -37,13 +37,12 @@ draw.iie_br = function(){
                 line = list(color = "#908989"), width = 700, height = 450) %>% 
         add_trace(y = iiebr.ma, x = as.Date(iiebr.ma), name = "MA 6 periods", line = list(color = "#bd081c", dash = "dash")) %>%
         layout(title = "<b>UNCERTAINTY INDEX</b><br>IIE-Br (FGV/IBRE)", 
-                 yaxis = list(title = "", tickfont = list(size = 22), titlefont = list(size = 22)),
-                 xaxis = list(title = "", tickfont = list(size = 22)),
+                 yaxis = list(tickfont = list(size = 22), titlefont = list(size = 22)),
+                 xaxis = list(tickfont = list(size = 22)),
                  margin = m,
                  titlefont = list(size = 19),
                  annotations = a,
-                 legend = list(orientation = 'h', x = 0.3)
-      )
+                 legend = list(orientation = 'h', x = 0.3))
   
   return(p)
 }

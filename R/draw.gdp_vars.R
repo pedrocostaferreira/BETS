@@ -26,7 +26,7 @@ draw.gdp_vars = function(){
   t <- list(
     x = 0.5,
     y = 1.25,
-    text = "<b>GDP COMPONENTS VARIATION</b><br><span style = 'font-size:14'>Accumulated variation in the Year (Quarter over Last Quarter)</span>",
+    text = "<b>GDP COMPONENTS VARIATION</b><br><span style = 'font-size:14'>Accumulated variation in the Year</span>",
     xref = "paper",
     yref = "paper",
     showarrow = F,
