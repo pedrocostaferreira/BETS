@@ -4,7 +4,7 @@
 \alias{BETS.dashboard}
 \title{Create a BETS custom dashboard}
 \usage{
-BETS.dashboard(type = "sentiment", parameters = NULL, saveas = NA)
+BETS.dashboard(type = "sentiment", saveas = NA)
 }
 \arguments{
 \item{type}{A \code{character}. The theme of the dashboard. The only option, for the time being, is 'sentiment'.}

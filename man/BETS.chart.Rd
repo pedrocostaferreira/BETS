@@ -2,45 +2,53 @@
 % Please edit documentation in R/BETS.chart.R
 \name{BETS.chart}
 \alias{BETS.chart}
-\title{Create a chart with a pre-defined BETS series}
+\title{Create a chart with BETS aesthetics}
 \usage{
-BETS.chart(ts, file = NULL, open = TRUE, lang = "en")
+BETS.chart(ts, file = NULL, open = TRUE, lang = "en", params = NULL)
 }
 \arguments{
-\item{ts}{A \code{character}. The ts of the chart. A complete list of tses for available charts is under the 'Details' section.}
+\item{ts}{A \code{character} or a \code{ts} object. A custom time series or the name of a pre-defined series. A complete list of names is under the 'Details' section.}
 
 \item{file}{A \code{character}. The whole path, including a custom name, for the output (an image file). The default value is 'graphs//parameter_ts' (the 'graphs' directory is under the BETS installation directory).}
 
-\item{open}{A \code{boolean}.}
+\item{open}{A \code{boolean}. Whether to open the file containing the chart.}
 
 \item{lang}{A \code{character}. The language. For now, only 'en' (english) is available.}
 
-\item{out}{A \code{character}. The format of the output, that is, the image file. Can be either 'pdf' or 'png'. 'pdf' is a better choice if you need high resolution images.}
-
-\item{start}{A \code{vector}.}
-
-\item{ylim}{A \code{vector}.}
-
-\item{xlim}{A \code{vector}.}
+\item{params}{A \code{list}. Parameters for drawing custom charts. See the 'details' section.}
 }
 \value{
-If the parameter \code{file} is not set by the user, the chart will be placed in the 'graphs' directory, under the BETS installation directory.
+If parameter \code{file} is not set by the user, the chart will be shown at the standard R ploting area. Otherwise, it is going to be saved on your computer.
 }
 \description{
-Create a chart with a pre-defined BETS series
+Create a chart with a professional look, using a pre-defined BETS series or a custom series.
 }
 \details{
+\bold{Names of pre-defined charts:}
+
 \tabular{lll}{
  VALUE \tab DESCRIPTION \tab CODE \cr
- \bold{'ipca_with_core'} \tab National consumer price index (IPCA) - in 12 months and  Broad national consumer price index - Core IPCA trimmed means smoothed \tab 13522 and 4466 \cr
- \bold{'ulc'} \tab Unit labor cost - ULC-US$ - June/1994=100 \tab 11777 \cr
- \bold{'eap'} \tab Economically active population \tab 10810 \cr
- \bold{'cdb'} \tab Time deposits (CDB/RDB-preset) - Daily return (percentage) \tab 14 \cr
- \bold{'indprod'} \tab Prodcution Indicators (2012=100) - General	\tab 21859 \cr
- \bold{'selic'} \tab Interest rate - Selic accumulated in the month in annual terms (basis 252) \tab 4189 \cr
- \bold{'unemp'} \tab Open unemployment rate - by metropolitan region - Brasil (weekly) \tab 10777\cr
- \bold{'vargdp'} \tab GDP - real percentage change in the year \tab 7326 
+ \bold{'animal_spirits'} \tab \tab (*) \cr
+ \bold{'iie_br'} \tab \tab ST_100.0 \cr
+ \bold{'ei_vars'} \tab \tab (*) \cr
+ \bold{'ei_comps'} \tab  \tab (*) \cr
+ \bold{'gdp_vars'} \tab \tab (*) \cr
+ \bold{'misery_index} \tab \tab 13522 plus 24369 \cr
+ \bold{'gdp_comps'} \tab  \tab (*) \cr
+ \bold{'gdp_unemp'} \tab  \tab 22109 and 24369 \cr
+ \bold{'conf_lvl'} \tab  \tab (*) \cr
+ \bold{'inst_cap'} \tab  \tab (*) \cr
+ \bold{'lab_mrkt'} \tab  \tab (*) \cr
+ \bold{'transf_ind'} \tab  \tab (*) \cr
+ \bold{'servc'} \tab  \tab (*) \cr
+ \bold{'constr'} \tab  \tab (*) \cr
+ \bold{'retail'} \tab  \tab (*) \cr
+ \bold{'consm'} \tab \tab (*) 
 }
+
+(*) Not in BETS databases yet. But you can find it in .csv files saved under your BETS installation directory.
+
+\bold{Parameters for custom charts:}
 }
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
