@@ -108,9 +108,9 @@
 #' 
 #' @keywords search
 #' 
+#' @import RMySQL
+#' @import DBI
 #' @importFrom stringr str_split
-#' @importFrom  utils View
-#' @import sqldf utils
 #' @export 
 
 BETS.search = function(description="*",src,periodicity,unit,code,start,view=TRUE,lang="en"){
