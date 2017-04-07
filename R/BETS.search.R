@@ -117,7 +117,7 @@ BETS.search = function(description="*",src,periodicity,unit,code,start,view=TRUE
   
   
   
-  conn = dbConnect(MySQL(),db="FGV_IBRE_NMEC_BETS",user="TALITHA.SPERANZA",password="vdJ7u4Py67K",host="dch009.fgv.br",port=5775)
+  conn = dbConnect(MySQL(),db="bets",user="BETS_user",password="123456",host="200.20.164.178",port=3306)
 
  
   
