@@ -53,7 +53,7 @@ BETS.get = function(code, from = "", to = "", data.frame = FALSE, frequency = NU
       return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Series is empty in the BACEN databases"))))
     }
     
-    freq = suppressMessages(BETS.search(code = code, view = F)[1,3])
+    freq = suppressMessages(BETS.search(code = code, view = F)[1,4])
     freq = trimws(freq)
     
     no.meta = F
