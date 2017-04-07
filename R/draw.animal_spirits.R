@@ -54,7 +54,7 @@ draw.animal_spirits = function(){
   p = plot_ly(mode = "lines", type = "scatter", x = as.Date(as), y = as, name = "Animal Spirits", width = 700, height = 450) %>% 
     layout(title = "", 
            yaxis = list(tickfont = list(size = 22)),
-           xaxis = list(title = "", tickfont = list(size = 22)),
+           xaxis = list(tickfont = list(size = 22)),
            margin = m,
            annotations = list(a,t),
            shapes = list(

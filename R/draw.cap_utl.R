@@ -7,7 +7,7 @@
 #' @importFrom grDevices rgb
 #' @import plotly 
 
-draw.lab_mrkt = function(){
+draw.cap_utl = function(){
   
   file = paste0(system.file(package="BETS"), "/sondagens_completo_fgv.csv")
   sond = read.csv2(file, stringsAsFactors = F)
@@ -15,16 +15,13 @@ draw.lab_mrkt = function(){
     data.frame(lapply(sond[,-1], function(x){as.numeric(gsub(",",".",x))}))
   )
   
-  inx = ts(sond[90:nrow(sond),21:22],start = c(2008,6),frequency = 12)
+  inx = ts(sond[148:nrow(sond),c(5,9,13)],start = c(2013,4),frequency = 12)
+  inx = ts(round((inx[,1] + inx[,2] + inx[,3])/3,2), start = c(2013,4), frequency = 12)
   
-  t = "<b>LABOR INDICATORS - LEADING AND COINCIDENT</b>"
+  t = "<b>CAPACITY UTILIZATION</b>"
   t = paste0(t,"<br><span style = 'font-size:15px'>Seasonally Adjusted</span>")
   
-  len = nrow(inx)
-  
-  if(is.na(inx[len,1])){
-    len = len - 1
-  }
+  len = length(inx)
   
   t <- list(
     x = 0.5,
@@ -38,8 +35,8 @@ draw.lab_mrkt = function(){
   
   a <- list(
     x = as.Date(inx)[len],
-    y = inx[len,1],
-    text = paste0("<b>",inx[len,1],"</b>"),
+    y = inx[len],
+    text = paste0("<b>",inx[len],"</b>"),
     xref = "x",
     yref = "y",
     showarrow = TRUE,
@@ -49,46 +46,29 @@ draw.lab_mrkt = function(){
     font = list(size = 22)
   )
   
-  b <- list(
-    x = as.Date(inx)[len],
-    y = inx[len,2],
-    text = paste0("<b>",inx[len,2],"</b>"),
-    xref = "x",
-    yref = "y",
-    showarrow = TRUE,
-    arrowhead = 6,
-    ay = 50,
-    ax = 0,
-    font = list(size = 22)
-  )
-  
   m <- list(
-    t = 50,
-    pad = 1
+    t = 60,
+    pad = 1,
+    b = 60,
+    r = 15
   )
   
   dates = as.Date(inx)
   rg = rgb(162,7,7, maxColorValue = 255)
   
   p = plot_ly(width = 700, height = 450) %>%
-    add_lines(x = dates, y = inx[,1], name = "Coincident") %>%
-    add_lines(x = dates, y = inx[,2], name = "Leading") %>%
-        layout(title = t, 
+    add_lines(x = dates, y = inx, name = "Coincident") %>%
+    layout(title = t, 
            yaxis = list(tickfont = list(size = 22)),
            xaxis = list(tickfont = list(size = 17)),
            margin = m,
            titlefont = list(size = 19),
-           annotations = list(a,b,t),
-           legend = list(orientation = 'h', x = 0.27),
-           shapes = list(
+           annotations = list(a,t),
+           shapes = 
              list(type = "rect",
-                fillcolor = rg, line = list(color = rg), opacity = 0.2,
-                x0 = "2008-10-01", x1 = "2009-03-31", xref = "x",
-                y0 = 55, y1 = 115, yref = "y"),
-            list(type = "rect",
-                fillcolor = rg, line = list(color = rg), opacity = 0.2,
-                x0 = "2014-07-01", x1 = as.Date(inx)[nrow(inx)], xref = "x",
-                y0 = 55, y1 = 113, yref = "y")))
+                  fillcolor = rg, line = list(color = rg), opacity = 0.2,
+                  x0 = "2014-07-01", x1 = as.Date(inx)[len], xref = "x",
+                  y0 = 70, y1 = 85, yref = "y"))
   
   
   return(p)

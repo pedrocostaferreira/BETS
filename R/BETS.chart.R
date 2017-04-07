@@ -86,21 +86,13 @@ BETS.chart = function(ts, file = NULL, open = TRUE, lang = "en", params = NULL){
     } else if(ts == "ei_comps"){
       p = draw.ei_comps()
     } else if(ts == "conf_lvl"){
-      p = draw.confidence()
+      p = draw.conf_lvl()
     } else if(ts == "lab_mrkt"){
       p = draw.lab_mrkt()
-    } else if(ts == "inst_cap"){
-      p = draw.capacity()
-    } else if(ts == "transf_ind"){
-      p = draw.transf_ind()
-    } else if(ts == "servc"){
-      p = draw.services()
-    } else if(ts == "retail"){
-      p = draw.commmerce()
-    } else if(ts == "constr"){
-      p = draw.construction()
-    } else if(ts == "consm"){
-      p = draw.consumer()
+    } else if(ts == "cap_utl"){
+      p = draw.cap_utl()
+    } else if(ts %in% c("transf_ind","servc","retail","constr","consm")){
+      p = draw.survey(ts)
     } else {
       msg(paste("Plot was not created.",.MSG_PARAMETER_NOT_VALID))
     }
