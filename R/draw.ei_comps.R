@@ -54,7 +54,7 @@ draw.ei_comps = function(){
           layout(xaxis = list(title = "",
                               showgrid = FALSE,
                               showline = FALSE,
-                              showticklabels = T,
+                              showticklabels = F,
                               zeroline = TRUE,
                               zerolinecolor = '#969696',
                               zerolinewidth = 3),
@@ -67,14 +67,14 @@ draw.ei_comps = function(){
                  annotations = t,
                  showlegend = FALSE) %>%
                  add_annotations(xref = 'paper', yref = 'paper', 
-                                  xanchor = 'right', x = 0, y = 0.45, 
+                                  xanchor = 'right', x = 0.0, y = 0.45, 
                                   text = paste0("<b>",data.lei[1,1],"</b>"), showarrow = F,font = list(size = 18))
       
   p2 <- plot_ly(data.cei, type = 'bar', orientation = 'h',  width = 700, height = 450) %>%
           layout(xaxis = list(title = "",
                               showgrid = FALSE,
                               showline = FALSE,
-                              showticklabels = T,
+                              showticklabels = F,
                               zeroline = TRUE,
                               zerolinecolor = '#969696',
                               zerolinewidth = 3),
@@ -115,15 +115,24 @@ draw.ei_comps = function(){
                   add_annotations(xref = 'x', yref = 'paper', 
                                   x = pos, y = 0.45, 
                                   text = paste0("<b>", sig, val,"%</b>"), 
-                                  showarrow = F,font = list(size = 16, color = "#FFFFFF")) %>%
+                                  showarrow = F,font = list(size = 12, color = "#FFFFFF")) %>%
         add_annotations(xref = 'x', yref = 'paper', 
-                        x = pos, y = 1, 
+                        x = pos, y = 0.93, 
                         text = lei[i,2], 
-                        showarrow = F,font = list(size = 14))
+                        showarrow = F,font = list(size = 12))
     }
   }
   
-  fac = sum(abs(lei[,1]))/sum(abs(cei[,1]))
+  lei.vals = lei[abs(lei$Value) >= 0.1,1]
+  lei.pos = lei.vals[lei.vals > 0]
+  lei.neg = lei.vals[lei.vals < 0]
+  
+  cei.vals = cei[abs(cei$Value) > 0.03,1]
+  cei.pos = cei.vals[cei.vals > 0]
+  cei.neg = cei.vals[cei.vals < 0]
+  
+  fac.pos =  sum(lei.pos)/sum(cei.pos)
+  fac.neg = sum(abs(lei.neg))/sum(abs(cei.neg))
   
   val.pos = 0
   val.neg = 0
@@ -138,25 +147,22 @@ draw.ei_comps = function(){
       
       if(val > 0){
         sig = "+"
-        pos = fac*(val.pos + val/2)
+        pos = fac.pos*(val.pos + val/2)
         val.pos = val.pos + val
       } else{
-        pos = fac*(val.neg + val/2)
+        pos = fac.neg*(val.neg + val/2)
         val.neg = val.neg + val
       }
       
-      print(val)
-      print(pos)
-      
       p2 = p2 %>% add_trace(x = data.cei[1,i+1], name = cei.labs[1], marker = list(color = cols[i])) %>% 
         add_annotations(xref = 'x', yref = 'paper', 
-                        x = pos, y = 0.3, 
+                        x = pos, y = 0.33, 
                         text = paste0("<b>", sig, val,"%</b>"), 
-                        showarrow = F,font = list(size = 16, color = "#FFFFFF")) %>%
+                        showarrow = F,font = list(size = 12, color = "#FFFFFF")) %>%
         add_annotations(xref = 'x', yref = 'paper', 
                         x = pos, y = 0.85, 
                         text = cei[i,2], 
-                        showarrow = F,font = list(size = 14))
+                        showarrow = F,font = list(size = 12))
     }
   }
   

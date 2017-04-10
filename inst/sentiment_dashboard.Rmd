@@ -37,8 +37,8 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 dir.create("graphs")
 BETS.chart(ts = "animal_spirits", open = F, file = "graphs//animal_spirits")
 BETS.chart(ts = "iie_br", open = F, file = "graphs//iie_br")
-BETS.chart(ts = "gdp_vars", open = F, file = "graphs//gdp_vars")
-BETS.chart(ts = "gdp_comps", open = F, file = "graphs//gdp_comps")
+BETS.chart(ts = "ei_vars", open = F, file = "graphs//ei_vars")
+BETS.chart(ts = "ei_comps", open = F, file = "graphs//ei_comps")
 ```
 
 
@@ -51,14 +51,38 @@ BETS.chart(ts = "gdp_comps", open = F, file = "graphs//gdp_comps")
 ~
 \begin{subfigure}{.5\textwidth}
   \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/ei_vars}
+  \label{cut}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
   \includegraphics[width=11.5cm,keepaspectratio]{graphs/iie_br}
   \label{cut}
 \end{subfigure}
 ~
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=11.5cm,keepaspectratio]{graphs/gdp_vars}
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/ei_comps}
   \label{cut}
+\end{subfigure}
+\end{figure}
+
+
+```{r echo = FALSE, results = "hide"}
+dir.create("graphs")
+BETS.chart(ts = "gdp_vars", open = F, file = "graphs//gdp_vars")
+BETS.chart(ts = "gdp_comps", open = F, file = "graphs//gdp_comps")
+BETS.chart(ts = "gdp_unemp", open = F, file = "graphs//gdp_unemp")
+BETS.chart(ts = "misery_index", open = F, file = "graphs//misery_index")
+```
+
+
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/gdp_vars}
+  \label{ipca}
 \end{subfigure}
 ~
 \begin{subfigure}{.5\textwidth}
@@ -66,5 +90,16 @@ BETS.chart(ts = "gdp_comps", open = F, file = "graphs//gdp_comps")
   \includegraphics[width=11.5cm,keepaspectratio]{graphs/gdp_comps}
   \label{cut}
 \end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/gdp_unemp}
+  \label{cut}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/misery_index}
+  \label{cut}
+\end{subfigure}
 \end{figure}
-
