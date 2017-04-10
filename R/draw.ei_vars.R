@@ -33,7 +33,7 @@ draw.ei_vars = function(){
   t <- list(
     x = 0.5,
     y = 1.2,
-    text = "<b>ECONOMIC INDICATORS - LEADING AND COINCIDENT</b><br><span style = 'font-size:16px'>The Conference Board with FGB/IBRE</span>",
+    text = "<b>ECONOMIC INDICATORS - LEADING AND COINCIDENT</b><br><span style = 'font-size:16px'>The Conference Board with FGV/IBRE</span>",
     xref = "paper",
     yref = "paper",
     showarrow = F,
@@ -47,7 +47,7 @@ draw.ei_vars = function(){
   p = plot_ly(x = as.numeric(lei), y = as.Date(lei), name = "LEI", type = "bar", orientation = 'h', width = 700, height = 450, marker = list(color = 'rgb(171,104,87)')) %>% 
         add_trace(x = as.numeric(cei), y = as.Date(cei), name = "CEI", type = "bar", orientation = 'h', marker = list(color = 'rgb(114,147,203)')) %>%
         layout(title = "", 
-               yaxis = list(tickfont = list(size = 22), tickvals = dates, ticktext=as.character(ym), showline = F, zeroline = F),
+               yaxis = list(tickfont = list(size = 20), tickvals = dates, ticktext=as.character(ym), showline = F, zeroline = F),
                xaxis = list(title = "", showgrid = FALSE, showline = FALSE, showticklabels = FALSE, zeroline = FALSE),
                margin = m,
                annotations = t,
@@ -75,7 +75,7 @@ draw.ei_vars = function(){
     
     text = paste0("<b>",sig, lei_vars[i],"%</b>")
     y = dates[i] - 7
-    x =  as.numeric(lei[i]) + 6
+    x =  as.numeric(lei[i]) + 6.5
     p = p %>% add_annotations(text = text, y = y, x = x, showarrow = F, font = list(size = 18))
     
     sig = ""
@@ -83,7 +83,7 @@ draw.ei_vars = function(){
     
     text = paste0("<b>",sig,cei_vars[i],"%</b>")
     y = dates[i] + 7
-    x =  as.numeric(cei[i]) + 6
+    x =  as.numeric(cei[i]) + 6.5
     p = p %>% add_annotations(text = text, y = y, x = x, showarrow = F, font = list(size = 18))
     
   }

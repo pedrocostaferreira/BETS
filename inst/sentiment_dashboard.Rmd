@@ -3,12 +3,12 @@ classoption: landscape
 sansfont: Calibri Light
 output:
   rmarkdown::pdf_document:
+    latex_engine: xelatex
     includes:  
       in_header: fix_figs.tex
 ---
 
 \fontfamily{lmss}\selectfont
-
 
 ```{r echo = FALSE}
 library(BETS)
@@ -70,7 +70,6 @@ BETS.chart(ts = "ei_comps", open = F, file = "graphs//ei_comps")
 
 
 ```{r echo = FALSE, results = "hide"}
-dir.create("graphs")
 BETS.chart(ts = "gdp_vars", open = F, file = "graphs//gdp_vars")
 BETS.chart(ts = "gdp_comps", open = F, file = "graphs//gdp_comps")
 BETS.chart(ts = "gdp_unemp", open = F, file = "graphs//gdp_unemp")
@@ -103,3 +102,95 @@ BETS.chart(ts = "misery_index", open = F, file = "graphs//misery_index")
   \label{cut}
 \end{subfigure}
 \end{figure}
+
+```{r echo = FALSE, results = "hide"}
+BETS.chart(ts = "conf_lvl", open = F, file = "graphs//conf_lvl")
+BETS.chart(ts = "lab_mrkt", open = F, file = "graphs//lab_mrkt")
+BETS.chart(ts = "cap_utl", open = F, file = "graphs//cap_utl")
+BETS.chart(ts = "transf_ind", open = F, file = "graphs//transf_ind")
+```
+
+
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/conf_lvl}
+  \label{ipca}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/lab_mrkt}
+  \label{cut}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/cap_utl}
+  \label{cut}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/transf_ind}
+  \label{cut}
+\end{subfigure}
+\end{figure}
+
+
+```{r echo = FALSE, results = "hide"}
+BETS.chart(ts = "servc", open = F, file = "graphs//servc")
+BETS.chart(ts = "retail", open = F, file = "graphs//retail")
+BETS.chart(ts = "constr", open = F, file = "graphs//constr")
+BETS.chart(ts = "consm", open = F, file = "graphs//consm")
+```
+
+
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/servc}
+  \label{ipca}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/retail}
+  \label{cut}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/constr}
+  \label{cut}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/consm}
+  \label{cut}
+\end{subfigure}
+\end{figure}
+
+
+## Notes:
+
+Shaded areas represent recessions, as dated by CODACE (FGV/IBRE).
+
+### Animal Spirits
+
+Originally presented by *Bráulio Borges* (researcher, FGV/IBRE).
+**Definition**: Average between industry expectations index and consumers expectations index minus the average between industry present situation index and consumers present situation index.
+**Source**: FGV/IBRE and Fecomercio-SP
+
+### Misery Index
+
+**Definition**: Inflation rate (IPCA) plus Unemployment Rate (from PNAD-C)
+**Source**: IBGE
+
+### Enterprises Confidence Index
+
+**Definition**: Average between industry, services, construction and retail confidence indexes.
+**Source**: FGV/IBRE
+
+

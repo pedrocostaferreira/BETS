@@ -9,8 +9,10 @@
 
 draw.misery_index = function(){
   
-  ipca = window(BETS.get(13522), start = c(2012,3))
-  unemp = suppressWarnings(ts(BETS.get(24369)[,2], start = c(2012,3), frequency = 12))
+  ipca = suppressWarnings(BETS.get(13522)) 
+  ipca = ts(ipca[,"value"], start = c(1980,12), frequency = 12)
+  ipca = window(ipca, start = c(2012,3))
+  unemp = BETS.get(24369)
   misery = ipca + unemp 
   
   
