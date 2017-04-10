@@ -10,7 +10,6 @@ Maintainer: Pedro Costa Ferreira <pedro.guilherme@fgv.br>
 Depends:
     R (>= 3.2.0)
 Imports:
-    rootSolve,
     grnn,
     ggplot2,
     plotly,
@@ -28,7 +27,9 @@ Imports:
     miniUI (>= 0.1.1),
     rstudioapi (>= 0.4),
     DT,
-    webshot
+    webshot,
+    RMySQL (<= 0.10.9),
+    DBI
 Suggests:
     mFilter,
     lubridate,

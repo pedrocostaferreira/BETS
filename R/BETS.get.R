@@ -23,9 +23,6 @@
 #'  
 #'  # Exchange rate - Free - United States dollar (purchase)
 #'  #us.brl <- BETS.get(3691)
-#'  #require(seasonal)
-#'  #us.brl.seasonally_adjusted <- seas(us.brl)
-#'  #plot(us.brl.seasonally_adjusted)
 #'  
 #' @seealso \code{\link[stats]{ts}}, \code{\link[BETS]{BETS.search}} and \code{\link[seasonal]{seas}}
 #' 

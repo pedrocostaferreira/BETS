@@ -17,9 +17,68 @@
 #' \item{\code{n.ahead}: An \code{integer} Prevision horizon (number of steps ahead)}
 #' }
 #' 
+#' \bold{GRNN Report Parameters}
+#' 
+#' \itemize{
+#' \item{\code{auto.reg}: A \code{boolean}. Is the dependant variable auto-regressive?}
+#' \item{\code{present.regs}: A \code{boolean} Include non-lagged series among regressors? }
+#' \item{\code{lag.max}: A \code{integer} Regressors' maximum lag}
+#' \item{\code{regs}: A \code{list}. Regressors codes or time series}
+#' \item{\code{start.train}: Training set starting period }
+#' \item{\code{end.train}: Training set ending period}
+#' \item{\code{start.test}: Testing set starting period }
+#' \item{\code{end.test}: Testing set ending period }
+#' \item{\code{sigma.interval}: A \code{numeric} vector. Sigma inteval}
+#' \item{\code{sigma.step}: A \code{numeric} value. Sigma step}
+#' \item{\code{var.names}: A \code{character} vector. Variable names}
+#' }
+#' 
+#' \bold{HOLT-WINTERS Report Parameters}
+#' 
+#' \itemize{
+#' \item{\code{alpha}: Smooth factor of the level component. If numeric, it must be within the half-open unit interval (0, 1]. A small value means that older values in x are weighted more heavily. Values near 1.0 mean that the latest value has more weight. NULL means that the HoltWinters function should find the optimal value of alpha. It must not be FALSE or 0.}
+#' \item{\code{beta}: Smooth factor of the trend component. If numeric, it must be within the unit interval [0, 1]. A small value means that older values in x are weighted more heavily. Values near 1.0 mean that the latest value has more weight. NULL means that the HoltWinters function should find the optimal value of beta. The trend component is omitted if beta is FALSE or 0.}
+#' \item{\code{gamma}: Smooth factors of the seasonal component. If numeric, it must be within the unit interval [0, 1]. A small value means that older values in x are weighted more heavily. Values near 1.0 mean that the latest value has more weight. NULL means that the HoltWinters function should find the optimal value of gamma. The seasonal component will be omitted if gamma is FALSE or 0. This must be specified as FALSE if frequency(x) is not an integer greater than 1.}
+#' \item{\code{additive}: A single character string specifying how the seasonal component interacts with the other components. "additive", the default, means that x is modeled as level + trend + seasonal and "multiplicative" means the model is (level + trend) * seasonal. Abbreviations of "additive" and "multiplicative" are accepted.}
+#' \item{\code{l.start}: The starting value of the level component.}
+#' \item{\code{b.start}: The starting value of the trend component}
+#' \item{\code{s.start}: The starting values of seasonal component, a vector of length frequency(x)}
+#' \item{\code{n.ahead}: Prevision horizon (number of steps ahead)}
+#' }
+#' 
+#' For more information about these parameters, see also \code{\link{HoltWinters}}. Most parameters are the same and we just reproduced their documentation here.
+#' 
 #' @return One or more .html files (the reports) and, optionally, data files (series plus predictions).
 #' 
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
+#' 
+#' @examples 
+#' ##-- SARIMA
+#' 
+#' # parameters = list(lag.max = 48, n.ahead = 12 ) 
+#' # BETS.report(ts = 21864, parameters = parameters)
+#' 
+#' # BETS.report(ts = 4447, series.saveas = "csv")
+#' 
+#' # series = list(BETS.get(4447), BETS.get(21864))
+#' # parameters = list(lag.max = 20, n.ahead = 15 ) 
+#' # BETS.report(ts = series, parameters = parameters)
+#' 
+#' # series = list(4447, 21864)
+#' # BETS.report(ts = series, parameters = parameters)
+#' 
+#' ##-- GRNN
+#' 
+#' # params = list(regs = 4382)
+#' # BETS.report(mode = "GRNN", ts = 13522, parameters = params)
+#' 
+#' ##-- HOLT-WINTERS
+#' 
+#' params = list(alpha = 0.5, gamma = T)
+#' BETS.report(mode = "HOLT-WINTERS", ts = 21864, series.saveas = "csv", parameters = params)
+#' 
+#' params = list(gamma = T, beta = T)
+#' BETS.report(mode = "HOLT-WINTERS", ts = 21864, series.saveas = "csv", parameters = params)
 #' 
 #' @export
 #' @import rmarkdown

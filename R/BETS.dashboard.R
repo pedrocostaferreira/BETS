@@ -9,6 +9,11 @@
 #' 
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 #' 
+#' @examples 
+#' 
+#' # BETS.dashboard()
+#' # BETS.dashboard(saveas = "survey.pdf")
+#' 
 #' @export
 #' @import rmarkdown
 

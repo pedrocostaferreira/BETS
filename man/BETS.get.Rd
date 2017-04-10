@@ -37,9 +37,6 @@ Due to the significant size of the databases, it could take a while to retrieve 
  
  # Exchange rate - Free - United States dollar (purchase)
  #us.brl <- BETS.get(3691)
- #require(seasonal)
- #us.brl.seasonally_adjusted <- seas(us.brl)
- #plot(us.brl.seasonally_adjusted)
  
 }
 \seealso{

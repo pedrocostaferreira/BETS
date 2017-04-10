@@ -17,6 +17,12 @@ A .pdf file (the dashboard)
 \description{
 Generate thematic dashboards using a selection of BETS time series and charts. For now, themes and charts are pre-defined.
 }
+\examples{
+
+# BETS.dashboard()
+# BETS.dashboard(saveas = "survey.pdf")
+
+}
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
 }

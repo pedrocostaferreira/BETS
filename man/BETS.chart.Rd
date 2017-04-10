@@ -9,7 +9,7 @@ BETS.chart(ts, file = NULL, open = TRUE, lang = "en", params = NULL)
 \arguments{
 \item{ts}{A \code{character} or a \code{ts} object. A custom time series or the name of a pre-defined series. A complete list of names is under the 'Details' section.}
 
-\item{file}{A \code{character}. The whole path, including a custom name, for the output (an image file). The default value is 'graphs//parameter_ts' (the 'graphs' directory is under the BETS installation directory).}
+\item{file}{A \code{character}. The whole path, including a custom name, for the output (an image file). The default value is NULL. If left to NULL, the chart will be rendered in the standard R plotting area.}
 
 \item{open}{A \code{boolean}. Whether to open the file containing the chart.}
 
@@ -28,27 +28,36 @@ Create a chart with a professional look, using a pre-defined BETS series or a cu
 
 \tabular{lll}{
  VALUE \tab DESCRIPTION \tab CODE \cr
- \bold{'animal_spirits'} \tab \tab (*) \cr
- \bold{'iie_br'} \tab \tab ST_100.0 \cr
- \bold{'ei_vars'} \tab \tab (*) \cr
- \bold{'ei_comps'} \tab  \tab (*) \cr
- \bold{'gdp_vars'} \tab \tab (*) \cr
- \bold{'misery_index} \tab \tab 13522 plus 24369 \cr
- \bold{'gdp_comps'} \tab  \tab (*) \cr
- \bold{'gdp_unemp'} \tab  \tab 22109 and 24369 \cr
- \bold{'conf_lvl'} \tab  \tab (*) \cr
- \bold{'inst_cap'} \tab  \tab (*) \cr
- \bold{'lab_mrkt'} \tab  \tab (*) \cr
- \bold{'transf_ind'} \tab  \tab (*) \cr
- \bold{'servc'} \tab  \tab (*) \cr
- \bold{'constr'} \tab  \tab (*) \cr
- \bold{'retail'} \tab  \tab (*) \cr
- \bold{'consm'} \tab \tab (*) 
+ \bold{'animal_spirits'} \tab Expectations index minus Present Situation index \tab (*) \cr
+ \bold{'iie_br'} \tab Uncertainty Index \tab ST_100.0 \cr
+ \bold{'ei_vars'} \tab Economic Indicators (Leading and Coincident) monthly variation \tab (*) \cr
+ \bold{'ei_comps'} \tab Economic Indicators (Leading and Coincident) components variation  \tab (*) \cr
+ \bold{'gdp_vars'} \tab GDP components variation (whole series) \tab (*) \cr
+ \bold{'misery_index} \tab Misery Index \tab 13522 plus 24369 \cr
+ \bold{'gdp_comps'} \tab GDP components variation (last values) \tab (*) \cr
+ \bold{'gdp_unemp'} \tab GDP monthly levels versus Unemployement Rate \tab 22109 and 24369 \cr
+ \bold{'conf_lvl'} \tab Enterprises Confidence Index versus Consumers Confidence Index \tab (*) \cr
+ \bold{'inst_cap'} \tab Installed Capacity Index \tab (*) \cr
+ \bold{'lab_mrkt'} \tab Labor Indicators (Leading and Coincident) \tab (*) \cr
+ \bold{'transf_ind'} \tab Transformation Industry Confidence Index (Expectations versus Present Situation) \tab (*) \cr
+ \bold{'servc'} \tab Services Confidence Index (Expectations versus Present Situation) \tab (*) \cr
+ \bold{'constr'} \tab Construction Confidence Index (Expectations versus Present Situation) \tab (*) \cr
+ \bold{'retail'} \tab Retail Sellers Confidence Index (Expectations versus Present Situation) \tab (*) \cr
+ \bold{'consm'} \tab Consumer Confidence Index (Expectations versus Present Situation) \tab (*) 
 }
 
 (*) Not in BETS databases yet. But you can find it in .csv files saved under your BETS installation directory.
+}
+\note{
+It is not yet possible to make charts of custom series.
+}
+\examples{
 
-\bold{Parameters for custom charts:}
+# BETS.chart(ts = "animal_spirits", file = "graphs/animal_spirits", open = T)
+# BETS.chart(ts = "ei_vars", file = "graphs/ei_vars.png", open = F)
+# BETS.chart(ts = "misery_index")
+# BETS.chart(ts = "transf_ind", file = "graphs/transf_ind.png", open = F)
+
 }
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}

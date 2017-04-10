@@ -2,6 +2,8 @@
 #' 
 #' @description  Creates a plot of series 4189
 #' 
+#' @param survey xxx
+#' 
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory.
 #' @importFrom zoo as.Date as.yearqtr
 #' @importFrom grDevices rgb
