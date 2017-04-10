@@ -74,11 +74,11 @@
 #' 
 #' ##-- HOLT-WINTERS
 #' 
-#' params = list(alpha = 0.5, gamma = T)
-#' BETS.report(mode = "HOLT-WINTERS", ts = 21864, series.saveas = "csv", parameters = params)
+#' # params = list(alpha = 0.5, gamma = TRUE)
+#' # BETS.report(mode = "HOLT-WINTERS", ts = 21864, series.saveas = "csv", parameters = params)
 #' 
-#' params = list(gamma = T, beta = T)
-#' BETS.report(mode = "HOLT-WINTERS", ts = 21864, series.saveas = "csv", parameters = params)
+#' # params = list(gamma = T, beta = TRUE)
+#' # BETS.report(mode = "HOLT-WINTERS", ts = 21864, series.saveas = "csv", parameters = params)
 #' 
 #' @export
 #' @import rmarkdown
