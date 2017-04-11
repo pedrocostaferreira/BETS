@@ -5,6 +5,8 @@
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory.
 #' @importFrom zoo as.Date as.yearqtr 
 #' @importFrom forecast ma
+#' @importFrom utils read.csv
+#' @importFrom stats aggregate
 #' @import plotly 
 #' @importFrom seasonal seas
 

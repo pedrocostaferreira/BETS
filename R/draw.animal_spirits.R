@@ -5,6 +5,7 @@
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory.
 #' @importFrom zoo as.Date 
 #' @importFrom grDevices rgb
+#' @importFrom utils read.csv2
 #' @import plotly 
 
 draw.animal_spirits = function(){
