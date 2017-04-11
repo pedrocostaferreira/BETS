@@ -12,4 +12,3 @@ An image file is saved in the 'graphs' folder, under the BETS installation direc
 \description{
 Creates a plot of series 4189
 }
-

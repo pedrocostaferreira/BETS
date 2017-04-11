@@ -95,4 +95,3 @@ For more information about these parameters, see also \code{\link{HoltWinters}}.
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
 }
-

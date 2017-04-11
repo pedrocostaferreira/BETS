@@ -22,4 +22,3 @@ Deflate a time series using a deflator series. The deflator can be an index, a p
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
 }
-

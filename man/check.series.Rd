@@ -17,4 +17,3 @@ Check series in BETS dataset
 \author{
 Talitha Speranza \email{talitha.speranza@fgv.br}
 }
-

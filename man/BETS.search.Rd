@@ -103,7 +103,14 @@ Searches the BETS databases for a time series by its description, source, period
 }
 }
 \note{
-This function uses \code{\link[sqldf]{sqldf}} for optimization.
+This function uses specific version of the \code{\link[RMySQL]{RMySQL}} package. If it does not run correctly, try installing version 0.10.9 of the 
+\code{\link[RMySQL]{RMySQL}} package using:
+
+> remove.packages("RMySQL") - If necessary
+
+> install.packages("devtools) - If necessary
+
+> devtools::install_version("RMySQL", version = "0.10.9", repos = "http://cran.us.r-project.org")
 }
 \examples{
 
@@ -121,4 +128,3 @@ BETS.search(periodicity="A", view = FALSE)
 Central Bank of Brazil
 }
 \keyword{search}
-
