@@ -12,7 +12,7 @@ information about the most important Brazilian economic time series.
 These series are created by three influential centers: the Central Bank of 
 Brazil (BCB), the Brazilian Institute of Geography and Statistics (IBGE) 
 and the Brazilian Institute of Economics, from the Getulio Vargas Foundation
-(FVG-IBRE). Currently, there are more than 30.000 available time series, most
+(FVG-IBRE). Currently, there are more than 18.640 available time series, most
 of them free of charge. Besides providing access to this vast database, the
 package allows the user to interact with data in an easy and friendly way. 
 
@@ -26,10 +26,14 @@ understand the behavior of brazilian time series.
 }
 \note{
 The authors would like to thank the support given by the Getulio 
-Vargas Foundation (FGV).
+Vargas Foundation (FGV) and make it clear that all 
+data in the package is public domain. We repeat all the rights of 
+all centers from which the data are taken and reaffirm that the major 
+focus of the package is on the academic side.
 }
 \author{
 Pedro Costa Ferreira \email{pedro.guilherme@fgv.br}, 
         Jonatha Costa \email{jonatha.costa@fgv.br}, 
         Talitha Speranza \email{talitha.speranza@fgv.br}
 }
+
