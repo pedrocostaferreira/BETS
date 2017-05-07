@@ -13,9 +13,10 @@
 #' @importFrom stats ts plot.ts
 #' @importFrom graphics axis text  points  mtext arrows
 
-draw.vargdp = function(start = NULL, ylim = NULL, xlim = NULL){
+draw.vargdp = function(){
   
   vargdp = BETS.get(7326)
+  start = c(2006,1)
   
   if(!is.null(start)){
     vargdp = window(vargdp, start = start)

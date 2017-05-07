@@ -84,11 +84,11 @@ BETS.chart = function(ts, style = "normal", file = NULL, open = TRUE, lang = "en
   if(!is.null(file)){
     
     dir.create("graphs", showWarnings = F)
-    file = paste0("graphs","\\",ts)
+    file = paste0("graphs","\\",file)
     
-    if(!grepl("\\.png$", file)) {
+    if(!grepl("\\.png$", file) && !grepl("\\.pdf$",file)) {
       file <- paste(file,".png",sep="")
-    }  
+    }
   } 
   
   if(class(ts) == "character"){
@@ -121,7 +121,7 @@ BETS.chart = function(ts, style = "normal", file = NULL, open = TRUE, lang = "en
       
       if(!is.null(file)){
         if(grepl("\\.png", file)){
-          png(file,width=728,height=478, pointsize = 15) 
+          png(file,width=728,height=318, pointsize = 15) 
         }
         else {
           pdf(file, width = 7, height = 4.5)
@@ -164,13 +164,14 @@ BETS.chart = function(ts, style = "normal", file = NULL, open = TRUE, lang = "en
       message = function(e){
         install_phantomjs() 
         export(p, file = file, zoom = 4, cliprect = c(20,20,740,500))
+      },
+      error = function(e){
+        # do nothing
       })
     
     if(open){
       file.show(file)
     }
-    
-    
   }
   else {
     p 

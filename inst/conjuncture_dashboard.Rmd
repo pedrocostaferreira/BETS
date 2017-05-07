@@ -65,7 +65,7 @@ library(BETS)
 
 ```{r echo = FALSE, results = "hide"}
 dir.create("graphs")
-BETS.chart(alias = "ipca_with_core", file = "graphs//ipca", out = "pdf", open = FALSE)
+BETS.chart(ts = "ipca_with_core", file = "graphs//ipca.pdf", open = FALSE)
 ```
 
 

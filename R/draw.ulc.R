@@ -14,15 +14,16 @@
 #' @importFrom stats ts plot.ts
 #' @importFrom graphics axis text  points  mtext arrows
 
-draw.ulc = function(start = NULL, ylim = NULL, xlim = NULL){
+draw.ulc = function(){
   
   cut = BETS.get(11777)
+  start = c(2006,1)
   
   if(!is.null(start)){
     cut = window(cut, start = start)
   }
   
-  lims = chart.add_basic(ts = cut, xlim = xlim, ylim = ylim, title = "Unitary Labor Cost", subtitle = "US$ - June 1994 = 100", col = "firebrick4", arr.size = 25)
+  lims = chart.add_basic(ts = cut, title = "Unitary Labor Cost", subtitle = "US$ - June 1994 = 100", col = "firebrick4", arr.size = 25)
   chart.add_notes(cut, ylim = lims[3:4], xlim = lims[1:2])
 
 }

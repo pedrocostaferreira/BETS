@@ -13,15 +13,16 @@
 #' 
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory. 
 
-draw.eap = function(start = NULL, ylim = NULL, xlim = NULL){
+draw.eap = function(){
   
   eap = (BETS.get(10810)/BETS.get(10800))*100
+  start = c(2006,1)
   
   if(!is.null(start)){
     eap = window(eap, start = start)
   }
   
-  lims = chart.add_basic(ts = eap, ylim = ylim, xlim = xlim, title = "Economically Active Population", subtitle = "Percentage of Population in Active Age", col = "royalblue", arr.pos = "h", leg.pos = "bottom")
+  lims = chart.add_basic(ts = eap, title = "Economically Active Population", subtitle = "Percentage of Population in Active Age", col = "royalblue", arr.pos = "h", leg.pos = "bottom")
   chart.add_notes(eap, ylim = lims[3:4], xlim = lims[1:2])
 
 }

@@ -14,9 +14,10 @@
 #' @importFrom stats ts plot.ts
 #' @importFrom graphics axis text  points  mtext arrows
 
-draw.unemp = function(start = NULL, ylim = NULL, xlim = NULL){
+draw.unemp = function(){
   
   unemp = BETS.get(10777)
+  start = c(2006,1)
   
   if(!is.null(start)){
     unemp = window(unemp, start = start)

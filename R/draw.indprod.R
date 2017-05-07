@@ -14,15 +14,16 @@
 #' @importFrom graphics axis text  points  mtext arrows
 #' @importFrom seasonal seas
 
-draw.indprod = function(start = NULL, ylim = NULL, xlim = NULL){
+draw.indprod = function(){
   
   indprod = seasonal::final(seas(BETS.get(21859)))
+  start = c(2006,1)
   
   if(!is.null(start)){
     indprod = window(indprod, start = start)
   }
   
-  lims = chart.add_basic(ts = indprod, ylim = ylim, xlim = xlim, title = "Industrial Production", subtitle = "Seasonally Adjusted. Index (2012 = 100)", col = "chocolate1")
+  lims = chart.add_basic(ts = indprod, title = "Industrial Production", subtitle = "Seasonally Adjusted. Index (2012 = 100)", col = "chocolate1")
   chart.add_notes(indprod, ylim = lims[3:4], xlim = lims[1:2])
 
 }

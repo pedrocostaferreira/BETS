@@ -7,8 +7,7 @@
 #' @param xlim  A \code{numeric vector}. x axis limits.
 #' 
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory. 
-#' 
-#' @importFrom rootSolve multiroot
+#'
 #' @importFrom zoo as.Date
 #' 
 #' @importFrom grDevices dev.new dev.off  pdf  png
@@ -18,10 +17,11 @@
 #' @importFrom graphics  strwidth
 
 
-draw.ipca = function(start = NULL, ylim = NULL, xlim = NULL){
+draw.ipca = function(){
   
   ipca = BETS.get(13522)
   core = BETS.get(4466)
+  start = c(2006,1)
   
   if(is.null(start)){
     
@@ -56,7 +56,7 @@ draw.ipca = function(start = NULL, ylim = NULL, xlim = NULL){
   core_acc = ts(core_acc, start = c(1996,12), frequency = 12)
   core = window(core_acc, start = start)
   
-  lims = chart.add_basic(ts = ipca, ylim = ylim, xlim = xlim, title = "National Consumer Price Index (IPCA)", subtitle = "Cumulative 12-Month Percentage", arr.pos = "h", leg.pos = "none")
+  lims = chart.add_basic(ts = ipca, title = "National Consumer Price Index (IPCA)", subtitle = "Cumulative 12-Month Percentage", arr.pos = "h", leg.pos = "none")
   chart.add_extra(core, ylim = lims[3:4], xlim = lims[1:2], leg.pos = "none")
   abline(a = 4.5, b = 0, lty = 3, lwd = 3, col = "darkgray")
   
