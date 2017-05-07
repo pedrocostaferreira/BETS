@@ -23,7 +23,7 @@
 #' @importFrom graphics strheight strwidth
 #' @importFrom utils tail
 
-chart.add_basic = function(ts, type = "lines", title = "", subtitle = "", col = "firebrick4", arr.size = NULL, arr.pos = "v", leg.pos = "top", trend = FALSE){
+chart.add_basic = function(ts, xlim = NULL, ylim = NULL, type = "lines", title = "", subtitle = "", col = "firebrick4", arr.size = NULL, arr.pos = "v", leg.pos = "top", trend = FALSE){
   
   freq = 0 
   
@@ -64,7 +64,7 @@ chart.add_basic = function(ts, type = "lines", title = "", subtitle = "", col = 
   if(type == "lines"){
     
     if(is.null(labs)){
-      plot(series, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = title, col = col)
+      plot(series, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = title, col = col, ylim = ylim, xlim = xlim)
     } else {
       plot.ts(x = dates, y = series, type = "l", xaxt = "n", ylim = ylim, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = title, col = col)
       axis(1, at = labs, labels = labs, las=1, cex.axis = 0.75)
@@ -72,7 +72,7 @@ chart.add_basic = function(ts, type = "lines", title = "", subtitle = "", col = 
     
   }
   else {
-    barplot(as.vector(series), names.arg = as.vector(time(series)), xlab = "", ylab = "", main = title, col = col)
+    barplot(as.vector(series), names.arg = as.vector(time(series)), xlab = "", ylab = "", main = title, col = col, ylim = ylim)
   }
   
   mtext(subtitle)
@@ -95,9 +95,14 @@ chart.add_basic = function(ts, type = "lines", title = "", subtitle = "", col = 
     d = strwidth(val)/nchar(val)
   }
 
-  xlim = par("usr")[1:2]
-  ylim = par("usr")[3:4]
- 
+  if(is.null(xlim)){
+    xlim = par("usr")[1:2]
+  }
+  
+  if(is.null(ylim)){
+    ylim = par("usr")[3:4]
+  }
+  
   x.spam = xlim[2] - xlim[1]
   y.spam = ylim[2] - ylim[1]
   

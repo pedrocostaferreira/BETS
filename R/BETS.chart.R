@@ -121,7 +121,7 @@ BETS.chart = function(ts, style = "normal", file = NULL, open = TRUE, lang = "en
       
       if(!is.null(file)){
         if(grepl("\\.png", file)){
-          png(file,width=728,height=318, pointsize = 15) 
+          png(file,width=728,height=478, pointsize = 15) 
         }
         else {
           pdf(file, width = 7, height = 4.5)

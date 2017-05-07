@@ -35,10 +35,10 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 
 ```{r echo = FALSE, results = "hide"}
 dir.create("graphs")
-BETS.chart(ts = "animal_spirits", open = F, file = "graphs//animal_spirits")
-BETS.chart(ts = "iie_br", open = F, file = "graphs//iie_br")
-BETS.chart(ts = "ei_vars", open = F, file = "graphs//ei_vars")
-BETS.chart(ts = "ei_comps", open = F, file = "graphs//ei_comps")
+BETS.chart(ts = "animal_spirits", open = F, file = "animal_spirits")
+BETS.chart(ts = "iie_br", open = F, file = "iie_br")
+BETS.chart(ts = "ei_vars", open = F, file = "ei_vars")
+BETS.chart(ts = "ei_comps", open = F, file = "ei_comps")
 ```
 
 
@@ -70,10 +70,10 @@ BETS.chart(ts = "ei_comps", open = F, file = "graphs//ei_comps")
 
 
 ```{r echo = FALSE, results = "hide"}
-BETS.chart(ts = "gdp_vars", open = F, file = "graphs//gdp_vars")
-BETS.chart(ts = "gdp_comps", open = F, file = "graphs//gdp_comps")
-BETS.chart(ts = "gdp_unemp", open = F, file = "graphs//gdp_unemp")
-BETS.chart(ts = "misery_index", open = F, file = "graphs//misery_index")
+BETS.chart(ts = "gdp_vars", open = F, file = "gdp_vars")
+BETS.chart(ts = "gdp_comps", open = F, file = "gdp_comps")
+BETS.chart(ts = "gdp_unemp", open = F, file = "gdp_unemp")
+BETS.chart(ts = "misery_index", open = F, file = "misery_index")
 ```
 
 
@@ -104,10 +104,10 @@ BETS.chart(ts = "misery_index", open = F, file = "graphs//misery_index")
 \end{figure}
 
 ```{r echo = FALSE, results = "hide"}
-BETS.chart(ts = "conf_lvl", open = F, file = "graphs//conf_lvl")
-BETS.chart(ts = "lab_mrkt", open = F, file = "graphs//lab_mrkt")
-BETS.chart(ts = "cap_utl", open = F, file = "graphs//cap_utl")
-BETS.chart(ts = "transf_ind", open = F, file = "graphs//transf_ind")
+BETS.chart(ts = "conf_lvl", open = F, file = "conf_lvl")
+BETS.chart(ts = "lab_mrkt", open = F, file = "lab_mrkt")
+BETS.chart(ts = "cap_utl", open = F, file = "cap_utl")
+BETS.chart(ts = "transf_ind", open = F, file = "transf_ind")
 ```
 
 
@@ -139,10 +139,10 @@ BETS.chart(ts = "transf_ind", open = F, file = "graphs//transf_ind")
 
 
 ```{r echo = FALSE, results = "hide"}
-BETS.chart(ts = "servc", open = F, file = "graphs//servc")
-BETS.chart(ts = "retail", open = F, file = "graphs//retail")
-BETS.chart(ts = "constr", open = F, file = "graphs//constr")
-BETS.chart(ts = "consm", open = F, file = "graphs//consm")
+BETS.chart(ts = "servc", open = F, file = "servc")
+BETS.chart(ts = "retail", open = F, file = "retail")
+BETS.chart(ts = "constr", open = F, file = "constr")
+BETS.chart(ts = "consm", open = F, file = "consm")
 ```
 
 

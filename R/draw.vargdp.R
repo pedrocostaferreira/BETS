@@ -22,6 +22,6 @@ draw.vargdp = function(){
     vargdp = window(vargdp, start = start)
   }
   
-  chart.add_basic(ts = vargdp, type = "bar", ylim = c(-5.5,10), xlim = xlim, title = "Real GDP", subtitle = "Percentage Change in the Year", col = "chocolate1", trend = T)
+  chart.add_basic(ts = vargdp, type = "bar", ylim = c(-5.5,10), title = "Real GDP", subtitle = "Percentage Change in the Year", col = "chocolate1", trend = T)
   
 }

@@ -23,6 +23,6 @@ draw.unemp = function(){
     unemp = window(unemp, start = start)
   }
   
-  lims = chart.add_basic(ts = unemp, ylim = c(4,14), title = "Open Unemployment Rate", subtitle = "Metropolitan Regions", col = "royalblue", trend = TRUE)
+  lims = chart.add_basic(ts = unemp, ylim = c(4,14), title = "Open Unemployment Rate", subtitle = "Metropolitan Regions", col = "royalblue", trend = TRUE, leg.pos = "bottom")
   chart.add_notes(unemp, ylim = lims[3:4], xlim = lims[1:2])
 }
