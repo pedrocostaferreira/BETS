@@ -26,7 +26,7 @@
 #' 
 #' # BETS.dashboard()
 #' # BETS.dashboard(saveas = "survey.pdf")
-#' # BETS.dashboard(type = "conjuncture")
+#' # BETS.dashboard(type = "macro_situation")
 #' 
 #' @export
 #' @import rmarkdown

@@ -14,12 +14,12 @@
 #' summary(fit.air)
 #' 
 #' # Significance test for the model SARIMA(1,1,1)(1,1,1)[12]
-#' # t.test(model = fit.air)
+#' BETS.t_test(model = fit.air)
 #'
 #' 
 #' @return A \code{data.frame} containing the standard erros, the t-statistic, the critical values and whether the null hypothesis should be rejected or not, for each model parameter. 
 #' @importFrom stats qt
-#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}, Daiane Marcolino \email{daiane.mattos@fgv.br}
 #' 
 #' @export
 

@@ -22,7 +22,7 @@
 #' Vargas Foundation (FGV) and make it clear that all 
 #' data in the package is in public domain. The rights of all centers from 
 #' which the series are taken are maintained. We reaffirm that BETS
-#' is intended to be for academic usage.
+#' is mainly intended for academic usage.
 #' 
 #'
 #' @author Pedro Costa Ferreira \email{pedro.guilherme@fgv.br}, 

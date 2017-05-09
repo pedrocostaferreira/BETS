@@ -8,7 +8,7 @@ Authors@R: c(person("Pedro", "Costa Ferreira", email = "pedro.guilherme@fgv.br",
 			        person("Jonatha", "Azevedo", email = "jonatha.azevedo@fgv.br", role = "aut"))
 Maintainer: Pedro Costa Ferreira <pedro.guilherme@fgv.br>
 Depends:
-    R (>= 3.2.0)
+    R (>= 3.4.0)
 Imports:
     grnn,
     ggplot2,
