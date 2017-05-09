@@ -3,7 +3,6 @@ classoption: landscape
 sansfont: Calibri Light
 output:
   rmarkdown::pdf_document:
-    latex_engine: xelatex
     includes:  
       in_header: fix_figs.tex
 ---
