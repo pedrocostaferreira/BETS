@@ -1,5 +1,7 @@
 library(BETS)
 
+## Business Cycle Dashboard
+
 BETS.chart(ts = "animal_spirits", file = "animal_spirits", open = T)
 BETS.chart(ts = "animal_spirits", file = "animal_spirits.png", open = F)
 BETS.chart(ts = "animal_spirits")
@@ -56,7 +58,7 @@ BETS.chart(ts = "cap_utl", file = "cap_utl.png", open = T)
 BETS.chart(ts = "cap_utl", file = "cap_utl", open = F)
 BETS.chart(ts = "cap_utl")
 
-## Conjuncture Dashboard
+## Macro Situation Dashboard
 
 BETS.chart("ipca_with_core", file = "ipca_with_core.png", open = F)
 BETS.chart("ipca_with_core", file = "ipca_with_core.pdf", open = F)

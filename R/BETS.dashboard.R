@@ -2,13 +2,13 @@
 #' 
 #' @description  Generate thematic dashboards using a selection of BETS time series and charts. For now, themes and charts are pre-defined.
 #' 
-#' @param type A \code{character}. The theme of the dashboard. The only two options, for the time being, is 'sentiment' and 'conjuncture'.
+#' @param type A \code{character}. The theme of the dashboard. The only two options, for the time being, is 'business_cycle' and 'macro_situation'.
 #' @param saveas A \code{character}. A path and a name for the dashboard file (a .pdf file). If this parameter is not provided, the dashboard will be saved inside the 'dashboards' folder, under the BETS installation directory.
 #' @param parameters A \code{list}. A list of parameters. See the 'Details' section for a description of these parameters for each type of dashboard.
 #' 
 #' @details
 #' 
-#' \bold{Conjuncture Dashboard Parameters} 
+#' \bold{Macro Situation Dashboard Parameters} 
 #' 
 #' \itemize{
 #' \item{ \code{text} - The text to be printed in the dashboard. Separate paragraphs with two backslashes 'n' and pages with '##'. There are no other syntax rules.}
@@ -32,7 +32,7 @@
 #' @import rmarkdown
 
 
-BETS.dashboard = function(type = "sentiment", saveas = NA, parameters = NULL){
+BETS.dashboard = function(type = "business_cycle", saveas = NA, parameters = NULL){
   
   rmd = paste0(type, "_dashboard.Rmd")
   file = system.file(package="BETS", rmd)

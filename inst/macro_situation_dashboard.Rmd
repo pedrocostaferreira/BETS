@@ -37,7 +37,7 @@ library(BETS)
   \fancyhf{}%
   \setlength{\headheight}{45pt} 
   \fancyhead[L]{
-    \includegraphics[width=\linewidth,height=40pt]{logo_bets} }
+    \includegraphics[width=\linewidth,height=40pt]{logo_situation} }
   \ifnum\hastext = 1
   \fancyhead[R]{
     {\fontfamily{lmss}\selectfont
