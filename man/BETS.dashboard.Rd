@@ -4,12 +4,14 @@
 \alias{BETS.dashboard}
 \title{Create a BETS custom dashboard}
 \usage{
-BETS.dashboard(type = "sentiment", saveas = NA)
+BETS.dashboard(type = "business_cycle", saveas = NA, parameters = NULL)
 }
 \arguments{
-\item{type}{A \code{character}. The theme of the dashboard. The only option, for the time being, is 'sentiment'.}
+\item{type}{A \code{character}. The theme of the dashboard. The only two options, for the time being, is 'business_cycle' and 'macro_situation'.}
 
 \item{saveas}{A \code{character}. A path and a name for the dashboard file (a .pdf file). If this parameter is not provided, the dashboard will be saved inside the 'dashboards' folder, under the BETS installation directory.}
+
+\item{parameters}{A \code{list}. A list of parameters. See the 'Details' section for a description of these parameters for each type of dashboard.}
 }
 \value{
 A .pdf file (the dashboard)
@@ -17,10 +19,22 @@ A .pdf file (the dashboard)
 \description{
 Generate thematic dashboards using a selection of BETS time series and charts. For now, themes and charts are pre-defined.
 }
+\details{
+\bold{Macro Situation Dashboard Parameters} 
+
+\itemize{
+\item{ \code{text} - The text to be printed in the dashboard. Separate paragraphs with two backslashes 'n' and pages with '##'. There are no other syntax rules.}
+\item{ \code{author} - The author's name.}
+\item{ \code{email} - The author's email.}
+\item{ \code{url} - The author's webpage.}
+\item{ \code{logo} - The author's business logo.}
+}
+}
 \examples{
 
 # BETS.dashboard()
 # BETS.dashboard(saveas = "survey.pdf")
+# BETS.dashboard(type = "macro_situation")
 
 }
 \author{

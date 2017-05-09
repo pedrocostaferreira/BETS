@@ -25,15 +25,14 @@ BETS and its statiscal/econometrical tools, therefore helping the user to
 understand the behavior of brazilian time series.
 }
 \note{
-The authors would like to thank the support given by the Getulio 
+The authors would like to thank the support by the Getulio 
 Vargas Foundation (FGV) and make it clear that all 
-data in the package is public domain. We repeat all the rights of 
-all centers from which the data are taken and reaffirm that the major 
-focus of the package is on the academic side.
+data in the package is in public domain. The rights of all centers from 
+which the series are taken are maintained. We reaffirm that BETS
+is mainly intended for academic usage.
 }
 \author{
 Pedro Costa Ferreira \email{pedro.guilherme@fgv.br}, 
         Jonatha Costa \email{jonatha.costa@fgv.br}, 
         Talitha Speranza \email{talitha.speranza@fgv.br}
 }
-

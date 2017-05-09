@@ -26,10 +26,10 @@ fit.air<- Arima(AirPassengers,order = c(1,1,1), seasonal = c(1,1,1), method ="ML
 summary(fit.air)
 
 # Significance test for the model SARIMA(1,1,1)(1,1,1)[12]
-# t.test(model = fit.air)
+BETS.t_test(model = fit.air)
 
 
 }
 \author{
-Talitha Speranza \email{talitha.speranza@fgv.br}
+Talitha Speranza \email{talitha.speranza@fgv.br}, Daiane Marcolino \email{daiane.mattos@fgv.br}
 }

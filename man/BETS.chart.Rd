@@ -4,10 +4,13 @@
 \alias{BETS.chart}
 \title{Create a chart with BETS aesthetics}
 \usage{
-BETS.chart(ts, file = NULL, open = TRUE, lang = "en", params = NULL)
+BETS.chart(ts, style = "normal", file = NULL, open = TRUE, lang = "en",
+  params = NULL)
 }
 \arguments{
 \item{ts}{A \code{character} or a \code{ts} object. A custom time series or the name of a pre-defined series. A complete list of names is under the 'Details' section.}
+
+\item{style}{A \code{character}. Should the chart be made with Plotly (style = "plotly") or with R standard library (style = "normal")?}
 
 \item{file}{A \code{character}. The whole path, including a custom name, for the output (an image file). The default value is NULL. If left to NULL, the chart will be rendered in the standard R plotting area.}
 
@@ -25,6 +28,8 @@ Create a chart with a professional look, using a pre-defined BETS series or a cu
 }
 \details{
 \bold{Names of pre-defined charts:}
+
+Business Cycle Dashboard:
 
 \tabular{lll}{
  VALUE \tab DESCRIPTION \tab CODE \cr
@@ -44,6 +49,20 @@ Create a chart with a professional look, using a pre-defined BETS series or a cu
  \bold{'constr'} \tab Construction Confidence Index (Expectations versus Present Situation) \tab (*) \cr
  \bold{'retail'} \tab Retail Sellers Confidence Index (Expectations versus Present Situation) \tab (*) \cr
  \bold{'consm'} \tab Consumer Confidence Index (Expectations versus Present Situation) \tab (*) 
+}
+
+Conjucture Dashboard:
+
+#' \tabular{lll}{
+ VALUE \tab DESCRIPTION \tab CODE \cr
+ \bold{'ipca_with_core'} \tab National consumer price index (IPCA) - in 12 months and  Broad national consumer price index - Core IPCA trimmed means smoothed \tab 13522 and 4466 \cr
+ \bold{'ulc'} \tab Unit labor cost - ULC-US$ - June/1994=100 \tab 11777 \cr
+ \bold{'eap'} \tab Economically active population \tab 10810 \cr
+ \bold{'cdb'} \tab Time deposits (CDB/RDB-preset) - Daily return (percentage) \tab 14 \cr
+ \bold{'indprod'} \tab Prodcution Indicators (2012=100) - General	\tab 21859 \cr
+ \bold{'selic'} \tab Interest rate - Selic accumulated in the month in annual terms (basis 252) \tab 4189 \cr
+ \bold{'unemp'} \tab Open unemployment rate - by metropolitan region - Brasil (weekly) \tab 10777\cr
+ \bold{'vargdp'} \tab GDP - real percentage change in the year \tab 7326 
 }
 
 (*) Not in BETS databases yet. But you can find it in .csv files saved under your BETS installation directory.
