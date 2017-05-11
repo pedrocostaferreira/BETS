@@ -45,19 +45,19 @@ draw.ei_vars = function(){
   ym = as.yearmon(dates)
   
   p = plot_ly(x = as.numeric(lei), y = as.Date(lei), name = "LEI", type = "bar", orientation = 'h', width = 700, height = 450, marker = list(color = 'rgb(171,104,87)')) %>% 
-        add_trace(x = as.numeric(cei), y = as.Date(cei), name = "CEI", type = "bar", orientation = 'h', marker = list(color = 'rgb(114,147,203)')) %>%
-        layout(title = "", 
-               yaxis = list(tickfont = list(size = 20), tickvals = dates, ticktext=as.character(ym), showline = F, zeroline = F),
-               xaxis = list(title = "", showgrid = FALSE, showline = FALSE, showticklabels = FALSE, zeroline = FALSE),
-               margin = m,
-               annotations = t,
-               titlefont = list(size = 19),
-               showlegend = T,
-               legend = list(orientation = 'h', x = 0.35))
+    add_trace(x = as.numeric(cei), y = as.Date(cei), name = "CEI", type = "bar", orientation = 'h', marker = list(color = 'rgb(114,147,203)')) %>%
+    layout(title = "", 
+           yaxis = list(tickfont = list(size = 20), tickvals = dates, ticktext=as.character(ym), showline = F, zeroline = F),
+           xaxis = list(title = "", showgrid = FALSE, showline = FALSE, showticklabels = FALSE, zeroline = FALSE),
+           margin = m,
+           annotations = t,
+           titlefont = list(size = 19),
+           showlegend = T,
+           legend = list(orientation = 'h', x = 0.35))
   
   for(i in 1:3){
     
-   text = paste0("<b>",lei[i],"</b>")
+    text = paste0("<b>",lei[i],"</b>")
     y = dates[i] - 7
     x = as.numeric(lei[i])/2
     p = p %>% add_annotations(text = text, y = y, x = x, showarrow = F, font = list(size = 18, color = "#FFFFFF"))
@@ -90,3 +90,4 @@ draw.ei_vars = function(){
   
   return(p)
 }
+

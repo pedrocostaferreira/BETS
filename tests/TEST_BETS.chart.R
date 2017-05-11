@@ -58,6 +58,9 @@ BETS.chart(ts = "cap_utl", file = "cap_utl.png", open = T)
 BETS.chart(ts = "cap_utl", file = "cap_utl", open = F)
 BETS.chart(ts = "cap_utl")
 
+BETS.chart("sent_ind", file = "sent_ind.png", open = T)
+BETS.chart("gdp_mon", file = "gdp_mon.png", open = T)
+
 ## Macro Situation Dashboard
 
 BETS.chart("ipca_with_core", file = "ipca_with_core.png", open = F)
@@ -84,6 +87,7 @@ BETS.chart("cdb", file = "cdb.pdf", open = F)
 
 BETS.chart("selic", file = "selic.png", open = F)
 BETS.chart("selic", file = "selic.pdf", open = F)
+
 
 
 

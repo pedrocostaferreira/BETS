@@ -97,6 +97,10 @@ BETS.chart = function(ts, style = "normal", file = NULL, open = TRUE, lang = "en
       p = draw.animal_spirits()
     } else if(ts == "iie_br"){
       p = draw.iie_br()
+    } else if(ts == "sent_ind"){
+      p = draw.sent_ind()
+    } else if(ts == "gdp_mon"){
+      p = draw.gdp_mon()
     } else if(ts == "gdp_vars"){
       p = draw.gdp_vars()
     } else if(ts == "gdp_comps"){

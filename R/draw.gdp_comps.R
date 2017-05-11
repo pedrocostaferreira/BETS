@@ -12,17 +12,17 @@
 
 draw.gdp_comps = function(){
   
-  gdp_comp = paste0(system.file(package="BETS"), "/pib_comps.csv")
-  data <- ts(read.csv(gdp_comp, stringsAsFactors = F)[,-1],start = c(1996,1), frequency = 4)
+  gdp_comp = paste0(system.file(package="BETS"), "/mon_pib_comps.csv")
+  data <- ts(read.csv2(gdp_comp, stringsAsFactors = F)[,-1],start = c(2000,1), frequency = 12)
   data <- aggregate(data)
   
   year2 = end(data)[1]
   year1 = end(data)[1]-1
   data <- window(data, start = year1)
-  data[,6] = data[,6] - data[,7]
-  data = data[,c(-7,-1)]
+  data[,5] = data[,5] - data[,6]
+  data = data[,c(-6,-1)]
   data = t(data)
-  rownames(data) =  c("Hous.<br>Exp.", "Gov.<br>Exp.","BFFK","Inv.<br>Var.","NX")
+  rownames(data) =  c("Hous.<br>Exp.", "Gov.<br>Exp.","GFFK","NX")
   
   #s = apply(data[,-1], 1, function(x){sum(x)})
   # cbind(data[,1],s)
