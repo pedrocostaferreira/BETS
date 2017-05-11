@@ -101,8 +101,16 @@ BETS.chart = function(ts, style = "normal", file = NULL, open = TRUE, lang = "en
       p = draw.sent_ind()
     } else if(ts == "gdp_mon"){
       p = draw.gdp_mon()
+    } else if(ts == "lab_lead"){
+      p = draw.lab_lead()
+    } else if(ts == "lab_coin"){
+      p = draw.lab_coin()
     } else if(ts == "gdp_vars"){
       p = draw.gdp_vars()
+    } else if(ts == "lei"){
+      p = draw.lei()
+    } else if(ts == "cei"){
+      p = draw.cei()
     } else if(ts == "gdp_comps"){
       p = draw.gdp_comps()
     } else if(ts == "misery_index"){

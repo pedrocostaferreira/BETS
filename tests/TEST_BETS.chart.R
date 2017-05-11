@@ -60,6 +60,7 @@ BETS.chart(ts = "cap_utl")
 
 BETS.chart("sent_ind", file = "sent_ind.png", open = T)
 BETS.chart("gdp_mon", file = "gdp_mon.png", open = T)
+BETS.chart("lei", file = "lei.png", open = T)
 
 ## Macro Situation Dashboard
 
