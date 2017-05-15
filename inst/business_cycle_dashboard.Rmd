@@ -1,6 +1,7 @@
 ---
 classoption: landscape
 sansfont: Calibri Light
+author: "Talitha Speranza"
 output:
   rmarkdown::pdf_document:
     includes:  
@@ -34,78 +35,9 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 
 ```{r echo = FALSE, results = "hide"}
 dir.create("graphs")
-BETS.chart(ts = "animal_spirits", open = F, file = "animal_spirits")
-BETS.chart(ts = "iie_br", open = F, file = "iie_br")
-BETS.chart(ts = "ei_vars", open = F, file = "ei_vars")
-BETS.chart(ts = "ei_comps", open = F, file = "ei_comps")
-```
-
-
-\begin{figure}[h]
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=11.5cm,keepaspectratio]{graphs/animal_spirits}
-  \label{ipca}
-\end{subfigure}
-~
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=11.5cm,keepaspectratio]{graphs/ei_vars}
-  \label{cut}
-\end{subfigure}
-~
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=11.5cm,keepaspectratio]{graphs/iie_br}
-  \label{cut}
-\end{subfigure}
-~
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=11.5cm,keepaspectratio]{graphs/ei_comps}
-  \label{cut}
-\end{subfigure}
-\end{figure}
-
-
-```{r echo = FALSE, results = "hide"}
-BETS.chart(ts = "gdp_vars", open = F, file = "gdp_vars")
-BETS.chart(ts = "gdp_comps", open = F, file = "gdp_comps")
-BETS.chart(ts = "gdp_unemp", open = F, file = "gdp_unemp")
-BETS.chart(ts = "misery_index", open = F, file = "misery_index")
-```
-
-
-\begin{figure}[h]
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=11.5cm,keepaspectratio]{graphs/gdp_vars}
-  \label{ipca}
-\end{subfigure}
-~
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=11.5cm,keepaspectratio]{graphs/gdp_comps}
-  \label{cut}
-\end{subfigure}
-~
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=11.5cm,keepaspectratio]{graphs/gdp_unemp}
-  \label{cut}
-\end{subfigure}
-~
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=11.5cm,keepaspectratio]{graphs/misery_index}
-  \label{cut}
-\end{subfigure}
-\end{figure}
-
-```{r echo = FALSE, results = "hide"}
+BETS.chart(ts = "sent_ind", open = F, file = "sent_ind")
 BETS.chart(ts = "conf_lvl", open = F, file = "conf_lvl")
-BETS.chart(ts = "lab_mrkt", open = F, file = "lab_mrkt")
-BETS.chart(ts = "cap_utl", open = F, file = "cap_utl")
+BETS.chart(ts = "iie_br", open = F, file = "iie_br")
 BETS.chart(ts = "transf_ind", open = F, file = "transf_ind")
 ```
 
@@ -113,19 +45,19 @@ BETS.chart(ts = "transf_ind", open = F, file = "transf_ind")
 \begin{figure}[h]
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=11.5cm,keepaspectratio]{graphs/conf_lvl}
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/sent_ind}
   \label{ipca}
 \end{subfigure}
 ~
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=11.5cm,keepaspectratio]{graphs/lab_mrkt}
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/conf_lvl}
   \label{cut}
 \end{subfigure}
 ~
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=11.5cm,keepaspectratio]{graphs/cap_utl}
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/iie_br}
   \label{cut}
 \end{subfigure}
 ~
@@ -171,16 +103,119 @@ BETS.chart(ts = "consm", open = F, file = "consm")
 \end{subfigure}
 \end{figure}
 
+```{r echo = FALSE, results = "hide"}
+BETS.chart(ts = "gdp_vars", open = F, file = "gdp_vars")
+BETS.chart(ts = "gdp_comps", open = F, file = "gdp_comps")
+BETS.chart(ts = "cap_utl", open = F, file = "cap_utl")
+BETS.chart(ts = "gdp_mon", open = F, file = "gdp_mon")
+```
+
+
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/gdp_vars}
+  \label{ipca}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/gdp_comps}
+  \label{cut}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/cap_utl}
+  \label{cut}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/gdp_mon}
+  \label{cut}
+\end{subfigure}
+\end{figure}
+
+
+```{r echo = FALSE, results = "hide"}
+BETS.chart(ts = "gdp_unemp", open = F, file = "gdp_unemp")
+BETS.chart(ts = "misery_index", open = F, file = "misery_index")
+BETS.chart(ts = "lab_coin", open = F, file = "lab_lead")
+BETS.chart(ts = "lab_lead", open = F, file = "lab_coin")
+```
+
+
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/gdp_unemp}
+  \label{ipca}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/lab_lead}
+  \label{cut}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/misery_index}
+  \label{cut}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/lab_coin}
+  \label{cut}
+\end{subfigure}
+\end{figure}
+
+```{r echo = FALSE, results = "hide"}
+BETS.chart(ts = "lei", open = F, file = "lei")
+BETS.chart(ts = "cei", open = F, file = "cei")
+BETS.chart(ts = "ei_vars", open = F, file = "ei_vars")
+BETS.chart(ts = "ei_comps", open = F, file = "ei_comps")
+```
+
+
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/lei}
+  \label{ipca}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/cei}
+  \label{cut}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/ei_vars}
+  \label{cut}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=11.5cm,keepaspectratio]{graphs/ei_comps}
+  \label{cut}
+\end{subfigure}
+\end{figure}
+
+
 
 ## Notes:
 
 Shaded areas represent recessions, as dated by CODACE (FGV/IBRE).
 
-### Animal Spirits
+### Economic Sentiment
 
-Originally presented by *Bráulio Borges* (researcher, FGV/IBRE).
-**Definition**: Average between industry expectations index and consumers expectations index minus the average between industry present situation index and consumers present situation index.
-**Source**: FGV/IBRE and Fecomercio-SP
+**Definition**: Average between industry, services, construction, retail and consumer confidence indexes.
+**Source**: FGV/IBRE
 
 ### Misery Index
 

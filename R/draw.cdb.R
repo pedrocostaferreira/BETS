@@ -12,6 +12,7 @@
 #' @importFrom graphics axis text  points  mtext arrows
 #' 
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory. 
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 draw.cdb= function(){
 

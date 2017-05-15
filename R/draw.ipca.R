@@ -15,6 +15,7 @@
 #' @importFrom stats ts plot.ts
 #' @importFrom graphics axis text  points  mtext arrows
 #' @importFrom graphics  strwidth
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 
 draw.ipca = function(){

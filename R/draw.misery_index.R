@@ -6,6 +6,7 @@
 #' @importFrom zoo as.Date 
 #' @importFrom grDevices rgb
 #' @import plotly 
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 draw.misery_index = function(){
   
@@ -52,7 +53,7 @@ draw.misery_index = function(){
   t <- list(
     x = 0.5,
     y = 1.18,
-    text = "<b>MISERY INDEX x CONSUMER CONFIDENCE</b><br><span style = 'font-size:16'>M.I. = Unemployment Rate Plus Inflation Rate</span>",
+    text = "<b>MISERY INDEX x CONSUMER CONFIDENCE</b>",
     xref = "paper",
     yref = "paper",
     showarrow = F,
@@ -68,7 +69,7 @@ draw.misery_index = function(){
   )
   
   m <- list(
-    t = 80,
+    t = 100,
     pad = 1,
     r = 60
   )

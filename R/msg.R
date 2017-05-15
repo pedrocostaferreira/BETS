@@ -10,6 +10,7 @@
 #' @return None
 #' 
 #' @importFrom stringr str_c
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}, Jonatha Azevedo \email{jonatha.azevedo@fgv.br}
 
 
 msg <- function(..., skip_before=TRUE, skip_after=FALSE, warn = FALSE) {

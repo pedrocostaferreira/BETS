@@ -8,6 +8,7 @@
 #' @return A \code{data.frame}. The first column contains the dates. The second, its values.
 #'
 #' @import sqldf
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 get.data.frame = function(code, ts = NULL) {
   

@@ -9,6 +9,7 @@
 #' @importFrom grDevices rgb
 #' @importFrom utils tail
 #' @import plotly 
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 draw.survey = function(survey){
   

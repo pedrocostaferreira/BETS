@@ -21,3 +21,6 @@ None
 \description{
 Customizes a message and shows it in the console.
 }
+\author{
+Talitha Speranza \email{talitha.speranza@fgv.br}, Jonatha Azevedo \email{jonatha.azevedo@fgv.br}
+}

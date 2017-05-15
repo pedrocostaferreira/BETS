@@ -6,3 +6,4 @@
 ^data$
 ^\.travis\.yml$
 ^graphs$
+^old$

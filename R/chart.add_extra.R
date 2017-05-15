@@ -20,6 +20,7 @@
 #' @importFrom graphics axis text  points  mtext arrows
 #' @importFrom graphics strheight strwidth
 #' @importFrom utils tail
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 chart.add_extra= function(ts, ylim = NULL, xlim = NULL, col = "firebrick3", arr.size = NULL, arr.pos = "v", leg.pos = "top", leg.text = ""){
   

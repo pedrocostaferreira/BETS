@@ -9,6 +9,7 @@
 #' @importFrom stats aggregate
 #' @import plotly 
 #' @importFrom seasonal seas
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 draw.gdp_comps = function(){
   
@@ -77,7 +78,7 @@ draw.gdp_comps = function(){
               hole = 0.4,
               domain = list(x = c(0.55, 1), y = c(0, 1))) %>%
         
-        layout(title = '<b>GDP COMPONENTS</b><br><span style = "font-size:17">Nominal Yearly GDP</span>',
+        layout(title = '<b>GDP COMPONENTS</b><br><span style = "font-size:17">Nominal Yearly GDP - GDP Monitor (FGV/IBRE)</span>',
                annotations = list(a,b),
                titlefont = list(size = 19),
                margin = m,

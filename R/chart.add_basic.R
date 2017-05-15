@@ -22,6 +22,7 @@
 #' @importFrom graphics axis text  points  mtext arrows
 #' @importFrom graphics strheight strwidth
 #' @importFrom utils tail
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 chart.add_basic = function(ts, xlim = NULL, ylim = NULL, type = "lines", title = "", subtitle = "", col = "firebrick4", arr.size = NULL, arr.pos = "v", leg.pos = "top", trend = FALSE){
   

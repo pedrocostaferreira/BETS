@@ -6,6 +6,7 @@
 #' @importFrom zoo as.Date as.yearqtr
 #' @importFrom grDevices rgb
 #' @import plotly 
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 draw.cap_utl = function(){
   

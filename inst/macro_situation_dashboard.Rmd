@@ -1,6 +1,7 @@
 ---
 classoption: landscape
 sansfont: Calibri Light
+author: "Talitha Speranza"
 output:
   rmarkdown::pdf_document:
     includes:  

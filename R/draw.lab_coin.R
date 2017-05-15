@@ -6,6 +6,7 @@
 #' @importFrom zoo as.Date as.yearqtr
 #' @importFrom grDevices rgb
 #' @import plotly 
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 draw.lab_coin = function(){
   
@@ -64,7 +65,7 @@ draw.lab_coin = function(){
            xaxis = list(tickfont = list(size = 17)),
            margin = m,
            titlefont = list(size = 19),
-           annotations = list(a,b,t),
+           annotations = list(a,t),
            legend = list(orientation = 'h', x = 0.27),
            shapes = list(
              list(type = "rect",

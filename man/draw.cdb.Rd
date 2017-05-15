@@ -19,3 +19,6 @@ An image file is saved in the 'graphs' folder, under the BETS installation direc
 \description{
 Creates a plot of series 14
 }
+\author{
+Talitha Speranza \email{talitha.speranza@fgv.br}
+}

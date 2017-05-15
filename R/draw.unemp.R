@@ -16,13 +16,13 @@
 
 draw.unemp = function(){
   
-  unemp = BETS.get(10777)
-  start = c(2006,1)
+  unemp = BETS.get(24369)
+  # start = c(2006,1)
+  # 
+  # if(!is.null(start)){
+  #   unemp = window(unemp, start = start)
+  # }
   
-  if(!is.null(start)){
-    unemp = window(unemp, start = start)
-  }
-  
-  lims = chart.add_basic(ts = unemp, ylim = c(4,14), title = "Open Unemployment Rate", subtitle = "Metropolitan Regions", col = "royalblue", trend = TRUE, leg.pos = "bottom")
+  lims = chart.add_basic(ts = unemp, ylim = c(4,14), title = "Unemployment Rate (PNAD-C)", subtitle = "Metropolitan Regions", col = "royalblue", trend = TRUE, leg.pos = "bottom")
   chart.add_notes(unemp, ylim = lims[3:4], xlim = lims[1:2])
 }

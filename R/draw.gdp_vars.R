@@ -7,6 +7,7 @@
 #' @importFrom forecast ma
 #' @import plotly 
 #' @importFrom seasonal seas
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 draw.gdp_vars = function(){
   
@@ -26,7 +27,7 @@ draw.gdp_vars = function(){
   t <- list(
     x = 0.5,
     y = 1.25,
-    text = "<b>GDP COMPONENTS VARIATION</b><br><span style = 'font-size:14'>Accumulated variation 12 Months</span>",
+    text = "<b>GDP COMPONENTS VARIATION</b><br><span style = 'font-size:13'>Accumulated variation 12 Months - GDP Monitor (FGV/IBRE)</span>",
     xref = "paper",
     yref = "paper",
     showarrow = F,

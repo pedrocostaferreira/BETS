@@ -5,6 +5,7 @@
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory.
 #' @importFrom zoo as.Date 
 #' @import plotly 
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 draw.gdp_mon = function(){
   

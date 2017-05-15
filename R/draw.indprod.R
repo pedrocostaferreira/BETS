@@ -13,6 +13,7 @@
 #' @importFrom stats ts plot.ts
 #' @importFrom graphics axis text  points  mtext arrows
 #' @importFrom seasonal seas
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 draw.indprod = function(){
   

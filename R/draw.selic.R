@@ -15,6 +15,7 @@
 #' @importFrom utils read.csv2
 #' @importFrom stats ts plot.ts
 #' @importFrom graphics axis text  points  mtext arrows
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 draw.selic = function(){
   

@@ -6,6 +6,7 @@
 #' @importFrom zoo as.Date 
 #' @importFrom forecast ma
 #' @import plotly 
+#' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
 draw.iie_br = function(){
   

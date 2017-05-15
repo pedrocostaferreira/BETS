@@ -33,17 +33,21 @@ Business Cycle Dashboard:
 
 \tabular{lll}{
  VALUE \tab DESCRIPTION \tab CODE \cr
- \bold{'animal_spirits'} \tab Expectations index minus Present Situation index \tab (*) \cr
  \bold{'iie_br'} \tab Uncertainty Index \tab ST_100.0 \cr
+ \bold{'sent_ind'} \tab Economic Sentiment Index (average between several confidence indexes) \tab (*) \cr
+ \bold{'gdp_mon'} \tab GDP Monthly and Interanual Variation (last values) - GDP Monitor (FGV/IBRE) \tab (*) \cr
  \bold{'ei_vars'} \tab Economic Indicators (Leading and Coincident) monthly variation \tab (*) \cr
  \bold{'ei_comps'} \tab Economic Indicators (Leading and Coincident) components variation  \tab (*) \cr
- \bold{'gdp_vars'} \tab GDP components variation (whole series) \tab (*) \cr
+ \bold{'lei'} \tab Leading Economic Indicator (LEI - FGV/IBRE with The Conference Board) \tab (*) \cr
+ \bold{'cei'} \tab Coincident Economic Indicator (CEI - FGV/IBRE with the Conference Board)  \tab (*) \cr
+ \bold{'gdp_vars'} \tab GDP components variation (whole series) - GDP Monitor (FGV/IBRE) \tab (*) \cr
  \bold{'misery_index} \tab Misery Index \tab 13522 plus 24369 \cr
- \bold{'gdp_comps'} \tab GDP components variation (last values) \tab (*) \cr
+ \bold{'gdp_comps'} \tab GDP components variation (last values) - GDP Monitor (FGV/IBRE) \tab (*) \cr
  \bold{'gdp_unemp'} \tab GDP monthly levels versus Unemployement Rate \tab 22109 and 24369 \cr
  \bold{'conf_lvl'} \tab Enterprises Confidence Index versus Consumers Confidence Index \tab (*) \cr
  \bold{'inst_cap'} \tab Installed Capacity Index \tab (*) \cr
- \bold{'lab_mrkt'} \tab Labor Indicators (Leading and Coincident) \tab (*) \cr
+ \bold{'lab_lead'} \tab Labor Leading Indicator \tab (*) \cr
+ \bold{'lab_coin'} \tab Labor Coincident Indicator \tab (*) \cr
  \bold{'transf_ind'} \tab Transformation Industry Confidence Index (Expectations versus Present Situation) \tab (*) \cr
  \bold{'servc'} \tab Services Confidence Index (Expectations versus Present Situation) \tab (*) \cr
  \bold{'constr'} \tab Construction Confidence Index (Expectations versus Present Situation) \tab (*) \cr
@@ -51,7 +55,7 @@ Business Cycle Dashboard:
  \bold{'consm'} \tab Consumer Confidence Index (Expectations versus Present Situation) \tab (*) 
 }
 
-Conjucture Dashboard:
+Macro Situation Dashboard:
 
 #' \tabular{lll}{
  VALUE \tab DESCRIPTION \tab CODE \cr
@@ -61,7 +65,7 @@ Conjucture Dashboard:
  \bold{'cdb'} \tab Time deposits (CDB/RDB-preset) - Daily return (percentage) \tab 14 \cr
  \bold{'indprod'} \tab Prodcution Indicators (2012=100) - General	\tab 21859 \cr
  \bold{'selic'} \tab Interest rate - Selic accumulated in the month in annual terms (basis 252) \tab 4189 \cr
- \bold{'unemp'} \tab Open unemployment rate - by metropolitan region - Brasil (weekly) \tab 10777\cr
+ \bold{'unemp'} \tab Unemployment rate - by metropolitan region (PNAD-C) \tab 10777\cr
  \bold{'vargdp'} \tab GDP - real percentage change in the year \tab 7326 
 }
 
@@ -72,10 +76,10 @@ It is not yet possible to make charts of custom series.
 }
 \examples{
 
-# BETS.chart(ts = "animal_spirits", file = "graphs/animal_spirits", open = T)
-# BETS.chart(ts = "ei_vars", file = "graphs/ei_vars.png", open = F)
+# BETS.chart(ts = "sent_ind", file = "animal_spirits", open = T)
+# BETS.chart(ts = "gdp_mon", file = "gdp_mon.png", open = F)
 # BETS.chart(ts = "misery_index")
-# BETS.chart(ts = "transf_ind", file = "graphs/transf_ind.png", open = F)
+# BETS.chart(ts = "transf_ind", file = "transf_ind.png", open = F)
 
 }
 \author{
