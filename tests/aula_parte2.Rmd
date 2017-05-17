@@ -1,5 +1,6 @@
 ---
 title: "Análise Box & Jenkins usando o BETS"
+subtitle: "Minicurso do II Seminário Internacional de Estatística com R"
 author: "Talitha Speranza, Pedro Ferreira e Jonatha Azevedo"
 date: "28 de Maio de 2017"
 output: html_document
