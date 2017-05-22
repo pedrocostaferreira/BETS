@@ -29,7 +29,8 @@ Imports:
     DT,
     webshot,
     RMySQL,
-    DBI
+    DBI,
+    rjson
 Suggests:
     mFilter,
     lubridate,
