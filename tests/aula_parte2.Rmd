@@ -155,14 +155,14 @@ As funções do BETS que utilizamos para desenhar correlogramas é a `BETS.corrg
 
 ```{r fac1, fig.cap= "Função de Autocorrelação de $\\nabla Z_t$"}
 # Correlograma de diff(data)
-BETS.corrgram(diff(data), lag.max = 48, mode = "bartlett", style="normal")
+BETS.corrgram(diff(data), lag.max = 48, mode = "bartlett", style="plotly", knit = T)
 ```
 
 O correlograma acima ainda não é suficiente para determinamos um modelo para a série. Faremos, então, o gráfico da função de autocorrelação parcial (FACP) de $\nabla Z_t$. A `BETS.corrgram` também pode ser utilizada para este fim.
 
 ```{r fac2, fig.cap = "Função de Autocorrelação Parcial de $\\nabla Z_t$"}
 # Função de autocorrelação parcial de diff(data)
-BETS.corrgram(diff(data), lag.max = 36, type = "partial", style="normal")
+BETS.corrgram(diff(data), lag.max = 36, type = "partial", style="plotly", knit = T)
 ```
 
 A FAC da figura \ref{fig:fac1} e a FACP da figura \ref{fig:fac2} podem ter sido geradas por um processo `SARIMA(0,0,2) (1,0,0)`. Esta conjectura se baseia na observação de que as defasagens múltiplas de 12 parecem apresentar corte brusco na FACP a partir da segunda (isto é, a de número 24) e decaimento exponencial na FAC. Além disso, as duas primeiras defasagens da FAC parecem significativas, enquanto as demais, não. Há, ainda, alguma evidência de decaimento exponencial na FACP, exceto na frequência sazonal. Os dois últimos fatos indicam que o polinômio de médias móveis (não sazonal) pode ter ordem 2. Por estas razões, o primeiro modelo proposto para $Z_t$ será um `SARIMA(0,1,2)(1,0,0)[12]`. 
@@ -216,7 +216,7 @@ dummy
 
 Como podemos ver nos resultados da execução do trecho de código a seguir, a estimação deste modelo através de máxima verossimilhança resultou em coeficientes estatisticamente diferentes de 0 ao nível de significância de 5\%, inclusive para a *dummy*. O gráfico dos resíduos padronizados dos valores ajustados pelo novo modelo (figura \ref{fig:stdr2}) também mostra que a inclusão de $D_t$ foi adequada, uma vez que não há mais evidência de quebra estrutural. 
 
-```{r stdr2, echo = c(-1,-9), fig.cap="Resíduos padronizados do modelo proposto após a detecção de quebra estrutural", fig.height=2.35}
+```{r stdr2, echo = c(-1,-9), fig.cap="Resíduos padronizados do modelo proposto após a detecção de quebra estrutural"}
 par(cex.axis = 0.75, cex.lab = 0.8, mar = c(5.1, 4.1, 0.5, 2.1))
 # Estimacao dos parâmetros do modelo com a dummy 
 model2 = Arima(data, order = c(0,1,2), seasonal = c(1,0,0), xreg = dummy)
