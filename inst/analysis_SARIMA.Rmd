@@ -78,7 +78,12 @@ knitr::kable(info, format = "markdown")
 
 ## Graph
 
-```{r}
+```{r echo = F}
+library(mFilter)
+```
+
+
+```{r eval = -1}
 library(mFilter)
 trend = fitted(hpfilter(data))
 

@@ -22,6 +22,10 @@ BETS.ur_test = function(..., mode = "DF", level = "5pct"){
   
   for(i in 1:length(stat)){
     
+    # If the test statistic is less (this test is non symmetrical so we do 
+    # not consider an absolute value) than the (larger negative) critical value, 
+    # then the null hypothesis of tau2 = 0 is rejected and no unit root is present.
+    
     if(stat[i] > cval[i]){
       res = c(res, "no")
     }

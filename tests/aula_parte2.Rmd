@@ -104,19 +104,14 @@ A função `BETS.ur_test` executa o teste *Augmented Dickey Fuller* (ADF). Ela f
 As estatísticas de teste da tabela do objeto de saída se referem aos coeficientes $\phi$ (média ou *drift*), $\tau_{1}$ (tendência determinística) e $\tau_{2}$ (raiz unitária). A inclusão da média e da tendência determinística é opcional. Para controlar os parâmetros do teste, a `BETS.ur_test` aceita os mesmos parâmetros da `ur.df`, além do nível de significância desejado.
 
 ```{r adf, fig.cap= "Função de Autocorrelação dos Resíduos do Teste de Dickey-Fuller"}
-df = BETS.ur_test(y = diff(data), type = "drift", lags = 11, 
+df = BETS.ur_test(y = diff(data), type = "none", lags = 11, 
                                   selectlags = "BIC", level = "1pct")
 
 # Exibir resultado dos testes
 df$results
-
-# Fazer FAC dos resíduos, com intervalo de confiança de 99%
-BETS.corrgram(df$residuals,ci=0.99,style="normal",lag.max = 11)
 ```
 
-Portanto, para a série em nível, observa-se que não se pode rejeitar a hipotése nula de existência de uma raiz unitária ao nível de confiança de 95%, pois a estatística de teste é maior do que o valor crítico. A FAC dos resíduos da equação do teste evidencia que ele foi bem especificado, pois a autocorrelação não é significativa até a décima primeira defasagem.\footnote{A FAC foi feita com a função `BETS.corrgram`.}
-
-Agora, iremos aplicar a função `diff` à série repetidas vezes e verificar se a série diferenciada possui uma raiz unitária.
+Portanto, para a série em nível, observa-se que não se pode rejeitar a hipotése nula de existência de uma raiz unitária ao nível de confiança de 95%, pois a estatística de teste é maior do que o valor crítico. Agora, iremos aplicar a função `diff` à série repetidas vezes e verificar se a série diferenciada possui uma raiz unitária.
 
 ```{r}
 ns_roots = 0
@@ -127,14 +122,19 @@ d_ts = diff(data)
  while(df$results[1,"statistic"]> df$results[1,"crit.val"]){
     ns_roots = ns_roots + 1
     d_ts = diff(d_ts)
-    df = BETS.ur_test(y = d_ts, type = "none", lags = 6, 
-                                selectlags = "BIC", level = "5pct")
+    df = BETS.ur_test(y = d_ts, type = "none", lags = 11, 
+                                selectlags = "BIC", level = "1pct")
  }
 
 ns_roots
 ```
 
-Logo, para a série em primeira diferença, rejeita-se a hipótese nula de que há raiz unitária a 5\% de significância. 
+Logo, para a série em primeira diferença, rejeita-se a hipótese nula de que há raiz unitária a 5\% de significância. A FAC dos resíduos da equação do teste evidencia que ele foi bem especificado, pois a autocorrelação não é significativa até a décima primeira defasagem.\footnote{A FAC foi feita com a função `BETS.corrgram`.}
+
+```{r}
+# Fazer FAC dos resíduos, com intervalo de confiança de 99%
+BETS.corrgram(df$residuals,ci=0.99,style="normal",lag.max = 11)
+```
 
 Um outro pacote bastante útil que é instalado com o BETS é o `forecast`. Usaremos a função `nsdiffs` deste pacote para realizar o teste de Osborn-Chui-Smith-Birchenhall e identificar raízes unitárias na frequência sazonal (em nosso caso, mensal).
 
