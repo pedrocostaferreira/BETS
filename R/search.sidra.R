@@ -1,0 +1,78 @@
+#' Search for Sidra Series
+#'
+#' Searches the Sidra databases for a series by its description or a given table descriptions.
+#'
+#' @param x Either a character or a numeric. If character, function searches the Sidra metadata. If a numeric argument is provided the descriptions of the given table are seached .
+#' @param browse 
+#' @examples
+#' \dontrun{
+#' search.sidra("pib")
+#' }
+#' @keywords sidra IBGE
+#' @importFrom utils View 
+#' @import xml2 rvest stringr
+#' @export
+
+search.sidra <- function(x, browse = FALSE) {
+    
+    
+    if( is.character(x)){
+    
+        x <- stringr::str_replace_all(x, " ", "%20")
+        
+        tabela <- xml2::read_html(paste0("https://sidra.ibge.gov.br/Busca?q=", x))
+        
+        tabela <- rvest::html_nodes(tabela,".busca-link-tabela")
+        tabela <- rvest::html_text(tabela)
+        
+        return(writeLines(tabela))
+    } else if (is.numeric(x)){
+    
+    
+        tabela <- xml2::read_html(paste0("http://api.sidra.ibge.gov.br/desctabapi.aspx?c=", x))
+        tabela <- rvest::html_text(tabela)
+        
+        
+        
+        
+        
+        d = strsplit(tabela, split = "\r\n")
+        d = trimws(d[[1]])
+        d2 = c()
+        
+        for ( i in seq_along(d)){
+            
+            if(d[i] != ""){
+                
+                d2 = c(d2,d[i])
+                
+            }
+            
+        }
+        
+        d3 = paste(d2[10:length(d2)], collapse = "\n")
+        
+        
+        
+        
+        
+        if(browse != FALSE){
+        
+        shell.exec(paste0("http://api.sidra.ibge.gov.br/desctabapi.aspx?c=", x))
+        } else{
+            
+            writeLines(d3)
+            
+        }
+    
+    
+    } else{ stop("x must be provided as a character or numeric.") }
+
+}
+
+
+
+
+
+
+
