@@ -3,10 +3,11 @@
 #' Searches the Sidra databases for a series by its description or a given table descriptions.
 #'
 #' @param x Either a character or a numeric. If character, function searches the Sidra metadata. If a numeric argument is provided the descriptions of the given table are seached .
-#' @param browse 
+#' @param browse Logical. If browse is set to TRUE, the description table opens in your browser for better visualization.
 #' @examples
 #' \dontrun{
 #' search.sidra("pib")
+#' sear.sidra(1248)
 #' }
 #' @keywords sidra IBGE
 #' @importFrom utils View 
