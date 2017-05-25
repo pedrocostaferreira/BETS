@@ -30,7 +30,9 @@ Imports:
     webshot,
     RMySQL,
     DBI,
-    rjson
+    rjson,
+    rvest,
+    xml2
 Suggests:
     mFilter,
     lubridate,
