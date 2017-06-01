@@ -10,7 +10,7 @@ sidra.aux <- function(x, len, nova_req) {
 
     tabela <- xml2::read_html(paste0("http://api.sidra.ibge.gov.br/desctabapi.aspx?c=", x))
     tabela <- rvest::html_text(tabela)
-    
+
     
     
     
@@ -140,19 +140,19 @@ sidra.aux <- function(x, len, nova_req) {
         
     }
 
+    rm(tabela1)
     
     
     
     
+    id2 = which(colnames(tabela)== "D4N")
+    colnames(tabela) = unlist(tabela[1,])
+    tabela = tabela[-1,]
+    id = which(colnames(tabela)=="V" | colnames(tabela)=="Valor")
+    id3 = which(colnames(tabela) == "M\u00EAs" | colnames(tabela) == "Ano" |
+                    colnames(tabela) == "Trimestre")
     
-    
-    
-    
-    
-    
-    
-    
-    
+
 
     if ( colnames(tabela[id3]) == "M\u00EAs" & length(tabela[[id3]]) > 1){
         
@@ -211,7 +211,7 @@ sidra.aux <- function(x, len, nova_req) {
     id = which(colnames(tabela)=="V" | colnames(tabela)=="Valor")
     tabela[,id] = suppressWarnings(ifelse(unlist(tabela[,id])!="..", 
                                           as.numeric(unlist(tabela[,id])),NA))
-    rm(tabela1)
+    
     
     return(tabela)
 }

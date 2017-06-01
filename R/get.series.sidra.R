@@ -16,8 +16,8 @@
 #' @examples
 #' \dontrun{sidra=get.series.sidra(x = c(1612), from = 1990, to = 2015, territory = "brazil", variable =109)
 #' sidra=get.series.sidra(x = c(3653), from = c("200201"), 
-#' to = c("201512"), territory = "brazil", 
-#' variable = 3135, sections = c(129316,129330),cl = 544)
+#' to = c("201703"), territory = "brazil", 
+#' variable = 3135, sections = c(129316,129330), cl = 544)
 #' sidra=get.series.sidra(x = c(3653), from = c("200201"), 
 #' to = c("201512"), territory = "brazil",  variable = 3135, 
 #' sections = "all", cl = 544)
