@@ -211,5 +211,7 @@ sidra.aux <- function(x, len, nova_req) {
     id = which(colnames(tabela)=="V" | colnames(tabela)=="Valor")
     tabela[,id] = suppressWarnings(ifelse(unlist(tabela[,id])!="..", 
                                           as.numeric(unlist(tabela[,id])),NA))
-    rm(tabela2)
+    rm(tabela1)
+    
+    return(tabela)
 }
