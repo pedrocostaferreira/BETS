@@ -14,7 +14,7 @@
 #' @export
 #' @import RCurl rjson zoo
 #' @examples
-#' \dontrun{sidra=get.series.sidra(x = c(1612), from = 1990, to = 2015, territory = "brazil")
+#' \dontrun{sidra=get.series.sidra(x = c(1612), from = 1990, to = 2015, territory = "brazil", variable =109)
 #' sidra=get.series.sidra(x = c(3653), from = c("200201"), 
 #' to = c("201512"), territory = "brazil", 
 #' variable = 3135, sections = c(129316,129330),cl = 544)
@@ -32,7 +32,10 @@
 
 
 
-get.series.sidra <- function(x, from, to, territory = c(n1 = "brazil", n2 = "region", n3 = "state"), variable, cl = NULL,sections = NULL){ 
+# x = c(1612); from = 1990; to = 2015; territory = "n6/all"; variable =109; cl = NULL; sections = NULL
+
+
+get.series.sidra <- function(x, from, to, territory = c(n1 = "brazil", n2 = "region", n3 = "state"), variable, cl = NULL, sections = NULL){ 
     
     
      # browser()
@@ -132,6 +135,23 @@ get.series.sidra <- function(x, from, to, territory = c(n1 = "brazil", n2 = "reg
             param = strsplit(tabela, " ")[[1]][2]
             param = substr(param, 1, nchar(param)-1)
             warning(sprintf("The table %s does not contain public data", param))
+            
+        } else if (strsplit(tabela, " ")[[1]][1] == "Quantidade"){
+            
+            
+            nova_req <- ceiling(as.numeric(strsplit(tabela, " ")[[1]][5]) / 
+                                as.numeric(strsplit(tabela, " ")[[1]][9])) + 1
+            
+            
+            aux <- sidra.aux(x, len, nova_req)
+            
+            
+            
+            
+            
+            
+           
+            
             
         } else{
             t1 = paste("tabela", x, sep="_")

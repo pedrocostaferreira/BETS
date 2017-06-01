@@ -62,7 +62,8 @@ search.sidra <- function(x, browse = FALSE) {
         shell.exec(paste0("http://api.sidra.ibge.gov.br/desctabapi.aspx?c=", x))
         } else{
             
-            writeLines(d3)
+            # utils::View(d3)
+            return(writeLines(d3))
             
         }
     
