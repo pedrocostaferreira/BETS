@@ -12,9 +12,6 @@ sidra.aux <- function(x, len, nova_req, from, to, inputs, territory, variable, h
     tabela <- rvest::html_text(tabela)
 
     
-    
-    
-    
     d = strsplit(tabela, split = "/P/")
     d = strsplit(d[[1]][2], split = ":")
     d = trimws(d[[1]][1])
@@ -48,9 +45,6 @@ sidra.aux <- function(x, len, nova_req, from, to, inputs, territory, variable, h
                 if(is.null(header2)){header2 = tabela1[1,]}
                 tabela = as.data.frame(do.call("rbind", list(tabela, tabela1[2:nrow(tabela1),])))
             } 
-            
-            
-            
         }
         
         colnames(tabela) <- unlist(header2)
@@ -113,30 +107,58 @@ sidra.aux <- function(x, len, nova_req, from, to, inputs, territory, variable, h
     } else if(stringr::str_count(d, "Trimestre") == 1){
         
         
-        # for(i in len){
-        # 
-        # 
-        # 
-        # 
-        # 
-        #     tabela = data.frame()
-        #     header2 = NULL
-        # 
-        # 
-        #     for(j in 1:nova_req){
-        # 
-        #         tabela=RCurl::getURL(paste0("http://api.sidra.ibge.gov.br/values/",
-        #                             "t/", inputs[i], "/", territory, "/", "p/",
-        #                             from, "-", to,
-        #                             "/v/", variable[i], "/f/", "u", "/h/", header,
-        #                             sections[[i]]),
-        #                      ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
-        # 
-        # 
-        #     }
-        #     
-        # }
+        for(i in len){
 
+
+            tabela = data.frame()
+            header2 = NULL
+            
+            
+            from2 = paste0(substr(from,1,4), "-", substr(from,5,6), "-01")
+            to2 = paste0(substr(to,1,4), "-", substr(to,5,6), "-01")
+            from2 = as.yearqtr(from2)
+            to2 = as.yearqtr(to2)
+            dif_mes = as.numeric(floor((to2 - from2)/nova_req))
+            from2 = dif_mes + from2 
+            
+            init = paste0(substr(from,1,4),substr(from,5,6))
+            fin = paste0(substr(from2,1,4),"0",substr(from2,7,7)) 
+
+
+            
+
+            for(j in 1:nova_req){
+
+                tabela1=RCurl::getURL(paste0("http://api.sidra.ibge.gov.br/values/",
+                                    "t/", inputs[i], "/", territory, "/", "p/",
+                                    from, "-", to,
+                                    "/v/", variable[i], "/f/", "u", "/h/", header,
+                                    sections[[i]]),
+                             ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
+                
+                
+                
+                
+                init = paste0(sum(as.numeric(substr(from2,1,4)),1),"0",substr(from2,7,7))
+                from2 = dif_mes + from2
+                fin = paste0(substr(from2,1,4),"0",substr(from2,7,7)) 
+                
+                t1 = paste("tabela", x, sep="_")
+                tabela1 = rjson::fromJSON(tabela1)
+                tabela1 = as.data.frame(do.call("rbind", tabela1))
+                if(is.null(header2)){header2 = tabela1[1,]} 
+                tabela = as.data.frame(do.call("rbind", list(tabela, tabela1[2:nrow(tabela1),])))
+                
+                
+
+
+            }
+
+        }
+        
+        
+        colnames(tabela) <- unlist(header2)
+        
         
     }
 
