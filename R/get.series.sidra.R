@@ -31,7 +31,7 @@
 #' sections=list(c(90687)), cl =c(11255), variable = 583)}
 
 
-
+# x = c(5932); from = 199601; to = 201701; territory = "brazil"; variable =6564; cl = c(11255); sections = c("all")
 # x = c(1612); from = 1990; to = 2015; territory = "n6/all"; variable =109; cl = NULL; sections = NULL
 
 
@@ -143,7 +143,7 @@ get.series.sidra <- function(x, from, to, territory = c(n1 = "brazil", n2 = "reg
                                 as.numeric(strsplit(tabela, " ")[[1]][9])) + 1
             
             
-            aux <- sidra.aux(x, len, nova_req)
+            tabela <- sidra.aux(x, len, nova_req)
             
             
             

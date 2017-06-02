@@ -6,7 +6,7 @@
 #' @import xml2 rvest stringr lubridate
 
 
-sidra.aux <- function(x, len, nova_req) {
+sidra.aux <- function(x, len, nova_req) { 
 
     tabela <- xml2::read_html(paste0("http://api.sidra.ibge.gov.br/desctabapi.aspx?c=", x))
     tabela <- rvest::html_text(tabela)
@@ -45,9 +45,9 @@ sidra.aux <- function(x, len, nova_req) {
                 t1 = paste("tabela", x, sep="_")
                 tabela1 = rjson::fromJSON(tabela1)
                 tabela1 = as.data.frame(do.call("rbind", tabela1))
-                header2 = tabela1[1,]
+                if(is.null(header2)){header2 = tabela1[1,]}
                 tabela = as.data.frame(do.call("rbind", list(tabela, tabela1[2:nrow(tabela1),])))
-            }
+            } 
             
             
             
@@ -74,9 +74,9 @@ sidra.aux <- function(x, len, nova_req) {
             from2 = as.Date(from2)
             to2 = as.Date(to2)
             dif_mes = as.numeric(floor((to2 - from2)/365*12/nova_req))
-            month(from2) = dif_mes + month(from2) 
+            lubridate::month(from2) = dif_mes + lubridate::month(from2) 
             
-            init = paste0(substr(from2,1,4),substr(from2,6,7))
+            init = paste0(substr(from,1,4),substr(from,5,6))
             fin = paste0(substr(from2,1,4),substr(from2,6,7)) 
             
             
@@ -92,13 +92,13 @@ sidra.aux <- function(x, len, nova_req) {
                 
                 
                 init = paste0(sum(as.numeric(substr(from2,1,4)),1),substr(from2,6,7))
-                month(from2) = dif_mes + month(from2)
+                lubridate::month(from2) = dif_mes + lubridate::month(from2)
                 fin = paste0(substr(from2,1,4),substr(from2,6,7)) 
                 
                 t1 = paste("tabela", x, sep="_")
                 tabela1 = rjson::fromJSON(tabela1)
                 tabela1 = as.data.frame(do.call("rbind", tabela1))
-                header2 = tabela1[1,]
+                if(is.null(header2)){header2 = tabela1[1,]} 
                 tabela = as.data.frame(do.call("rbind", list(tabela, tabela1[2:nrow(tabela1),])))
                 
                 
@@ -113,27 +113,27 @@ sidra.aux <- function(x, len, nova_req) {
     } else if(stringr::str_count(d, "Trimestre") == 1){
         
         
-        for(i in len){
-            
-            
-            
-            
-            
-            tabela = data.frame()
-            header2 = NULL
-            
-            
-            for(j in 1:nova_req){
-        
-                tabela=RCurl::getURL(paste0("http://api.sidra.ibge.gov.br/values/",
-                                    "t/", inputs[i], "/", territory, "/", "p/", 
-                                    from, "-", to,  
-                                    "/v/", variable[i], "/f/", "u", "/h/", header,
-                                    sections[[i]]),
-                             ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
-            
-            
-            }
+        # for(i in len){
+        #     
+        #     
+        #     
+        #     
+        #     
+        #     tabela = data.frame()
+        #     header2 = NULL
+        #     
+        #     
+        #     for(j in 1:nova_req){
+        # 
+        #         tabela=RCurl::getURL(paste0("http://api.sidra.ibge.gov.br/values/",
+        #                             "t/", inputs[i], "/", territory, "/", "p/", 
+        #                             from, "-", to,  
+        #                             "/v/", variable[i], "/f/", "u", "/h/", header,
+        #                             sections[[i]]),
+        #                      ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
+        #     
+        #     
+        #     }
             
         }
 
@@ -145,9 +145,7 @@ sidra.aux <- function(x, len, nova_req) {
     
     
     
-    id2 = which(colnames(tabela)== "D4N")
-    colnames(tabela) = unlist(tabela[1,])
-    tabela = tabela[-1,]
+    # id2 = which(colnames(tabela)== "D4N")
     id = which(colnames(tabela)=="V" | colnames(tabela)=="Valor")
     id3 = which(colnames(tabela) == "M\u00EAs" | colnames(tabela) == "Ano" |
                     colnames(tabela) == "Trimestre")
