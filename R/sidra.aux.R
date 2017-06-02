@@ -6,7 +6,7 @@
 #' @import xml2 rvest stringr lubridate
 
 
-sidra.aux <- function(x, len, nova_req) { 
+sidra.aux <- function(x, len, nova_req, from, to, inputs, territory, variable, header, sections) { 
 
     tabela <- xml2::read_html(paste0("http://api.sidra.ibge.gov.br/desctabapi.aspx?c=", x))
     tabela <- rvest::html_text(tabela)
@@ -57,7 +57,7 @@ sidra.aux <- function(x, len, nova_req) {
         
         
         
-    } else if (stringr::str_count(d, "Mês") == 1){
+    } else if (stringr::str_count(d, "M\u00EAs") == 1){
         
        
         
@@ -114,28 +114,28 @@ sidra.aux <- function(x, len, nova_req) {
         
         
         # for(i in len){
-        #     
-        #     
-        #     
-        #     
-        #     
+        # 
+        # 
+        # 
+        # 
+        # 
         #     tabela = data.frame()
         #     header2 = NULL
-        #     
-        #     
+        # 
+        # 
         #     for(j in 1:nova_req){
         # 
         #         tabela=RCurl::getURL(paste0("http://api.sidra.ibge.gov.br/values/",
-        #                             "t/", inputs[i], "/", territory, "/", "p/", 
-        #                             from, "-", to,  
+        #                             "t/", inputs[i], "/", territory, "/", "p/",
+        #                             from, "-", to,
         #                             "/v/", variable[i], "/f/", "u", "/h/", header,
         #                             sections[[i]]),
         #                      ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
-        #     
-        #     
+        # 
+        # 
         #     }
-            
-        }
+        #     
+        # }
 
         
     }

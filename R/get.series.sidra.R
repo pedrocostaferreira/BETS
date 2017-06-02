@@ -143,7 +143,7 @@ get.series.sidra <- function(x, from, to, territory = c(n1 = "brazil", n2 = "reg
                                 as.numeric(strsplit(tabela, " ")[[1]][9])) + 1
             
             
-            tabela <- sidra.aux(x, len, nova_req)
+            tabela <- sidra.aux(x, len, nova_req, from, to, inputs, territory, variable, header, sections)
             
             
             
