@@ -37,7 +37,8 @@ Imports:
 Suggests:
     mFilter,
     lubridate,
-    xts
+    xts,
+    htmltools
 Description: It provides access to and information about the most important
     Brazilian economic time series - from the Getulio Vargas Foundation,
     the Central Bank of Brazil and the Brazilian Institute of Geography

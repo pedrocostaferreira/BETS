@@ -24,7 +24,7 @@ BETS.chart(ts, style = "normal", file = NULL, open = TRUE, lang = "en",
 If parameter \code{file} is not set by the user, the chart will be shown at the standard R ploting area. Otherwise, it is going to be saved on your computer.
 }
 \description{
-Create a chart with a professional look, using a pre-defined BETS series or a custom series.
+Create a professional looking chart, using a pre-defined BETS series or a custom series.
 }
 \details{
 \bold{Names of pre-defined charts:}
@@ -69,7 +69,7 @@ Macro Situation Dashboard:
  \bold{'vargdp'} \tab GDP - real percentage change in the year \tab 7326 
 }
 
-(*) Not in BETS databases yet. But you can find it in .csv files saved under your BETS installation directory.
+(*) Not available on BETS databases yet. But you can find it in .csv files saved under your BETS installation directory.
 }
 \note{
 It is not yet possible to make charts of custom series.

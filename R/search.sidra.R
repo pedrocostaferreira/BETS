@@ -11,7 +11,8 @@
 #' }
 #' @keywords sidra IBGE
 #' @importFrom utils View 
-#' @import xml2 rvest stringr
+#' @importFrom htmltools html_print
+#' @import xml2 rvest stringr 
 #' @export
 
 search.sidra <- function(x, browse = FALSE) {
@@ -26,7 +27,17 @@ search.sidra <- function(x, browse = FALSE) {
         tabela <- rvest::html_nodes(tabela,".busca-link-tabela")
         tabela <- rvest::html_text(tabela)
         
-        return(writeLines(tabela))
+        
+        tabela <- str_replace(tabela, "Tabela ", "")
+        tabela <- stringr::str_split(tabela, "-", n = 2)
+        tabela <- matrix(trimws(unlist(tabela)), ncol = 2, byrow = TRUE)
+        
+        colnames(tabela) <- c("code", "description")
+        msg(paste("Found", nrow(tabela), "results."))
+        utils::View(tabela)
+        
+        
+        # return(writeLines(tabela))
     } else if (is.numeric(x)){
     
     
@@ -78,3 +89,4 @@ search.sidra <- function(x, browse = FALSE) {
 
 
 
+# library(htmltools); View(html_print(pre(paste0(capture.output(print(mtcars)), collapse="\n"))))
