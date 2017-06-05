@@ -28,7 +28,7 @@ search.sidra <- function(x, browse = FALSE) {
         tabela <- rvest::html_text(tabela)
         
         
-        tabela <- str_replace(tabela, "Tabela ", "")
+        tabela <- stringr::str_replace(tabela, "Tabela ", "")
         tabela <- stringr::str_split(tabela, "-", n = 2)
         tabela <- matrix(trimws(unlist(tabela)), ncol = 2, byrow = TRUE)
         
