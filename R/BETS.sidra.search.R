@@ -6,8 +6,8 @@
 #' @param browse Logical. If browse is set to TRUE, the description table opens in your browser for better visualization.
 #' @examples
 #' \dontrun{
-#' search.sidra("pib")
-#' sear.sidra(1248)
+#' BETS.sidra.search("pib")
+#' BETS.sidra.search(1248)
 #' }
 #' @keywords sidra IBGE
 #' @importFrom utils View 
