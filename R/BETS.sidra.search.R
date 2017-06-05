@@ -13,9 +13,9 @@
 #' @importFrom utils View 
 #' @importFrom htmltools html_print
 #' @import xml2 rvest stringr 
-#' @export
+#' @export 
 
-search.sidra <- function(x, browse = FALSE) {
+BETS.sidra.search <- function(x, browse = FALSE) {
     
     
     if( is.character(x)){

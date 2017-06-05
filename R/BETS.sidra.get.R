@@ -35,7 +35,7 @@
 # x = c(1612); from = 1990; to = 2015; territory = "n6/all"; variable =109; cl = NULL; sections = NULL
 
 
-get.series.sidra <- function(x, from, to, territory = c(n1 = "brazil", n2 = "region", n3 = "state"), variable, cl = NULL, sections = NULL){ 
+BETS.sidra.get <- function(x, from, to, territory = c(n1 = "brazil", n2 = "region", n3 = "state"), variable, cl = NULL, sections = NULL){ 
     
     
      # browser()
