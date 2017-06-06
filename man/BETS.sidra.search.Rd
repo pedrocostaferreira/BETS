@@ -4,10 +4,12 @@
 \alias{BETS.sidra.search}
 \title{Search for Sidra Series}
 \usage{
-BETS.sidra.search(x, browse = FALSE)
+BETS.sidra.search(description = "*", code, browse = FALSE)
 }
 \arguments{
-\item{x}{Either a character or a numeric. If character, function searches the Sidra metadata. If a numeric argument is provided the descriptions of the given table are seached .}
+\item{description}{A character argument. Function searches the Sidra metadata and prints results in a window.}
+
+\item{code}{A numeric argument must be provided. The descriptions of the given table are returned.}
 
 \item{browse}{Logical. If browse is set to TRUE, the description table opens in your browser for better visualization.}
 }

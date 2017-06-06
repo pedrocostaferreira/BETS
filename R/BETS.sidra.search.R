@@ -2,7 +2,8 @@
 #'
 #' Searches the Sidra databases for a series by its description or a given table descriptions.
 #'
-#' @param x Either a character or a numeric. If character, function searches the Sidra metadata. If a numeric argument is provided the descriptions of the given table are seached .
+#' @param description A character argument. Function searches the Sidra metadata and prints results in a window.
+#' @param code A numeric argument must be provided. The descriptions of the given table are returned.
 #' @param browse Logical. If browse is set to TRUE, the description table opens in your browser for better visualization.
 #' @examples
 #' \dontrun{
@@ -15,14 +16,14 @@
 #' @import xml2 rvest stringr 
 #' @export 
 
-BETS.sidra.search <- function(x, browse = FALSE) {
+BETS.sidra.search <- function(description = "*", code, browse = FALSE) {
     
     
-    if( is.character(x)){
+    if(is.character(description) & missing(code)){
     
-        x <- stringr::str_replace_all(x, " ", "%20")
+        description <- stringr::str_replace_all(description, " ", "%20")
         
-        tabela <- xml2::read_html(paste0("https://sidra.ibge.gov.br/Busca?q=", x))
+        tabela <- xml2::read_html(paste0("https://sidra.ibge.gov.br/Busca?q=", description))
         
         tabela <- rvest::html_nodes(tabela,".busca-link-tabela")
         tabela <- rvest::html_text(tabela)
@@ -38,10 +39,10 @@ BETS.sidra.search <- function(x, browse = FALSE) {
         
         
         # return(writeLines(tabela))
-    } else if (is.numeric(x)){
+    } else if (is.numeric(code)){
     
     
-        tabela <- xml2::read_html(paste0("http://api.sidra.ibge.gov.br/desctabapi.aspx?c=", x))
+        tabela <- xml2::read_html(paste0("http://api.sidra.ibge.gov.br/desctabapi.aspx?c=", code))
         tabela <- rvest::html_text(tabela)
         
         
@@ -70,7 +71,7 @@ BETS.sidra.search <- function(x, browse = FALSE) {
         
         if(browse != FALSE){
         
-        shell.exec(paste0("http://api.sidra.ibge.gov.br/desctabapi.aspx?c=", x))
+        shell.exec(paste0("http://api.sidra.ibge.gov.br/desctabapi.aspx?c=", code))
         } else{
             
             # utils::View(d3)
@@ -79,7 +80,7 @@ BETS.sidra.search <- function(x, browse = FALSE) {
         }
     
     
-    } else{ stop("x must be provided as a character or numeric.") }
+    } else{ stop("Either 'description' or 'code' must be provided as input.") }
 
 }
 

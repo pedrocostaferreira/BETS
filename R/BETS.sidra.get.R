@@ -35,7 +35,11 @@
 # x = c(1612); from = 1990; to = 2015; territory = "n6/all"; variable =109; cl = NULL; sections = NULL
 
 
-BETS.sidra.get <- function(x, from, to, territory = c(n1 = "brazil", n2 = "region", n3 = "state"), variable, cl = NULL, sections = NULL){ 
+BETS.sidra.get <- function(x, from, to, territory = c(n1 = "brazil", n2 = "region", n3 = "state", 
+                                                      n6 = "city", n8 = "mesoregion", n9 = "microregion", 
+                                                      n129 = "citizenship", n132 = "semiarid", 
+                                                      n133 = "semiaridUF"), 
+                           variable, cl = NULL, sections = NULL){ 
     
     
      # browser()
@@ -63,7 +67,13 @@ BETS.sidra.get <- function(x, from, to, territory = c(n1 = "brazil", n2 = "regio
     territory <- base::switch(territory,
                               brazil = "n1/all", 
                               region = "n2/all", 
-                              state = "n3/all")
+                              state = "n3/all",
+                              city = "n6/all",
+                              mesoregion = "n8/all",
+                              microregion = "n9/all",
+                              citizenship = "n129/all",
+                              semiarid = "n132/all",
+                              semiaridUF = "n133/all")
     
     header = "y"
     

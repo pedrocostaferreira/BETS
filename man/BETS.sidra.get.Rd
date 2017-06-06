@@ -5,7 +5,9 @@
 \title{A function to extract Sidra series using their API}
 \usage{
 BETS.sidra.get(x, from, to, territory = c(n1 = "brazil", n2 = "region", n3 =
-  "state"), variable, cl = NULL, sections = NULL)
+  "state", n6 = "city", n8 = "mesoregion", n9 = "microregion", n129 =
+  "citizenship", n132 = "semiarid", n133 = "semiaridUF"), variable, cl = NULL,
+  sections = NULL)
 }
 \arguments{
 \item{x}{Sidra series number.}

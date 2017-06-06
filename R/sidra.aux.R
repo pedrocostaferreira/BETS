@@ -3,7 +3,8 @@
 #' Searches the Sidra databases for a series by its description or a given table descriptions.
 #'
 #' @param x Either a character or a numeric. If character, function searches the Sidra metadata. If a numeric argument is provided the descriptions of the given table are seached .
-#' @import xml2 rvest stringr lubridate
+#' @import xml2 rvest stringr
+#' @importFrom lubridate month
 
 
 sidra.aux <- function(x, len, nova_req, from, to, inputs, territory, variable, header, sections) { 

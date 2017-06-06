@@ -38,7 +38,7 @@ BETS.addin_pt  = function(){
             column(2,
                    selectInput("periodicity",
                                "Periodicidade:",
-                               c("All","Mensal","Anual","Semanal","Trimestral","Diaria")
+                               c("All","Mensal","Anual","Semanal","Trimestral","Di\u00E1ria")
                                
                    )       
             ),
@@ -72,7 +72,7 @@ BETS.addin_pt  = function(){
         miniContentPanel(
           fluidRow(
             column(2, 
-                   textInput("code","C\u00F3digo da serie")
+                   textInput("code","C\u00F3digo da s\u00E9rie")
             ),
             column(3,
                    textInput("name","Nome do arquivo","Dados")
