@@ -84,6 +84,8 @@ BETS.chart = function(ts, style = "normal", file = NULL, open = TRUE, lang = "en
   else {
     return(invisible(msg(.MSG_LANG_NOT_AVAILABLE)))
   }
+    
+  not.set <- F
   
   if(!is.null(file)){
     
@@ -91,6 +93,7 @@ BETS.chart = function(ts, style = "normal", file = NULL, open = TRUE, lang = "en
     file = paste0("graphs","\\",file)
     
     if(!grepl("\\.png$", file) && !grepl("\\.pdf$",file)) {
+      not.set <- T
       file <- paste(file,".png",sep="")
     }
   } 
@@ -130,8 +133,13 @@ BETS.chart = function(ts, style = "normal", file = NULL, open = TRUE, lang = "en
     } else if(ts %in% c("transf_ind","servc","retail","constr","consm")){
       p = draw.survey(ts)
     } else {
-      
+        
       if(!is.null(file)){
+          
+        if(not.set){
+            file <- sub("\\.png","\\.pdf",file)
+        }
+          
         if(grepl("\\.png", file)){
           png(file,width=728,height=478, pointsize = 15) 
         }

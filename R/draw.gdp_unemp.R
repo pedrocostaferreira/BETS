@@ -81,7 +81,7 @@ draw.gdp_unemp = function(){
            margin = m,
            titlefont = list(size = 19),
            annotations = list(a,b),
-           legend = list(orientation = 'h', x = 0.17, y = -0.33))
+           legend = list(orientation = 'h', x = 0.3, y = -0.33))
   
   return(p)
 }

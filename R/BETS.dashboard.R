@@ -54,9 +54,11 @@ BETS.dashboard = function(type = "business_cycle", charts = "all", saveas = NA, 
       
       if(is.null(parameters)){
           parameters = list()
-      }
+      } 
       
-      parameters = c(parameters, charts)
+      parameters$charts = charts
+      
+      print(parameters)
   }
   
   if(is.null(parameters)){
