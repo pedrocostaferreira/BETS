@@ -90,5 +90,16 @@ BETS.chart("selic", file = "selic.png", open = F)
 BETS.chart("selic", file = "selic.pdf", open = F)
 
 
+## Custom Charts
+
+params <- list(
+  type = "lines",
+  title = "Plot title",
+  subtitle = "Plot subtitle",
+  legend = "IPCA",
+  extra = 
+)
+
+
 
 
