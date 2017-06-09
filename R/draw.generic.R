@@ -86,7 +86,7 @@ draw.generic <- function(ts, style, params){
             leg = paste0("Chart ", 1:length(series))
         }
         
-        chart.add_notes(series, names = params$legend, ylim = lims[3:4], xlim = lims[1:2])
+        chart.add_notes(series, names = params$legend, ylim = params$ylim, xlim = params$xlim)
         
     } else {
         
