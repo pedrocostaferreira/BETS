@@ -60,13 +60,19 @@
 #' Custom Dashboards:
 #' 
 #' \enumerate{
-#' \item{\code{type} A \code{character}. Either 'bar' or 'lines'. Whether to plot bars or lines.}
+#' \item{\code{type} A \code{character}. Either 'bar' or 'lines'. Whether to plot bars or lines. Works for main series, only.}
+#' \item{\code{trend} A \code{boolean}. Default is \code{FALSE}. Set it to \code{TRUE} if the trend of the main series (parameter \code{ts}) is to be drawn.}
 #' \item{\code{title}} A \code{character}. The plot's title.
 #' \item{\code{subtitle}} A \code{character}. The plot's subtitle.
-#' \item{\code{legend}} A \code{character} vector. The names of the series. Default is \code{NULL} (no legends).
-#' \item{\code{trend} A \code{boolean}. Default is \code{FALSE}. Set it to \code{TRUE} if the trend of the trend of the main series (parameter \code{ts}) is to be drawn.}
+#' \item{\code{xlim}} A \code{numeric} vector. X axis limits 
+#' \item{\code{ylim}} A \code{numeric} vector. Y axis limits
+#' \item{\code{arrow}} A \code{character}. The orientation of the arrow pointing to the last value of the main series. Valid values are 'h' (horizontal) and 'v' (vertical). Doesn't work for 'plotly' type plots.
 #' \item{\code{extra}} A \code{ts} object. A second series to be plotted.
 #' \item{\code{extra.y2}} A \code{boolean}. Default is \code{FALSE}. Does the extra series require a second y axis? 
+#' \item{\code{extra.arrow}} A \code{character}. The orientation of the arrow pointing to the last value of the extra series. Valid values are 'h' (horizontal) and 'v' (vertical). Doesn't work for 'plotly' type plots.
+#' \item{\code{colors}} A \code{character} or \code{integer} vector. A vector of colors, one for each series. Trends will always be drawn in gray, its color can't be set. 
+#' \item{\code{legend}} A \code{character} vector. The names of the series. Default is \code{NULL} (no legends).
+#' \item{\code{legend.pos}} A \code{character}. The legend position. Possibile values are 'topleft','bottomleft', 'topright' and 'bottomright'.
 #' \item{\code{codace}} A \code{boolean}. Default is \code{FALSE}. Include shaded areas for recessions, as dated by CODACE(**)? This feature only works if \code{style} is set to 'plotly'.
 #' }
 #' 
@@ -190,21 +196,21 @@ BETS.chart = function(ts, style = "normal", file = NULL, open = TRUE, lang = "en
     
   } else {
       
-    if(style == "normal"){
-        
-        if(!is.null(file)){
+      print("okkk")
+      
+    if(style == "normal" && !is.null(file)){
             
-            if(not.set){
-                file <- sub("\\.png","\\.pdf",file)
-            }
-            
-            if(grepl("\\.png", file)){
-                png(file,width=728,height=478, pointsize = 15) 
-            }
-            else {
-                pdf(file, width = 7, height = 4.5)
-            } 
+        if(not.set){
+            file <- sub("\\.png","\\.pdf",file)
         }
+        
+        if(grepl("\\.png", file)){
+            png(file,width=728,height=478, pointsize = 15) 
+        }
+        else {
+            pdf(file, width = 7, height = 4.5)
+        } 
+        
     }
       
     p = draw.generic(ts, style, params)
