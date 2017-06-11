@@ -29,7 +29,7 @@ Create a professional looking chart, using a pre-defined BETS series or a custom
 \details{
 \bold{Names of pre-defined charts:}
 
-Business Cycle Dashboard:
+Business Cycle Dashboard ('plotly' style):
 
 \tabular{lll}{
  VALUE \tab DESCRIPTION \tab CODE \cr
@@ -55,9 +55,9 @@ Business Cycle Dashboard:
  \bold{'consm'} \tab Consumer Confidence Index (Expectations versus Present Situation) \tab (*) 
 }
 
-Macro Situation Dashboard:
+Macro Situation Dashboard ('normal' style):
 
-#' \tabular{lll}{
+\tabular{lll}{
  VALUE \tab DESCRIPTION \tab CODE \cr
  \bold{'ipca_with_core'} \tab National consumer price index (IPCA) - in 12 months and  Broad national consumer price index - Core IPCA trimmed means smoothed \tab 13522 and 4466 \cr
  \bold{'ulc'} \tab Unit labor cost - ULC-US$ - June/1994=100 \tab 11777 \cr
@@ -70,6 +70,27 @@ Macro Situation Dashboard:
 }
 
 (*) Not available on BETS databases yet. But you can find it in .csv files saved under your BETS installation directory.
+
+Custom Dashboards:
+
+\enumerate{
+\item{\code{type} A \code{character}. Either 'bar' or 'lines'. Whether to plot bars or lines. Works for main series, only.}
+\item{\code{trend} A \code{boolean}. Default is \code{FALSE}. Set it to \code{TRUE} if the trend of the main series (parameter \code{ts}) is to be drawn.}
+\item{\code{title}} A \code{character}. The plot's title.
+\item{\code{subtitle}} A \code{character}. The plot's subtitle.
+\item{\code{xlim}} A \code{numeric} vector. X axis limits 
+\item{\code{ylim}} A \code{numeric} vector. Y axis limits
+\item{\code{arrow}} A \code{character}. The orientation of the arrow pointing to the last value of the main series. Valid values are 'h' (horizontal) and 'v' (vertical). Doesn't work for 'plotly' type plots.
+\item{\code{extra}} A \code{ts} object. A second series to be plotted.
+\item{\code{extra.y2}} A \code{boolean}. Default is \code{FALSE}. Does the extra series require a second y axis? 
+\item{\code{extra.arrow}} A \code{character}. The orientation of the arrow pointing to the last value of the extra series. Valid values are 'h' (horizontal) and 'v' (vertical). Doesn't work for 'plotly' type plots.
+\item{\code{colors}} A \code{character} or \code{integer} vector. A vector of colors, one for each series. Trends will always be drawn in gray, its color can't be set. 
+\item{\code{legend}} A \code{character} vector. The names of the series. Default is \code{NULL} (no legends).
+\item{\code{legend.pos}} A \code{character}. The legend position. Possibile values are 'topleft','bottomleft', 'topright' and 'bottomright'.
+\item{\code{codace}} A \code{boolean}. Default is \code{FALSE}. Include shaded areas for recessions, as dated by CODACE(**)? This feature only works if \code{style} is set to 'plotly'.
+}
+
+(**) Business Cycle Dating Committee (FGV/IBRE)
 }
 \note{
 It is not yet possible to make charts of custom series.

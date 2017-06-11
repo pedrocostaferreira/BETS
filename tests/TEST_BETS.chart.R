@@ -90,5 +90,19 @@ BETS.chart("selic", file = "selic.png", open = F)
 BETS.chart("selic", file = "selic.pdf", open = F)
 
 
+## Custom Charts
+
+ts <- BETS.get(4537)
+    
+params <- list(
+  type = "lines",
+  title = "General Government Debt",
+  subtitle = "% GDP",
+  legend = c("Gross", "Net"),
+  extra = BETS.get(4536)
+)
+
+BETS.chart(ts = ts, style = "normal", file = "teste.png", open = T, params = params)
+
 
 

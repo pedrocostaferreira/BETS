@@ -4,14 +4,19 @@
 \alias{BETS.dashboard}
 \title{Create a BETS custom dashboard}
 \usage{
-BETS.dashboard(type = "business_cycle", saveas = NA, parameters = NULL)
+BETS.dashboard(type = "business_cycle", charts = "all", saveas = NA,
+  parameters = NULL)
 }
 \arguments{
-\item{type}{A \code{character}. The theme of the dashboard. The only two options, for the time being, is 'business_cycle' and 'macro_situation'.}
+\item{type}{A \code{character}. The theme of the dashboard. The only three options, for the time being, is 'business_cycle', 'macro_situation' and 'custom'. Custom dashboards can be rendered with any given set of charts.}
+
+\item{charts}{A \code{character} and/or \code{ts} object list. The charts to be added to a custom dashboard. Up to 16 charts are allowed, including pre-defined charts, identified by their codes (see \code{\link{BETS.chart}}). This will only work if parameter 'type' is set to 'custom'.}
 
 \item{saveas}{A \code{character}. A path and a name for the dashboard file (a .pdf file). If this parameter is not provided, the dashboard will be saved inside the 'dashboards' folder, under the BETS installation directory.}
 
 \item{parameters}{A \code{list}. A list of parameters. See the 'Details' section for a description of these parameters for each type of dashboard.}
+
+\item{charts.params}{A \code{list} of \code{list}s. Each element of the top level list must be a list of parameters for custom charts, as defined in (see \code{\link{BETS.chart}}). The i-th entry must correspond to the i-th chart of the argument \code{chart}. If the i-th chart is pre-defined, set its corresponding list element to 'NA'.}
 }
 \value{
 A .pdf file (the dashboard)
@@ -20,7 +25,7 @@ A .pdf file (the dashboard)
 Generate thematic dashboards using a selection of BETS time series and charts. For now, themes and charts are pre-defined.
 }
 \details{
-\bold{Macro Situation Dashboard Parameters} 
+\bold{Macro Situation and Custom Dashboard Parameters} 
 
 \itemize{
 \item{ \code{text} - The text to be printed in the dashboard. Separate paragraphs with two backslashes 'n' and pages with '##'. There are no other syntax rules.}
@@ -29,6 +34,11 @@ Generate thematic dashboards using a selection of BETS time series and charts. F
 \item{ \code{url} - The author's webpage.}
 \item{ \code{logo} - The author's business logo.}
 }
+
+
+\bold{Additional Custom Dashboard Parameters}
+
+\code{style} - The style of the charts. As in \code{BETS.chart}, can be either \code{plotly} or \code{normal}.
 }
 \examples{
 
