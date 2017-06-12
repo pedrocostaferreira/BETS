@@ -27,18 +27,21 @@ Generate thematic dashboards using a selection of BETS time series and charts. F
 \details{
 \bold{Macro Situation and Custom Dashboard Parameters} 
 
-\itemize{
-\item{ \code{text} - The text to be printed in the dashboard. Separate paragraphs with two backslashes 'n' and pages with '##'. There are no other syntax rules.}
-\item{ \code{author} - The author's name.}
-\item{ \code{email} - The author's email.}
-\item{ \code{url} - The author's webpage.}
-\item{ \code{logo} - The author's business logo.}
+\tabular{ll}{
+\code{text}\tab The text to be printed in the dashboard. Separate paragraphs with two backslashes 'n' and pages with '##'. There are no other syntax rules.\cr
+\code{author}\tab The author's name.\cr
+\code{email}\tab The author's email.\cr
+\code{url}\tab The author's webpage.\cr
+\code{logo}\tab The author's business logo.\cr
 }
 
 
 \bold{Additional Custom Dashboard Parameters}
 
-\code{style} - The style of the charts. As in \code{BETS.chart}, can be either \code{plotly} or \code{normal}.
+\tabular{ll}{
+\code{style} \tab A \code{character}. The style of the charts. As in \code{BETS.chart}, can be either \code{plotly} or \code{normal}.\cr
+\code{charts.opts} \tab A \code{}\cr
+}
 }
 \examples{
 

@@ -62,7 +62,7 @@ draw.ipca = function(){
   abline(a = 4.5, b = 0, lty = 3, lwd = 3, col = "darkgray")
   
   legend("topleft", c("IPCA", "Core"), lty=c(1,2), lwd=c(2.5,2.5),col=c("firebrick4", "firebrick3"), bty = "n", cex = 0.9)
-  text(lims[2] - strwidth("Target"), 4.1, "Target", cex = 0.9)
+  text(lims[2] - 3*strwidth("Target"), 4.1, "Target", cex = 0.9)
   
   chart.add_notes(list(ipca = ipca, core = core), names = c("IPCA","Core"), ylim = lims[3:4], xlim = lims[1:2])
 

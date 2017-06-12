@@ -60,7 +60,14 @@ chart.add_basic = function(ts, xlim = NULL, ylim = NULL, type = "lines", title =
     aval = paste0("Last available data: ", last[1], "/", last[2], "/", last[3])
   }
   
-  par(font.lab = 2, cex.axis = 1.2, bty = "n", las = 1)
+  
+  if(frequency(ts) != 1){
+     m = c(7.1,4.1,3.1,2.1)
+  } else {
+     m = c(3.1,4.1,3.1,2.1) 
+  }
+  
+  par(font.lab = 2, cex.axis = 1.2, bty = "n", las = 1, mar= m)
  
   if(type == "lines"){
     
@@ -73,7 +80,7 @@ chart.add_basic = function(ts, xlim = NULL, ylim = NULL, type = "lines", title =
     
   }
   else {
-    barplot(as.vector(series), names.arg = as.vector(time(series)), xlab = "", ylab = "", main = title, col = col, ylim = ylim)
+    barplot(as.vector(series), names.arg = as.vector(time(series)), xlab = "", ylab = "", main = title, col = col, ylim = ylim,  xpd = FALSE)
   }
   
   mtext(subtitle)
@@ -92,7 +99,7 @@ chart.add_basic = function(ts, xlim = NULL, ylim = NULL, type = "lines", title =
   val = round(series[length(series)],2)
   d = 0 
   
-  if(nchar(val) >= 4){
+  if(nchar(val) >= 4 && type != "bar"){
     d = strwidth(val)/nchar(val)
   }
 
@@ -167,8 +174,7 @@ chart.add_basic = function(ts, xlim = NULL, ylim = NULL, type = "lines", title =
     arrows(x0 = x0, x1 = x1, y0 = y0, y1 = y1, length = c(0.01*x.spam, 0.00006*y.spam), lwd = 2)
   }
   else {
-    #text(x0 - d, ylim[1] + sign(val)*0.01*y.spam, as.character(val), cex = 1.1, font = 2)
-    text(x0 - d, ylim[1] + sign(val)*0.2*strheight(val), as.character(val), cex = 1.1, font = 2)
+     text(x0 - strwidth(val)/2, val - sign(val)*0.7*strheight(val), as.character(val), cex = 0.9, font = 2)
   }
   
   return(c(xlim,ylim))

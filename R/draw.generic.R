@@ -14,8 +14,21 @@
 
 draw.generic <- function(ts, style, params){
     
-    no.extra <- F
+    no.extra = F
+    no.legend = F
     
+    if(is.null(params$extra)){
+        no.extra = T
+    }
+    
+    if(is.null(params$legend)){
+        no.legend = T
+    }
+    
+    if(is.null(params$trend)){
+        params$trend = F
+    }
+
     if(is.null(params$type)){
         params$type = 'lines'   
     } 
@@ -28,20 +41,12 @@ draw.generic <- function(ts, style, params){
         params$subtitle = ''
     }
     
-    if(is.null(params$arrow)){
-        params$arrow = 'v'
+    if(is.null(params$arr.ort)){
+        params$arr.ort = 'v'
     }
     
-    if(is.null(params$extra)){
-        no.extra = T
-    }
-    
-    if(is.null(params$extra.arrow)){
-        params$extra.arrow = 'h'
-    }
-    
-    if(is.null(params$legend)){
-        params$legend = 'none'
+    if(is.null(params$extra.arr.ort)){
+        params$extra.arr.ort = 'h'
     }
     
     if(is.null(params$legend.pos)){
@@ -57,36 +62,43 @@ draw.generic <- function(ts, style, params){
         
         series = ts
         leg.pos = params$legend.pos
-        ylim = params$ylim
-        xlim = params$xlim
         
-        if(!is.null(params$extra)){
+        if(!no.extra){
             leg.pos = 'none'
         }
         
-        lims = chart.add_basic(ts = series, title = params$title, subtitle = params$subtitle, xlim = params$xlim, ylim = params$ylim, col = params$colors[1], leg.pos = leg.pos)
+        lims = chart.add_basic(ts = series, type = params$type, title = params$title, subtitle = params$subtitle, xlim = params$xlim, ylim = params$ylim, col = params$colors[1], leg.pos = leg.pos, arr.pos = params$arr.ort, arr.size = params$arr.len, trend = params$trend)
         
         if(is.null(params$xlim)){
-          params$xlim = lims[1:2]  
+            params$xlim = lims[1:2]  
         } 
         
         if(is.null(params$ylim)){
             params$ylim = lims[3:4]  
         } 
             
-        if(!is.null(params$extra)){
+        if(!no.extra){
             series = list(series, params$extra)
-            chart.add_extra(params$extra, ylim = params$ylim, xlim = params$xlim, col = params$colors[2], leg.pos = leg.pos)
+            chart.add_extra(params$extra, ylim = params$ylim, xlim = params$xlim, col = params$colors[2], leg.pos = leg.pos, arr.pos = params$extra.arr.ort, arr.size = params$extra.arr.len, main.type = params$type)
         }
         
-        if(!is.null(params$legend)){
+        if(!no.legend){
             leg = params$legend
-            legend("topleft", leg, lty=c(1,2), lwd=c(2.5,2.5), col= params$colors, bty = "n", cex = 0.9)
+            
+            t2 = 2
+            
+            if(params$type == "bar"){
+                t2 = 1
+            }
+            
+            legend(params$legend.pos, leg, lty=c(1,t2), lwd=c(2.5,2.5), col= params$colors, bty = "n", cex = 0.9)
         } else {
-            leg = paste0("Chart ", 1:length(series))
+            leg = paste0("Series ", 1:length(series))
         }
         
-        chart.add_notes(series, names = params$legend, ylim = params$ylim, xlim = params$xlim)
+        if(frequency(ts) != 1){
+            chart.add_notes(series, names = leg, ylim = lims[3:4], xlim = lims[1:2]) 
+        }
         
     } else {
         

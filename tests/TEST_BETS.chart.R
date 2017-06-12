@@ -92,17 +92,35 @@ BETS.chart("selic", file = "selic.pdf", open = F)
 
 ## Custom Charts
 
-ts <- BETS.get(4537)
+ts <- window(BETS.get(4537),start = c(2006,1))
     
 params <- list(
   type = "lines",
   title = "General Government Debt",
+  arr.len = 6,
+  ylim = c(30,82),
   subtitle = "% GDP",
   legend = c("Gross", "Net"),
-  extra = BETS.get(4536)
+  extra = window(BETS.get(4536),start = c(2006,1)),
+  extra.arr.ort = 'h',
+  extra.arr.len = 1 
 )
 
-BETS.chart(ts = ts, style = "normal", file = "teste.png", open = T, params = params)
+BETS.chart(ts = ts, style = "normal", file = "debt.png", open = T, params = params)
 
+ts <- window(BETS.get(3545),start = 2006)/100
 
+params <- list(
+    type = "bar",
+    title = "International Reserves",
+    subtitle = "Total, US$ Billions",
+    trend = T,
+    colors = 'chocolate1'
+)
 
+BETS.chart(ts = ts, style = "normal", file = "int_res.pdf", open = T, params = params)
+
+# par(mar = c(5.1,4.1,4.1,2.1))
+# series = ts(1:20, start = 2000, end = 2019, frequency = 1)
+# b = barplot(as.vector(series), names.arg = as.vector(time(series)), xlab = "", ylab = "",  xpd = FALSE)
+# lines(y = as.vector(series), lwd = 2.5, lty = 2)

@@ -15,66 +15,68 @@
 #' 
 #' \bold{Names of pre-defined charts:}
 #' 
-#' Business Cycle Dashboard ('plotly' style):
+#' \bold{1. Business Cycle Dashboard ('plotly' style)}
 #' 
 #' \tabular{lll}{
 #'  VALUE \tab DESCRIPTION \tab CODE \cr
-#'  \bold{'iie_br'} \tab Uncertainty Index \tab ST_100.0 \cr
-#'  \bold{'sent_ind'} \tab Economic Sentiment Index (average between several confidence indexes) \tab (*) \cr
-#'  \bold{'gdp_mon'} \tab GDP Monthly and Interanual Variation (last values) - GDP Monitor (FGV/IBRE) \tab (*) \cr
-#'  \bold{'ei_vars'} \tab Economic Indicators (Leading and Coincident) monthly variation \tab (*) \cr
-#'  \bold{'ei_comps'} \tab Economic Indicators (Leading and Coincident) components variation  \tab (*) \cr
-#'  \bold{'lei'} \tab Leading Economic Indicator (LEI - FGV/IBRE with The Conference Board) \tab (*) \cr
-#'  \bold{'cei'} \tab Coincident Economic Indicator (CEI - FGV/IBRE with the Conference Board)  \tab (*) \cr
-#'  \bold{'gdp_vars'} \tab GDP components variation (whole series) - GDP Monitor (FGV/IBRE) \tab (*) \cr
-#'  \bold{'misery_index} \tab Misery Index \tab 13522 plus 24369 \cr
-#'  \bold{'gdp_comps'} \tab GDP components variation (last values) - GDP Monitor (FGV/IBRE) \tab (*) \cr
-#'  \bold{'gdp_unemp'} \tab GDP monthly levels versus Unemployement Rate \tab 22109 and 24369 \cr
-#'  \bold{'conf_lvl'} \tab Enterprises Confidence Index versus Consumers Confidence Index \tab (*) \cr
-#'  \bold{'inst_cap'} \tab Installed Capacity Index \tab (*) \cr
-#'  \bold{'lab_lead'} \tab Labor Leading Indicator \tab (*) \cr
-#'  \bold{'lab_coin'} \tab Labor Coincident Indicator \tab (*) \cr
-#'  \bold{'transf_ind'} \tab Transformation Industry Confidence Index (Expectations versus Present Situation) \tab (*) \cr
-#'  \bold{'servc'} \tab Services Confidence Index (Expectations versus Present Situation) \tab (*) \cr
-#'  \bold{'constr'} \tab Construction Confidence Index (Expectations versus Present Situation) \tab (*) \cr
-#'  \bold{'retail'} \tab Retail Sellers Confidence Index (Expectations versus Present Situation) \tab (*) \cr
-#'  \bold{'consm'} \tab Consumer Confidence Index (Expectations versus Present Situation) \tab (*) 
+#'  \emph{'iie_br'} \tab Uncertainty Index \tab ST_100.0 \cr
+#'  \emph{'sent_ind'} \tab Economic Sentiment Index (average between several confidence indexes) \tab (*) \cr
+#'  \emph{'gdp_mon'} \tab GDP Monthly and Interanual Variation (last values) - GDP Monitor (FGV/IBRE) \tab (*) \cr
+#'  \emph{'ei_vars'} \tab Economic Indicators (Leading and Coincident) monthly variation \tab (*) \cr
+#'  \emph{'ei_comps'} \tab Economic Indicators (Leading and Coincident) components variation  \tab (*) \cr
+#'  \emph{'lei'} \tab Leading Economic Indicator (LEI - FGV/IBRE with The Conference Board) \tab (*) \cr
+#'  \emph{'cei'} \tab Coincident Economic Indicator (CEI - FGV/IBRE with the Conference Board)  \tab (*) \cr
+#'  \emph{'gdp_vars'} \tab GDP components variation (whole series) - GDP Monitor (FGV/IBRE) \tab (*) \cr
+#'  \emph{'misery_index} \tab Misery Index \tab 13522 plus 24369 \cr
+#'  \emph{'gdp_comps'} \tab GDP components variation (last values) - GDP Monitor (FGV/IBRE) \tab (*) \cr
+#'  \emph{'gdp_unemp'} \tab GDP monthly levels versus Unemployement Rate \tab 22109 and 24369 \cr
+#'  \emph{'conf_lvl'} \tab Enterprises Confidence Index versus Consumers Confidence Index \tab (*) \cr
+#'  \emph{'inst_cap'} \tab Installed Capacity Index \tab (*) \cr
+#'  \emph{'lab_lead'} \tab Labor Leading Indicator \tab (*) \cr
+#'  \emph{'lab_coin'} \tab Labor Coincident Indicator \tab (*) \cr
+#'  \emph{'transf_ind'} \tab Transformation Industry Confidence Index (Expectations versus Present Situation) \tab (*) \cr
+#'  \emph{'servc'} \tab Services Confidence Index (Expectations versus Present Situation) \tab (*) \cr
+#'  \emph{'constr'} \tab Construction Confidence Index (Expectations versus Present Situation) \tab (*) \cr
+#'  \emph{'retail'} \tab Retail Sellers Confidence Index (Expectations versus Present Situation) \tab (*) \cr
+#'  \emph{'consm'} \tab Consumer Confidence Index (Expectations versus Present Situation) \tab (*) 
 #'}
 #'
-#' Macro Situation Dashboard ('normal' style):
+#' \bold{2. Macro Situation Dashboard ('normal' style)}
 #' 
 #' \tabular{lll}{
 #'  VALUE \tab DESCRIPTION \tab CODE \cr
-#'  \bold{'ipca_with_core'} \tab National consumer price index (IPCA) - in 12 months and  Broad national consumer price index - Core IPCA trimmed means smoothed \tab 13522 and 4466 \cr
-#'  \bold{'ulc'} \tab Unit labor cost - ULC-US$ - June/1994=100 \tab 11777 \cr
-#'  \bold{'eap'} \tab Economically active population \tab 10810 \cr
-#'  \bold{'cdb'} \tab Time deposits (CDB/RDB-preset) - Daily return (percentage) \tab 14 \cr
-#'  \bold{'indprod'} \tab Prodcution Indicators (2012=100) - General	\tab 21859 \cr
-#'  \bold{'selic'} \tab Interest rate - Selic accumulated in the month in annual terms (basis 252) \tab 4189 \cr
-#'  \bold{'unemp'} \tab Unemployment rate - by metropolitan region (PNAD-C) \tab 10777\cr
-#'  \bold{'vargdp'} \tab GDP - real percentage change in the year \tab 7326 
+#'  \emph{'ipca_with_core'} \tab National consumer price index (IPCA) - in 12 months and  Broad national consumer price index - Core IPCA trimmed means smoothed \tab 13522 and 4466 \cr
+#'  \emph{'ulc'} \tab Unit labor cost - ULC-US$ - June/1994=100 \tab 11777 \cr
+#'  \emph{'eap'} \tab Economically active population \tab 10810 \cr
+#'  \emph{'cdb'} \tab Time deposits (CDB/RDB-preset) - Daily return (percentage) \tab 14 \cr
+#'  \emph{'indprod'} \tab Prodcution Indicators (2012=100) - General	\tab 21859 \cr
+#'  \emph{'selic'} \tab Interest rate - Selic accumulated in the month in annual terms (basis 252) \tab 4189 \cr
+#'  \emph{'unemp'} \tab Unemployment rate - by metropolitan region (PNAD-C) \tab 10777\cr
+#'  \emph{'vargdp'} \tab GDP - real percentage change in the year \tab 7326 
 #'}
 #' 
 #' (*) Not available on BETS databases yet. But you can find it in .csv files saved under your BETS installation directory.
 #' 
-#' Custom Dashboards:
+#' \bold{3. Custom Charts}
 #' 
-#' \enumerate{
-#' \item{\code{type} A \code{character}. Either 'bar' or 'lines'. Whether to plot bars or lines. Works for main series, only.}
-#' \item{\code{trend} A \code{boolean}. Default is \code{FALSE}. Set it to \code{TRUE} if the trend of the main series (parameter \code{ts}) is to be drawn.}
-#' \item{\code{title}} A \code{character}. The plot's title.
-#' \item{\code{subtitle}} A \code{character}. The plot's subtitle.
-#' \item{\code{xlim}} A \code{numeric} vector. X axis limits 
-#' \item{\code{ylim}} A \code{numeric} vector. Y axis limits
-#' \item{\code{arrow}} A \code{character}. The orientation of the arrow pointing to the last value of the main series. Valid values are 'h' (horizontal) and 'v' (vertical). Doesn't work for 'plotly' type plots.
-#' \item{\code{extra}} A \code{ts} object. A second series to be plotted.
-#' \item{\code{extra.y2}} A \code{boolean}. Default is \code{FALSE}. Does the extra series require a second y axis? 
-#' \item{\code{extra.arrow}} A \code{character}. The orientation of the arrow pointing to the last value of the extra series. Valid values are 'h' (horizontal) and 'v' (vertical). Doesn't work for 'plotly' type plots.
-#' \item{\code{colors}} A \code{character} or \code{integer} vector. A vector of colors, one for each series. Trends will always be drawn in gray, its color can't be set. 
-#' \item{\code{legend}} A \code{character} vector. The names of the series. Default is \code{NULL} (no legends).
-#' \item{\code{legend.pos}} A \code{character}. The legend position. Possibile values are 'topleft','bottomleft', 'topright' and 'bottomright'.
-#' \item{\code{codace}} A \code{boolean}. Default is \code{FALSE}. Include shaded areas for recessions, as dated by CODACE(**)? This feature only works if \code{style} is set to 'plotly'.
-#' }
+#' \tabular{ll}{
+#' \code{type} \tab A \code{character}. Either 'bar' or 'lines'. Whether to plot bars or lines. Works for main series, only. \cr
+#' \code{trend}\tab A \code{boolean}. Default is \code{FALSE}. Set it to \code{TRUE} if the trend of the main series (parameter \code{ts}) is to be drawn. \cr
+#' \code{title}\tab A \code{character}. The plot's title. \cr
+#' \code{subtitle}\tab A \code{character}. The plot's subtitle. \cr
+#' \code{xlim}\tab A \code{numeric} vector. X axis limits \cr
+#' \code{ylim}\tab A \code{numeric} vector. Y axis limits \cr
+#' \code{arr.ort}\tab A \code{character}. The orientation of the arrow pointing to the last value of the main series. Valid values are 'h' (horizontal) and 'v' (vertical). Doesn't work for 'plotly' type plots. \cr
+#' \code{arr.len}\tab A \code{numeric} value. The length of the arrow pointing to the last value of the main series. Doesn't work for 'plotly' type plots. \cr
+#' \code{extra}\tab A \code{ts} object. A second series to be plotted. \cr 
+#' \code{extra.y2}\tab A \code{boolean}. Default is \code{FALSE}. Does the extra series require a second y axis? \cr
+#' \code{extra.arr.ort}\tab A \code{character}. The orientation of the arrow pointing to the last value of the extra series. Valid values are 'h' (horizontal) and 'v' (vertical). Doesn't work for 'plotly' type plots. \cr
+#' \code{extra.arr.len}\tab A \code{numeric} value. The length of the arrow pointing to the last value of the extra series. Doesn't work for 'plotly' type plots. \cr
+#' \code{colors}\tab A \code{character} or \code{integer} vector. A vector of colors, one for each series. Trends will always be drawn in gray, its color can't be set. \cr
+#' \code{legend}\tab A \code{character} vector. The names of the series. Default is \code{NULL} (no legends). \cr
+#' \code{legend.pos}\tab A \code{character}. The legend position. Possibile values are 'top' and 'bottom' \cr
+#' \code{codace}\tab A \code{boolean}. Default is \code{FALSE}. Include shaded areas for recessions, as dated by CODACE(**)? This feature only works if \code{style} is set to 'plotly'. \cr
+#'}
 #' 
 #' (**) Business Cycle Dating Committee (FGV/IBRE)
 #' 
@@ -196,8 +198,6 @@ BETS.chart = function(ts, style = "normal", file = NULL, open = TRUE, lang = "en
     
   } else {
       
-      print("okkk")
-      
     if(style == "normal" && !is.null(file)){
             
         if(not.set){
@@ -213,7 +213,7 @@ BETS.chart = function(ts, style = "normal", file = NULL, open = TRUE, lang = "en
         
     }
       
-    p = draw.generic(ts, style, params)
+    p = suppressWarnings(draw.generic(ts, style, params))
     
     if(style == "normal" && !is.null(file)){
         dev.off()

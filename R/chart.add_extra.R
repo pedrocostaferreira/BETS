@@ -22,7 +22,7 @@
 #' @importFrom utils tail
 #' @author Talitha Speranza \email{talitha.speranza@fgv.br}
 
-chart.add_extra= function(ts, ylim = NULL, xlim = NULL, col = "firebrick3", arr.size = NULL, arr.pos = "v", leg.pos = "top", leg.text = ""){
+chart.add_extra= function(ts, ylim = NULL, xlim = NULL, col = "firebrick3", arr.size = NULL, arr.pos = "v", leg.pos = "top", leg.text = "", main.type = "lines"){
   
   freq = 0 
   
@@ -41,7 +41,14 @@ chart.add_extra= function(ts, ylim = NULL, xlim = NULL, col = "firebrick3", arr.
   last[2] = as.integer(format(dt, "%m"))
   last[3] = as.integer(format(dt, "%d"))
   
-  lines(series, lwd = 2.5, lty = 2, col = col)
+  if(main.type == "bar"){
+      png("temp")
+      b = barplot(as.vector(series))
+      dev.off()
+      lines(x = b, y = as.vector(series),lwd = 2.5, lty = 1, col = col, xpd = T)
+  } else {
+     lines(series, lwd = 2.5, lty = 2, col = col, xpd = T) 
+  }
   
   x0 = last[1] + last[2]/12 + last[3]/30
   val = round(series[length(series)],2)

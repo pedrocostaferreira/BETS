@@ -5,7 +5,8 @@
 \title{Create a chart of the Unitary Labor Cost time series}
 \usage{
 chart.add_extra(ts, ylim = NULL, xlim = NULL, col = "firebrick3",
-  arr.size = NULL, arr.pos = "v", leg.pos = "top", leg.text = "")
+  arr.size = NULL, arr.pos = "v", leg.pos = "top", leg.text = "",
+  main.type = "lines")
 }
 \arguments{
 \item{ts}{A \code{ts}. the ts object.}
