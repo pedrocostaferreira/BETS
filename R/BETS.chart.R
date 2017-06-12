@@ -2,8 +2,6 @@
 #' 
 #' @description  Create a professional looking chart, using a pre-defined BETS series or a custom series.
 #' 
-#' @note It is not yet possible to make charts of custom series. 
-#' 
 #' @param ts A \code{character} or a \code{ts} object. A custom time series or the name of a pre-defined series. A complete list of names is under the 'Details' section.
 #' @param style A \code{character}. Should the chart be made with Plotly (style = "plotly") or with R standard library (style = "normal")?
 #' @param lang A \code{character}. The language. For now, only 'en' (english) is available.
@@ -18,7 +16,8 @@
 #' \bold{1. Business Cycle Dashboard ('plotly' style)}
 #' 
 #' \tabular{lll}{
-#'  VALUE \tab DESCRIPTION \tab CODE \cr
+#'  \emph{VALUE} \tab \emph{DESCRIPTION} \tab \emph{CODE} \cr
+#'  \tab \tab \cr
 #'  \emph{'iie_br'} \tab Uncertainty Index \tab ST_100.0 \cr
 #'  \emph{'sent_ind'} \tab Economic Sentiment Index (average between several confidence indexes) \tab (*) \cr
 #'  \emph{'gdp_mon'} \tab GDP Monthly and Interanual Variation (last values) - GDP Monitor (FGV/IBRE) \tab (*) \cr
@@ -44,7 +43,8 @@
 #' \bold{2. Macro Situation Dashboard ('normal' style)}
 #' 
 #' \tabular{lll}{
-#'  VALUE \tab DESCRIPTION \tab CODE \cr
+#'  \emph{VALUE} \tab \emph{DESCRIPTION} \tab \emph{CODE} \cr
+#'  \tab \tab \cr
 #'  \emph{'ipca_with_core'} \tab National consumer price index (IPCA) - in 12 months and  Broad national consumer price index - Core IPCA trimmed means smoothed \tab 13522 and 4466 \cr
 #'  \emph{'ulc'} \tab Unit labor cost - ULC-US$ - June/1994=100 \tab 11777 \cr
 #'  \emph{'eap'} \tab Economically active population \tab 10810 \cr
@@ -59,23 +59,27 @@
 #' 
 #' \bold{3. Custom Charts}
 #' 
-#' \tabular{ll}{
-#' \code{type} \tab A \code{character}. Either 'bar' or 'lines'. Whether to plot bars or lines. Works for main series, only. \cr
-#' \code{trend}\tab A \code{boolean}. Default is \code{FALSE}. Set it to \code{TRUE} if the trend of the main series (parameter \code{ts}) is to be drawn. \cr
-#' \code{title}\tab A \code{character}. The plot's title. \cr
-#' \code{subtitle}\tab A \code{character}. The plot's subtitle. \cr
-#' \code{xlim}\tab A \code{numeric} vector. X axis limits \cr
-#' \code{ylim}\tab A \code{numeric} vector. Y axis limits \cr
-#' \code{arr.ort}\tab A \code{character}. The orientation of the arrow pointing to the last value of the main series. Valid values are 'h' (horizontal) and 'v' (vertical). Doesn't work for 'plotly' type plots. \cr
-#' \code{arr.len}\tab A \code{numeric} value. The length of the arrow pointing to the last value of the main series. Doesn't work for 'plotly' type plots. \cr
-#' \code{extra}\tab A \code{ts} object. A second series to be plotted. \cr 
-#' \code{extra.y2}\tab A \code{boolean}. Default is \code{FALSE}. Does the extra series require a second y axis? \cr
-#' \code{extra.arr.ort}\tab A \code{character}. The orientation of the arrow pointing to the last value of the extra series. Valid values are 'h' (horizontal) and 'v' (vertical). Doesn't work for 'plotly' type plots. \cr
-#' \code{extra.arr.len}\tab A \code{numeric} value. The length of the arrow pointing to the last value of the extra series. Doesn't work for 'plotly' type plots. \cr
-#' \code{colors}\tab A \code{character} or \code{integer} vector. A vector of colors, one for each series. Trends will always be drawn in gray, its color can't be set. \cr
-#' \code{legend}\tab A \code{character} vector. The names of the series. Default is \code{NULL} (no legends). \cr
-#' \code{legend.pos}\tab A \code{character}. The legend position. Possibile values are 'top' and 'bottom' \cr
-#' \code{codace}\tab A \code{boolean}. Default is \code{FALSE}. Include shaded areas for recessions, as dated by CODACE(**)? This feature only works if \code{style} is set to 'plotly'. \cr
+#' None of these parameters is required. Please note that some parameters only work for a certain type of chart.
+#' 
+#' \tabular{lll}{
+#' \emph{PARAMETER} \tab \emph{DESCRIPTION} \tab \emph{WORKS FOR} \cr
+#' \tab \tab \cr
+#' \code{type} \tab A \code{character}. Either 'bar' or 'lines'. Whether to plot bars or lines. Works for main series, only. \tab Both\cr
+#' \code{trend}\tab A \code{boolean}. Default is \code{FALSE}. Set it to \code{TRUE} if the trend of the main series (parameter \code{ts}) is to be drawn. \tab Both \cr
+#' \code{title}\tab A \code{character}. Plot's title. \tab Both \cr
+#' \code{subtitle}\tab A \code{character}. Plot's subtitle. \tab Both \cr
+#' \code{xlim}\tab A \code{numeric} vector. X axis limits \tab Both \cr
+#' \code{ylim}\tab A \code{numeric} vector. Y axis limits \tab Both \cr
+#' \code{arr.ort}\tab A \code{character}. Orientation of the arrow pointing to the last value of the main series. Valid values are 'h' (horizontal) and 'v' (vertical). \tab \emph{'normal'} \cr
+#' \code{arr.len}\tab A \code{numeric} value. Length of the arrow pointing to the last value of the main series. \tab \emph{'normal'} \cr
+#' \code{extra}\tab A \code{ts} object. A second series to be plotted. \tab Both \cr 
+#' \code{extra.y2}\tab A \code{boolean}. Default is \code{FALSE}. Does the extra series require a second y axis? \tab \emph{'plotly'} \cr
+#' \code{extra.arr.ort}\tab A \code{character}. Orientation of the arrow pointing to the last value of the extra series. Valid values are 'h' (horizontal) and 'v' (vertical). \tab \emph{'normal'} \cr
+#' \code{extra.arr.len}\tab A \code{numeric} value. Length of the arrow pointing to the last value of the extra series. \tab \emph{'normal'} \cr
+#' \code{colors}\tab A \code{character} or \code{integer} vector. A vector of colors, one for each series. Trends will always be drawn in gray, its color can't be set. \tab Both \cr
+#' \code{legend}\tab A \code{character} vector. Names of the series. Default is \code{NULL} (no legends). \tab Both \cr
+#' \code{legend.pos}\tab A \code{character}. Legend position. If \code{type} is set to \emph{'normal'}, possibile values are 'top' and 'bottom'; if \code{type} is set to \emph{'plotly'}, either 'h' (horizontal) and 'v' (vertical). \tab Both \cr
+#' \code{codace}\tab A \code{boolean}. Default is \code{FALSE}. Include shaded areas for recessions, as dated by CODACE(**)? \tab \emph{'plotly'} \cr
 #'}
 #' 
 #' (**) Business Cycle Dating Committee (FGV/IBRE)

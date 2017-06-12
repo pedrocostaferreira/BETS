@@ -114,11 +114,49 @@ params <- list(
     type = "bar",
     title = "International Reserves",
     subtitle = "Total, US$ Billions",
-    trend = T,
     colors = 'chocolate1'
 )
 
 BETS.chart(ts = ts, style = "normal", file = "int_res.pdf", open = T, params = params)
+
+ts <- window(BETS.get(23461), start = 2006)/100
+
+params <- list(
+    type = "bar",
+    title = "Current Account vs Direct Foreign Investment",
+    subtitle = "Net, Anual, US$ Billions",
+    colors = c("royalblue","deepskyblue2"),
+    extra = window(BETS.get(23645), start = 2006)/100,
+    legend.pos = "bottomleft",
+    legend = c("Current Account","Direct Foreign Investment"),
+    extra.arr.ort = 'v',
+    extra.arr.len = 200
+)
+
+BETS.chart(ts = ts, style = "normal", file = "ca_di.pdf", open = T, params = params)
+
+df <- BETS.get(11407, data.frame = T)
+df <- df[-(1:30),2]
+ts <- window(ts(df, start = c(2000,1), frequency = 4),start = c(2006,1))
+
+df <- BETS.get(11409, data.frame = T)
+df <- df[-(1:30),2]
+extra <- window(ts(df, start = c(2000,1), frequency = 4),start = c(2006,1))
+
+params <- list(
+    type = "lines",
+    title = "External Debt",
+    subtitle = "% GDP",
+    colors = c("aquamarine4","aquamarine3"),
+    legend = c("Gross", "Net"),
+    extra = extra,
+    arr.len = 5,
+    extra.arr.ort = 'v',
+    extra.arr.len = 5,
+    legend.pos = "bottomleft"
+)
+
+BETS.chart(ts = ts, style = "normal", file = "ext_debt.pdf", open = T, params = params)
 
 # par(mar = c(5.1,4.1,4.1,2.1))
 # series = ts(1:20, start = 2000, end = 2019, frequency = 1)

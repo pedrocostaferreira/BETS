@@ -67,6 +67,10 @@ chart.add_basic = function(ts, xlim = NULL, ylim = NULL, type = "lines", title =
      m = c(3.1,4.1,3.1,2.1) 
   }
   
+  x0 = last[1] + last[2]/12 + last[3]/30
+  val = round(series[length(series)],2)
+  d = 0 
+  
   par(font.lab = 2, cex.axis = 1.2, bty = "n", las = 1, mar= m)
  
   if(type == "lines"){
@@ -77,10 +81,15 @@ chart.add_basic = function(ts, xlim = NULL, ylim = NULL, type = "lines", title =
       plot.ts(x = dates, y = series, type = "l", xaxt = "n", ylim = ylim, lwd = 2.5, lty = 1, xlab = "", ylab = "", main = title, col = col)
       axis(1, at = labs, labels = labs, las=1, cex.axis = 0.75)
     }
-    
   }
   else {
-    barplot(as.vector(series), names.arg = as.vector(time(series)), xlab = "", ylab = "", main = title, col = col, ylim = ylim,  xpd = FALSE)
+    xbar = barplot(as.vector(series), names.arg = as.vector(time(series)), xlab = "", ylab = "", main = title, col = col, ylim = ylim,  xpd = FALSE)
+    if(trend == F){
+        x0 = xbar[nrow(xbar),1] 
+        s = 0
+    } else {
+        s = strwidth(val)/2
+    }
   }
   
   mtext(subtitle)
@@ -94,10 +103,6 @@ chart.add_basic = function(ts, xlim = NULL, ylim = NULL, type = "lines", title =
       plot(hp, lty = 6, col = "darkgray", lwd = 2, xaxt="n",yaxt = "n",xlab = "",ylab = "", ylim = ylim)
     }
   }
-  
-  x0 = last[1] + last[2]/12 + last[3]/30
-  val = round(series[length(series)],2)
-  d = 0 
   
   if(nchar(val) >= 4 && type != "bar"){
     d = strwidth(val)/nchar(val)
@@ -174,7 +179,8 @@ chart.add_basic = function(ts, xlim = NULL, ylim = NULL, type = "lines", title =
     arrows(x0 = x0, x1 = x1, y0 = y0, y1 = y1, length = c(0.01*x.spam, 0.00006*y.spam), lwd = 2)
   }
   else {
-     text(x0 - strwidth(val)/2, val - sign(val)*0.7*strheight(val), as.character(val), cex = 0.9, font = 2)
+    # text(x0 - strwidth(val)/2, val - sign(val)*0.7*strheight(val), as.character(val), cex = 0.9, font = 2)
+      text(x0 - s, val/2, as.character(val), cex = 0.9, font = 2)
   }
   
   return(c(xlim,ylim))

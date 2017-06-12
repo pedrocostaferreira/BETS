@@ -23,6 +23,9 @@ draw.generic <- function(ts, style, params){
     
     if(is.null(params$legend)){
         no.legend = T
+        leg = paste0("Series ", 1:length(series))
+    } else {
+        leg = params$legend
     }
     
     if(is.null(params$trend)){
@@ -53,8 +56,15 @@ draw.generic <- function(ts, style, params){
         params$legend.pos = 'topleft'
     }
     
-    if(is.null(params$colors)){
-        params$colors = c("firebrick4", "firebrick3")
+    
+    if(is.null(params$xlim) && !no.extra){
+        rgs = c(range(time(ts)),range(time(params$extra)))
+        params$xlim = c(min(rgs), max(rgs))
+    }
+    
+    if(is.null(params$ylim) && !no.extra){
+        rgs = c(range(ts),range(params$extra))
+        params$ylim = c(min(rgs), max(rgs))
     }
     
 
@@ -62,6 +72,10 @@ draw.generic <- function(ts, style, params){
         
         series = ts
         leg.pos = params$legend.pos
+        
+        if(is.null(params$colors)){
+            params$colors = c("firebrick4", "firebrick3")
+        }
         
         if(!no.extra){
             leg.pos = 'none'
@@ -83,7 +97,6 @@ draw.generic <- function(ts, style, params){
         }
         
         if(!no.legend){
-            leg = params$legend
             
             t2 = 2
             
@@ -92,9 +105,7 @@ draw.generic <- function(ts, style, params){
             }
             
             legend(params$legend.pos, leg, lty=c(1,t2), lwd=c(2.5,2.5), col= params$colors, bty = "n", cex = 0.9)
-        } else {
-            leg = paste0("Series ", 1:length(series))
-        }
+        } 
         
         if(frequency(ts) != 1){
             chart.add_notes(series, names = leg, ylim = lims[3:4], xlim = lims[1:2]) 
@@ -102,7 +113,94 @@ draw.generic <- function(ts, style, params){
         
     } else {
         
+        if(is.null(params$colors)){
+            params$colors = c("#8B1A1A", "#CD2626")
+        }
         
+        m <- list(
+            t = 50,
+            pad = 1
+        )
+        
+        
+        last_val = ts[length(ts)]
+        last_date = as.Date(ts)[length(ts)]
+        
+        a1 <- list(
+            x = last_date,
+            y = last_val,
+            text = paste0("<b>",last_val,"</b>"),
+            xref = "x",
+            yref = "y",
+            showarrow = TRUE,
+            arrowhead = 6,
+            ay = 40,
+            ax = 0,
+            font = list(size = 22)
+        )
+        
+        a2 <- NULL
+        
+        p = plot_ly(width = 700, height = 450) 
+        
+        if(params$type == "lines"){
+            p <- p %>% add_lines(x = as.Date(ts), y = ts, name = leg[1], line = list(color = params$colors[1]))
+        } else {
+            p <- p %>% add_trace(type = "bar", x = as.Date(ts), y = ts, name = leg[1], marker = list(color = params$colors[1]))
+        }
+        
+        if(params$trend){
+            require(mFilter)
+            tr <- fitted(mFilter::hpfilter(ts))
+            p <- p %>% add_trace(y = tr, x = as.Date(tr), name = "Trend", line = list(color = "#bd081c", dash = "dash")) 
+        }
+        
+        if(!no.extra){
+            
+            if(is.null(params$extra.y2)){
+                y2 <- "y"
+                ay <- NULL
+            } else {
+                y2 <- "y2"
+                ay <- list(
+                    overlaying = "y",
+                    side = "right",
+                    zeroline = FALSE,
+                    showgrid = FALSE,
+                    tickfont = list(size = 22)
+                )
+            }
+            
+            a2 <- list(
+                x = last_date,
+                y = last_val,
+                text = paste0("<b>",last_val,"</b>"),
+                xref = "x",
+                yref = y2,
+                showarrow = TRUE,
+                arrowhead = 6,
+                ay = 40,
+                ax = 0,
+                font = list(size = 22)
+            )
+            
+            p <- p %>% add_lines(yaxis = y2, x = as.Date(params$extra), y = params$extra, name = leg[2])
+        }
+        
+        if(!no.legend){
+            legend.list = list(orientation = params$legend.pos)
+        } else {
+            legend.list = NULL
+        }
+        
+        p <- p %>% layout(title = paste0("<b>",title,"</b>"), 
+                       yaxis = list(tickfont = list(size = 22)),
+                       xaxis = list(tickfont = list(size = 15)),
+                       yaxis2 = ay,
+                       margin = m,
+                       titlefont = list(size = 19),
+                       annotations = list(a1,a2),
+                       legend = legend.list)
         
     }
     

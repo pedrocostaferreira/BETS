@@ -43,14 +43,15 @@ chart.add_extra= function(ts, ylim = NULL, xlim = NULL, col = "firebrick3", arr.
   
   if(main.type == "bar"){
       png("temp")
-      b = barplot(as.vector(series))
+      xbar = barplot(as.vector(series))
       dev.off()
-      lines(x = b, y = as.vector(series),lwd = 2.5, lty = 1, col = col, xpd = T)
+      lines(x = xbar, y = as.vector(series),lwd = 2.5, lty = 1, col = col, xpd = T)
+      x0 = xbar[nrow(xbar),1]
   } else {
      lines(series, lwd = 2.5, lty = 2, col = col, xpd = T) 
+      x0 = last[1] + last[2]/12 + last[3]/30
   }
   
-  x0 = last[1] + last[2]/12 + last[3]/30
   val = round(series[length(series)],2)
   d = 0 
   
@@ -65,7 +66,7 @@ chart.add_extra= function(ts, ylim = NULL, xlim = NULL, col = "firebrick3", arr.
   if(is.null(ylim)){
     ylim = par("usr")[3:4]
   }
-  
+
   x.spam = xlim[2] - xlim[1]
   y.spam = ylim[2] - ylim[1]
   

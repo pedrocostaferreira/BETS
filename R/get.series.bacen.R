@@ -57,7 +57,6 @@ get.series.bacen <- function(x, from = "", to = "", save = ""){
     assign(serie[i], result) 
   }
   
-  
   for (i in len){
     texto = utils::read.csv2(textConnection(eval(as.symbol(
       serie[i]))), header=T)
