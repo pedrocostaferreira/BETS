@@ -125,3 +125,82 @@ parameters <- list(
 
 BETS.dashboard(type = "custom", charts = charts, saveas = "custom_dashboard.pdf", parameters = parameters)
 
+##-- Custom, plotly style
+
+style = 'plotly'
+charts <- list()
+charts.opts <- list()
+
+# General Government Debt
+
+charts[[1]] <- window(BETS.get(4537),start = c(2006,1))
+
+charts.opts[[1]] <- list(
+    type = "lines",
+    title = "General Government Debt",
+    subtitle = "% GDP",
+    legend = c("Gross", "Net"),
+    extra = window(BETS.get(4536),start = c(2006,1))
+)
+
+BETS.chart(ts = charts[[1]], style = "plotly", file = "debt", open = T, params = charts.opts[[1]])
+
+
+# International Reserves
+
+charts[[2]] <- window(BETS.get(3545),start = 2006)/100
+
+charts.opts[[2]] <- list(
+    type = "bar",
+    title = "International Reserves",
+    subtitle = "Total, US$ Billions",
+    colors = '#FF7F24',
+    arr.len = 10
+)
+
+BETS.chart(ts = charts[[2]], style = "plotly", file = "int_res", open = T, params = charts.opts[[2]])
+
+
+# Current Account vc Direct Foreign Investment
+
+charts[[3]] <- window(BETS.get(23461), start = 2006)/100
+
+charts.opts[[3]] <- list(
+    type = "bar",
+    title = "Current Account vs Direct Foreign Investment",
+    subtitle = "Net, Anual, US$ Billions",
+    colors = c("#4169E1","#00BFFF"),
+    extra = window(BETS.get(23645), start = 2006)/100,
+    legend = c("Current Account","Direct Foreign Investment"),
+    extra.arr.ort = 'v'
+)
+
+BETS.chart(ts = charts[[3]], style = "plotly", file = "ca_di", open = T, params = charts.opts[[3]])
+
+# External Debt
+
+df <- BETS.get(11407, data.frame = T)
+df <- df[-(1:30),2]
+charts[[4]] <- window(ts(df, start = c(2000,1), frequency = 4),start = c(2006,1)) 
+
+df <- BETS.get(11409, data.frame = T)
+df <- df[-(1:30),2]
+extra <- window(ts(df, start = c(2000,1), frequency = 4),start = c(2006,1))
+
+charts.opts[[4]] <- list(
+    type = "lines",
+    title = "External Debt",
+    subtitle = "% GDP",
+    colors = c("#458B74","#66CDAA"),
+    legend = c("Gross", "Net"),
+    extra = extra
+)
+
+BETS.chart(ts = charts[[4]], style = "plotly", file = "debt", open = T, params = charts.opts[[4]])
+
+parameters <- list(
+    style = style, 
+    charts.opts = charts.opts)
+
+BETS.dashboard(type = "custom", charts = charts, saveas = "custom_dashboard.pdf", parameters = parameters)
+

@@ -23,7 +23,7 @@ draw.generic <- function(ts, style, params){
     
     if(is.null(params$legend)){
         no.legend = T
-        leg = paste0("Series ", 1:length(series))
+        leg = paste0("Series ", 1:length(ts))
     } else {
         leg = params$legend
     }
