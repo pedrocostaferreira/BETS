@@ -14,6 +14,7 @@ params:
   logo: !r NA
   style: !r NA
   charts: !r NA
+  charts.opts: !r NA
 ---
 
 \fontfamily{lmss}\selectfont
@@ -33,6 +34,8 @@ library(BETS)
 
 list.charts = params$charts
 num.charts <- length(list.charts)
+charts.opts <- params$charts.opts
+style <- params$style
 
 mask = 1:num.charts
 has.chart = as.integer(mask == 1:16)
@@ -53,7 +56,8 @@ dir.create("graphs")
 chart.FUN <- function(num){
     if(has.chart[num] == 1){
         BETS.chart(ts = list.charts[[num]], 
-                   file = paste0("chart", num, ext), open = FALSE)
+                   file = paste0("chart", num, ext), params = charts.opts[[num]], 
+                   style = style, open = FALSE)
     }
 }
 
@@ -185,7 +189,7 @@ if(!is.na(text) && text.len != 0){
 \ifnum\fifth = 1
   \newpage
   \pagestyle{plain}
-\fi
+
 
 \begin{figure}[h]
 \ifnum\fifth = 1
@@ -249,7 +253,7 @@ if(!is.na(text) && text.len != 0){
 \ifnum\ninth = 1
     \newpage
     \pagestyle{plain}
-\fi
+
 
 \begin{figure}[h]
 \ifnum\ninth = 1
@@ -314,7 +318,7 @@ if(!is.na(text) && text.len != 0){
 \ifnum\thirteenth = 1
     \newpage
     \pagestyle{plain}
-\fi
+
 
 \begin{figure}[h]
 \ifnum\thirteenth = 1
@@ -373,7 +377,8 @@ if(!is.na(text) && text.len != 0){
 } 
 ```
 
-
-
+\fi
+\fi
+\fi
 
 

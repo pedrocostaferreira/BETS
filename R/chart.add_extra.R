@@ -42,9 +42,7 @@ chart.add_extra= function(ts, ylim = NULL, xlim = NULL, col = "firebrick3", arr.
   last[3] = as.integer(format(dt, "%d"))
   
   if(main.type == "bar"){
-      png("temp")
-      xbar = barplot(as.vector(series))
-      dev.off()
+      xbar <- barplot(as.vector(series), plot = F)
       lines(x = xbar, y = as.vector(series),lwd = 2.5, lty = 1, col = col, xpd = T)
       x0 = xbar[nrow(xbar),1]
   } else {

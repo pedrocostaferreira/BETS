@@ -90,7 +90,11 @@ BETS.chart("selic", file = "selic.png", open = F)
 BETS.chart("selic", file = "selic.pdf", open = F)
 
 
-## Custom Charts
+##-- Custom Charts
+
+## NORMAL STYLE
+
+# General Government Debt
 
 ts <- window(BETS.get(4537),start = c(2006,1))
     
@@ -108,6 +112,8 @@ params <- list(
 
 BETS.chart(ts = ts, style = "normal", file = "debt.png", open = T, params = params)
 
+# International Reserves
+
 ts <- window(BETS.get(3545),start = 2006)/100
 
 params <- list(
@@ -118,6 +124,8 @@ params <- list(
 )
 
 BETS.chart(ts = ts, style = "normal", file = "int_res.pdf", open = T, params = params)
+
+# Current Acccount x Direct Foreing Investment
 
 ts <- window(BETS.get(23461), start = 2006)/100
 
@@ -134,6 +142,8 @@ params <- list(
 )
 
 BETS.chart(ts = ts, style = "normal", file = "ca_di.pdf", open = T, params = params)
+
+# External Debt
 
 df <- BETS.get(11407, data.frame = T)
 df <- df[-(1:30),2]
@@ -157,6 +167,73 @@ params <- list(
 )
 
 BETS.chart(ts = ts, style = "normal", file = "ext_debt.pdf", open = T, params = params)
+
+## PLOTLY STYLE
+
+# General Government Debt
+
+ts <- window(BETS.get(4537),start = c(2006,1))
+
+params <- list(
+    type = "lines",
+    title = "General Government Debt",
+    subtitle = "% GDP",
+    legend = c("Gross", "Net"),
+    extra = window(BETS.get(4536),start = c(2006,1))
+)
+
+BETS.chart(ts = ts, style = "plotly", file = "debt.png", open = T, params = params)
+
+# International Reserves
+
+ts <- window(BETS.get(3545),start = 2006)/100
+
+params <- list(
+    type = "bar",
+    title = "International Reserves",
+    subtitle = "Total, US$ Billions",
+    colors = '#FF7F24',
+    arr.len = 10
+)
+
+BETS.chart(ts = ts, style = "plotly", file = "int_res.png", open = T, params = params)
+
+# Current Acccount x Direct Foreing Investment
+
+ts <- window(BETS.get(23461), start = 2006)/100
+
+params <- list(
+    type = "bar",
+    title = "Current Account vs Direct Foreign Investment",
+    subtitle = "Net, Anual, US$ Billions",
+    colors = c("#4169E1","#00BFFF"),
+    extra = window(BETS.get(23645), start = 2006)/100,
+    legend = c("Current Account","Direct Foreign Investment"),
+    extra.arr.ort = 'v'
+)
+
+BETS.chart(ts = ts, style = "plotly", file = "ca_di.png", open = T, params = params)
+
+# External Debt
+
+df <- BETS.get(11407, data.frame = T)
+df <- df[-(1:30),2]
+ts <- window(ts(df, start = c(2000,1), frequency = 4),start = c(2006,1))
+
+df <- BETS.get(11409, data.frame = T)
+df <- df[-(1:30),2]
+extra <- window(ts(df, start = c(2000,1), frequency = 4),start = c(2006,1))
+
+params <- list(
+    type = "lines",
+    title = "External Debt",
+    subtitle = "% GDP",
+    colors = c("#458B74","#66CDAA"),
+    legend = c("Gross", "Net"),
+    extra = extra
+)
+
+BETS.chart(ts = ts, style = "plotly", file = "ext_debt.png", open = T, params = params)
 
 # par(mar = c(5.1,4.1,4.1,2.1))
 # series = ts(1:20, start = 2000, end = 2019, frequency = 1)
