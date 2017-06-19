@@ -106,10 +106,9 @@ Searches the BETS databases for a time series by its description, source, period
 This function uses specific version of the \code{\link[RMySQL]{RMySQL}} package. If it does not run correctly, try installing version 0.10.9 of the 
 \code{\link[RMySQL]{RMySQL}} package using:
 
-> remove.packages("RMySQL") - If necessary
-
-> install.packages("devtools) - If necessary
-
+> remove.packages("RMySQL") # If necessary
+> install.packages("devtools) # If necessary
+> devtools::install_version("DBI", version = "0.5", repos = "http://cran.us.r-project.org")
 > devtools::install_version("RMySQL", version = "0.10.9", repos = "http://cran.us.r-project.org")
 }
 \examples{

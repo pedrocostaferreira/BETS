@@ -25,7 +25,7 @@
 #' 
 #' \tabular{ll}{
 #' \code{style} \tab A \code{character}. The style of the charts. As in \code{BETS.chart}, can be either \code{'plotly'} or \code{'normal'}.\cr
-#' \code{charts.opts} \tab A \code{list} of parameters lists, one for each chart. Parameters are specified in \code{\link{BETS.chart} \cr
+#' \code{charts.opts} \tab A \code{list} of parameters lists, one for each chart. Parameters are specified in \code{\link{BETS.chart}} \cr
 #' }
 #' 
 #' @return A .pdf file (the dashboard)
