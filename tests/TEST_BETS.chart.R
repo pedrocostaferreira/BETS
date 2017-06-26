@@ -239,3 +239,31 @@ BETS.chart(ts = ts, style = "plotly", file = "ext_debt.png", open = T, params = 
 # series = ts(1:20, start = 2000, end = 2019, frequency = 1)
 # b = barplot(as.vector(series), names.arg = as.vector(time(series)), xlab = "", ylab = "",  xpd = FALSE)
 # lines(y = as.vector(series), lwd = 2.5, lty = 2)
+
+data <- BETS.get(21864)
+
+params <- list(
+    title = "Intermediate Goods Production",
+    subtitle = "Index",
+    colors = c("royalblue")
+)
+
+BETS.chart(ts = data, style = "normal", open = T, params = params, file = "igp.png")
+
+
+params <- list(
+    type = "lines",
+    title = "External Debt",
+    subtitle = "% GDP",
+    colors = c("aquamarine4","aquamarine3"),
+    legend = c("Gross", "Net"),
+    extra = extra,
+    arr.len = 5,
+    extra.arr.ort = 'v',
+    extra.arr.len = 5,
+    legend.pos = "bottomleft"
+)
+
+BETS.chart(ts = ts, style = "normal", file = "ext_debt.pdf", open = T, params = params)
+
+

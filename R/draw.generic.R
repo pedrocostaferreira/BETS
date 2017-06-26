@@ -109,7 +109,14 @@ draw.generic <- function(ts, style, params){
         } 
         
         if(frequency(ts) != 1){
-            chart.add_notes(series, names = leg, ylim = lims[3:4], xlim = lims[1:2]) 
+            
+            nms = leg
+            
+            if(no.legend){
+                nms = NULL
+            }
+            
+            chart.add_notes(series, names = nms, ylim = lims[3:4], xlim = lims[1:2]) 
         }
         
     } else {
@@ -126,6 +133,8 @@ draw.generic <- function(ts, style, params){
         
         m <- list(
             t = 70,
+            l = 60,
+            r = 60,
             pad = 1
         )
         
