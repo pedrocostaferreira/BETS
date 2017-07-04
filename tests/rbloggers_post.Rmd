@@ -4,7 +4,7 @@ author: "Talitha Speranza"
 output: html_document
 ---
 
-The BETS package, besides providing thousands of Brazilian economic time series and interesting analytical tools, has a powerful device to visualize economic data. With a few lines of code - in some cases, only one line - the user is able to create professional looking dashboards exhibiting several thematic charts. These charts will always contain the latest available data, since BETS extracts series directly from their original sources. The figure below shows a page of one of such dashboards:
+The BETS package, besides providing thousands of Brazilian economic time series and interesting analytical tools, has a powerful device to visualize economic data. With a few lines of code - in some cases, only one line - the user is able to create professional looking dashboards exhibiting several thematic charts. These charts will always contain the latest available data of each series, since BETS extracts series directly from their original sources. The figure below shows a page of one of such dashboards:
 
 ```{r fig.align='center', echo=F}
 knitr::include_graphics("dashboard.png")
@@ -18,7 +18,7 @@ To create the dashboard we have just shown, run the following command:
 BETS.dashboard(type = "business_cycle", saveas = "survey.pdf")
 ```
 
-The parameter `saveas` is not required, but is is useful to know that you can save dashboards anywhere you want to. You can download `survey.pdf` here. 
+The parameter `saveas` is not required, but it is useful to know that you can save dashboards anywhere you want to. You can download `survey.pdf` here. 
 
 Now, let's take another step in the customization direction. One of the nice features of BETS dashboards is allowing the user to incorporate text (e.g. a textual analysis). To do this, you have to provide an external `.txt` file with your text, obeying two simple synthax rules (separate paragraphs with '\\\\n' and pages with '##'). If you provide a text, authoring will be required. You can also add your company logo or your email. The next code snippet shows how to do it. 
 

@@ -54,11 +54,14 @@ for(i in 1:length(regs)){
   }
   else {
     res = data.frame(t(c("-", paste("Custom series",j),
-             "-",paste(start(reg),collapse = "-"),rep("-",2)," ")),
+             "-",paste(start(reg),collapse = "-"),
+                 paste(end(reg),collapse = "-"),
+                 rep("-",2)," ")),
              stringsAsFactors = F)
-    names(res) = names(info)
     
+    names(res) = names(info)
     info = rbind(info, res)
+    
     j = j + 1
     
   }
@@ -69,8 +72,8 @@ for(i in 1:length(regs)){
 }
 
 
-info[,7] = var.names
-names(info) <- c("Code","Description","Periodicity","Start","Source","Unit","Name")
+info[,8] = var.names
+names(info) <- c("Code","Description","Unit","Periodicity","Start","End","Source","Name")
 info[,"Description"] <- trimws(info[,"Description"])
 ```
 
@@ -111,7 +114,7 @@ series.file = params$series.file
 
 ### Series Information
 
-The table shown below was saved into a variable called `info`. It is going to be used latter.
+The table shown below was saved into a variable called `info`. It is going to be used later.
 
 ```{r echo = FALSE}
 knitr::kable(info, format = "markdown")

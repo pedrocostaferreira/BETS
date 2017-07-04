@@ -66,7 +66,7 @@ BETS.report(ts = 4447, parameters = parameters, series.saveas = "csv")
 
 # Caso base, default
 
-#BETS.report(mode = "GRNN")
+BETS.report(mode = "GRNN")
 params = list(regs = 4382)
 BETS.report(mode = "GRNN", ts = 13522, parameters = params)
 
