@@ -125,7 +125,7 @@
 
 BETS.search = function(description="*",src,periodicity,unit,code,start,view=TRUE,lang="en"){
   
-  conn = dbConnect(MySQL(),db="bets",user="BETS_user",password="123456",host="200.20.164.178",port=3306)
+  conn = connection()
   
   if(lang == "en"){
     tb = "metadata_en"
