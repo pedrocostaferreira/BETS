@@ -21,8 +21,7 @@
 BETS.sidra.search <- function(description = NULL, code, view = TRUE, browse = FALSE) {
     
     
-    conn = dbConnect(MySQL(),db="bets",user="BETS_user",password="123456",
-                     host="200.20.164.178",port=3306)
+    conn = connection()
     tb = "metadata_pt"
     # description = description
     
