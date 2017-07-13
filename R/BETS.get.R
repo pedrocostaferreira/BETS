@@ -97,7 +97,7 @@ BETS.get = function(code, from = "", to = "", data.frame = FALSE, frequency = NU
   } else {
     
     freq = 365 
-    conn = dbConnect(MySQL(),db="bets",user="BETS_user",password="123456",host="200.20.164.178",port=3306)
+    conn = connection()
     
     aux = dbGetQuery(conn,paste0("select date, value from bets.IPC where code = '",code,"'"))
     
