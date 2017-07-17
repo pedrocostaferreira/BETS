@@ -6,13 +6,6 @@
 \usage{
 draw.eap()
 }
-\arguments{
-\item{start}{A \code{character}. The stating period of the series.}
-
-\item{ylim}{A \code{numeric vector}. Y axis limits.}
-
-\item{xlim}{A \code{numeric vector}. x axis limits.}
-}
 \value{
 An image file is saved in the 'graphs' folder, under the BETS installation directory.
 }

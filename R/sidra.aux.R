@@ -3,6 +3,17 @@
 #' Searches the Sidra databases for a series by its description or a given table descriptions.
 #'
 #' @param x Either a character or a numeric. If character, function searches the Sidra metadata. If a numeric argument is provided the descriptions of the given table are seached .
+#' @param len A \code{}.
+#' @param nova_req A \code{}.
+#' @param from A \code{}.
+#' @param to A \code{}.
+#' @param inputs A \code{}.
+#' @param territory A \code{}.
+#' @param variable A \code{}.
+#' @param header A \code{}.
+#' @param sections A \code{}.
+#' 
+#' 
 #' @import xml2 rvest stringr
 #' @importFrom lubridate month
 

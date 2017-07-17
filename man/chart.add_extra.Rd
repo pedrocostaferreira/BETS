@@ -24,6 +24,8 @@ chart.add_extra(ts, ylim = NULL, xlim = NULL, col = "firebrick3",
 \item{leg.pos}{A \code{}.}
 
 \item{leg.text}{A \code{}.}
+
+\item{main.type}{A \code{}.}
 }
 \value{
 An image file is saved in the 'graphs' folder, under the BETS installation directory.

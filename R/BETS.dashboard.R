@@ -6,7 +6,6 @@
 #' @param saveas A \code{character}. A path and a name for the dashboard file (a .pdf file). If this parameter is not provided, the dashboard will be saved inside the 'dashboards' folder, under the BETS installation directory.
 #' @param charts A \code{character} and/or \code{ts} object list. The charts to be added to a custom dashboard. Up to 16 charts are allowed, including pre-defined charts, identified by their codes (see \code{\link{BETS.chart}}). This will only work if parameter 'type' is set to 'custom'. 
 #' @param parameters A \code{list}. A list of parameters. See the 'Details' section for a description of these parameters for each type of dashboard.
-#' @param charts.params A \code{list} of \code{list}s. Each element of the top level list must be a list of parameters for custom charts, as defined in (see \code{\link{BETS.chart}}). The i-th entry must correspond to the i-th chart of the argument \code{chart}. If the i-th chart is pre-defined, set its corresponding list element to 'NA'.
 #' 
 #' @details
 #' 

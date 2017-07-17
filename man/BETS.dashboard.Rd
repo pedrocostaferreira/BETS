@@ -15,8 +15,6 @@ BETS.dashboard(type = "business_cycle", charts = "all", saveas = NA,
 \item{saveas}{A \code{character}. A path and a name for the dashboard file (a .pdf file). If this parameter is not provided, the dashboard will be saved inside the 'dashboards' folder, under the BETS installation directory.}
 
 \item{parameters}{A \code{list}. A list of parameters. See the 'Details' section for a description of these parameters for each type of dashboard.}
-
-\item{charts.params}{A \code{list} of \code{list}s. Each element of the top level list must be a list of parameters for custom charts, as defined in (see \code{\link{BETS.chart}}). The i-th entry must correspond to the i-th chart of the argument \code{chart}. If the i-th chart is pre-defined, set its corresponding list element to 'NA'.}
 }
 \value{
 A .pdf file (the dashboard)

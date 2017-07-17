@@ -10,6 +10,7 @@
 #' @param arr.pos A \code{}.
 #' @param leg.pos A \code{}.
 #' @param leg.text A \code{}.
+#' @param main.type A \code{}.
 #' 
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory. 
 #' 

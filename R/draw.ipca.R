@@ -2,10 +2,6 @@
 #' 
 #' @description  Creates a plot of series 13522 (NCPI), along with series 4466 (NCPI core)
 #' 
-#' @param start A \code{character}. The stating period of the series.
-#' @param ylim A \code{numeric vector}. Y axis limits.
-#' @param xlim  A \code{numeric vector}. x axis limits.
-#' 
 #' @return An image file is saved in the 'graphs' folder, under the BETS installation directory. 
 #'
 #' @importFrom zoo as.Date

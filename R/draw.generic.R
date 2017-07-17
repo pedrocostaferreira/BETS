@@ -181,7 +181,7 @@ draw.generic <- function(ts, style, params){
         }
         
         if(params$trend){
-            require(mFilter)
+            requireNamespace("mFilter")
             tr <- fitted(mFilter::hpfilter(ts))
             p <- p %>% add_trace(y = tr, x = as.Date(tr), name = "Trend", line = list(color = "#bd081c", dash = "dash")) 
         }

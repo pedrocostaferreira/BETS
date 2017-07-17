@@ -9,6 +9,24 @@ sidra.aux(x, len, nova_req, from, to, inputs, territory, variable, header,
 }
 \arguments{
 \item{x}{Either a character or a numeric. If character, function searches the Sidra metadata. If a numeric argument is provided the descriptions of the given table are seached .}
+
+\item{len}{A \code{}.}
+
+\item{nova_req}{A \code{}.}
+
+\item{from}{A \code{}.}
+
+\item{to}{A \code{}.}
+
+\item{inputs}{A \code{}.}
+
+\item{territory}{A \code{}.}
+
+\item{variable}{A \code{}.}
+
+\item{header}{A \code{}.}
+
+\item{sections}{A \code{}.}
 }
 \description{
 Searches the Sidra databases for a series by its description or a given table descriptions.

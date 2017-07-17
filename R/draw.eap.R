@@ -2,10 +2,6 @@
 #' 
 #' @description  Creates a plot of series 10810
 #' 
-#' @param start A \code{character}. The stating period of the series.
-#' @param ylim A \code{numeric vector}. Y axis limits.
-#' @param xlim  A \code{numeric vector}. x axis limits.
-#' 
 #' @importFrom grDevices dev.new dev.off pdf png
 #' @importFrom utils read.csv2
 #' @importFrom stats ts plot.ts
