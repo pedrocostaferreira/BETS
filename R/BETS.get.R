@@ -114,12 +114,19 @@ BETS.get = function(code, from = "", to = "", data.frame = FALSE, frequency = NU
   
   try = FALSE
   
+ if(grepl("-",aux[1,1])){
   try = tryCatch({
-    aux2 = as.Date(aux[,1], format = "%d/%m/%Y")},
+    aux2 = as.Date(aux[,1], format = "%Y-%m-%d")},
     error = function(err) {
       return(TRUE)
     }
-  )
+  )}else{
+    try = tryCatch({
+      aux2 = as.Date(aux[,1], format = "%d/%m/%Y")},
+      error = function(err) {
+        return(TRUE)
+      })
+  }
   
   
   suppressWarnings(if(try==TRUE){
