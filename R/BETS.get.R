@@ -99,7 +99,7 @@ BETS.get = function(code, from = "", to = "", data.frame = FALSE, frequency = NU
     freq = 365 
     conn = connection()
     
-    aux = dbGetQuery(conn,paste0("select date, value from bets.IPC where code = '",code,"'"))
+    aux = DBI::dbGetQuery(conn,paste0("select date, value from bets.IPC where code = '",code,"' order by date asc"))
     
     invisible(dbDisconnect(conn))
     
