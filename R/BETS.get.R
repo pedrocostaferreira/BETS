@@ -46,6 +46,15 @@ BETS.get = function(code, from = "", to = "", data.frame = FALSE, frequency = NU
     code = as.numeric(code)
     aux = get.series.bacen(code, from = from, to = to)[[1]]
     
+    x <- get.series.bacen(code, from = from, to = to)[[1]]
+    y <- get.series.bacen(code, from = from, to = to)[[1]]
+    
+    if(nrow(aux)<nrow(x)){
+      aux <- x
+    }else if(nrow(aux)<nrow(y)){
+      aux <- y
+    }
+    
     if(nrow(aux) == 0){
       return(invisible(msg(paste(.MSG_NOT_AVAILABLE,"Series is empty in the BACEN databases"))))
     }
