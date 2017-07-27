@@ -123,7 +123,7 @@ has.text = !is.na(text)
 \ifnum\first = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart1}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart1",ext)`}
       \label{chart1}
     \end{subfigure}
 \fi
@@ -131,7 +131,7 @@ has.text = !is.na(text)
 \ifnum\second = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart2}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart2",ext)`}
       \label{chart2}
     \end{subfigure}
 \fi
@@ -162,7 +162,7 @@ if(!is.na(text)){
 \ifnum\third = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart3}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart3",ext)`}
       \label{chart3}
     \end{subfigure}
 \fi
@@ -170,7 +170,7 @@ if(!is.na(text)){
 \ifnum\fourth = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart4}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart4",ext)`}
       \label{chart4}
     \end{subfigure}
 \fi
@@ -195,7 +195,7 @@ if(!is.na(text) && text.len != 0){
 \ifnum\fifth = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart5}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart5",ext)`}
       \label{chart5}
     \end{subfigure}
 \fi
@@ -203,7 +203,7 @@ if(!is.na(text) && text.len != 0){
 \ifnum\sixth = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart6}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart6",ext)`}
       \label{chart6}
     \end{subfigure}
 \fi
@@ -227,7 +227,7 @@ if(!is.na(text) && text.len != 0){
 \ifnum\seventh = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart7}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart7",ext)`}
       \label{chart7}
     \end{subfigure}
 \fi
@@ -235,7 +235,7 @@ if(!is.na(text) && text.len != 0){
 \ifnum\eighth = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart8}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart8",ext)`}
       \label{chart8}
     \end{subfigure}
 \fi
@@ -259,7 +259,7 @@ if(!is.na(text) && text.len != 0){
 \ifnum\ninth = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart9}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart9",ext)`}
       \label{chart9}
     \end{subfigure}
 \fi
@@ -267,7 +267,7 @@ if(!is.na(text) && text.len != 0){
 \ifnum\tenth = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart10}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart10",ext)`}
       \label{chart10}
     \end{subfigure}
 \fi
@@ -291,7 +291,7 @@ if(!is.na(text) && text.len != 0){
 \ifnum\eleventh = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart11}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart11",ext)`}
       \label{chart11}
     \end{subfigure}
 \fi
@@ -299,7 +299,7 @@ if(!is.na(text) && text.len != 0){
 \ifnum\twelfth = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart12}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart12",ext)`}
       \label{chart12}
     \end{subfigure}
 \fi
@@ -324,7 +324,7 @@ if(!is.na(text) && text.len != 0){
 \ifnum\thirteenth = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart13}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart13",ext)`}
       \label{chart13}
     \end{subfigure}
 \fi
@@ -332,7 +332,7 @@ if(!is.na(text) && text.len != 0){
 \ifnum\fourteenth = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart14}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart14",ext)`}
       \label{chart14}
     \end{subfigure}
 \fi
@@ -357,7 +357,7 @@ if(!is.na(text) && text.len != 0){
 \ifnum\fifteenth = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart15}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart15",ext)`}
       \label{chart15}
     \end{subfigure}
 \fi
@@ -365,7 +365,7 @@ if(!is.na(text) && text.len != 0){
 \ifnum\sixteenth = 1
     \begin{subfigure}{.49\textwidth}
       \centering
-      \includegraphics[width=11.0cm,keepaspectratio]{graphs/chart16}
+      \includegraphics[width=11.0cm,keepaspectratio]{graphs/`r paste0("chart16",ext)`}
       \label{chart16}
     \end{subfigure}
 \fi

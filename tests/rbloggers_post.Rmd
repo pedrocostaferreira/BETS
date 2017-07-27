@@ -101,3 +101,5 @@ knitr::include_graphics("ca_di.png")
 Most chart parameters are self-explanatory, but others deserve clarification. `extra` receives the second series and will always be plotted as a line; `extra.arr.ort` is the orientation of the arrow pointing to the last value of the second ("extra") series (you can also set this for the main series, using `arr.ort`) and `extra.arr.len` is the length of this arrow (likewise, there is a `arr.len` parameter).
 
 We are now ready to build a custom dashboard. You will notice you don't even have to call `BETS.chart` - `BETS.dashboard` will do the job. 
+
+
