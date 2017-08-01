@@ -54,7 +54,7 @@ draw.survey = function(survey){
     
     inx = ts(sond[57:nrow(sond),2:4],start = c(2005,9),frequency = 12)
     inx = window(inx, start = c(2015,1))
-    t = "<b>TRANSFORMATION INDUSTRY SURVEY</b>"
+    t = "<b>MANUFACTURING INDUSTRY SURVEY</b>"
     
   }
   
