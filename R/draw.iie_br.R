@@ -30,7 +30,7 @@ draw.iie_br = function(){
     yref = "y",
     showarrow = TRUE,
     arrowhead = 6,
-    ay = 40,
+    ay = 50,
     ax = 0,
     font = list(size = 22)
   )

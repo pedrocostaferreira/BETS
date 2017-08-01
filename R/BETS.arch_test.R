@@ -8,6 +8,8 @@
 #' 
 #' @return A \code{list} with the results of the ARCH test
 #' 
+#' @importFrom stats embed lm pchisq resid
+#' 
 #' @author Spencer Graves \email{spencer.graves@prodsyse.com}
 
 BETS.arch_test <- function (x, lags = 12, demean = FALSE) {
