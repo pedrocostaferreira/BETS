@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="date" content="2017-07-05" />
+<meta name="date" content="2017-08-02" />
 
 <title>BETS - Brazilian Economic Time Series: Basic Usage</title>
 
@@ -72,13 +72,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <address class="author_afil">
 Instituto Brasileiro de Economia (IBRE)<br><a class="author_email" href="mailto:#"><a href="mailto:talitha.speranza@fgv.br">talitha.speranza@fgv.br</a></a>
 </address>
-<h4 class="date"><em>2017-07-05</em></h4>
+<h4 class="date"><em>2017-08-02</em></h4>
 
 
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>The BETS package (an abbreviation for Brazilian Economic Time Series) for R <span class="citation">(R Core Team 2012)</span> allows easy access to the most important Brazilian economic time series and a range of tools for analyzing them. It provides a much-needed single point of access to the many Brazilian series and a simple, flexible and robust interface.</p>
+<p>The BETS package (an abbreviation for Brazilian Economic Time Series) for R <span class="citation">[@R]</span> allows easy access to the most important Brazilian economic time series and a range of tools for analyzing them. It provides a much-needed single point of access to the many Brazilian series and a simple, flexible and robust interface.</p>
 <p>The series in the BETS database are produced by three important and respected institutions: the Central Bank of Brazil (BACEN), the Brazilian Institute of Geography and Statistics (IBGE) and the Brazilian Institute of Economics at the Fundação Getúlio Vargas (FGV/IBRE and FGV Data). BETS was originally conceived to bring together as many series from these centers as possible in a single place because of the difficulties researchers faced obtaining this information. This objective was achieved and the package now contains more than 18,000 Brazilian economic series.</p>
 <p>Because of the extremely large size of the databases, BETS was expanded to provide mechanisms that would help analysts to search for, extract and export series. The development of the package then took a new direction and BETS was to become an integrated analysis and learning environment. A range of functionality missing from the R universe was included to make modeling and interpretation of the series available in BETS even easier. In addition, some functions already include the option of generating explanatory outputs that encourage and help users to expand their knowledge.</p>
 <p>This article seeks to describe the structure and some of the more important functionality of BETS. Typical examples of how the package can be used are described step by step. In the next section we discuss the database in detail. Then in Section 3 we describe the structure of the package and the different elements it is currently composed of. Section 4 introduces the basic ways in which BETS can be used and shows how users can search for, read and store series. The more advanced functions are also discussed in this section.</p>
@@ -92,7 +92,7 @@ Instituto Brasileiro de Economia (IBRE)<br><a class="author_email" href="mailto:
 </div>
 <p>An important discussion during the conceptual design phase for BETS concerned the location of the database. The option of distributing the data together with the package was discarded as CRAN does not accept very large data files (<code>.rdas</code>). This left two alternatives: to collect the data dynamically using the external APIs in the Central Bank of Brazil, IBGE and IBRE systems or to maintain a database with a database management system (DBMS). In its current form, the package implements a hybrid solution. The IBGE and BACEN series are acquired on the fly using the respective APIs. This procedure is not necessary for the FGV/IBRE series as the data are provided directly by the institution, which is supporting the project. These series are kept in a database built using MySQL.</p>
 <p>This division is invisible to the user, who does not need to know which database he should look in and will always have access to the most up-to-date data.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> This architecture facilitates implementation and maintenance of the structures and increases the efficiency of the package. The data are updated by a team of maintenance staff with the aid of servers, avoiding the need for the user to obtain new data manually. However, this requires that the user be connected to the Internet.</p>
-<p>Implementation of fast, easy access would not have been possible without a table of the metadata for the available series. This table, which is maintained in the MySQL database, contains information such as description, periodicity, the unit in which the data are represented and the start and end dates for all the series that can be accessed using the package. Each series has a unique code, which is treated as an index by the DBMS. The auxiliary package RMySQL <span class="citation">(Ooms et al. 2016)</span> acts at the interface, allowing R to connect to the MySQL database.</p>
+<p>Implementation of fast, easy access would not have been possible without a table of the metadata for the available series. This table, which is maintained in the MySQL database, contains information such as description, periodicity, the unit in which the data are represented and the start and end dates for all the series that can be accessed using the package. Each series has a unique code, which is treated as an index by the DBMS. The auxiliary package RMySQL <span class="citation">[@RMySQL]</span> acts at the interface, allowing R to connect to the MySQL database.</p>
 </div>
 <div id="structure-of-the-package" class="section level2">
 <h2>Structure of the Package</h2>
@@ -183,7 +183,7 @@ Instituto Brasileiro de Economia (IBRE)<br><a class="author_email" href="mailto:
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Search for accumulated GDP series</span>
 <span class="kw">BETS.search</span>(<span class="dt">description =</span> <span class="st">&quot;gdp accumulated&quot;</span>, <span class="dt">unit =</span> <span class="st">&quot;US$&quot;</span>, <span class="dt">view =</span> F)</code></pre></div>
 <pre><code>## 
-## BETS-package: Found 2 out of 16850 time series.</code></pre>
+## BETS-package: Found 2 out of 16854 time series.</code></pre>
 <pre><code>##   code                                            description
 ## 1 4192 GDP accumulated in the last 12 months - in US$ million
 ## 2 4386           GDP accumulated in the year - in US$ million
@@ -193,7 +193,7 @@ Instituto Brasileiro de Economia (IBRE)<br><a class="author_email" href="mailto:
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Search for consumption series, not seasonally adjusted, not private</span>
 <span class="kw">BETS.search</span>(<span class="dt">description =</span> <span class="st">&quot;consumption ~ 'seasonally adjusted' ~ private&quot;</span>, <span class="dt">view =</span> F)</code></pre></div>
 <pre><code>## 
-## BETS-package: Found 56 out of 16850 time series.</code></pre>
+## BETS-package: Found 56 out of 16854 time series.</code></pre>
 <pre><code>##   code                                           description
 ## 1 1393          Petroleum derivatives consumption - Gasoline
 ## 2 1394               Petroleum derivatives consumption - GLP
@@ -219,13 +219,13 @@ gdp_accum &lt;-<span class="st"> </span><span class="kw">BETS.get</span>(<span c
 <span class="kw">window</span>(gdp_accum, <span class="dt">start =</span> <span class="kw">c</span>(<span class="dv">2014</span>,<span class="dv">1</span>))</code></pre></div>
 <pre><code>##          Jan     Feb     Mar     Apr     May     Jun     Jul     Aug
 ## 2014 2472533 2481284 2481924 2479634 2480629 2475636 2471898 2465860
-## 2015 2403697 2349154 2301000 2246336 2189805 2141042 2085481 2029585
-## 2016 1792975 1792457 1788571 1787372 1786190 1788167 1786626 1789669
-## 2017 1816546 1832576 1852069 1869352 1886268                        
+## 2015 2403690 2349150 2301000 2246336 2189805 2141042 2085474 2029582
+## 2016 1792830 1792407 1788570 1787263 1786178 1788167 1786639 1789734
+## 2017 1815461 1830139 1848533 1864606 1879933 1895371                
 ##          Sep     Oct     Nov     Dec
 ## 2014 2465907 2462505 2457480 2454846
-## 2015 1970754 1911273 1854428 1797601
-## 2016 1791403 1790707 1794404 1799436
+## 2015 1970754 1911276 1854424 1797601
+## 2016 1791403 1790562 1794418 1799436
 ## 2017</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Get the series for the GDP of the Federal District at market prices</span>
 gdp_df &lt;-<span class="st"> </span><span class="kw">BETS.get</span>(<span class="dv">23992</span>, <span class="dt">data.frame =</span> T)
@@ -301,16 +301,10 @@ my.series &lt;-<span class="st"> </span><span class="kw">BETS.get</span>(<span c
 </div>
 </div>
 </div>
-<div id="references" class="section level2 unnumbered">
+<div id="references" class="section level2">
 <h2>References</h2>
-<div id="refs" class="references">
-<div id="ref-RMySQL">
-<p>Ooms, J., D. James, S. DebRoy, H. Wickham, and J. Horner. 2016. <em>RMySQL: Database Interface and Mysql Driver for R</em>. <a href="http://cran.r-project.org/package=RMySQL" class="uri">http://cran.r-project.org/package=RMySQL</a>.</p>
-</div>
-<div id="ref-R">
-<p>R Core Team. 2012. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="http://www.R-project.org/" class="uri">http://www.R-project.org/</a>.</p>
-</div>
-</div>
+<p>Ooms, J., D. James, S. DebRoy, H. Wickham, and J. Horner. 2016. RMySQL: Database Interface and Mysql Driver for R. <a href="https://cran.r-project.org/package=RMySQL" class="uri">https://cran.r-project.org/package=RMySQL</a>.</p>
+<p>R Core Team. 2012. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
 </div>
 <div class="footnotes">
 <hr />

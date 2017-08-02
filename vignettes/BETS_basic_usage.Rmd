@@ -5,7 +5,7 @@ author:
     affiliation: Instituto Brasileiro de Economia (IBRE)
     address: Fundação Getúlio Vargas (FGV)
     email:  talitha.speranza@fgv.br
-bibliography: biblio.bib
+bibliography: 
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -337,3 +337,7 @@ informative.
 
 
 ## References 
+
+Ooms, J., D. James, S. DebRoy, H. Wickham, and J. Horner. 2016. RMySQL: Database Interface and Mysql Driver for R. https://cran.r-project.org/package=RMySQL.
+
+R Core Team. 2012. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.
