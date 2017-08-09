@@ -17,7 +17,7 @@ BETS.arch_test(x, lags = 12, demean = FALSE)
 A \code{list} with the results of the ARCH test
 }
 \description{
-Performs an ARCH test and show the results
+Performs an ARCH test and show the results. Formerly, this function was part of FinTS, now an obsoleted package.
 }
 \author{
 Spencer Graves \email{spencer.graves@prodsyse.com}

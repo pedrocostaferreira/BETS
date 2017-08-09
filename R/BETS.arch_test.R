@@ -1,6 +1,6 @@
 #' @title Perform an ARCH test
 #' 
-#' @description  Performs an ARCH test and show the results 
+#' @description  Performs an ARCH test and show the results. Formerly, this function was part of FinTS, now an obsoleted package.
 #' 
 #' @param x A \code{ts} object. The time series
 #' @param lags An \code{integer}. Maximum number of lags 
@@ -9,6 +9,7 @@
 #' @return A \code{list} with the results of the ARCH test
 #' 
 #' @importFrom stats embed lm pchisq resid
+#' @export 
 #' 
 #' @author Spencer Graves \email{spencer.graves@prodsyse.com}
 

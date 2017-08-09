@@ -2,6 +2,7 @@
 
 export(BETS.addin_en)
 export(BETS.addin_pt)
+export(BETS.arch_test)
 export(BETS.chart)
 export(BETS.corrgram)
 export(BETS.dashboard)

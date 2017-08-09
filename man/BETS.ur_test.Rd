@@ -4,14 +4,14 @@
 \alias{BETS.ur_test}
 \title{Perform unit root tests}
 \usage{
-BETS.ur_test(..., mode = "DF", level = "5pct")
+BETS.ur_test(..., mode = "ADF", level = "5pct")
 }
 \arguments{
 \item{...}{Arguments passed on to urca functions}
 
-\item{mode}{A \code{character}. The type of the test. For now, only the Augmented Dickey-Fuller test is available.}
+\item{mode}{A \code{character}. The type of the test. Set it to 'ADF' for Augmented Dickey-Fuller, 'KPSS' for KPSS or 'PP' for Phillips-Perron.}
 
-\item{level}{A \code{character}. The confidence level. Can be either '1pct','5pct' or '10pct'}
+\item{level}{A \code{character}. The confidence level. Can be either '1pct', '2.5pct', '5pct' or '10pct'}
 }
 \value{
 A \code{list} object. The first element is a \code{data.frame} with the test statistics, the critical values and the test results. The second, the model residuals.

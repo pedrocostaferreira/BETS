@@ -8,6 +8,7 @@ params:
   series.file: !r NA
   lag.max: 48
   n.ahead: 12
+  ur.test: !r list(mode = "ADF", type = "drift", lags = 11, selectlags = "AIC", level = "5pct")
 ---
 
 ```{r setup, echo = FALSE}
@@ -32,12 +33,14 @@ series.file = params$series.file
  ------------------ | ------------------ | ----------
  Series Code        | `r code`           | `ts` 
  Maximum Lag        | `r params$lag.max` | `lag.max` 
- Prevision Horizon  | `r params$n.ahead` | `n.ahead`  
+ Prevision Horizon  | `r params$n.ahead` | `n.ahead` 
+ Unit Root Test     | `r params$ur.test` | `ur.test` 
 
  
 ```{r echo = FALSE}
   lag.max = params$lag.max
   n.ahead = params$n.ahead
+  ur.test = params$ur.test
 ```
 
 ```{asis echo = !custom.ts}
@@ -53,6 +56,7 @@ data = BETS.get(code)
 
 ```{r eval = !custom.ts, echo = !custom.ts}
 info <- BETS.search(code = ts, view = F)
+print(params$teste)
 ```
 
 ```{r eval = custom.ts, echo = custom.ts}
@@ -95,21 +99,63 @@ dygraph(cbind(Series = data, Trend = trend), main = info[,"Description"]) %>%
 
 ## Unit Root Tests
 
+```{asis eval = (ur.test == "ADF")}
 ### Augmented Dickey-Fuller 
+```
+
+
+```{asis eval = (ur.test == "KPSS")}
+### KPSS
+```
+
+```{asis eval = (ur.test == "PP")}
+### Phillips-Perron
+```
 
 ```{r}
-  df = BETS.ur_test(y = diff(data), type = "drift", lags = 11, selectlags = "BIC", level = "5pct")
+  test.params = append(list(y = data), ur.test)
+  df = do.call(BETS.ur_test,test.params)
   df$results
 ```
 
-```{r echo = FALSE}
+```{r echo = F}
+lvl = ur.test$level
+if(lvl == "1pc"){
+    ic = "99%"
+    alpha = 0.01
+} else if(lvl == "2.5%"){
+    ic = "97.5%"
+    alpha = 0.025
+} else if(lvl == "5%"){
+    ic = "95%"
+    alpha = 0.05
+} else {
+    ic = "90%"
+    alpha = 0.1
+}
+```
+
+
+```{r eval = (ur.test$mode != "KPSS"), echo = FALSE}
   uroot = FALSE
-  uroot = (df$results[1,"statistic"]> df$results[1,"crit.val"])
+  uroot = (df$results[1,"statistic"] < df$results[1,"crit.val"])
+```
+
+```{asis eval = (ur.test$mode != "KPSS") && uroot}
+  For a 95% confidence interval, the test statistic `tau3` is greater than the critical value. We therefore conclude that there must be a unit root. 
+```
+
+```{r eval = (ur.test$mode == "KPSS"), echo = FALSE}
+  uroot = FALSE
+  uroot = (df$results[1,"statistic"] > df$results[1,"crit.val"])
+```
+
+```{asis eval = (ur.test$mode == "KPSS") && uroot}
+  For a 95% confidence interval, the test statistic `tau3` is smaller than the critical value. We therefore conclude that there must be a unit root. 
+
 ```
 
 ```{asis eval = uroot}
-  For a 95% confidence interval, the test statistic `tau3` is greater than the critical value. We therefore conclude that there must be a unit root. 
-  
   Now, we are going to repeatedly apply `diff` to the series and check if the diferenced series has a unit root.
 ```
 
@@ -124,7 +170,8 @@ dygraph(cbind(Series = data, Trend = trend), main = info[,"Description"]) %>%
   while(df$results[1,"statistic"]> df$results[1,"crit.val"]){
     ns_roots = ns_roots + 1
     d_ts = diff(d_ts)
-    df = BETS.ur_test(y = d_ts, type = "none", lags = 6, selectlags = "BIC", level = "5pct")
+    test.params = append(list(y = d_ts), ur.test)
+    df = do.call(BETS.ur_test,test.params)
     print(df$results)
  }
 ```
@@ -141,6 +188,7 @@ print(s_roots)
 
 sroot = FALSE
 if(s_roots != 0) sroot = TRUE
+roots = (uroot || sroot)
 ```
 
 ```{asis eval = !sroot}
@@ -155,75 +203,29 @@ if(s_roots != 0) sroot = TRUE
 library(plotly)
 ```
 
-
-### ACF - Original Series
-
-```{r echo = 1}
-BETS.corrgram(data, lag.max = lag.max, mode = "bartlett", knit = T)
+```{asis eval = !roots, echo = !roots }
+### ACF and PACF - Original Series
 ```
 
-### PACF - Original Series
-
-```{r}
-BETS.corrgram(data, lag.max = lag.max, mode = "simple", type = "partial", knit = T)
+```{asis eval = roots, echo = roots}
+### ACF and PACF - After Differencing
 ```
 
-
-```{asis eval = uroot}
-### ACF and PACF - After Non-Seasonal Differencing
-```
-
-`r if(uroot) 'As we saw earlier, this series probably has'` `r if(uroot) ns_roots` `r if(uroot) ' non-seasonal unit root(s). It means we have look into the correlograms of the differenced series.'`
-
-```{asis eval = uroot}
-#### ACF 
-```
-
-```{r eval =  uroot, echo = uroot}
-BETS.corrgram(d_ts, lag.max = lag.max, mode = "bartlett", knit = T)
-```
-
-```{asis eval = uroot}
-#### PACF 
-```
-
-```{r eval = uroot, echo = uroot}
-BETS.corrgram(d_ts, lag.max = lag.max, mode = "simple", type = "partial", knit = T)
-```
-
-```{asis eval = sroot}
-### ACF and PACF - After Seasonal Differencing
-```
-
-`r if(sroot) 'When we performed the OCSB test, we saw that this series probably has'` `r if(sroot) s_roots` `r if(sroot) ' seasonal unit root(s). It means we have look into the correlograms of the seasonally differenced series.'`
-
-```{r eval = !uroot, echo = !uroot}
-  d_ts = data 
-```
-
+`r if(roots) 'As we saw earlier, this series probably has'` `r if(uroot) ns_roots` `r if(uroot) ' non-seasonal unit root(s)'` `r if(sroot && uroot) ' and '` `r if(sroot) s_roots` `r if(sroot) ' seasonal unit root(s)'` `r if(roots) '. It means we have look into the correlograms of the differenced series.'`
 
 ```{r eval =  sroot, echo = sroot}
-ds_ts <- d_ts
-
 for(i in 1:s_roots){
-  ds_ts <- diff(ds_ts, frequency(data))
+  d_ts <- diff(d_ts, frequency(data))
 }
 ```
 
-```{asis eval = sroot}
-#### ACF 
+```{r eval = !roots, echo = !roots}
+d_ts <- data
 ```
 
-```{r eval = sroot, echo = sroot}
-BETS.corrgram(ds_ts, lag.max = lag.max, mode = "bartlett", knit = T)
-```
-
-```{asis eval = sroot}
-#### PACF 
-```
-
-```{r eval = sroot, echo = sroot}
-BETS.corrgram(ds_ts, lag.max = lag.max, mode = "simple", type = "partial", knit = T)
+```{r fig.height=2, fig.width=4.5}
+BETS.corrgram(d_ts, lag.max = lag.max, mode = "bartlett", knit = T)
+BETS.corrgram(d_ts, lag.max = lag.max, mode = "simple", type = "partial", knit = T)
 ```
 
 ## Model Identification and Estimation
@@ -232,7 +234,7 @@ The correlograms from last section gives us enough information to try to identif
 
 
 ```{r echo = c(1,2)}
-model = auto.arima(data, ic = "bic")
+model = auto.arima(data, ic = "bic", test = tolower(ur.test$mode), max.d = ns_roots, max.D = s_roots)
 summary(model)
 
 desc = capture.output(model)[2]
