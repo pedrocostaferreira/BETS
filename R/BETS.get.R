@@ -44,10 +44,10 @@ BETS.get = function(code, from = "", to = "", data.frame = FALSE, frequency = NU
   if(!grepl("ST_",code)){
     
     code = as.numeric(code)
-    aux = get.series.bacen(code, from = from, to = to)[[1]]
+    aux = get.series.bacen_2(code, from = from, to = to)[[1]]
     
-    x <- get.series.bacen(code, from = from, to = to)[[1]]
-    y <- get.series.bacen(code, from = from, to = to)[[1]]
+    x <- get.series.bacen_2(code, from = from, to = to)[[1]]
+    y <- get.series.bacen_2(code, from = from, to = to)[[1]]
     
     if(nrow(aux)<nrow(x)){
       aux <- x
