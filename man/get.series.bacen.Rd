@@ -20,6 +20,7 @@ Defaults to not saving.}
 A function to extract BACEN series using their API
 }
 \author{
-Fernando Teixeira \email{fernando.teixeira@fgv.br}
+Fernando Teixeira \email{fernando.teixeira@fgv.br} and Jonatha Azevedo 
+\email{jonatha.costa@fgv.br}
 }
 \keyword{bacen}

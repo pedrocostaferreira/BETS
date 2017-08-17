@@ -7,9 +7,10 @@
 #' @keywords bacen
 #' @author Fernando Teixeira \email{fernando.teixeira@fgv.br} and Jonatha Azevedo 
 #' \email{jonatha.costa@fgv.br}
-#' @import RCurl httr
+#' @import RCurl 
+#' @importFrom httr GET content
 
-get.series.bacen<- function(x, from = "", to = ""){
+get.series.bacen<- function(x, from = "", to = "",save = ""){
 
   
   if (missing(x)){

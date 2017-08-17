@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="date" content="2017-08-02" />
+<meta name="date" content="2017-08-17" />
 
 <title>BETS - Brazilian Economic Time Series: Basic Usage</title>
 
@@ -72,7 +72,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <address class="author_afil">
 Instituto Brasileiro de Economia (IBRE)<br><a class="author_email" href="mailto:#"><a href="mailto:talitha.speranza@fgv.br">talitha.speranza@fgv.br</a></a>
 </address>
-<h4 class="date"><em>2017-08-02</em></h4>
+<h4 class="date"><em>2017-08-17</em></h4>
 
 
 
@@ -182,14 +182,6 @@ Instituto Brasileiro de Economia (IBRE)<br><a class="author_email" href="mailto:
 <span class="kw">BETS.search</span>(<span class="dt">description =</span> <span class="st">&quot;'distrito federal'&quot;</span>, <span class="dt">periodicity =</span> <span class="st">'A'</span>, <span class="dt">src =</span> <span class="st">'IBGE'</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Search for accumulated GDP series</span>
 <span class="kw">BETS.search</span>(<span class="dt">description =</span> <span class="st">&quot;gdp accumulated&quot;</span>, <span class="dt">unit =</span> <span class="st">&quot;US$&quot;</span>, <span class="dt">view =</span> F)</code></pre></div>
-<pre><code>## 
-## BETS-package: Found 2 out of 16854 time series.</code></pre>
-<pre><code>##   code                                            description
-## 1 4192 GDP accumulated in the last 12 months - in US$ million
-## 2 4386           GDP accumulated in the year - in US$ million
-##            unit periodicity      start last_value    source
-## 1 US$ (million)           M 31/01/1990   may/2017 BCB-Depec
-## 2 US$ (million)           M 31/01/1990   may/2017 BCB-Depec</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Search for consumption series, not seasonally adjusted, not private</span>
 <span class="kw">BETS.search</span>(<span class="dt">description =</span> <span class="st">&quot;consumption ~ 'seasonally adjusted' ~ private&quot;</span>, <span class="dt">view =</span> F)</code></pre></div>
 <pre><code>## 

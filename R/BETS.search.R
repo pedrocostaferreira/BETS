@@ -101,14 +101,14 @@
 #' 
 #' 
 #' @examples 
-#' 
-#' BETS.search(description="sales",view = FALSE)
+#' #not run
+#' #BETS.search(description="sales",view = FALSE)
 #' # Output: BETS-package: Found 55 out of 12981 time series
 #' 
-#' BETS.search(src="Denor", view = FALSE)
+#' #BETS.search(src="Denor", view = FALSE)
 #' # Output: BETS-package: Found 1 out of 12981 time series
 #' 
-#' BETS.search(periodicity="A", view = FALSE)
+#' #BETS.search(periodicity="A", view = FALSE)
 #' # Output: BETS-package: Found 2308 of 12981 time series
 #' 
 #' @references 

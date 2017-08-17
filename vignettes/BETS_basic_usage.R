@@ -15,10 +15,10 @@ library(BETS)
 #  BETS.search(description = "gdp accumulated", unit = "US$", view = F)
 
 ## ----echo = F, results='hide'--------------------------------------------
-results <- BETS.search(description = "gdp accumulated", unit = "US$", view = F)
+#results <- BETS.search(description = "gdp accumulated", unit = "US$", view = F)
 
 ## ----echo = F------------------------------------------------------------
-results
+#results
 
 ## ----eval = F------------------------------------------------------------
 #  # Search for consumption series, not seasonally adjusted, not private
