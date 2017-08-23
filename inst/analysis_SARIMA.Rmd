@@ -163,6 +163,12 @@ if(lvl == "1pc"){
   For a 95% confidence interval, the test statistic `tau3` is smaller than the critical value. We therefore conclude that there is no unit root. 
 ```
 
+```{r}
+ns_roots = 0
+d_ts = data 
+```
+
+
 ```{r eval = uroot, echo = uroot}
   ns_roots = 0
   d_ts = data 
@@ -250,6 +256,37 @@ freq = model$arma[5]
 ```
 
 We see that, according to BIC, the best model is a `r desc`.
+
+>> FAZER COMENTARIO SOBRE O ARCH TEST
+
+```{r}
+arch.test <- BETS.arch_test(resid(model))
+
+### COLOCAR PARAMETRO NIVEL DE SIGNIFICANCIA PARA O USUARIO
+if(arch.test$p.value >= 0.05){
+    htk = TRUE
+} else { htk = FALSE }
+```
+
+>> VAMOS TER QUE PASSAR O LOG E REFAZER TUDO
+
+```{r eval = htk, echo = htk}
+data <- log(data)
+```
+
+>> REFAZENDO 
+```{r eval = htk, echo = htk}
+# Unit root test
+test.params <- append(list(y = data), ur.test)
+df <- do.call(BETS.ur_test,test.params)
+df$results
+```
+
+>> CHEGAR EM UM OBJ MODEL
+
+```{r}
+checkresiduals(model)
+```
 
 ## Forecasts
 
