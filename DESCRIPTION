@@ -1,8 +1,8 @@
 Package: BETS
 Type: Package
 Title: Brazilian Economic Time Series
-Version: 0.3.1
-Date: 2017-08-02
+Version: 0.3.2
+Date: 2017-08-18
 Authors@R: c(person("Pedro", "Costa Ferreira", email = "pedro.guilherme@fgv.br", role = c("aut", "cre")),
               person("Talitha", "Speranza", email = "talitha.speranza@fgv.br", role = "aut"),
 			        person("Jonatha", "Azevedo", email = "jonatha.azevedo@fgv.br", role = "aut"),
@@ -13,7 +13,7 @@ Depends: R (>= 3.4.1)
 Imports: grnn, ggplot2, plotly, urca, forecast, sqldf, zoo, rmarkdown,
         foreign, seasonal, stringr, dygraphs, RCurl, shiny (>= 0.13),
         miniUI (>= 0.1.1), rstudioapi (>= 0.4), DT, webshot, RMySQL,
-        DBI, rjson, rvest, xml2, lubridate, htmltools
+        DBI, rjson, httr,rvest, xml2, lubridate, htmltools
 Suggests: mFilter, devtools, xts, knitr
 Description: It provides access to and information about the most important
     Brazilian economic time series - from the Getulio Vargas Foundation <http://portal.fgv.br/en>,

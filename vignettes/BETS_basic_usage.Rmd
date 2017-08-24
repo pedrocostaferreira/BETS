@@ -140,11 +140,11 @@ BETS.search(description = "gdp accumulated", unit = "US$", view = F)
 ```
 
 ```{r echo = F, results='hide'}
-results <- BETS.search(description = "gdp accumulated", unit = "US$", view = F)
+#results <- BETS.search(description = "gdp accumulated", unit = "US$", view = F)
 ```
 
 ```{r echo = F}
-results
+#results
 ```
 
 ```{r eval = F}
