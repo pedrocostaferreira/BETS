@@ -4,7 +4,7 @@
 \alias{BETS.arch_test}
 \title{Perform an ARCH test}
 \usage{
-BETS.arch_test(x, lags = 12, demean = FALSE)
+BETS.arch_test(x, lags = 12, demean = FALSE, alpha = 0.5)
 }
 \arguments{
 \item{x}{A \code{ts} object. The time series}
@@ -12,6 +12,8 @@ BETS.arch_test(x, lags = 12, demean = FALSE)
 \item{lags}{An \code{integer}. Maximum number of lags}
 
 \item{demean}{A \code{boolean}. Should the series be demeaned?}
+
+\item{alpha}{A \code{numeric} value. Significance level}
 }
 \value{
 A \code{list} with the results of the ARCH test
@@ -20,5 +22,5 @@ A \code{list} with the results of the ARCH test
 Performs an ARCH test and show the results. Formerly, this function was part of FinTS, now an obsoleted package.
 }
 \author{
-Spencer Graves \email{spencer.graves@prodsyse.com}
+Spencer Graves \email{spencer.graves@prodsyse.com}, Talitha Speranza \email{talitha.speranza@fgv.br}
 }

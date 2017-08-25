@@ -7,26 +7,57 @@ BETS.report()
 # Caso base, com codigo e parametros 
 
 parameters = list(
-  lag.max = 48,
+  af.lags= 48,
   n.ahead = 12 ) 
+
+BETS.report(ts = 21864, parameters = parameters)
+
+# Caso base, com dummy, objeto do tipo ts
+dum <- BETS.dummy(start= c(2002,1) , end = c(2017,1) , from = c(2008,9) , to = c(2008,11))
+
+parameters = list( 
+    af.lags = 25,
+    n.ahead = 15,
+    dummy = dum
+)
+
+BETS.report(ts = window(BETS.get(21864), start= c(2002,1) , end = c(2015,10)), parameters = parameters)
+
+# Caso base, mudando teste ARCH
+
+parameters = list( 
+    af.lags = 25,
+    n.ahead = 15,
+    dummy = dum,
+    arch.test = list(lags = 12, demean = FALSE, alpha = 0.01)
+)
+
+BETS.report(ts = window(BETS.get(21864), start= c(2002,1) , end = c(2015,10)), parameters = parameters)
+
+# Caso base, mudando teste de raiz unitaria
+
+parameters = list( 
+    af.lags = 25,
+    n.ahead = 15,
+    ur.test = list(mode = "KPSS", level = "2.5pct")
+)
 
 BETS.report(ts = 21864, parameters = parameters)
 
 # Caso base, outro codigo
 
 BETS.report(ts = 4447)
+
+# Caso base, salvando a serie e as previsoes num csv
+
 BETS.report(ts = 4447, series.saveas = "csv")
-
-# Caso base, objeto do tipo ts
-
-BETS.report(ts = BETS.get(21864), parameters = parameters)
 
 # Mais de uma serie, apenas IDs
 
 series = list(4447, 21864)
 
 parameters = list(
-  lag.max = 48,
+  af.lags= 48,
   n.ahead = 12 ) 
 
 
@@ -37,7 +68,7 @@ BETS.report(ts = series, parameters = parameters)
 series = list(BETS.get(4447), BETS.get(21864))
 
 parameters = list(
-  lag.max = 20,
+  af.lags= 20,
   n.ahead = 15 ) 
 
 

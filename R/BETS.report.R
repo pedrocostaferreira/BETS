@@ -2,7 +2,7 @@
 #' 
 #' @description Generate automatic reports with a complete analysis of a set of time series. For now, only a SARIMA analysis (Box & Jenkins approach) is possible. In a near future, a GRNN (General Regression Neural Network) analysis will be released. Soon after, Holt-Winters, GRNN, Multilayer Perceptron, Fuzzy Logic and Box-Cox analysis will become available.
 #' 
-#' @param mode A \code{character}.The type of the analysis. So far, only 'SARIMA' is available.
+#' @param mode A \code{character}.The type of the analysis. So far, 'SARIMA', 'GRNN' and 'HOLT-WINTERS' are available.
 #' @param ts A \code{integer}, a \code{ts} object or a \code{list} of \code{integer}s and \code{ts} objects. Either the ID of the series in the BETS database or a time series object (any series, not just BETS's). If a \code{list} is provided, a report is generated for each series in this list, which can be mixed with IDs and time series objects.
 #' @param parameters A \code{list}. The parameters of the report. See the 'details' section for more information.
 #' @param report.file A \code{character}. A path and a name for the report file (an .html file). If there is more than one series, this name will be used as a prefix. If this parameter is not provided, the report will be saved inside the 'reports' folder, under the BETS installation directory. 
@@ -13,8 +13,12 @@
 #' \bold{SARIMA Report Parameters}
 #' 
 #' \itemize{
-#' \item{\code{lag.max}: An \code{integer} Maximum number of lags to show on the ACFs e PACFs}
-#' \item{\code{n.ahead}: An \code{integer} Prevision horizon (number of steps ahead)}
+#' \item{\code{af.lag}: An \code{integer}. Maximum number of lags to show on the ACFs e PACFs}
+#' \item{\code{n.ahead}: An \code{integer}. Prevision horizon (number of steps ahead)}
+#' \item{\code{inf.crit}: A \code{character}. Information criterion to be used in model selection.}
+#' \item{\code{dummy}: A \code{ts} object. A dummy regressor. Must also cover the forecasting period.}
+#' \item{\code{ur.test}: A \code{list}. Parameters of \code{\link[BETS]{BETS.ur_test}} }
+#' \item{\code{arch.test}: A \code{list}. Parameters of \code{\link[stats]{BETS.arch_test}} }
 #' }
 #' 
 #' \bold{GRNN Report Parameters}
