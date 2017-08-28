@@ -23,13 +23,14 @@ parameters = list(
 
 BETS.report(ts = window(BETS.get(21864), start= c(2002,1) , end = c(2015,10)), parameters = parameters)
 
-# Caso base, mudando teste ARCH
+# Caso base, objeto do tipo ts, mudando teste ARCH e teste Box
 
 parameters = list( 
     af.lags = 25,
     n.ahead = 15,
     dummy = dum,
-    arch.test = list(lags = 12, demean = FALSE, alpha = 0.01)
+    arch.test = list(lags = 12, alpha = 0.01),
+    box.test = list(type = "Box-Pierce")
 )
 
 BETS.report(ts = window(BETS.get(21864), start= c(2002,1) , end = c(2015,10)), parameters = parameters)
