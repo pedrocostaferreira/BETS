@@ -80,9 +80,11 @@
 #' # box.test = list(type = "Box-Pierce")
 #' # )
 # 
-#' # BETS.report(ts = window(BETS.get(21864), start= c(2002,1) , end = c(2015,10)), parameters = parameters)
+#' # BETS.report(ts = window(BETS.get(21864), start= c(2002,1) , end = c(2015,10)), 
+#' #parameters = parameters)
 #' 
-#' # dum <- BETS.dummy(start= c(2002,1) , end = c(2017,1) , from = c(2008,9) , to = c(2008,11))
+#' # dum <- BETS.dummy(start= c(2002,1) , end = c(2017,1) , 
+#' #from = c(2008,9) , to = c(2008,11))
 #' 
 #' # parameters = list( 
 #' #    af.lags = 25,
@@ -90,7 +92,8 @@
 #' #    dummy = dum
 #' # )
 #' 
-#' # BETS.report(ts = window(BETS.get(21864), start= c(2002,1) , end = c(2015,10)), parameters = parameters)
+#' # BETS.report(ts = window(BETS.get(21864), start= c(2002,1) , end = c(2015,10)), 
+#' #parameters = parameters)
 #'
 #' 
 #' ##-- GRNN
