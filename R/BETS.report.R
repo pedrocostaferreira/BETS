@@ -18,7 +18,8 @@
 #' \item{\code{inf.crit}: A \code{character}. Information criterion to be used in model selection.}
 #' \item{\code{dummy}: A \code{ts} object. A dummy regressor. Must also cover the forecasting period.}
 #' \item{\code{ur.test}: A \code{list}. Parameters of \code{\link[BETS]{BETS.ur_test}} }
-#' \item{\code{arch.test}: A \code{list}. Parameters of \code{\link[stats]{BETS.arch_test}} }
+#' \item{\code{arch.test}: A \code{list}. Parameters of \code{\link[BETS]{BETS.arch_test}} }
+#' \item{\code{box.test}: A \code{list}. Parameters of \code{\link[stats]{Box.test}} }
 #' }
 #' 
 #' \bold{GRNN Report Parameters}
@@ -70,6 +71,27 @@
 #' 
 #' # series = list(4447, 21864)
 #' # BETS.report(ts = series, parameters = parameters)
+#' 
+#' # parameters = list( 
+#' # af.lags = 25,
+#' # n.ahead = 15,
+#' # dummy = dum,
+#' # arch.test = list(lags = 12, alpha = 0.01),
+#' # box.test = list(type = "Box-Pierce")
+#' # )
+# 
+#' # BETS.report(ts = window(BETS.get(21864), start= c(2002,1) , end = c(2015,10)), parameters = parameters)
+#' 
+#' # dum <- BETS.dummy(start= c(2002,1) , end = c(2017,1) , from = c(2008,9) , to = c(2008,11))
+#' 
+#' # parameters = list( 
+#' #    af.lags = 25,
+#' #    n.ahead = 15,
+#' #    dummy = dum
+#' # )
+#' 
+#' # BETS.report(ts = window(BETS.get(21864), start= c(2002,1) , end = c(2015,10)), parameters = parameters)
+#'
 #' 
 #' ##-- GRNN
 #' 
